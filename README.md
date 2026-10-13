@@ -44,9 +44,10 @@ Studio lives at studio.averebeauty.com (and at /studio on the vercel.app link fo
 5. Copy the Client ID.
 
 ## C. Add settings in Vercel → Settings → Environment Variables
-- GOOGLE_CLIENT_ID = the Client ID from step B
 - SESSION_SECRET = any long random text (e.g. 40+ random letters and numbers)
-- STUDIO_OWNERS = info@averebeauty.com,frankudavcak@gmail.com,sophie@averebeauty.com
+- STUDIO_LOGINS = info@averebeauty.com:PASSWORD1,frankudavcak@gmail.com:PASSWORD2,sophie@averebeauty.com:PASSWORD3
+  (owners sign in with these; use strong passwords, no commas or colons)
+- (Google sign-in, optional later: GOOGLE_CLIENT_ID — step B)
 - ANTHROPIC_API_KEY = optional, turns on "Write with AI" alt text (console.anthropic.com)
 Then Deployments → ⋯ → Redeploy.
 

@@ -25,8 +25,11 @@
       <div style="width:100%;max-width:400px;background:#fff;border:1px solid #F4DADC;border-radius:24px;padding:36px 28px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
         <span style="width:52px;height:52px;border-radius:50%;background:#2B2226;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:22px">A</span>
         <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:26px;margin:0">Avere Studio</h1>
-        <p style="margin:0;font-size:15px;line-height:1.55;color:#4A3B40">Sign in with the Google account the owner added.</p>
-        <div ref="{{ gbtnRef }}" style="min-height:44px;display:flex;justify-content:center"></div>
+        <form onSubmit="{{ login }}" style="width:100%;display:flex;flex-direction:column;gap:10px;text-align:left">
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64">Email<input type="email" autocomplete="username" value="{{ liEmail }}" onChange="{{ setLiEmail }}" style="min-height:46px;border:1px solid #EFC3C7;border-radius:12px;padding:0 14px;font-size:15px;color:#2B2226"></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64">Password<input type="password" autocomplete="current-password" value="{{ liPw }}" onChange="{{ setLiPw }}" style="min-height:46px;border:1px solid #EFC3C7;border-radius:12px;padding:0 14px;font-size:15px;color:#2B2226"></label>
+          <button type="submit" style="min-height:48px;border-radius:999px;border:none;background:#B04A62;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px">{{ liLabel }}</button>
+        </form>
         <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.5;color:#8A3A4E">{{ err }}</span></sc-if>
       </div>
     </div>
@@ -159,13 +162,14 @@
         </div>
         <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px">
           <span style="font-family:'Poppins',sans-serif;font-size:16px">Add a freelancer</span>
-          <span style="font-size:13px;line-height:1.5;color:#4A3B40">They sign in with this Google email. Access stops at the end of the expiry date. Their uploads need an owner's approval.</span>
+          <span style="font-size:13px;line-height:1.5;color:#4A3B40">Set their email and a password, then send them both. Access stops at the end of the expiry date. Their uploads need an owner's approval.</span>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <input value="{{ nuEmail }}" onChange="{{ setNuEmail }}" placeholder="name@gmail.com" style="flex:2 1 200px;min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px">
+            <input value="{{ nuEmail }}" onChange="{{ setNuEmail }}" placeholder="name@email.com" style="flex:2 1 200px;min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px">
+            <input value="{{ nuPw }}" onChange="{{ setNuPw }}" placeholder="Password (10+ characters)" style="flex:2 1 180px;min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px">
             <input type="date" value="{{ nuExpires }}" onChange="{{ setNuExpires }}" style="flex:1 1 140px;min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px">
             <button onClick="{{ addUser }}" style="min-height:38px;padding:0 16px;border-radius:999px;border:none;background:#2B2226;color:#fff;font-size:13px;font-weight:700;cursor:pointer">Add</button>
           </div>
-          <span style="font-size:12px;color:#6E5F64">Owners are set in Vercel (STUDIO_OWNERS) so nobody can lock you out from here.</span>
+          <span style="font-size:12px;color:#6E5F64">Owners and their passwords are set in Vercel (STUDIO_LOGINS) so nobody can lock you out from here.</span>
         </div>
       </div>
     </sc-if>
@@ -194,33 +198,24 @@ const autoAlt=l=>{const t=l.treatment&&l.treatment!=='Office / team'?l.treatment
 
 class Component extends DCLogic {
   gbtnRef=React.createRef();
-  state={phase:'loading',demo:false,user:null,items:[],q:'',f:{},preset:{},sel:null,queue:[],err:'',tab:'library',users:[],nuEmail:'',nuExpires:'',dragging:false,saved:'',copied:'',aiBusy:false,confirmDel:false};
+  state={phase:'loading',demo:false,user:null,items:[],q:'',f:{},preset:{},sel:null,queue:[],err:'',tab:'library',users:[],nuEmail:'',nuPw:'',liEmail:'',liPw:'',liBusy:false,nuExpires:'',dragging:false,saved:'',copied:'',aiBusy:false,confirmDel:false};
   async componentDidMount(){
     try{
       const r=await fetch('/api/auth/me',{credentials:'same-origin'});
       const ct=r.headers.get('content-type')||'';
       if(!ct.includes('json'))throw new Error('no api');
       if(r.ok){const j=await r.json();this.setState({phase:'in',user:j.user});this.load();}
-      else{this.setState({phase:'out'});this.google();}
+      else{this.setState({phase:'out'});}
     }catch(e){this.setState({phase:'in',demo:true,user:{email:'info@averebeauty.com',role:'owner'},items:DEMO});}
   }
   async api(path,opt={}){
     const r=await fetch(path,{credentials:'same-origin',headers:{'content-type':'application/json'},...opt,body:opt.body?JSON.stringify(opt.body):undefined});
     const j=await r.json().catch(()=>({}));
-    if(r.status===401){this.setState({phase:'out'});this.google();}
+    if(r.status===401&&!path.includes('/auth/login'))this.setState({phase:'out'});
     if(!r.ok)throw new Error(j.error||'Something went wrong');
     return j;
   }
   async load(){try{const j=await this.api('/api/media');this.setState({items:j.items});}catch(e){this.setState({saved:e.message});}}
-  async google(){
-    const cfg=await fetch('/api/config').then(r=>r.json()).catch(()=>({}));
-    if(!cfg.googleClientId){this.setState({err:'Google sign-in is not set up yet (GOOGLE_CLIENT_ID).'});return;}
-    if(!window.google){await new Promise(res=>{const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.onload=res;document.head.appendChild(s);});}
-    window.google.accounts.id.initialize({client_id:cfg.googleClientId,callback:async r=>{
-      try{const j=await this.api('/api/auth/google',{method:'POST',body:{credential:r.credential}});this.setState({phase:'in',user:j.user,err:''});this.load();}
-      catch(e){this.setState({err:e.message});}}});
-    const draw=()=>{if(this.gbtnRef.current)window.google.accounts.id.renderButton(this.gbtnRef.current,{theme:'outline',size:'large',shape:'pill',text:'signin_with'});else setTimeout(draw,100);};draw();
-  }
   async loadUsers(){if(this.state.demo){this.setState({users:[{email:'info@averebeauty.com',role:'owner',fixed:true},{email:'sophie@averebeauty.com',role:'owner',fixed:true},{email:'frankudavcak@gmail.com',role:'owner',fixed:true}]});return;}
     try{const j=await this.api('/api/users');this.setState({users:j.users});}catch(e){this.setState({saved:e.message});}}
   patchSel(p){this.setState(s=>({sel:{...s.sel,...p},items:s.items.map(i=>i.id===s.sel.id?{...i,...p}:i),dirty:true}));}
@@ -293,10 +288,12 @@ class Component extends DCLogic {
     const fieldList=(obj,setter)=>Object.keys(LABELS).map(k=>({label:NAMES[k],value:obj[k]||'',options:LABELS[k],set:e=>setter(k,e.target.value)}));
     const altLen=sel?(sel.alt||'').length:0;
     return{
-      isLoading:s.phase==='loading',isOut:s.phase==='out',isIn:s.phase==='in',gbtnRef:this.gbtnRef,hasErr:!!s.err,err:s.err,demo:s.demo,
+      isLoading:s.phase==='loading',isOut:s.phase==='out',isIn:s.phase==='in',
+      liEmail:s.liEmail,liPw:s.liPw,setLiEmail:e=>this.setState({liEmail:e.target.value}),setLiPw:e=>this.setState({liPw:e.target.value}),liLabel:s.liBusy?'Signing in…':'Sign in',
+      login:async e=>{e.preventDefault();this.setState({liBusy:true,err:''});try{const j=await this.api('/api/auth/login',{method:'POST',body:{email:s.liEmail,password:s.liPw}});this.setState({phase:'in',user:j.user,liPw:''});this.load();}catch(er){this.setState({err:er.message});}this.setState({liBusy:false});},hasErr:!!s.err,err:s.err,demo:s.demo,
       tabs:[['library','Library'],...(owner?[['team','Team']]:[])].map(([k,l])=>({label:l,go:()=>{this.setState({tab:k});if(k==='team')this.loadUsers();},style:{minHeight:32,padding:'0 14px',borderRadius:999,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?'#fff':'transparent',color:s.tab===k?C.ink:'#E8CDD2'}})),
       userLine:(u.email||'')+' · '+(u.role==='owner'?'Owner':u.role==='freelancer'?'Freelancer'+(u.expires?' until '+u.expires:''):'Editor'),
-      signOut:async()=>{if(!s.demo)await fetch('/api/auth/logout',{method:'POST'});this.setState({phase:s.demo?'in':'out',user:s.demo?s.user:null});if(!s.demo)this.google();},
+      signOut:async()=>{if(!s.demo)await fetch('/api/auth/logout',{method:'POST'});this.setState({phase:s.demo?'in':'out',user:s.demo?s.user:null});},
       isLibrary:s.tab==='library',isTeam:s.tab==='team',
       q:s.q,setQ:e=>this.setState({q:e.target.value}),filterGroups,clearFilters:()=>this.setState({f:{},q:''}),
       presetFields:fieldList(s.preset,(k,v)=>this.setState(st=>({preset:{...st.preset,[k]:v}}))),
@@ -336,9 +333,9 @@ class Component extends DCLogic {
       users:s.users.map(x=>({email:x.email,fixed:!!x.fixed,roleLine:x.role==='owner'?'Owner':x.role==='freelancer'?'Freelancer'+(x.expires?' · until '+x.expires:''):'Editor',
         btnLabel:x.fixed?'Set in Vercel':'Remove',btn:{minHeight:30,padding:'0 12px',borderRadius:999,border:'1px solid '+C.line,background:'#fff',fontSize:12,fontWeight:700,cursor:x.fixed?'default':'pointer',color:x.fixed?C.mute:'#8A3A4E'},
         remove:async()=>{if(x.fixed)return;try{if(!s.demo)await this.api('/api/users?email='+encodeURIComponent(x.email),{method:'DELETE'});this.setState(st=>({users:st.users.filter(y=>y.email!==x.email)}));}catch(e){this.setState({saved:e.message});}}})),
-      nuEmail:s.nuEmail,nuExpires:s.nuExpires,setNuEmail:e=>this.setState({nuEmail:e.target.value}),setNuExpires:e=>this.setState({nuExpires:e.target.value}),
-      addUser:async()=>{const rec={email:s.nuEmail.trim().toLowerCase(),role:'freelancer',expires:s.nuExpires||null};if(!rec.email)return;
-        try{if(!s.demo)await this.api('/api/users',{method:'POST',body:rec});this.setState(st=>({users:[...st.users.filter(y=>y.email!==rec.email),rec],nuEmail:'',nuExpires:''}));}catch(e){this.setState({saved:e.message});}}
+      nuEmail:s.nuEmail,nuExpires:s.nuExpires,nuPw:s.nuPw,setNuPw:e=>this.setState({nuPw:e.target.value}),setNuEmail:e=>this.setState({nuEmail:e.target.value}),setNuExpires:e=>this.setState({nuExpires:e.target.value}),
+      addUser:async()=>{const rec={email:s.nuEmail.trim().toLowerCase(),role:'freelancer',expires:s.nuExpires||null};if(!rec.email)return;if(s.nuPw.length<10){this.setState({saved:'Password must be at least 10 characters.'});return;}
+        try{if(!s.demo)await this.api('/api/users',{method:'POST',body:{...rec,password:s.nuPw}});this.setState(st=>({users:[...st.users.filter(y=>y.email!==rec.email),rec],nuEmail:'',nuExpires:'',nuPw:'',saved:'Added '+rec.email}));}catch(e){this.setState({saved:e.message});}}
     };
   }
 }

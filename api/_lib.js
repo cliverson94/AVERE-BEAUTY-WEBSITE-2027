@@ -44,7 +44,21 @@ export function getSession(req) {
   try { const u = JSON.parse(Buffer.from(p, 'base64url').toString()); return u.exp > Date.now() ? u : null; } catch (e) { return null; }
 }
 
-export const owners = () => (process.env.STUDIO_OWNERS || '').toLowerCase().split(',').map(s => s.trim()).filter(Boolean);
+// STUDIO_LOGINS = "email:password,email:password" — these accounts are owners.
+const ownerLogins = () => Object.fromEntries((process.env.STUDIO_LOGINS || '').split(',').map(s => s.trim()).filter(Boolean).map(s => { const i = s.indexOf(':'); return [s.slice(0, i).trim().toLowerCase(), s.slice(i + 1)]; }));
+export const owners = () => [...new Set([...Object.keys(ownerLogins()), ...(process.env.STUDIO_OWNERS || '').toLowerCase().split(',').map(s => s.trim()).filter(Boolean)])];
+const safeEq = (a, b) => { const x = Buffer.from(String(a)), y = Buffer.from(String(b)); return x.length === y.length && crypto.timingSafeEqual(x, y); };
+export const hashPassword = (pw, salt = crypto.randomBytes(16).toString('hex')) => ({ salt, hash: crypto.scryptSync(String(pw), salt, 64).toString('hex') });
+export async function checkPassword(email, pw) {
+  email = String(email || '').trim().toLowerCase();
+  const own = ownerLogins();
+  if (own[email] != null) return own[email] !== '' && safeEq(own[email], pw);
+  const raw = await redis('HGET', 'studio:users', email);
+  if (!raw) return false;
+  const u = JSON.parse(raw);
+  if (!u.hash) return false;
+  return safeEq(hashPassword(pw, u.salt).hash, u.hash);
+}
 export async function lookupUser(email) {
   email = String(email || '').toLowerCase();
   if (owners().includes(email)) return { email, role: 'owner' };
