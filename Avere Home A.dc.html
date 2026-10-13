@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#FFF5F5"/><text x="50" y="62" text-anchor="middle" font-family="Poppins,sans-serif" font-size="34" fill="#B04A62">A</text></svg></template>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(20px,4vw,32px) clamp(48px,6vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62">Injectables · Lasers · Esthetics</div>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(37.4px,4.6vw,66.2px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance">Pittsburgh's #1 Medical Spa</h1>
+      <p style="font-size:19px;line-height:1.6;color:#6E5F64;margin:0;max-width:520px;text-wrap:pretty">Refresh your skin with wrinkle-reducing injectables and define your presence with luscious lips to not only look new but feel you.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#locations" style="background:#2B2226;color:#fff;padding:16px 30px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
+        <a href="#concerns" style="border:1px solid #2B2226;padding:15px 28px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#FFE3E3;color:#2B2226">Find your treatment</a>
+      </div>
+      <div style="display:flex;gap:32px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #F4DADC;font-size:14px;color:#6E5F64">
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;color:#2B2226;letter-spacing:-.02em">4</span>Pittsburgh locations</div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;color:#2B2226;letter-spacing:-.02em">Same week</span>appointments</div>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;color:#2B2226;letter-spacing:-.02em">No</span>over-filling</div>
+      </div>
+    </div>
+    <div style="position:relative;padding:0 0 28px 28px">
+      <div style="position:absolute;left:0;bottom:0;top:28px;right:28px;border:1px solid #EFC3C7;border-radius:32px"></div>
+      <div style="position:relative;width:100%;aspect-ratio:4/4.6;border-radius:32px;overflow:hidden"><image-slot id="home-hero" src="assets/avere-interior.jpg" shape="rect" placeholder="Hero: injector with client, or front desk"></image-slot></div>
+      <div style="position:absolute;left:0;bottom:56px;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:0 12px 40px rgba(176,74,98,.14);display:flex;gap:14px;align-items:center;max-width:280px">
+        <div style="width:44px;height:44px;border-radius:50%;background:#FFE3E3;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:17.6px;color:#B04A62;letter-spacing:-.02em">a</div>
+        <div style="font-size:14px;line-height:1.4">Botox, Dysport, Jeuveau, Xeomin &amp; Daxxify</div>
+      </div>
+    </div>
+  </section>
+
+  <div style="border-top:1px solid #F4DADC;border-bottom:1px solid #F4DADC;padding:22px clamp(20px,4vw,32px);display:flex;justify-content:center;gap:12px clamp(24px,4vw,48px);flex-wrap:wrap;font-family:'Poppins',sans-serif;font-size:19.2px;color:#6E5F64;letter-spacing:-.02em">
+    <span>Botox</span><span>Dysport</span><span>RHA</span><span>Restylane</span><span>Versa</span><span>SkinPen</span><span>Subnovii</span><span>Novathreads</span>
+  </div>
+
+  <section id="concerns" data-screen-label="Concern picker" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62">Start here</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.02;margin:0;letter-spacing:-.02em">What would you like to work on?</h2>
+        <p style="font-size:17px;line-height:1.6;color:#6E5F64;margin:0;text-wrap:pretty">With so many options, it can be difficult to decide exactly what work you want done. We've worked to make the process a lot simpler.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <sc-for list="{{ concernChips }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px">
+        <sc-for list="{{ matches }}" as="s" hint-placeholder-count="3">
+          <a href="#" style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #F4DADC;transition:transform .25s, box-shadow .25s" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(176,74,98,.12);color:#2B2226">
+            <img src="{{ s.img }}" alt="{{ s.name }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#FFE3E3">
+            <div style="padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62">{{ s.catLabel }}</div>
+              <div style="font-family:'Poppins',sans-serif;font-size:25.6px;line-height:1.05;letter-spacing:-.02em">{{ s.name }}</div>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#6E5F64">{{ s.short }}</p>
+              <div style="font-size:14px;font-weight:600;padding-top:6px">Learn more →</div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="treatments" data-screen-label="Services" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Our services</h2>
+      <div style="display:flex;gap:4px;padding:4px;border:1px solid #F4DADC;border-radius:999px;flex-wrap:wrap">
+        <sc-for list="{{ catTabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:32px 24px">
+      <sc-for list="{{ filtered }}" as="s" hint-placeholder-count="8">
+        <a href="#" style="display:flex;flex-direction:column;gap:16px" style-hover="color:#2B2226">
+          <div style="border-radius:24px;overflow:hidden;background:#FFE3E3;aspect-ratio:4/5">
+            <image-slot id="home-svc-{{ s.id }}" src="{{ s.img }}" shape="rect" placeholder="{{ s.name }}"></image-slot>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-family:'Poppins',sans-serif;font-size:22.4px;line-height:1.05;letter-spacing:-.02em">{{ s.name }}</div>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:#6E5F64">{{ s.short }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Philosophy" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px)">
+    <div style="max-width:1320px;margin:0 auto;background:#FFE3E3;border-radius:40px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:clamp(36px,6vw,72px) clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:24px;justify-content:center">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">Our promise</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(27.4px,2.9vw,40.3px);line-height:1.04;margin:0;letter-spacing:-.02em">We are the experts, but you are the one who makes the decisions.</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#4A3B40;text-wrap:pretty">In our industry, it is all too common to see med spas over-filling and pushing their clients to go further than they are actually comfortable going. No over-filling and no pushing products. When you visit our clinic, you will leave feeling relaxed and refreshed.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#" style="background:#2B2226;color:#fff;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#8E3A4F;color:#fff">What to expect</a>
+          <a href="#" style="border:1px solid #2B2226;padding:13px 24px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#fff;color:#2B2226">Before &amp; after gallery</a>
+        </div>
+      </div>
+      <div style="position:relative;min-height:clamp(300px,40vw,420px)"><div style="position:absolute;inset:0"><image-slot id="home-promise" src="https://static.wixstatic.com/media/903d63_24a51d18d7c849a984bed99e9da2ab5b~mv2.jpg/v1/fill/w_1100,h_1000,al_c,q_85/facial.jpg" shape="rect" placeholder="Consult moment: injector and client talking"></image-slot></div></div>
+    </div>
+  </section>
+
+  <section id="locations" data-screen-label="Locations" style="border-top:1px solid #F4DADC;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62">Visit us</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Four locations around Pittsburgh</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ locRows }}" as="l" hint-placeholder-count="4">
+            <button onClick="{{ l.pick }}" style="{{ l.style }}">
+              <span style="font-family:'Poppins',sans-serif;font-size:27.2px;line-height:1.1;letter-spacing:-.02em">{{ l.name }}</span>
+              <span style="font-size:14px;color:#6E5F64;text-align:right">{{ l.addr }}<br>{{ l.city }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <div style="position:relative;width:100%;aspect-ratio:16/10;border-radius:32px;overflow:hidden;background:#FFE3E3">
+            <sc-for list="{{ locSlots }}" as="ls" hint-placeholder-count="1">
+              <div style="position:absolute;inset:0;visibility:{{ ls.vis }}"><image-slot id="home-loc-{{ ls.key }}" src="{{ ls.img }}" shape="rect" placeholder="{{ ls.ph }}"></image-slot></div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ loc.desc }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;text-wrap:pretty">{{ loc.desc }}</p>
+          </sc-if>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="{{ loc.book }}" style="background:#2B2226;color:#fff;padding:14px 26px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#B04A62;color:#fff">Book in {{ loc.name }}</a>
+            <a href="{{ loc.map }}" style="border:1px solid #2B2226;padding:13px 24px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#FFE3E3;color:#2B2226">Get directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Instagram" style="background:#FFF5F5;padding:clamp(56px,7vw,88px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(25.9px,2.9vw,40.3px);line-height:1.1;margin:0;letter-spacing:-.02em">Follow us on Instagram</h2>
+        <a href="https://www.instagram.com/averebeauty/" style="font-size:16px;font-weight:600;color:#B04A62">@averebeauty →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px">
+        <img src="https://static.wixstatic.com/media/903d63_1fe32a2493cf49fda9b168228b273499~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/a.jpg" alt="" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block">
+        <img src="https://static.wixstatic.com/media/903d63_9d021e833968439ea117454c700a369a~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/b.jpg" alt="" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block">
+        <img src="https://static.wixstatic.com/media/903d63_caf0a92094d9497e8c6db7f5b9cf8c45~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/c.jpg" alt="" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block">
+        <img src="https://static.wixstatic.com/media/903d63_80e7ebf043d747268f03d0d6981e23a8~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/d.jpg" alt="" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block">
+        <img src="https://static.wixstatic.com/media/9272ed_2572f748eff64b84a72447556b3a61f9~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/e.jpg" alt="" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block">
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script >
+const W = (id, w, h) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/img.jpg`;
+const SERVICES = [
+  { id: 'neuro', cat: 'inj', name: 'Neurotoxins', img: '903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg', short: "From Crow's Feet to Glabellar lines, neurotoxins work to freeze and reduce wrinkles. We carry Botox, Dysport, Jeuveau, and Xeomin." },
+  { id: 'filler', cat: 'inj', name: 'Dermal Filler', img: '903d63_caf0a92094d9497e8c6db7f5b9cf8c45~mv2.jpg', short: 'Injectable substances used to add volume, fill wrinkles, and enhance facial contours.' },
+  { id: 'threads', cat: 'inj', name: 'PDO Threads', img: '903d63_1fe32a2493cf49fda9b168228b273499~mv2.jpg', short: 'A non-surgical procedure that uses biodegradable threads to lift and rejuvenate the skin.' },
+  { id: 'laser', cat: 'laser', name: 'Laser Treatments', img: '9272ed_2572f748eff64b84a72447556b3a61f9~mv2.jpg', short: 'Laser hair removal, IPL, vascular, and skin resurfacing procedures at both our locations.' },
+  { id: 'virtue', cat: 'laser', name: 'VirtueRF Microneedling', img: '903d63_d3c4a1cb1c3a4acc97d22ccf94ff7d83~mv2.jpg', short: 'Tackles fine lines and wrinkles, scarring, body treatments and precise applications for eyebags and jawline.' },
+  { id: 'subnovii', cat: 'laser', name: 'Subnovii Plasma Pen', img: '903d63_aece9b78279d47b4abfeee256a8883af~mv2.png', short: 'An FDA-cleared plasma fibroblast therapy that delivers low-frequency energy to rejuvenate the skin.' },
+  { id: 'skinpen', cat: 'skin', name: 'SkinPen Microneedling', img: '903d63_9ab71123ab25476b9e43caaf775f354e~mv2.jpg', short: "Controlled micro-injuries stimulate the skin's natural healing process and collagen production." },
+  { id: 'esthetic', cat: 'skin', name: 'Esthetic Treatments', img: '903d63_24a51d18d7c849a984bed99e9da2ab5b~mv2.jpg', short: 'Facials, chemical peels, lash lifts, brow laminations, hydrafacials and more, customized to your skin.' },
+  { id: 'skincare', cat: 'skin', name: 'Medical Grade Skincare', img: '903d63_9d021e833968439ea117454c700a369a~mv2.jpg', short: "Skincare you won't find in stores. Carrying PCA, SkinBetter, Face Reality, and DMK." },
+];
+const CATS = [{ k: 'all', label: 'All' }, { k: 'inj', label: 'Injectables' }, { k: 'laser', label: 'Lasers & Devices' }, { k: 'skin', label: 'Skin & Esthetics' }];
+const CAT_LABEL = { inj: 'Injectable', laser: 'Laser & device', skin: 'Skin & esthetics' };
+const CONCERNS = [
+  { k: 'lines', label: 'Fine lines & wrinkles', ids: ['neuro', 'virtue', 'subnovii'] },
+  { k: 'lips', label: 'Lips & volume', ids: ['filler', 'neuro', 'threads'] },
+  { k: 'lift', label: 'Lift & contour', ids: ['threads', 'filler', 'virtue'] },
+  { k: 'texture', label: 'Texture & scarring', ids: ['skinpen', 'virtue', 'laser'] },
+  { k: 'hair', label: 'Hair removal', ids: ['laser', 'esthetic', 'skincare'] },
+  { k: 'glow', label: 'Everyday glow', ids: ['esthetic', 'skincare', 'skinpen'] },
+];
+const LOCS = [
+  { name: 'Lawrenceville', addr: '3453 Butler Street', city: 'Pittsburgh, PA 15201', img: W('903d63_24475366948040e78160f8ec6409949a~mv2.jpg', 1400, 875), map: 'https://maps.app.goo.gl/9nzKxWPxhcgexSAX8', book: 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa', desc: "Avere Beauty's office opened at 3453 Butler Street in the spring of 2022. Our brand new office provides an exceptionally close distance to downtown Pittsburgh while remaining in a quiet and quaint section of Butler Street." },
+  { name: 'Cranberry', addr: '179 Scharberry Ln', city: 'Mars, PA 16046', img: '', map: 'https://maps.app.goo.gl/1dVzPj2E5dEMNkaZ6', book: '#', desc: '' },
+  { name: 'Murrysville', addr: '5100 Old William Penn Hwy, STE 3', city: 'Export, PA 15632', img: W('903d63_5a1d874c69244c898c653a743d295eaa~mv2.jpg', 1400, 875), map: 'https://maps.app.goo.gl/VREmjDntVtmiQHMM8', book: 'https://square.site/book/LRK1T17YQYTVG/avere-beauty-murrysville-export-pa', desc: 'Located just a few meters off Route 22 at the Cozy Inn cutoff, our office features a massive waiting area where you can unwind before entering one of 3 premiere offices for your injectables and aesthetics as well as laser hair removal, IPL, and vascular treatments.' },
+  { name: 'Blawnox', addr: '307 Freeport Road', city: 'Blawnox, PA 15238', img: W('903d63_e208abbb61e548489e222ef57af90fdc~mv2.jpg', 1400, 875), map: 'https://maps.app.goo.gl/EEWexjiBBBwrVH9u7', book: '#', desc: '' },
+];
+const pill = (on, pad) => ({ padding: pad || '12px 22px', borderRadius: 999, fontFamily: "'Lato',sans-serif", fontSize: 15, fontWeight: 500, cursor: 'pointer', border: on ? '1px solid #2B2226' : '1px solid #EFC3C7', background: on ? '#2B2226' : '#fff', color: on ? '#fff' : '#2B2226', transition: 'all .2s' });
+
+class Component extends DCLogic {
+  state = { concern: 'lines', cat: 'all', loc: 0 };
+  renderVals() {
+    const { concern, cat, loc } = this.state;
+    const withImg = (s, w, h) => ({ ...s, img: W(s.img, w, h), catLabel: CAT_LABEL[s.cat] });
+    const c = CONCERNS.find(x => x.k === concern);
+    return {
+      locSlots: LOCS.map((l, i) => ({ key: l.name.toLowerCase(), img: l.img, ph: l.name + ' office interior', vis: i === loc ? 'visible' : 'hidden' })),
+      concernChips: CONCERNS.map(x => ({ label: x.label, pick: () => this.setState({ concern: x.k }), style: pill(x.k === concern) })),
+      matches: c.ids.map(id => withImg(SERVICES.find(s => s.id === id), 800, 600)),
+      catTabs: CATS.map(x => ({ label: x.label, pick: () => this.setState({ cat: x.k }), style: { ...pill(x.k === cat, '10px 18px'), border: 'none', background: x.k === cat ? '#2B2226' : 'transparent', fontSize: 14 } })),
+      filtered: SERVICES.filter(s => cat === 'all' || s.cat === cat).map(s => withImg(s, 640, 800)),
+      locRows: LOCS.map((l, i) => ({ ...l, pick: () => this.setState({ loc: i }), style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, padding: '26px 8px', background: 'none', border: 'none', borderBottom: '1px solid #F4DADC', borderTop: i === 0 ? '1px solid #F4DADC' : 'none', cursor: 'pointer', textAlign: 'left', color: i === loc ? '#B04A62' : '#2B2226', fontFamily: "'Lato',sans-serif", transition: 'color .2s, padding .25s', paddingLeft: i === loc ? 20 : 8 } })),
+      loc: LOCS[loc],
+    };
+  }
+}
+</script>
+</body>
+</html>

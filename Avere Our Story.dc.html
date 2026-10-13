@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="about" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,4vw,32px) clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Our Story</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">We started in one room on Butler Street.</h1>
+      <p style="margin:0;font-size:clamp(17px,1.6vw,19px);line-height:1.65;color:#6E5F64;max-width:540px;text-wrap:pretty">Avere Beauty began in 2018 with Botox appointments in living rooms and hair salons. Today we care for more than 25,000 clients across four Pittsburgh offices. This is how we got here.</p>
+    </div>
+    <div style="position:relative;width:100%;aspect-ratio:5/6;border-radius:28px;overflow:hidden;background:#FFE3E3">
+      <image-slot id="story-hero" shape="rect" placeholder="Early photo: Alyssa and Frank, or the first room on Butler St"></image-slot>
+    </div>
+  </section>
+
+  <section data-screen-label="How it started" style="background:#FFF5F5;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">How it started</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0;text-wrap:balance">The brand was built for someone else first.</h2>
+      <p style="margin:0;font-size:18px;line-height:1.7;text-wrap:pretty">In 2018, Frank ran a marketing company. A local med spa hired him to build their brand, and he went all in: the name, the look and a plan for everything that came after. When it was time to sign, they passed.</p>
+      <p style="margin:0;font-size:18px;line-height:1.7;text-wrap:pretty">Alyssa, an ICU nurse, looked at what he'd made and said, “Wow. Let’s do this.”</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Timeline" style="max-width:1100px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:32px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">From living rooms to four offices</h2>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:minmax(72px,120px) minmax(0,1fr);gap:8px clamp(16px,3vw,40px);padding:24px 0;border-top:1px solid #F4DADC">
+          <span style="font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:#B04A62;padding-top:4px">{{ t.when }}</span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(19px,2vw,22px);margin:0">{{ t.title }}</h3>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;max-width:620px;text-wrap:pretty">{{ t.body }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Early days" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px)">
+    <div style="max-width:1320px;margin:0 auto;background:#2B2226;color:#fff;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:clamp(36px,6vw,72px) clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:20px;justify-content:center">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#FFC9CF;font-weight:700">The early days</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;margin:0">We knew everyone’s name.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#F4E6E8;text-wrap:pretty">We were scared. We’d drive to the office for a $60 appointment, then place a product order for thousands of dollars and pay the rent.</p>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#F4E6E8;text-wrap:pretty">One room in a small town made it personal. We knew every client by name, and every client’s folder.</p>
+      </div>
+      <div style="position:relative;min-height:clamp(280px,36vw,440px)">
+        <div style="position:absolute;inset:0"><image-slot id="story-basement" shape="rect" placeholder="The basement room at 3495 Butler St"></image-slot></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="The name" style="max-width:760px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px);display:flex;flex-direction:column;gap:20px">
+    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Why “Avere”</span>
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">A name that’s a verb.</h2>
+    <p style="margin:0;font-size:18px;line-height:1.7;text-wrap:pretty">Most med spa names describe a look. We wanted something pretty that was also an action. Avere is Italian for “to have,” and we liked the movement and harmony in it. The letters also make a symmetrical logo, which didn’t hurt.</p>
+  </section>
+
+  <section data-screen-label="What we don't do" style="background:#FFF5F5;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">What we don’t do</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:32px clamp(24px,3vw,40px)">
+        <sc-for list="{{ donts }}" as="d" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid #2B2226">
+            <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">{{ d.title }}</h3>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;text-wrap:pretty">{{ d.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="ICU and medical director" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,6vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The ICU never left</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0;text-wrap:balance">Evaluate, then act.</h2>
+      <p style="margin:0;font-size:17px;line-height:1.7;text-wrap:pretty">Alyssa spent more than 15 years as an ICU nurse, including a return to the unit during COVID. That training runs through every appointment. No two are the same, so we assess each face before we treat it.</p>
+      <p style="margin:0;font-size:17px;line-height:1.7;text-wrap:pretty">On a busy day we see 40 patients across four offices, and it moves like a dance. No one’s life is on the line, but to the person in the chair this is the most important thing happening. They get our full attention.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,140px) minmax(0,1fr);gap:24px;align-items:start">
+      <div style="width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#FFE3E3">
+        <image-slot id="story-dr-luciano" shape="rect" placeholder="Dr. Luciano in the office"></image-slot>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Our medical director</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0">A real doctor, down the road.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;text-wrap:pretty">Dr. Jason Luciano is a surgeon at UPMC and holds an MBA. He handles intakes, reviews charts and pushes our team to keep up with new research.</p>
+        <p style="margin:0;font-size:17px;line-height:1.7;text-wrap:pretty">He’s available to our staff around the clock, and he comes to the offices in person.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Proudest work" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:start;padding-top:clamp(40px,5vw,56px);border-top:1px solid #F4DADC">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">The work we’re proudest of</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#6E5F64;text-wrap:pretty">The corrective cases and the full transformations. Some of these appointments end in tears, the good kind.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ proud }}" as="p" hint-placeholder-count="7">
+          <span style="border:1px solid #EFC3C7;border-radius:999px;padding:12px 20px;font-size:16px;background:#fff">{{ p }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Proof" style="background:#2B2226;color:#fff;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:40px clamp(24px,3vw,48px)">
+      <sc-for list="{{ proof }}" as="s" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid #5A4A50">
+          <span style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.01em">{{ s.big }}</span>
+          <span style="font-size:16px;line-height:1.55;color:#F4E6E8;text-wrap:pretty">{{ s.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="What's next" style="max-width:1100px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,64px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">What’s next</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">Growing the Avere Fam</h2>
+      <div style="width:100%;aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:#FFE3E3;margin-top:8px">
+        <image-slot id="story-avere-skin" shape="rect" placeholder="Avere Skin lip gloss product shot"></image-slot>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ next }}" as="n" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:6px;padding:22px 0;border-top:1px solid #F4DADC">
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:19px;margin:0">{{ n.title }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;text-wrap:pretty">{{ n.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="background:#FFF5F5;padding:clamp(56px,7vw,88px) clamp(20px,4vw,32px)">
+    <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;margin:0">Come meet us.</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#6E5F64">Consultations are free at all four offices.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book a consultation</a>
+        <a href="/team" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Meet the team</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book a consultation" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TIMELINE = [
+  { when: '2018', title: 'Botox parties', body: 'Alyssa started injecting at small gatherings in clients’ homes and local hair salons.' },
+  { when: '2018', title: 'The basement at 3495 Butler', body: 'One room at the end of a dark walkway, with a buzzer at the door. Frank worked the front desk and could see every appointment from his chair.' },
+  { when: '2019', title: 'Murrysville', body: 'Our first hire needed to work farther out of the city, so we opened in our own hometown.' },
+  { when: '2022', title: '3453 Butler Street', body: 'Lawrenceville moved up the street to a ground floor with four private treatment rooms.' },
+  { when: '2025', title: 'Cranberry', body: 'We acquired Pittsburgh Aesthetics and welcomed its clients to the Avere family.' },
+  { when: '2026', title: 'Fox Chapel', body: 'In Blawnox. Our first ground-up, fully custom space, with free parking and a connected Maniküre nail studio.' },
+];
+const DONTS = [
+  { title: 'Sales goals', body: 'We build comprehensive treatment plans, but no one here works toward a sales number. You won’t be upsold in the chair.' },
+  { title: 'Flash', body: 'We’re a doctor’s office mixed with a professional spa. No cliques, nothing exclusive.' },
+  { title: 'Remote doctors', body: 'Our medical director lives here, reviews charts and visits our offices. He isn’t a video call from another state.' },
+  { title: 'Treatments for their own sake', body: 'We don’t keep adding appointments. We plan for results you can see.' },
+];
+const PROUD = ['Cleft lip correction', 'Hyperhidrosis treatment', 'C-section and scar revision', 'Laser hair removal', 'Weight loss transformations', 'Acne care for parents and kids', 'PDO thread lifts'];
+const PROOF = [
+  { big: '25,000+', label: 'Clients since 2018' },
+  { big: '4.9 ★', label: 'From more than 1,300 reviews. #5 of 894 Pennsylvania med spas by review volume.' },
+  { big: 'Best of Pittsburgh', label: 'Med spa winner, 2022' },
+  { big: 'Presidential', label: 'Galderma’s highest partner tier' },
+  { big: 'Top 10%', label: 'Allergan practices nationwide' },
+  { big: 'Training', label: 'One of the first injector training programs in the country, with our own copyrighted manual' },
+];
+const NEXT = [
+  { title: 'Deeper roots, and maybe a new state', body: 'Building on the communities we’re already part of, and possibly opening our first office outside Pennsylvania.' },
+  { title: 'Our sister companies', body: 'More time for Maniküre and AURA Hair Studio.' },
+  { title: 'Avere Skin', body: 'A physician-formulated post-injection lip healing gloss. Our own formula, not a white label, available across the country.' },
+  { title: 'Our Shadowing Program', body: 'How we find the next great injectors and estheticians to join the team.' },
+];
+class Component extends DCLogic {
+  renderVals() { return { timeline: TIMELINE, donts: DONTS, proud: PROUD, proof: PROOF, next: NEXT }; }
+}
+</script>
+</body>
+</html>

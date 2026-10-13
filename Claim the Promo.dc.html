@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Current Promotion | Avere Beauty Medical Spa Pittsburgh</title>
+<meta name="description" content="Claim the current Avere Beauty promotion. Botox, filler, lasers, microneedling and esthetics across Pittsburgh. Pick your service and claim your offer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--subtop:107px}@media(max-width:1079px){:root{--subtop:98px}}
+body{margin:0;background:#2B2226;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+input,select{font-family:'Lato',sans-serif}
+@keyframes avMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff;padding-bottom:{{ bottomPad }}">
+  <section data-screen-label="Hero" style="background:#2B2226;color:#FFF5F5;position:relative;overflow:hidden">
+    <img src="assets/avere-logo-black.png" alt="" style="position:absolute;right:-12%;top:-10%;width:min(1100px,120vw);opacity:.06;filter:invert(1);pointer-events:none">
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px">
+      <img src="assets/avere-logo-black.png" alt="Avere Beauty" style="height:48px;display:block;filter:invert(1)">
+      <a href="tel:4129527592" style="color:#FFF5F5;font-size:15px;font-weight:600;border:1px solid rgba(255,227,227,.4);border-radius:999px;padding:10px 16px;min-height:44px;display:flex;align-items:center" style-hover="color:#fff;background:rgba(255,255,255,.08)">412-952-7592</a>
+    </div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(20px,4vw,48px) 20px clamp(40px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span style="align-self:flex-start;background:#FFE3E3;color:#2B2226;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">{{ eyebrow }}</span>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(46.1px,7.2vw,106.6px);line-height:1.1;margin:0;letter-spacing:-.02em">This is Avere.</h1>
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(23px,2.9vw,37.4px);line-height:1.1;color:#fff;letter-spacing:-.02em">{{ offer }}</span>
+        <p style="margin:0;font-size:clamp(16px,1.5vw,18px);line-height:1.6;color:#EFC3C7;max-width:520px">Pittsburgh’s med spa for natural results. Our providers aren't here to overload you with filler or tox, but to build long lasting relationships to reach and maintain your personal beauty goals.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,227,227,.25);border:1px solid rgba(255,227,227,.25);border-radius:18px;overflow:hidden;max-width:520px">
+          <div style="background:#2B2226;padding:14px 16px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1;color:#fff;letter-spacing:-.02em">25,000+</span><span style="font-size:12px;color:#EFC3C7">patients</span></div>
+          <div style="background:#2B2226;padding:14px 16px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1;color:#fff;letter-spacing:-.02em">Top 1%</span><span style="font-size:12px;color:#EFC3C7">for reviews in PA</span></div>
+          <div style="background:#2B2226;padding:14px 16px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1;color:#fff;letter-spacing:-.02em">4</span><span style="font-size:12px;color:#EFC3C7">Pittsburgh offices</span></div>
+        </div>
+      </div>
+
+      <div id="claim" style="background:#fff;color:#2B2226;border-radius:32px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:18px;box-shadow:0 30px 80px rgba(0,0,0,.35);scroll-margin-top:20px">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+              <span style="font-family:'Poppins',sans-serif;font-size:clamp(21.6px,2.2vw,27.4px);line-height:1.1;letter-spacing:-.02em">{{ formTitle }}</span>
+              <span style="font-size:13px;font-weight:600;color:#B04A62;white-space:nowrap">Step {{ stepNum }} of 2</span>
+            </div>
+            <div style="display:flex;gap:6px"><span style="flex:1;height:5px;border-radius:999px;background:#B04A62"></span><span style="{{ bar2 }}"></span></div>
+
+            <sc-if value="{{ onStep1 }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <span style="font-size:15px;color:#6E5F64">What are you interested in? Pick any.</span>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,128px),1fr));gap:8px">
+                  <sc-for list="{{ services }}" as="s" hint-placeholder-count="9">
+                    <button onClick="{{ s.toggle }}" style="{{ s.style }}">
+                      <img src="{{ s.img }}" alt="" style="width:100%;aspect-ratio:1.4;object-fit:cover;border-radius:10px;display:block;background:#FFE3E3">
+                      <span style="display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 4px 2px;font-size:14px;font-weight:600;line-height:1.2;text-align:left">{{ s.name }}<span style="{{ s.checkStyle }}">✓</span></span>
+                    </button>
+                  </sc-for>
+                </div>
+                <button onClick="{{ next }}" style="{{ nextStyle }}">{{ nextLabel }}</button>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ onStep2 }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;flex-wrap:wrap;gap:6px">
+                  <sc-for list="{{ picked }}" as="p" hint-placeholder-count="2">
+                    <span style="background:#FFE3E3;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600">{{ p }}</span>
+                  </sc-for>
+                  <button onClick="{{ back }}" style="background:none;border:none;padding:6px 4px;cursor:pointer;font-family:'Lato',sans-serif;font-size:13px;font-weight:600;color:#6E5F64">Edit</button>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px">
+                  <input value="{{ form.name }}" onChange="{{ setName }}" placeholder="First name" autocomplete="given-name" style="height:54px;border:1px solid #EFC3C7;border-radius:14px;padding:0 16px;font-size:16px;color:#2B2226;background:#FFF5F5;outline:none">
+                  <input value="{{ form.phone }}" onChange="{{ setPhone }}" placeholder="Mobile number" type="tel" inputmode="tel" autocomplete="tel" style="height:54px;border:1px solid #EFC3C7;border-radius:14px;padding:0 16px;font-size:16px;color:#2B2226;background:#FFF5F5;outline:none">
+                </div>
+                <input value="{{ form.email }}" onChange="{{ setEmail }}" placeholder="Email" type="email" inputmode="email" autocomplete="email" style="height:54px;border:1px solid #EFC3C7;border-radius:14px;padding:0 16px;font-size:16px;color:#2B2226;background:#FFF5F5;outline:none">
+                <select value="{{ form.loc }}" onChange="{{ setLoc }}" style="height:54px;border:1px solid #EFC3C7;border-radius:14px;padding:0 14px;font-size:16px;color:#2B2226;background:#FFF5F5;outline:none">
+                  <option value="">Preferred location</option>
+                  <option value="Lawrenceville">Lawrenceville</option>
+                  <option value="Cranberry">Cranberry</option>
+                  <option value="Murrysville">Murrysville</option>
+                  <option value="Fox Chapel">Fox Chapel</option>
+                </select>
+                <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:#6E5F64;cursor:pointer">
+                  <input type="checkbox" checked="{{ form.consent }}" onChange="{{ setConsent }}" style="width:20px;height:20px;margin:1px 0 0;accent-color:#B04A62;flex-shrink:0">
+                  I consent to receive e-mails and texts from Avere Beauty, including special offers.
+                </label>
+                <button onClick="{{ submit }}" style="{{ submitStyle }}">Claim the promo</button>
+                <span style="font-size:12px;color:#6E5F64;text-align:center">No payment now. We’ll text you to schedule. New patients only.</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;padding:8px 0">
+            <span style="width:56px;height:56px;border-radius:50%;background:#FFE3E3;color:#B04A62;display:flex;align-items:center;justify-content:center;font-size:26px">✓</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:clamp(24.5px,2.6vw,33.1px);line-height:1.1;letter-spacing:-.02em">You’re in, {{ firstName }}.</span>
+            <p style="margin:0;font-size:16px;line-height:1.6;color:#4A3B40">Your {{ offerLower }} is saved for {{ pickedText }}. Our team will text you shortly to find a time. Want to lock it in now?</p>
+            <a href="{{ bookHref }}" style="background:#2B2226;color:#fff;padding:0 28px;border-radius:999px;font-size:16px;font-weight:600;min-height:54px;width:100%;text-align:center;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#B04A62;color:#fff">Book my appointment now</a>
+            <a href="tel:4129527592" style="font-size:14px;font-weight:600;align-self:center">Or call 412-952-7592</a>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:#FFE3E3;color:#2B2226;overflow:hidden;padding:16px 0">{{ marquee }}</div>
+
+  <section data-screen-label="Services" style="padding:clamp(48px,7vw,88px) 20px">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.9vw,51.8px);line-height:1.1;margin:0;letter-spacing:-.02em">Everything you love,<br>under one roof.</h2>
+        <span style="font-size:15px;color:#6E5F64;max-width:360px">Now booking CoolPeel, Subnovii, Motus AZ+, and VirtueRF.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,260px),1fr));gap:clamp(10px,2vw,14px)">
+        <sc-for list="{{ serviceCards }}" as="s" hint-placeholder-count="8">
+          <button onClick="{{ s.claim }}" style="position:relative;border:none;padding:0;cursor:pointer;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:#FFE3E3;text-align:left;font-family:'Lato',sans-serif" style-hover="transform:translateY(-3px)">
+            <img src="{{ s.imgLg }}" alt="{{ s.name }} at Avere Beauty" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+            <span style="position:absolute;inset:0;background:linear-gradient(to top, rgba(43,34,38,.85) 0%, rgba(43,34,38,0) 55%)"></span>
+            <span style="position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px">
+              <span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1;color:#fff;letter-spacing:-.02em">{{ s.name }}</span>
+              <span style="background:#FFE3E3;color:#2B2226;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;white-space:nowrap">Claim →</span>
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Credentials" style="background:#FFF5F5;border-top:1px solid #F4DADC;border-bottom:1px solid #F4DADC;padding:clamp(40px,6vw,72px) 20px">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F;text-align:center">Recognized by patients and the brands we use</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1px;background:#EFC3C7;border:1px solid #EFC3C7;border-radius:28px;overflow:hidden">
+        <sc-for list="{{ creds }}" as="c" hint-placeholder-count="6">
+          <div style="background:#fff;padding:26px 22px;display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+            <span style="font-family:'Poppins',sans-serif;font-size:clamp(24.5px,2.4vw,33.1px);line-height:1.1;color:#2B2226;letter-spacing:-.02em">{{ c.big }}</span>
+            <span style="font-size:14px;line-height:1.4;color:#6E5F64">{{ c.small }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Founder" style="padding:clamp(48px,7vw,96px) 20px 0">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,5vw,64px);align-items:center">
+      <div style="position:relative">
+        <img src="assets/alyssa-luciano.jpg" alt="Alyssa Luciano, RN, owner and founder of Avere Beauty" loading="lazy" style="width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:62% center;border-radius:32px;display:block;background:#FFE3E3">
+        <div style="position:absolute;left:16px;bottom:16px;background:#fff;border-radius:18px;padding:12px 16px;display:flex;flex-direction:column;gap:2px;box-shadow:0 16px 40px rgba(43,34,38,.18)">
+          <span style="font-family:'Poppins',sans-serif;font-size:20.8px;line-height:1.1;letter-spacing:-.02em">15+ years</span>
+          <span style="font-size:12px;color:#6E5F64">ICU nursing before aesthetics</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">Meet the founder</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(31.7px,4vw,54.7px);line-height:1.1;margin:0;letter-spacing:-.02em">Alyssa Luciano, RN</h2>
+        <span style="font-size:15px;font-weight:600;color:#B04A62">Owner · Injector</span>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40">With a background of over 15 years in ICU nursing, Alyssa initially explored aesthetics as a personal hobby. Her natural affinity for injection techniques and a deep understanding of facial anatomy quickly revealed her innate talent within the beauty industry.</p>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40">Her dedication to fostering an informed, transparent, and relaxed environment for aesthetic treatments has attracted a faithful clientele of over 25,000 patients and grown Avere into a team of 20+ dedicated clinicians and staff across four Pittsburgh offices.</p>
+        <blockquote style="margin:0;font-family:'Poppins',sans-serif;font-size:clamp(15.8px,1.6vw,20.2px);line-height:1.25;color:#2B2226;letter-spacing:-.02em">“Pittsburgh has other medspas, but none that represented the practice of genuine aesthetics we believed in.”</blockquote>
+        <a href="#claim" style="align-self:flex-start;background:#2B2226;color:#fff;padding:0 28px;border-radius:999px;font-size:16px;font-weight:600;min-height:54px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#B04A62;color:#fff">Claim the promo</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Avere standard" style="padding:clamp(48px,7vw,96px) 20px">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">The Avere standard</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.9vw,51.8px);line-height:1.1;margin:0;letter-spacing:-.02em">Medical-grade care.<br>Spa-level comfort.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="6">
+          <div style="border:1px solid #F4DADC;border-radius:26px;padding:28px;display:flex;flex-direction:column;gap:12px;background:#fff">
+            <span style="font-family:'Poppins',sans-serif;color:#B04A62;font-size:17.6px;letter-spacing:-.02em">{{ p.n }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.05;letter-spacing:-.02em">{{ p.t }}</span>
+            <span style="font-size:15px;line-height:1.6;color:#6E5F64">{{ p.b }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Video" style="padding:0 20px clamp(48px,7vw,96px)">
+    <div style="max-width:1280px;margin:0 auto;position:relative;border-radius:36px;overflow:hidden;background:#2B2226;aspect-ratio:16/9;max-height:720px">
+      <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+        <video src="{{ videoUrl }}" poster="{{ videoPoster }}" controls="{{ true }}" playsInline="{{ true }}" preload="none" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+      </sc-if>
+      <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+        <img src="{{ videoPoster }}" alt="The Avere Beauty team" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff;text-align:center;padding:20px">
+          <span style="width:84px;height:84px;border-radius:50%;background:#FFE3E3;color:#2B2226;display:flex;align-items:center;justify-content:center;font-size:30px;padding-left:6px">▶</span>
+          <span style="font-family:'Poppins',sans-serif;font-size:clamp(21.6px,2.9vw,37.4px);line-height:1.1;letter-spacing:-.02em">Step inside Avere</span>
+          <span style="font-size:14px;color:#FFE3E3">Video coming soon</span>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section data-screen-label="Know before you go" style="padding:0 20px clamp(48px,7vw,96px)">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">Know before you go</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.6vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Not every med spa is the same</h2>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#6E5F64;max-width:420px">Your face deserves a medical team. These are the questions we’d ask any med spa, including ours.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ compare }}" as="c" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border:1px solid #F4DADC;border-radius:24px;overflow:hidden">
+            <div style="padding:22px 24px;background:#FFF5F5;display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:12px;font-weight:700;color:#6E5F64">Ask</span>
+              <span style="font-family:'Poppins',sans-serif;font-size:20.8px;line-height:1.1;letter-spacing:-.02em">{{ c.q }}</span>
+            </div>
+            <div style="padding:22px 24px;display:flex;gap:12px;align-items:flex-start">
+              <span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#FFE3E3;color:#B04A62;display:flex;align-items:center;justify-content:center;font-size:13px">✓</span>
+              <span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:700;color:#B04A62">At Avere</span><span style="font-size:15px;line-height:1.55">{{ c.us }}</span></span>
+            </div>
+            <div style="padding:22px 24px;display:flex;gap:12px;align-items:flex-start;border-left:1px solid #F4DADC">
+              <span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#F3ECED;color:#6E5F64;display:flex;align-items:center;justify-content:center;font-size:13px">!</span>
+              <span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:700;color:#6E5F64">Worth watching for</span><span style="font-size:15px;line-height:1.55;color:#4A3B40">{{ c.them }}</span></span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="offices" data-screen-label="Offices" style="background:#2B2226;color:#FFF5F5;padding:clamp(48px,7vw,96px) 0">
+    <div style="max-width:1280px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7">4 offices across Pittsburgh</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.6vw,46.1px);line-height:1.1;margin:0;color:#fff;letter-spacing:-.02em">There’s an Avere near you</h2>
+        </div>
+        <span style="font-size:15px;color:#EFC3C7;max-width:380px">Hover a pin or type your town to find your closest office.</span>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:28px auto 0;padding:0 20px">
+      <div style="position:relative;border-radius:32px;overflow:hidden;height:clamp(440px,60vh,600px);background:#FFF5F5">
+        <iframe ref="{{ mapRef }}" src="Avere Office Map.html" title="Map of Avere Beauty offices" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+      </div>
+    </div>
+    <div style="margin-top:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 0 12px">
+      <div style="display:flex;gap:14px;padding:0 max(20px, calc((100vw - 1240px) / 2));width:max-content">
+        <sc-for list="{{ offices }}" as="o" hint-placeholder-count="4">
+          <div onMouseEnter="{{ o.focus }}" style="{{ o.card }}">
+            <img src="{{ o.img }}" alt="{{ o.name }} office" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;display:block;background:#4A3B40">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:14px 8px 4px">
+              <span style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-family:'Poppins',sans-serif;font-size:25.6px;line-height:1.1;letter-spacing:-.02em">{{ o.name }}</span><span style="{{ o.tagStyle }}">{{ o.tag }}</span></span>
+              <span style="font-size:14px;line-height:1.45;color:#6E5F64">{{ o.addr }}</span>
+              <span style="font-size:13px;color:#4A3B40">{{ o.dev }}</span>
+              <div style="display:flex;gap:8px;padding-top:8px">
+                <button onClick="{{ o.show }}" style="flex:1;min-height:46px;border-radius:999px;border:1px solid #2B2226;background:#fff;cursor:pointer;font-family:'Lato',sans-serif;font-size:14px;font-weight:600;color:#2B2226">Show on map</button>
+                <a href="#claim" style="flex:1;min-height:46px;border-radius:999px;background:#2B2226;color:#fff;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center" style-hover="background:#B04A62;color:#fff">Claim here</a>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Why Avere" style="padding:0 20px clamp(48px,7vw,88px)">
+    <div style="max-width:1280px;margin:0 auto;background:repeating-radial-gradient(circle at 0% 100%, rgba(176,74,98,0) 0 46px, rgba(176,74,98,.13) 46px 47px), #FFE3E3;border-radius:36px;padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px;align-items:center">
+      <img src="https://static.wixstatic.com/media/9272ed_7d77b77b38fc4263a05b93b511d87144~mv2.jpg/v1/fill/w_800,h_800,al_c,q_80/why.jpg" alt="Avere Beauty provider with a patient" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:24px;display:block;background:#FFF5F5">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Why Avere Beauty?</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40">Besides our Google Reviews, Avere Beauty is a place where you can go and feel comfortable. Our providers aren't here to overload you with filler or tox, but to build long lasting relationships to reach and maintain your personal beauty goals.</p>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40">Our friendly and professional providers are here to answer your questions. Many come to us because we are a small business with a solid team that has a high treatment volume which gives us exceptional insight for all patients.</p>
+        <a href="#claim" style="align-self:flex-start;background:#2B2226;color:#fff;padding:0 28px;border-radius:999px;font-size:16px;font-weight:600;min-height:54px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#B04A62;color:#fff">Claim the promo</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Final" style="background:#2B2226;color:#FFF5F5;padding:clamp(56px,8vw,112px) 20px;text-align:center">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px">
+      <span style="font-family:'Poppins',sans-serif;font-size:clamp(40.3px,6.5vw,86.4px);line-height:1.1;letter-spacing:-.02em">Look as good<br>as you feel.</span>
+      <span style="font-size:17px;color:#EFC3C7">{{ offer }}</span>
+      <a href="#claim" style="background:#FFE3E3;color:#2B2226;padding:0 34px;border-radius:999px;font-size:17px;font-weight:700;min-height:56px;width:100%;max-width:360px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#fff;color:#2B2226">Claim the promo</a>
+    </div>
+  </section>
+
+  <footer style="padding:24px 20px 36px;background:#2B2226;border-top:1px solid rgba(255,227,227,.15)">
+    <div style="max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;color:#EFC3C7">
+      <span>Lawrenceville · Cranberry · Murrysville · Fox Chapel</span>
+      <span>COPYRIGHT ©2026 AVERE BEAUTY</span>
+    </div>
+  </footer>
+
+  <sc-if value="{{ showSticky }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ stickyWrap }}">
+      <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ offer }}</span><span style="font-size:12px;color:#EFC3C7">New patients · takes 30 seconds</span></span>
+      <a href="#claim" style="background:#FFE3E3;color:#2B2226;padding:14px 20px;border-radius:999px;font-size:15px;font-weight:700;white-space:nowrap;min-height:48px;display:flex;align-items:center" style-hover="background:#fff;color:#2B2226">Claim it</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;offer&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;10% off your first treatment&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;eyebrow&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;New patient offer&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;videoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const WX = (id, w, h) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_80/s.jpg`;
+const SERVICES = [
+  ['Neurotoxins', '903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg'],
+  ['Dermal Filler', '903d63_caf0a92094d9497e8c6db7f5b9cf8c45~mv2.jpg'],
+  ['Laser Treatments', '9272ed_2572f748eff64b84a72447556b3a61f9~mv2.jpg'],
+  ['SkinPen', '903d63_9ab71123ab25476b9e43caaf775f354e~mv2.jpg'],
+  ['VirtueRF', '903d63_d3c4a1cb1c3a4acc97d22ccf94ff7d83~mv2.jpg'],
+  ['Subnovii', '903d63_aece9b78279d47b4abfeee256a8883af~mv2.png'],
+  ['PDO Threads', '903d63_1fe32a2493cf49fda9b168228b273499~mv2.jpg'],
+  ['Esthetics', '903d63_24a51d18d7c849a984bed99e9da2ab5b~mv2.jpg'],
+  ['Weight Loss', '903d63_45d3f1d7d64c451598c1803157da356b~mv2.webp'],
+  ['Not sure yet', '903d63_b13f4a0d24fd40fc8a3a738f76577639~mv2.jpg'],
+].map(([name, id]) => ({ name, img: WX(id, 300, 214), imgLg: WX(id, 600, 750) }));
+const BOOK = 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa';
+const CREDS = [['Top 1%', 'for reviews in Pennsylvania'], ['25,000+', 'patients treated'], ['Platinum', 'Allergan member'], ['Presidential', 'level with Galderma'], ['4', 'Pittsburgh offices'], ['20+', 'NPs, patient coordinators & providers']].map(([big, small]) => ({ big, small }));
+const PILLARS = [
+  ['Physician Monitored', 'Every service is overseen by our Medical Director, a Pittsburgh general surgeon, so care meets the highest medical standards.'],
+  ['Fully Compliant', 'We follow Pennsylvania medical regulations, with nurse practitioner intakes and treatment in dedicated medical offices.'],
+  ['Natural Aesthetics', 'Our providers aren’t here to overload you with filler or tox. We build long lasting relationships around your personal goals.'],
+  ['Fair Prices', 'Transparent, fair pricing from a local team, with memberships and promos that reward you for coming back.'],
+  ['A Real Medical Team', 'Over 20 nurse practitioners, patient coordinators and providers, with high treatment volume that gives us exceptional insight.'],
+  ['Top-of-the-Line Lasers', 'MOTUS AZ+, SmartXide Tetra CoolPeel, EVO Quantum, Sciton mJOULE BBL and DEKA Toro across our offices.'],
+].map(([t, b], i) => ({ t, b, n: String(i + 1) }));
+const COMPARE = [
+  { q: 'Who owns it?', us: 'Founded and run by Pittsburgh clinicians. Your plan is built around your goals, not a sales target.', them: 'Practices owned by private equity groups, where volume and upsell targets can shape recommendations.' },
+  { q: 'Who is treating you?', us: 'NPs, PAs and RNs who focus on aesthetics every day, with thousands of treatments of experience.', them: 'Providers who practice aesthetics on the side of another specialty rather than as their focus.' },
+  { q: 'What’s in the syringe?', us: 'Genuine, FDA-approved products sourced directly from Allergan, Galderma and other trusted manufacturers.', them: 'Products that aren’t FDA-approved or come from unverified sources, often priced to look like a deal.' },
+  { q: 'Where is it done?', us: 'Four dedicated medical offices designed for comfort and safety.', them: 'Treatments offered in settings that aren’t permitted for medical procedures, like the back room of a salon.' },
+  { q: 'Who is overseeing it?', us: 'A physician Medical Director and nurse practitioner intakes for new patients.', them: 'No physician oversight, and no clinical intake before your first treatment.' },
+];
+const WXO = (id) => `https://static.wixstatic.com/media/${id}/v1/fill/w_720,h_450,al_c,q_80/o.jpg`;
+const OFFICES = [
+  { id: 'lawrenceville', name: 'Lawrenceville', addr: '3453 Butler Street, Pittsburgh, PA 15201', dev: 'MOTUS AZ+ · SmartXide Tetra', img: WXO('903d63_24475366948040e78160f8ec6409949a~mv2.jpg') },
+  { id: 'cranberry', name: 'Cranberry', addr: '179 Scharberry Ln, Mars, PA 16046', dev: 'Sciton mJOULE BBL', img: 'assets/office-cranberry.jpg' },
+  { id: 'murrysville', name: 'Murrysville', addr: '5100 Old William Penn Hwy, Export, PA 15632', dev: 'EVO Quantum Series · SmartXide Tetra', img: WXO('903d63_5a1d874c69244c898c653a743d295eaa~mv2.jpg') },
+  { id: 'foxchapel', name: 'Fox Chapel', addr: '307 Freeport Road, Blawnox, PA 15238', dev: 'Laser coming soon', soon: true, img: 'assets/office-foxchapel.jpg' },
+];
+const MARQ = ['Botox', 'Lip Filler', 'CoolPeel', 'Laser Hair Removal', 'VirtueRF', 'HydraFacial', 'PDO Threads', 'Weight Loss'];
+
+class Component extends DCLogic {
+  state = { picks: [], step: 1, sent: false, form: { name: '', phone: '', email: '', loc: '', consent: false }, scrolled: false, w: typeof window !== 'undefined' ? window.innerWidth : 1200 };
+  componentDidMount() {
+    this.onScroll = () => { const s = window.scrollY > 700; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    this.onMsg = e => { if (e.data && e.data.type === 'avere-office-focused' && e.data.id !== this.state.office) this.setState({ office: e.data.id }); };
+    window.addEventListener('message', this.onMsg);
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onResize); window.removeEventListener('message', this.onMsg); }
+  mapRef = React.createRef();
+  focusOffice(id, zoom) {
+    this.setState({ office: id });
+    const f = this.mapRef.current; if (f && f.contentWindow) f.contentWindow.postMessage({ type: 'avere-focus-office', id, zoom }, '*');
+  }
+  toggle(name) { this.setState(s => ({ picks: s.picks.includes(name) ? s.picks.filter(x => x !== name) : [...s.picks, name] })); }
+  field(k) { return e => { const v = k === 'consent' ? e.target.checked : e.target.value; this.setState(s => ({ form: { ...s.form, [k]: v } })); }; }
+  renderVals() {
+    const { picks, step, sent, form, scrolled, w } = this.state;
+    const offer = this.props.offer ?? '10% off your first treatment';
+    const mobile = w < 760;
+    const canNext = picks.length > 0;
+    const canSubmit = form.name.trim() && form.phone.replace(/\D/g, '').length >= 10;
+    const btn = on => ({ minHeight: 56, borderRadius: 999, border: 'none', cursor: on ? 'pointer' : 'not-allowed', fontFamily: "'Lato',sans-serif", fontSize: 17, fontWeight: 700, background: on ? '#2B2226' : '#E9DADD', color: on ? '#fff' : '#8C7A80', transition: 'background .15s' });
+    const sticky = scrolled && !sent;
+    return {
+      eyebrow: this.props.eyebrow ?? 'New patient offer',
+      offer, offerLower: offer.charAt(0).toLowerCase() + offer.slice(1),
+      marquee: this.marquee || (this.marquee = React.createElement('div', { style: { display: 'flex', width: 'max-content', animation: 'avMarquee 38s linear infinite' } },
+        [0, 1].map(k => React.createElement('div', { key: k, style: { display: 'flex', gap: 36, paddingRight: 36, alignItems: 'center', fontFamily: "'Poppins',sans-serif", fontSize: 30, whiteSpace: 'nowrap' } },
+          [...MARQ, ...MARQ].flatMap((m, i) => [React.createElement('span', { key: 'm' + i }, m), React.createElement('span', { key: 'd' + i, style: { color: '#B04A62', fontSize: 18, fontStyle: 'normal' } }, '✦')]))))),
+      notSent: !sent, sent, onStep1: step === 1, onStep2: step === 2, stepNum: step,
+      formTitle: step === 1 ? 'Claim your offer' : 'Where should we send it?',
+      bar2: { flex: 1, height: 5, borderRadius: 999, background: step === 2 ? '#B04A62' : '#F4DADC', transition: 'background .2s' },
+      services: SERVICES.map(s => {
+        const on = picks.includes(s.name);
+        return { ...s, toggle: () => this.toggle(s.name),
+          style: { padding: 6, borderRadius: 16, cursor: 'pointer', border: '2px solid ' + (on ? '#B04A62' : '#F4DADC'), background: on ? '#FFF5F5' : '#fff', fontFamily: "'Lato',sans-serif", color: '#2B2226', transition: 'all .15s' },
+          checkStyle: { flexShrink: 0, width: 20, height: 20, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, background: on ? '#B04A62' : '#F4DADC', color: on ? '#fff' : 'transparent' } };
+      }),
+      nextLabel: canNext ? `Continue with ${picks.length} service${picks.length > 1 ? 's' : ''}` : 'Pick at least one service',
+      nextStyle: btn(canNext), next: () => canNext && this.setState({ step: 2 }), back: () => this.setState({ step: 1 }),
+      picked: picks, form,
+      setName: this.field('name'), setPhone: this.field('phone'), setEmail: this.field('email'), setLoc: this.field('loc'), setConsent: this.field('consent'),
+      submitStyle: btn(canSubmit), submit: () => canSubmit && this.setState({ sent: true }),
+      firstName: form.name.trim().split(' ')[0] || 'friend', pickedText: picks.join(', ').toLowerCase(),
+      bookHref: BOOK,
+      creds: CREDS, pillars: PILLARS, compare: COMPARE, mapRef: this.mapRef,
+      hasVideo: !!this.props.videoUrl, noVideo: !this.props.videoUrl, videoUrl: this.props.videoUrl || '',
+      videoPoster: 'https://static.wixstatic.com/media/903d63_2ea0066f110849b9b60913b8a517e53a~mv2.png/v1/fill/w_1600,h_900,al_c,q_80/team.png',
+      offices: OFFICES.map(o => {
+        const on = this.state.office === o.id;
+        return { ...o, tag: o.soon ? 'Laser soon' : 'Open', focus: () => this.focusOffice(o.id, false), show: () => this.focusOffice(o.id, true),
+          tagStyle: { fontSize: 12, fontWeight: 700, borderRadius: 999, padding: '4px 10px', background: o.soon ? '#F3ECED' : '#FFE3E3', color: o.soon ? '#6E5F64' : '#8E3A4F', whiteSpace: 'nowrap' , minHeight: 44 },
+          card: { scrollSnapAlign: 'start', width: 'min(320px, 82vw)', flexShrink: 0, background: '#fff', color: '#2B2226', borderRadius: 24, padding: 10, border: '3px solid ' + (on ? '#FFB8C2' : 'transparent'), transition: 'border-color .2s, transform .2s', transform: on ? 'translateY(-4px)' : 'none' } };
+      }),
+      serviceCards: SERVICES.filter(s => s.name !== 'Not sure yet').map(s => ({ ...s, claim: () => { this.setState(st => ({ picks: st.picks.includes(s.name) ? st.picks : [...st.picks, s.name], step: 1 })); const el = document.getElementById('claim'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' }); } })),
+      showSticky: sticky, bottomPad: sticky && mobile ? '84px' : '0px',
+      stickyWrap: mobile
+        ? { position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 40, background: '#2B2226', color: '#fff', padding: '12px 16px calc(12px + env(safe-area-inset-bottom))', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, boxShadow: '0 -10px 30px rgba(43,34,38,.25)' }
+        : { position: 'fixed', right: 24, bottom: 24, zIndex: 40, background: '#2B2226', color: '#fff', padding: '10px 10px 10px 22px', borderRadius: 999, display: 'flex', alignItems: 'center', gap: 18, maxWidth: 440, boxShadow: '0 16px 40px rgba(43,34,38,.3)' , minHeight: 44 },
+    };
+  }
+}
+</script>
+</body>
+</html>

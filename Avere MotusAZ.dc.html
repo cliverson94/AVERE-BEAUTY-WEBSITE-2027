@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>MOTUS AZ+ Laser Hair Removal in Pittsburgh | Lawrenceville | Avere Beauty</title>
+<meta name="description" content="Virtually painless laser hair removal with the DEKA MOTUS AZ+ and Moveo technology at Avere Beauty Lawrenceville. Alexandrite 755 nm and Nd:YAG 1064 nm.">
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="lasers" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Motus hero" style="position:relative;overflow:hidden;background:radial-gradient(ellipse 55% 70% at 78% 40%, #FFE3E3 0%, rgba(255,227,227,0) 70%), #FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:32px clamp(20px,4vw,32px) clamp(56px,8vw,104px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div data-reveal="0" style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="/" style="color:#6E5F64">Home</a><span>/</span><a href="/laser-treatments" style="color:#6E5F64">Laser Treatments</a><span>/</span><span style="color:#2B2226">MOTUS AZ+</span></div>
+        <span data-reveal="100" style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">DEKA MOTUS AZ+ · Lawrenceville</span>
+        <h1 data-reveal="200" style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(40px,6vw,84px);line-height:1.02;letter-spacing:-.03em;margin:0;text-wrap:balance">Laser hair removal, without the snap</h1>
+        <p data-reveal="300" style="margin:0;font-size:18px;line-height:1.65;color:#4A3B40;max-width:540px;text-wrap:pretty">The MOTUS AZ+ uses Moveo technology: low-energy pulses delivered in a gliding motion that warm the follicle gradually instead of hitting it all at once. The result is laser hair removal that is virtually painless, on all skin types.</p>
+        <div data-reveal="400" style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 28px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book in Lawrenceville</a>
+          <a href="/laser-hair-removal-quote" style="border:1px solid #2B2226;min-height:48px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700">Get a hair removal quote</a>
+        </div>
+        <div data-reveal="500" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#EFC3C7;border:1px solid #EFC3C7;border-radius:20px;overflow:hidden;max-width:520px">
+          <div style="background:#FFF5F5;padding:16px 18px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1">755 nm</span><span style="font-size:12px;font-weight:700;color:#6E5F64">Alexandrite</span></div>
+          <div style="background:#FFF5F5;padding:16px 18px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1">1064 nm</span><span style="font-size:12px;font-weight:700;color:#6E5F64">Nd:YAG</span></div>
+          <div style="background:#FFF5F5;padding:16px 18px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1">I–VI</span><span style="font-size:12px;font-weight:700;color:#6E5F64">Skin types</span></div>
+        </div>
+      </div>
+      <div data-reveal="250" style="position:relative;height:clamp(400px,50vw,660px)">
+        <div data-parallax="0.16" style="position:absolute;inset:0;will-change:transform">
+          <image-slot id="motus-hero-machine" shape="rounded" radius="28" fit="cover" src="https://static.wixstatic.com/media/903d63_0e21aa05ff9547bfabc72252e25ddcbd~mv2.jpg/v1/fill/w_1000,h_1200,al_c,q_85/motus.jpg" placeholder="MOTUS AZ+ machine, studio shot (transparent PNG ideal)"></image-slot>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Motus video" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div data-reveal="0" style="position:relative;aspect-ratio:16/9;border-radius:clamp(20px,3vw,32px);overflow:hidden;background:#FFF5F5;border:1px solid #F4DADC">
+      <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+        <iframe src="{{ videoUrl }}" title="DEKA MOTUS AZ+ video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </sc-if>
+      <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px">
+          <span style="width:84px;height:84px;border-radius:50%;border:1px solid #2B2226;display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:22px solid #2B2226;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px"></span></span>
+          <span style="font-family:'Poppins',sans-serif;font-size:22px">Manufacturer video goes here</span>
+          <span style="font-size:15px;color:#6E5F64;max-width:440px">Paste a DEKA YouTube or Vimeo embed link in Tweaks. Swap for our own footage later.</span>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section data-screen-label="Moveo heat chart" style="background:#2B2226;color:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">How Moveo works</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0;color:#fff">Gradual heat instead of one hard hit</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#EFC3C7">A traditional laser fires one high-energy pulse. That spike is the rubber-band snap you feel. Moveo glides over a small area in repeated passes, building heat in the follicle until it can no longer grow hair, while the skin stays below the point where it hurts.</p>
+      </div>
+      <div data-reveal="150" style="background:#352A2E;border-radius:28px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px">
+          <span style="display:flex;gap:16px;flex-wrap:wrap"><span style="display:flex;align-items:center;gap:8px"><span style="width:18px;height:3px;background:#8E6A73;display:block"></span>Traditional pulse</span><span style="display:flex;align-items:center;gap:8px"><span style="width:18px;height:3px;background:#FFE3E3;display:block"></span>Moveo</span></span>
+          <span style="color:#C9A9B1">Illustration</span>
+        </div>
+        <svg viewBox="0 0 600 300" style="width:100%;height:auto;display:block" fill="none">
+          <line x1="40" y1="70" x2="590" y2="70" stroke="#B04A62" stroke-width="1.5" stroke-dasharray="6 6"></line>
+          <text x="590" y="60" text-anchor="end" fill="#EFC3C7" font-size="13" font-family="Lato">Discomfort</text>
+          <line x1="40" y1="130" x2="590" y2="130" stroke="#C9A9B1" stroke-width="1.5" stroke-dasharray="2 6"></line>
+          <text x="590" y="150" text-anchor="end" fill="#C9A9B1" font-size="13" font-family="Lato">Follicle disabled</text>
+          <line x1="40" y1="270" x2="590" y2="270" stroke="#5A474D" stroke-width="1"></line>
+          <text x="40" y="292" fill="#C9A9B1" font-size="13" font-family="Lato">Time</text>
+          <text x="20" y="160" fill="#C9A9B1" font-size="13" font-family="Lato" transform="rotate(-90 20 160)" text-anchor="middle">Heat</text>
+          <path data-draw="" pathLength="1" d="M40 262 L150 262 C165 262 170 30 182 30 C196 30 200 240 240 255 C280 262 400 262 590 262" stroke="#8E6A73" stroke-width="3"></path>
+          <path data-draw="300" pathLength="1" d="M40 262 C110 250 120 222 170 214 C220 206 230 182 280 174 C330 166 340 140 390 128 C440 118 460 110 520 108 L590 108" stroke="#FFE3E3" stroke-width="4" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Two wavelengths" style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Two wavelengths</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">The right light for your hair and skin</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px">
+      <div data-reveal="0" style="background:#FFF5F5;border-radius:28px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-.03em">755 nm</span>
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Alexandrite</span>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">The gold standard for hair removal. Highly absorbed by melanin, so it works on finer and lighter hair that other lasers miss. Moveo makes it safe beyond the light skin tones Alexandrite was once limited to.</p>
+      </div>
+      <div data-reveal="120" style="background:#FFF5F5;border-radius:28px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-.03em">1064 nm</span>
+        <span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Nd:YAG</span>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Penetrates deeper into the skin. Used for darker skin tones, coarse hair and vascular treatments like spider veins and broken capillaries.</p>
+      </div>
+    </div>
+    <div data-reveal="200" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,4vw,56px);align-items:center;border:1px solid #F4DADC;border-radius:28px;padding:clamp(24px,4vw,40px)">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1.15;margin:0">A sapphire tip that touches the skin</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Most lasers fire through the air and lose energy to reflection. The Moveo handpiece glides directly on the skin through a cooled sapphire tip, so nearly all of the energy is absorbed. Lower settings do the same work, and the cooling keeps you comfortable.</p>
+      </div>
+      <div style="aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#FFE3E3">
+        <image-slot id="motus-handpiece" shape="rect" placeholder="Close-up: Moveo handpiece gliding on skin"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="What it treats" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:40px">
+      <h2 data-reveal="0" style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">What the MOTUS AZ+ treats</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+        <sc-for list="{{ treats }}" as="t" hint-placeholder-count="5">
+          <a href="{{ t.href }}" data-reveal="{{ t.delay }}" style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:10px;min-height:180px;transition:transform .25s" style-hover="transform:translateY(-4px);color:#2B2226">
+            <span style="font-family:'Poppins',sans-serif;font-size:22px">{{ t.name }}</span>
+            <span style="font-size:15px;line-height:1.6;color:#4A3B40">{{ t.body }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Sessions timeline" style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:36px">
+    <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Sessions &amp; timeline</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">9 to 12 sessions, 4 to 6 weeks apart</h2>
+      </div>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#6E5F64;max-width:420px">Hair grows in cycles, and the laser only reaches follicles in the active growth phase. Spacing sessions catches each follicle when it's ready.</p>
+    </div>
+    <div data-reveal="100" style="border:1px solid #F4DADC;border-radius:28px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;color:#6E5F64"><span>Hair remaining</span><span>Illustration</span></div>
+      <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,1vw,10px);align-items:end;height:220px">
+        <sc-for list="{{ hairBars }}" as="b" hint-placeholder-count="12">
+          <span data-grow-y="" style="{{ b.style }}"></span>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(4px,1vw,10px);font-size:12px;color:#6E5F64;text-align:center">
+        <sc-for list="{{ hairBars }}" as="b" hint-placeholder-count="12"><span>{{ b.n }}</span></sc-for>
+      </div>
+      <span style="font-size:13px;color:#6E5F64">Session number. Results are often visible after the first session. Your plan depends on the area, hair color and skin type.</span>
+    </div>
+  </section>
+
+  <section data-screen-label="Results" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(64px,9vw,120px);display:flex;flex-direction:column;gap:28px">
+    <div data-reveal="0" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">Before &amp; after</h2>
+      <span style="font-size:14px;color:#6E5F64">Drag the handle to compare</span>
+    </div>
+    <div ref="{{ sliderRef }}" data-reveal="100" style="position:relative;width:100%;aspect-ratio:16/10;max-height:640px;border-radius:28px;overflow:hidden;background:#FFF5F5;user-select:none;touch-action:pan-y">
+      <div style="position:absolute;inset:0"><image-slot id="motus-ba-after" shape="rect" placeholder="AFTER photo (same angle and lighting)"></image-slot></div>
+      <div style="position:absolute;inset:0;clip-path:{{ beforeClip }}"><image-slot id="motus-ba-before" shape="rect" placeholder="BEFORE photo"></image-slot></div>
+      <span style="position:absolute;top:16px;left:16px;background:rgba(43,34,38,.8);color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none">Before</span>
+      <span style="position:absolute;top:16px;right:16px;background:rgba(43,34,38,.8);color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none">After</span>
+      <div onPointerDown="{{ startDrag }}" style="position:absolute;top:0;bottom:0;left:{{ handleLeft }};width:48px;margin-left:-24px;cursor:ew-resize;display:flex;justify-content:center;touch-action:none">
+        <span style="width:2px;height:100%;background:#fff"></span>
+        <span style="position:absolute;top:50%;width:48px;height:48px;margin-top:-24px;border-radius:50%;background:#fff;color:#2B2226;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;box-shadow:0 6px 24px rgba(43,34,38,.25)">‹ ›</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Device specs" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:start">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Device specs</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">Inside the MOTUS AZ+</h2>
+      </div>
+      <div data-reveal="100" style="display:flex;flex-direction:column;border-top:1px solid #EFC3C7">
+        <sc-for list="{{ specs }}" as="s" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid #EFC3C7">
+            <span style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#6E5F64">{{ s.k }}</span>
+            <span style="font-size:16px;line-height:1.5">{{ s.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="border-top:1px solid #F4DADC">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">MOTUS AZ+ FAQs</h2>
+        <p style="margin:0;font-size:16px;color:#6E5F64">Questions? Call <a href="tel:4129527592" style="font-weight:700;color:#2B2226">412-952-7592</a>.</p>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid #F4DADC">
+            <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Lato',sans-serif;font-size:18px;font-weight:500;color:#2B2226;min-height:48px"><span>{{ f.q }}</span><span style="color:#B04A62;font-size:22px;line-height:1">{{ f.icon }}</span></button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 40px 24px 0;font-size:16px;line-height:1.65;color:#6E5F64">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book in Lawrenceville" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;videoEmbedUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const TREATS = [
+  ['Hair removal', 'Face and body, for men and women. Fine, light and coarse hair.', '/laser-hair-removal'],
+  ['Pigmented lesions', 'Sun spots, age spots and freckles.', '/laser-treatments#pigmentation'],
+  ['Vascular lesions', 'Spider veins, broken capillaries and diffuse redness.', '/laser-treatments#vascular-laser'],
+  ['Skin revitalization', 'Gentle heat that stimulates collagen for tone and texture.', '/laser-treatments#laser-facial'],
+  ['Laser facial', 'A combination treatment for glow and evening tone.', '/laser-treatments#laser-facial']
+];
+const FAQS = [
+  ['Is it really painless?', 'Moveo treatments are described as virtually pain-free. The sapphire tip cools the skin while the energy builds gradually in the follicle, so most clients feel warmth rather than a snap.'],
+  ['Does it work on dark skin?', 'Yes. Moveo delivery makes the MOTUS AZ+ suitable for all skin types, and the 1064 nm Nd:YAG wavelength is used for deeper skin tones. Your provider chooses the settings for your skin.'],
+  ['Does it work on light or fine hair?', 'The 755 nm Alexandrite wavelength is the most effective option for finer and lighter hair. Very blonde, red, gray or white hair contains little pigment and may not respond. We will tell you at consultation.'],
+  ['How many sessions will I need?', 'Most clients need 9 to 12 sessions spaced 4 to 6 weeks apart. Results are often visible after the first session.'],
+  ['Where is the MOTUS AZ+?', 'At our Lawrenceville office, 3453 Butler Street.']
+];
+class Component extends DCLogic {
+  state = { faq: 0, ba: 50 };
+  sliderRef = React.createRef();
+  startDrag = e => {
+    e.preventDefault();
+    const move = ev => { const el = this.sliderRef.current; if (!el) return; const r = el.getBoundingClientRect(); this.setState({ ba: Math.min(100, Math.max(0, ((ev.clientX - r.left) / r.width) * 100)) }); };
+    move(e);
+    const up = () => { removeEventListener('pointermove', move); removeEventListener('pointerup', up); };
+    addEventListener('pointermove', move); addEventListener('pointerup', up);
+  };
+  componentDidMount() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const show = (el) => { if (el.dataset.reveal !== undefined) el.style.opacity = 1; el.style.transform = 'none'; el.style.strokeDashoffset = 0; };
+    const els = [...document.querySelectorAll('[data-reveal]')];
+    els.forEach(e => { e.style.opacity = 0; e.style.transform = 'translateY(32px)'; e.style.transition = `opacity 1s ease ${e.dataset.reveal || 0}ms, transform 1s cubic-bezier(.2,.7,.2,1) ${e.dataset.reveal || 0}ms`; });
+    const draws = [...document.querySelectorAll('[data-draw]')];
+    draws.forEach(p => { p.style.strokeDasharray = 1; p.style.strokeDashoffset = 1; p.style.transition = `stroke-dashoffset 2.2s cubic-bezier(.4,0,.2,1) ${(+p.dataset.draw || 0) + 400}ms`; });
+    const bars = [...document.querySelectorAll('[data-grow-y]')];
+    bars.forEach((b, i) => { b.style.transform = 'scaleY(0)'; b.style.transformOrigin = 'bottom'; b.style.transition = `transform .9s cubic-bezier(.2,.7,.2,1) ${300 + i * 60}ms`; });
+    this.io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { show(x.target); this.io.unobserve(x.target); } }), { threshold: .12 });
+    [...els, ...draws, ...bars].forEach(e => this.io.observe(e));
+    this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; const vh = innerHeight;
+      document.querySelectorAll('[data-parallax]').forEach(e => { const r = e.parentElement.getBoundingClientRect(); const c = r.top + r.height / 2 - vh / 2; e.style.transform = `translate3d(0,${(-c * parseFloat(e.dataset.parallax)).toFixed(1)}px,0)`; }); }); };
+    addEventListener('scroll', this.onScroll, { passive: true }); this.onScroll();
+  }
+  componentWillUnmount() { removeEventListener('scroll', this.onScroll); this.io && this.io.disconnect(); }
+  renderVals() {
+    const { faq, ba } = this.state;
+    const videoUrl = (this.props.videoEmbedUrl || '').trim();
+    const H = [100, 82, 68, 56, 46, 37, 29, 22, 16, 11, 7, 4];
+    return {
+      hasVideo: !!videoUrl, noVideo: !videoUrl, videoUrl,
+      sliderRef: this.sliderRef, startDrag: this.startDrag,
+      beforeClip: `inset(0 ${(100 - ba).toFixed(2)}% 0 0)`, handleLeft: ba.toFixed(2) + '%',
+      treats: TREATS.map(([name, body, href], i) => ({ name, body, href, delay: String(i * 80) })),
+      hairBars: H.map((h, i) => ({ n: String(i + 1), style: { height: h + '%', borderRadius: '10px 10px 4px 4px', background: i < 9 ? '#2B2226' : '#B04A62', opacity: (0.35 + h / 160).toFixed(2), display: 'block' } })),
+      specs: [
+        { k: 'Manufacturer', v: 'DEKA' },
+        { k: 'Laser type', v: 'Alexandrite + Nd:YAG' },
+        { k: 'Wavelengths', v: '755 nm · 1064 nm' },
+        { k: 'Technology', v: 'Moveo in-motion delivery with sapphire contact cooling' },
+        { k: 'Handpieces', v: '10 standard handpieces, 5 to 20 mm spots, plus Moveo handpieces' },
+        { k: 'Treats', v: 'Hair removal, pigmented lesions, vascular lesions, skin revitalization' },
+        { k: 'Where', v: 'Lawrenceville, 3453 Butler Street' }
+      ],
+      faqs: FAQS.map(([q, a], i) => ({ q, a, open: faq === i, icon: faq === i ? '−' : '+', toggle: () => this.setState({ faq: faq === i ? -1 : i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

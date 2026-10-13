@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0}*{box-sizing:border-box}a{color:inherit;text-decoration:none}</style>
+</helmet>
+<footer style="background:#2B2226;color:#FFF5F5;font-family:'Lato',sans-serif;position:relative;overflow:hidden">
+  <div style="max-width:1320px;margin:0 auto;padding:clamp(40px,6vw,72px) 24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:32px;align-items:end;border-bottom:1px solid rgba(255,227,227,.15);padding-bottom:40px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'Poppins',sans-serif;font-size:clamp(28.8px,3.6vw,46.1px);line-height:1.1;color:#fff;letter-spacing:-.02em">Look as good as you feel.</span>
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:10px;max-width:560px">
+        <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#FFE3E3;color:#2B2226;padding:0 22px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center;grid-column:1/-1" style-hover="background:#fff;color:#2B2226">Book now</a>
+        <a href="tel:4129527592" style="color:#FFF5F5;border:1px solid rgba(255,227,227,.4);padding:0 14px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center;white-space:nowrap" style-hover="background:rgba(255,255,255,.08);color:#fff">Call 412-952-7592</a>
+        <a href="sms:4129527592" style="color:#FFF5F5;border:1px solid rgba(255,227,227,.4);padding:0 18px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.08);color:#fff">Text us</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:14px;font-weight:600;color:#fff">Get promos &amp; flash deals first</span>
+      <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;gap:8px;background:rgba(255,227,227,.08);border:1px solid rgba(255,227,227,.2);border-radius:999px;padding:6px">
+          <input value="{{ phone }}" onChange="{{ setPhone }}" type="tel" inputmode="tel" placeholder="Mobile number" aria-label="Mobile number" style="flex:1;min-width:0;height:44px;border:none;background:transparent;color:#fff;font-size:16px;padding:0 14px;font-family:'Lato',sans-serif;outline:none">
+          <button onClick="{{ join }}" style="height:44px;padding:0 20px;border:none;border-radius:999px;background:#FFE3E3;color:#2B2226;font-weight:700;font-size:14px;cursor:pointer;font-family:'Lato',sans-serif">Join</button>
+        </div>
+        <span style="font-size:11px;line-height:1.5;color:#C9AEB5">By joining you agree to receive recurring marketing texts from Avere Beauty. Msg &amp; data rates may apply. Reply STOP to opt out. See <a href="/policies#sms" style="color:#C9AEB5;text-decoration:underline">SMS Terms</a>.</span>
+      </sc-if>
+      <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:15px;color:#FFE3E3;background:rgba(255,227,227,.08);border-radius:16px;padding:14px 16px">You’re on the list. Watch for a text from us.</span>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="max-width:1320px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:28px 24px">
+    <sc-for list="{{ cols }}" as="c" hint-placeholder-count="4">
+      <nav aria-label="{{ c.h }}" style="display:flex;flex-direction:column;gap:0">
+        <span style="font-size:13px;font-weight:700;color:#FFB8C2;padding-bottom:6px">{{ c.h }}</span>
+        <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" style="font-size:15px;color:#FFF5F5;min-height:40px;display:flex;align-items:center" style-hover="color:#FFB8C2">{{ l.t }}</a>
+        </sc-for>
+      </nav>
+    </sc-for>
+  </div>
+
+  <div style="max-width:1320px;margin:0 auto;padding:0 24px 40px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:rgba(255,227,227,.15);border:1px solid rgba(255,227,227,.15);border-radius:24px;overflow:hidden">
+      <sc-for list="{{ offices }}" as="o" hint-placeholder-count="4">
+        <a href="{{ o.map }}" target="_blank" rel="noopener" style="color:#FFF5F5;background:#2B2226;padding:20px 22px;display:flex;flex-direction:column;gap:4px" style-hover="background:#35292E;color:#FFF5F5">
+          <span style="font-family:'Poppins',sans-serif;font-size:20.8px;line-height:1.1;color:#fff;letter-spacing:-.02em">{{ o.name }}</span>
+          <span style="font-size:14px;line-height:1.5;color:#EFC3C7">{{ o.addr }}</span>
+          <span style="font-size:13px;font-weight:600;color:#FFB8C2;padding-top:4px">Directions →</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="max-width:1320px;margin:0 auto;padding:0 24px 32px;display:flex;flex-wrap:wrap;gap:10px">
+    <sc-for list="{{ badges }}" as="b" hint-placeholder-count="5">
+      <span style="border:1px solid rgba(255,227,227,.25);border-radius:999px;padding:8px 14px;font-size:13px;color:#FFE3E3">{{ b }}</span>
+    </sc-for>
+  </div>
+
+  <div aria-hidden="true" style="max-width:1320px;margin:0 auto;padding:0 24px;overflow:hidden">
+    <img src="assets/avere-logo-black.png" alt="" style="width:min(100%,360px);display:block;filter:invert(1);opacity:.35;margin:0 0 32px">
+  </div>
+
+  <div style="border-top:1px solid rgba(255,227,227,.15);position:relative;background:#2B2226">
+    <div style="max-width:1320px;margin:0 auto;padding:20px 24px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="font-size:13px;color:#EFC3C7">© {{ year }} Avere Beauty. All rights reserved.</span>
+        <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:0 18px;font-size:13px">
+          <sc-for list="{{ legal }}" as="l" hint-placeholder-count="6">
+            <a href="{{ l.href }}" style="color:#EFC3C7;min-height:36px;display:flex;align-items:center" style-hover="color:#fff">{{ l.t }}</a>
+          </sc-for>
+        </nav>
+        <div style="display:flex;gap:8px">
+          <a href="https://www.instagram.com/averebeauty/" aria-label="Instagram" style="color:#FFF5F5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,227,227,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700" style-hover="background:#FFE3E3;color:#2B2226">IG</a>
+          <a href="https://www.facebook.com/averepgh/" aria-label="Facebook" style="color:#FFF5F5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,227,227,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700" style-hover="background:#FFE3E3;color:#2B2226">FB</a>
+          <button onClick="{{ toTop }}" aria-label="Back to top" style="width:44px;height:44px;border-radius:50%;border:none;background:#FFE3E3;color:#2B2226;cursor:pointer;font-size:16px">↑</button>
+        </div>
+      </div>
+      <span style="font-size:11px;line-height:1.6;color:#B89CA3;max-width:980px">All treatments are performed by licensed medical professionals under physician oversight. Individual results vary. Content on this site is for educational purposes and is not a substitute for a medical consultation. In an emergency, call 911.</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1320px&quot;,&quot;height&quot;:&quot;1100px&quot;}}">
+const L = (t, href = '#') => ({ t, href });
+const COLS = [
+  { h: 'Treatments', links: [L('Botox & Neurotoxins', '/botox'), L('Lip Filler', '/lip-filler'), L('Laser Treatments', '/laser-treatments'), L('Laser Hair Removal', '/laser-hair-removal'), L('Esthetics', '/esthetics'), L('Weight Loss', '/weight-loss')] },
+  { h: 'Patients', links: [L('Locations', '/locations'), L('Pre & Aftercare', '/aftercare'), L('Before & After', '/before-after-gallery'), L('Membership', '/membership'), L('Financing', '/financing'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order')] },
+  { h: 'About', links: [L('Meet the Team', '/team'), L('Careers', '/team#join'), L('Injector Training', '/injector-training'), L('Blog', '/blog'), L('Contact', '/contact')] },
+  { h: 'Policies', links: [L('Cancellation Policy', '/policies#cancellation'), L('Payments & Refunds', '/policies#refunds'), L('HIPAA Notice', '/policies#hipaa'), L('Privacy Policy', '/policies#privacy'), L('Accessibility', '/policies#accessibility')] },
+];
+const OFFICES = [
+  { name: 'Lawrenceville', addr: '3453 Butler Street, Pittsburgh, PA 15201', map: 'https://maps.app.goo.gl/9nzKxWPxhcgexSAX8' },
+  { name: 'Cranberry', addr: '179 Scharberry Ln, Mars, PA 16046', map: 'https://maps.app.goo.gl/1dVzPj2E5dEMNkaZ6' },
+  { name: 'Murrysville', addr: '5100 Old William Penn Hwy, Export, PA 15632', map: 'https://maps.app.goo.gl/VREmjDntVtmiQHMM8' },
+  { name: 'Fox Chapel', addr: '307 Freeport Road, Blawnox, PA 15238', map: 'https://maps.app.goo.gl/EEWexjiBBBwrVH9u7' },
+];
+const BADGES = ['Top 1% for reviews in PA', 'Platinum Allergan member', 'Presidential level · Galderma', 'Physician monitored', '25,000+ patients'];
+const LEGAL = [L('Terms of Use', '/policies#terms'), L('Privacy', '/policies#privacy'), L('HIPAA Notice', '/policies#hipaa'), L('SMS Terms', '/policies#sms'), L('Accessibility', '/policies#accessibility'), L('Copyright Notice', '/policies#copyright'), L('Site Map', 'Avere Site Map.dc.html')];
+
+class Component extends DCLogic {
+  state = { phone: '', joined: false };
+  renderVals() {
+    return {
+      cols: COLS, offices: OFFICES, badges: BADGES, legal: LEGAL, year: new Date().getFullYear(),
+      phone: this.state.phone, setPhone: e => this.setState({ phone: e.target.value }),
+      notJoined: !this.state.joined, joined: this.state.joined,
+      join: () => this.state.phone.replace(/\D/g, '').length >= 10 && this.setState({ joined: true }),
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--subtop:107px}@media(max-width:1079px){:root{--subtop:98px}}
+body{margin:0;background:#fff;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+@keyframes avMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="about" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Team hero" style="background:radial-gradient(ellipse 60% 70% at 85% 30%, #FFE3E3 0%, rgba(255,227,227,0) 70%), #FFF5F5;position:relative;overflow:hidden">
+    <img src="assets/avere-logo-black.png" alt="" style="position:absolute;right:-8%;bottom:-20%;width:min(1100px,100vw);opacity:.05;pointer-events:none">
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(20px,4vw,32px) clamp(56px,7vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="/" style="color:#6E5F64">Home</a><span>/</span><span style="color:#2B2226">Our Team</span></div>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(40.3px,5vw,74.9px);line-height:1.1;margin:0;letter-spacing:-.02em">Avere Beauty Team</h1>
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(20.2px,2.2vw,28.8px);color:#B04A62;line-height:1.1;letter-spacing:-.02em">to have beauty</span>
+        <p style="font-size:18px;line-height:1.65;color:#4A3B40;margin:0;max-width:560px;text-wrap:pretty">We are a group of clinicians and medical professionals, local to Pittsburgh, who believe in self-care, beauty, and confidence!</p>
+        <p style="font-size:16px;line-height:1.65;color:#6E5F64;margin:0;max-width:560px;text-wrap:pretty">At Avere Beauty, we believe you have the power to look as good as you feel. With our anti-aging treatments and beauty services, we offer you a chance to revitalize and refresh your looks.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#team" style="background:#2B2226;color:#fff;padding:0 30px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#B04A62;color:#fff">Meet the team</a>
+          <a href="#join" style="border:1px solid #2B2226;padding:0 28px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#fff;color:#2B2226">Join our team</a>
+        </div>
+      </div>
+      <div style="position:relative;padding:clamp(20px,3vw,40px) 0 0 clamp(20px,3vw,40px)">
+        <div style="position:absolute;left:0;top:0;right:clamp(20px,3vw,40px);bottom:clamp(20px,3vw,40px);border:1px solid #EFC3C7;border-radius:24px"></div>
+        <div style="position:relative;width:100%;aspect-ratio:11/10;border-radius:24px;overflow:hidden;background:#FFE3E3"><image-slot id="team-hero" src="https://static.wixstatic.com/media/903d63_2ea0066f110849b9b60913b8a517e53a~mv2.png/v1/fill/w_1100,h_1000,al_c,q_85/team.png" shape="rect" placeholder="Full team group photo"></image-slot></div>
+        <span style="position:absolute;right:0;top:12%;background:#fff;border-radius:999px;padding:10px 18px;font-family:'Poppins',sans-serif;font-size:16px;box-shadow:0 12px 40px rgba(176,74,98,.14);letter-spacing:-.02em">Avere means “to have”</span>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:#2B2226;color:#FFE3E3;overflow:hidden;padding:18px 0">{{ marquee }}</div>
+
+  <section data-screen-label="Story" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:12px;align-items:end">
+      <div style="width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#FFE3E3"><image-slot id="team-story-room" shape="rect" placeholder="Treatment room, styled and lit"></image-slot></div>
+      <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#FFE3E3"><image-slot id="team-story-detail" src="https://static.wixstatic.com/media/903d63_24a51d18d7c849a984bed99e9da2ab5b~mv2.jpg/v1/fill/w_500,h_500,al_c,q_85/b.jpg" shape="rect" placeholder="Detail: products or decor"></image-slot></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">Why we started</div>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Genuine aesthetics, minus the sterile room</h2>
+      <p style="font-size:17px;line-height:1.7;color:#4A3B40;margin:0;text-wrap:pretty">Pittsburgh has other medspas, but none that represented the practice of genuine aesthetics we believed in. Neurotoxins and dermal fillers are powerful tools used to maintain and improve our appearance, and we wanted to provide these resources in a comfortable environment contrary to the sterile room of a traditional medspa. Avere Beauty is a place to go to relax, unwind, and leave feeling new.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Founder" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;background:repeating-radial-gradient(circle at 0% 100%, rgba(176,74,98,0) 0 46px, rgba(176,74,98,.13) 46px 47px), #FFE3E3;border-radius:clamp(24px,4vw,40px);padding:clamp(24px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,56px);align-items:center;overflow:hidden">
+      <div style="position:relative;padding:0 0 32px 32px;max-width:520px;width:100%">
+        <div style="position:absolute;left:0;top:32px;right:32px;bottom:0;border:1px solid #D99AA6;border-radius:24px"></div>
+        <div style="position:relative;width:100%;aspect-ratio:5/6;border-radius:24px;overflow:hidden;background:#FFF5F5"><image-slot id="team-founder" src="https://static.wixstatic.com/media/903d63_13bd4ec93d634496ba9d9a62bda3ce6f~mv2.png/v1/fill/w_900,h_1080,al_c,q_85/alyssa.png" shape="rect" placeholder="Alyssa Luciano portrait"></image-slot></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">Owner | Injector</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(31.7px,3.6vw,51.8px);line-height:1.1;margin:0;letter-spacing:-.02em">Alyssa Luciano, RN</h2>
+        <p style="font-size:17px;line-height:1.7;color:#4A3B40;margin:0;text-wrap:pretty">With a background of over 15 years in ICU nursing, Alyssa initially explored aesthetics as a personal hobby. Her natural affinity for injection techniques and a deep understanding of facial anatomy quickly revealed her innate talent within the beauty industry. Her dedication to fostering an informed, transparent, and relaxed environment for aesthetic treatments has not only attracted a faithful clientele of over 20,000 patients, but has also led to the remarkable growth of Avere Beauty.</p>
+        <p style="font-size:17px;line-height:1.7;color:#4A3B40;margin:0;text-wrap:pretty">Alyssa has successfully expanded Avere Beauty into a thriving team of 20 talented &amp; dedicated women, all committed to helping others become the most confident versions of themselves. Alyssa lives in Pittsburgh with her 4 daughters, 3 dogs, and many chickens.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#D99AA6;border:1px solid #D99AA6;border-radius:20px;overflow:hidden;max-width:440px;margin-top:8px">
+          <div style="background:#FFF5F5;padding:16px 20px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:27.2px;line-height:1.1;letter-spacing:-.02em">20,000+</span><span style="font-size:12px;font-weight:700;color:#6E5F64">Patients</span></div>
+          <div style="background:#FFF5F5;padding:16px 20px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:27.2px;line-height:1.1;letter-spacing:-.02em">15+ yrs</span><span style="font-size:12px;font-weight:700;color:#6E5F64">ICU nursing</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Leadership" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px);display:flex;flex-direction:column;gap:40px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Leadership</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px">
+      <sc-for list="{{ leaders }}" as="p" hint-placeholder-count="3">
+        <div style="border:1px solid #F4DADC;border-radius:28px;padding:12px 12px 28px;display:flex;flex-direction:column;gap:10px;background:#fff">
+          <div style="{{ photoStyle }}"><image-slot id="team-{{ p.slug }}" src="{{ p.img }}" shape="rect" placeholder="{{ p.name }} headshot"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding:10px 16px 0">
+            <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62">{{ p.role }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:27.2px;line-height:1.1;letter-spacing:-.02em">{{ p.name }}</span>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:#6E5F64;text-wrap:pretty">{{ p.bio }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="team" data-screen-label="Team grid" style="background:repeating-radial-gradient(circle at 100% 0%, rgba(176,74,98,0) 0 56px, rgba(176,74,98,.09) 56px 57px), #FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Meet the team</h2>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64">Clinicians, injectors, estheticians &amp; medical professionals serving Pittsburgh clients.</p>
+        </div>
+        <div style="display:flex;gap:4px;padding:4px;background:#fff;border:1px solid #F4DADC;border-radius:999px;flex-wrap:wrap">
+          <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+            <button onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,260px),1fr));gap:clamp(10px,2vw,16px);align-items:start">
+        <sc-for list="{{ members }}" as="m" hint-placeholder-count="8">
+          <div style="background:#fff;border-radius:26px;padding:10px 10px 20px;display:flex;flex-direction:column;gap:8px">
+            <div style="{{ photoStyle }}"><image-slot id="team-{{ m.slug }}" src="{{ m.img }}" shape="rect" placeholder="{{ m.name }} headshot"></image-slot></div>
+            <div style="display:flex;flex-direction:column;gap:6px;padding:10px 14px 0">
+              <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62">{{ m.role }}</span>
+              <span style="font-family:'Poppins',sans-serif;font-size:22.4px;line-height:1.05;letter-spacing:-.02em">{{ m.name }}</span>
+              <sc-if value="{{ m.open }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:4px 0 0;font-size:14px;line-height:1.6;color:#6E5F64;text-wrap:pretty">{{ m.bio }}</p>
+              </sc-if>
+              <sc-if value="{{ m.canToggle }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ m.toggle }}" style="align-self:flex-start;min-height:44px;padding:0 4px 0 0;background:none;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:14px;font-weight:600;color:#2B2226">{{ m.label }}</button>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" data-screen-label="Join" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:stretch">
+    <div style="background:#2B2226;color:#FFF5F5;border-radius:36px;padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;gap:18px;justify-content:space-between;min-height:340px;position:relative;overflow:hidden">
+      <img src="assets/avere-logo-black.png" alt="" style="position:absolute;right:-20%;bottom:-18%;width:90%;opacity:.08;filter:invert(1);pointer-events:none">
+      <div style="position:relative;display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7">Careers</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(27.4px,2.9vw,40.3px);line-height:1.1;margin:0;letter-spacing:-.02em">Join our team</h2>
+      </div>
+      <a href="https://www.averebeauty.com/joinourteam" style="position:relative;align-self:flex-start;background:#FFE3E3;color:#2B2226;padding:0 28px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#fff;color:#2B2226">See open roles →</a>
+    </div>
+    <div style="background:repeating-radial-gradient(circle at 100% 100%, rgba(176,74,98,0) 0 46px, rgba(176,74,98,.13) 46px 47px), #FFE3E3;border-radius:36px;padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;gap:18px;justify-content:space-between;min-height:340px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">For clinicians</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(27.4px,2.9vw,40.3px);line-height:1.1;margin:0;letter-spacing:-.02em">Spend a day as an injector</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40;max-width:460px">With 1-on-1 education, you'll get a chance to spend a day with one of our skilled injectors.</p>
+      </div>
+      <a href="https://www.averebeauty.com/trainings" style="align-self:flex-start;border:1px solid #2B2226;padding:0 26px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#fff;color:#2B2226">Shadowing program →</a>
+    </div>
+  </section>
+
+  <section id="book" data-screen-label="Book" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;border-top:1px solid #F4DADC;padding-top:56px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(27.4px,2.9vw,40.3px);line-height:1.1;margin:0;letter-spacing:-.02em">Book with our team</h2>
+        <a href="tel:4129527592" style="font-size:15px;font-weight:600">412-952-7592</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px">
+        <sc-for list="{{ locs }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.book }}" style="border:1px solid #F4DADC;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,background .2s" style-hover="transform:translateY(-3px);background:#FFF5F5;color:#2B2226">
+            <span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1;letter-spacing:-.02em">{{ l.name }}</span>
+            <span style="font-size:14px;line-height:1.5;color:#6E5F64">{{ l.addr }}<br>{{ l.city }}</span>
+            <span style="font-size:14px;font-weight:600;padding-top:8px">Book here →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book with our team" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;photoShape&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;arch&quot;,&quot;rounded&quot;,&quot;circle&quot;],&quot;default&quot;:&quot;arch&quot;,&quot;tsType&quot;:&quot;'arch'|'rounded'|'circle'&quot;},&quot;showAllBios&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const P = (id, ext = 'jpg', w = 600, h = 750) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/p.${ext}`;
+const LEADERS = [
+  { name: 'Dr. Jason Luciano', role: 'Medical Director', img: P('903d63_4cc2df4176f64e7782dd1f79cb2edf9c~mv2.jpg'), bio: 'Dr. Luciano is one of the top performing general surgeons in Pittsburgh and a graduate of Rutgers University. Through his work in medicine, he recognized a growing gap in access to high-quality aesthetic care, with many dermatology clinics booking months out for appointments. When he saw the exceptional talent and vision Alyssa brought to the field of aesthetics, he decided to help with the safety and oversight of the practice. As Medical Director, Dr. Luciano ensures that every service at Avere Beauty is performed with the highest medical standards.' },
+  { name: 'Frank Udavcak', role: 'Chief Operations Officer', img: P('903d63_ca9e9114cbee4643b43c3641cdc85793~mv2.jpg'), bio: "Frank has spent more than 15 years leading complex creative and business projects by assembling the right teams to bring ambitious visions to life. At just 17, he was directing creative campaigns for international artist Wiz Khalifa and later on, national pharmaceutical campaigns. At Avere Beauty, Frank applies the same mindset—envisioning what something can become and reverse-engineering the path to make it real. At Avere Beauty, that vision is Alyssa's - to provide skin care solutions through aesthetics and amplify natural beauty." },
+  { name: 'Natalie Sharp', role: 'Operations Director', img: P('903d63_ce20481b464c45269c3c6e0512471f98~mv2.avif', 'avif'), bio: 'After graduating from Penn State, Natalie became an executive assistant to an affluent family where she wore many hats managing marketing, communications, and everyday operations. Now she gives us her best and more as she skyrockets her career.' },
+];
+const TEAM = [
+  ['medical', 'Amanda Karlo', 'NP | Intake Coordinator', '4f1ed5_535dfad6334345a2894074cdbd8be686~mv2.jpg', 'Amanda has been a nurse for 10 years, spending most of her career in intensive care and cardiology before obtaining her Family Nurse Practitioner Certificate in 2022. She loves working alongside the best injectors keeping our clients safe, all while enhancing their natural beauty.'],
+  ['medical', 'Madelyn Ensslin', 'NP | Medical Weight Loss', '4f1ed5_78d0dd17d6d9488c8e32f7d94f6f9773~mv2.jpg', 'Maddy is a nurse practitioner at Avere Beauty, where she manages the medical weight loss program. She also practices Addiction Medicine outside of Avere and enjoys the contrast between her specialties. While she offers many treatments, medical weight loss is her favorite.'],
+  ['inject', 'Natalie Lombardo', 'NP | Injector', '4f1ed5_81d2792914a648ac8a3b8ff92e940fc0~mv2.jpg', 'Natalie is a dermatology nurse practitioner who began her career in oncology before finding her calling in skin health and aesthetics. She is passionate about helping patients achieve healthy, confident skin while providing personalized, thoughtful care.'],
+  ['inject', 'Anna David', 'PA-C | Injector', '4f1ed5_d2dd6018e08042d1b270dd016c1c5beb~mv2.jpg', 'Anna is a Physician Assistant at Avere Beauty who combines advanced clinical training with a passion for aesthetics and enhancement. Her background in gastroenterology and liver transplant medicine shapes her focus on precision, safety, and patient-centered care, while delivering natural-looking results.'],
+  ['inject', 'Cait Lazzaro', 'RN | Injector', '4f1ed5_a7de7e5affde45a8946abb22bd038fc7~mv2.jpg', 'Cait is a registered nurse with a decade of experience across specialties including geriatrics, pediatrics, reproductive endocrinology, infertility, and quality assurance. Inspired by her own experience, she began aesthetic nursing in 2022 and is passionate about helping clients feel confident through personalized care.'],
+  ['inject', 'Ravyn Patrick', 'RN | Injector', '4f1ed5_fe9cd11e8c04448db0e10e87ae6a3068~mv2.jpg', 'Ravyn began her nursing career after graduating from Waynesburg University and spending two years in pediatrics before discovering her passion for aesthetics through personal experience. She became an aesthetic nurse in 2022 and loves helping clients feel more confident while enhancing their natural beauty.'],
+  ['inject', 'Lindsey Hoffman', 'RN | Injector', '4f1ed5_7cf8b8c2617e49dc8067d7c3eeee0144~mv2.jpg', 'Lindsey has been with Avere Beauty since 2024 and brings a strong background in ICU and oncology nursing, including several years as an ICU travel nurse in Arizona. A former Avere client, she was drawn to aesthetics through its blend of science, artistry, and patient confidence.'],
+  ['inject', 'Dylan Wolfe', 'RN | Injector', '4f1ed5_dd9539ffa960481a80a04df389fe3f93~mv2.jpg', 'Dylan is a nurse injector at Avere Beauty who combines clinical expertise with a passion for aesthetics and enhancement. His background in the neonatal ICU shaped his focus on precision and patient-centered care while delivering thoughtful, natural-looking results.'],
+  ['inject', 'Gina Romano', 'RN | Injector', '4f1ed5_caaa136546f543b8ac3149dd908b0ba6~mv2.jpg', 'Gina has a background in orthopedics and sports medicine and is currently pursuing her nurse practitioner degree. She was drawn to aesthetics through her passion for helping others feel confident while combining clinical skill with a more creative, patient-focused approach.'],
+  ['inject', 'Bailey Haberlein', 'RN | Injector', '4f1ed5_214a6d6f9b9944d2a627f9cdc4327c8b~mv2.jpg', 'Bailey began her nursing career in the PICU at Children’s Hospital before transitioning into aesthetics. She also holds a Master of Science in Health Informatics, reflecting her passion for learning and growth. She is committed to providing personalized care while helping clients achieve natural, confidence-boosting results.'],
+  ['inject', 'Celia Ruth', 'RN | Injector', '4f1ed5_22a38d12d8aa4b2e80921eda38869e48~mv2.jpg', 'Celia is a Registered Nurse and University of Pittsburgh School of Nursing graduate. She is passionate about delivering safe, personalized care while creating a welcoming and supportive experience for every client. Her compassionate approach helps clients feel comfortable and confident throughout their aesthetic journey.'],
+  ['esth', 'Paige Salters', 'Medical Esthetician', '4f1ed5_b9cd6dd0ae164e2c9cd3625d1d2b2719~mv2.jpg', 'Paige joined the team as our premiere esthetician. Providing luxury esthetics experiences in Pittsburgh, she specializes in facials, brow lamination, and more. Using her own skin experiences as drive for creating a perfect regime, Paige tailors your treatment plan exclusively to you.'],
+  ['esth', 'Cheyenne Tolon', 'Medical Esthetician', '4f1ed5_e5aea7f87c5e4e0f8c246631bc3cc4d2~mv2.jpg', 'Cheyenne has been a medical aesthetician with Avere Beauty since 2023, specializing in skin health and acne revision. She offers advanced skincare treatments, brows and lash lifts, laser hair removal, and cryotherapy while helping clients achieve clear, healthy skin.'],
+  ['studio', 'Sophie Brinkman', 'Executive Assistant', '4f1ed5_7bca361045444a60a1003cb5c640e367~mv2.jpg', 'Sophie is an Executive Assistant with a passion for beauty and the business behind it. Since 2020, she has worked in the beauty industry, providing behind-the-scenes support that helps teams and brands run smoothly.'],
+  ['studio', 'Molley Magnani', 'Front Desk Coordinator', '4f1ed5_62170206b9e04e06b9faddab0a074d7f~mv2.png', 'Molley is a member of the Avere Beauty team, dedicated to providing a seamless, elevated client experience. She is passionate about beauty, professionalism, and supporting Avere’s commitment to quality, care and confidence.'],
+].map(([g, name, role, id, bio]) => ({ g, name, role, bio, img: P(id, id.endsWith('png') ? 'png' : 'jpg') }));
+const FILTERS = [['all', 'All'], ['inject', 'Injectors'], ['medical', 'Nurse practitioners'], ['esth', 'Esthetics'], ['studio', 'Studio']];
+const MARQ = ['Clinicians', 'Injectors', 'Nurse Practitioners', 'Estheticians', 'Medical Professionals', 'Local to Pittsburgh'];
+const LOCS = [
+  { name: 'Lawrenceville', addr: '3453 Butler Street', city: 'Pittsburgh, PA 15201', book: 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa' },
+  { name: 'Cranberry', addr: '179 Scharberry Ln', city: 'Mars, PA 16046', book: '#' },
+  { name: 'Murrysville', addr: '5100 Old William Penn Hwy, STE 3', city: 'Export, PA 15632', book: 'https://square.site/book/LRK1T17YQYTVG/avere-beauty-murrysville-export-pa' },
+  { name: 'Blawnox', addr: '307 Freeport Road', city: 'Blawnox, PA 15238', book: '#' },
+];
+const slug = n => n.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+const RADII = { arch: '24px', rounded: '18px', circle: '50%' };
+
+class Component extends DCLogic {
+  state = { filter: 'all', open: {} };
+  renderVals() {
+    const { filter, open } = this.state;
+    const shape = this.props.photoShape ?? 'rounded';
+    const always = this.props.showAllBios ?? false;
+    return {
+      marquee: this.marquee || (this.marquee = React.createElement('div', { style: { display: 'flex', width: 'max-content', animation: 'avMarquee 40s linear infinite' } },
+        [0, 1].map(k => React.createElement('div', { key: k, style: { display: 'flex', gap: 40, paddingRight: 40, alignItems: 'center', fontFamily: "'Poppins',sans-serif", fontSize: 30, whiteSpace: 'nowrap' } },
+          [...MARQ, ...MARQ].flatMap((m, i) => [React.createElement('span', { key: 'm' + i }, m), React.createElement('span', { key: 'd' + i, style: { color: '#B04A62', fontSize: 30 } }, '·')]))))),
+      photoStyle: { width: '100%', aspectRatio: shape === 'circle' ? '1' : '4/5', borderRadius: RADII[shape] || RADII.rounded, overflow: 'hidden', background: '#FFE3E3' },
+      leaders: LEADERS.map(p => ({ ...p, slug: slug(p.name) })),
+      filters: FILTERS.map(([k, label]) => ({ label, pick: () => this.setState({ filter: k }), style: { padding: '10px 18px', borderRadius: 999, border: 'none', cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 500, background: filter === k ? '#2B2226' : 'transparent', color: filter === k ? '#fff' : '#2B2226', transition: 'all .2s' , minHeight: 44 } })),
+      members: TEAM.filter(m => filter === 'all' || m.g === filter).map(m => {
+        const o = always || !!open[m.name];
+        return { ...m, slug: slug(m.name), open: o, canToggle: !always, label: o ? 'Close −' : 'Read bio +', toggle: () => this.setState(s => ({ open: { ...s.open, [m.name]: !s.open[m.name] } })) };
+      }),
+      locs: LOCS,
+    };
+  }
+}
+</script>
+</body>
+</html>

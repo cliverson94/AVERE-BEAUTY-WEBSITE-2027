@@ -1,0 +1,335 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/our-story",
+      "permanent": true
+    },
+    {
+      "source": "/joinourteam",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/fall-promotion",
+      "destination": "/promos",
+      "permanent": true
+    },
+    {
+      "source": "/botox-1",
+      "destination": "/botox",
+      "permanent": true
+    },
+    {
+      "source": "/jeuveau",
+      "destination": "/botox",
+      "permanent": true
+    },
+    {
+      "source": "/intense-pulsed-light-face",
+      "destination": "/ipl",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-tetra-coolpeel",
+      "destination": "/tetra-coolpeel",
+      "permanent": true
+    },
+    {
+      "source": "/skinwavehydrafacial",
+      "destination": "/hydrafacial",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/Avere%20Home%20A.dc.html"
+    },
+    {
+      "source": "/team",
+      "destination": "/Avere%20Team.dc.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/Avere%20Contact.dc.html"
+    },
+    {
+      "source": "/membership",
+      "destination": "/Avere%20VIP%20Membership.dc.html"
+    },
+    {
+      "source": "/love-lasers",
+      "destination": "/Avere%20Love%20Lasers.dc.html"
+    },
+    {
+      "source": "/pittsburgh-medical-spa",
+      "destination": "/Avere%20Pittsburgh%20Medical%20Spa.dc.html"
+    },
+    {
+      "source": "/bridal-experience",
+      "destination": "/Avere%20Bridal%20Experience.dc.html"
+    },
+    {
+      "source": "/scar-revisions",
+      "destination": "/Avere%20Scar%20Revisions.dc.html"
+    },
+    {
+      "source": "/cleft-lip-repair",
+      "destination": "/Avere%20Cleft%20Lip%20Repair.dc.html"
+    },
+    {
+      "source": "/advanced-acne-treatments",
+      "destination": "/Avere%20Advanced%20Acne.dc.html"
+    },
+    {
+      "source": "/excessive-sweating-hyperhydrosis-treatment",
+      "destination": "/Avere%20Excessive%20Sweating.dc.html"
+    },
+    {
+      "source": "/tmj-treatment-pittsburgh",
+      "destination": "/Avere%20TMJ%20Treatment.dc.html"
+    },
+    {
+      "source": "/weight-loss",
+      "destination": "/Weight%20Loss%20Consult%20Landing.dc.html"
+    },
+    {
+      "source": "/our-services",
+      "destination": "/Avere%20Injectables.dc.html"
+    },
+    {
+      "source": "/botox",
+      "destination": "/Avere%20Service%20Page%20v2.dc.html"
+    },
+    {
+      "source": "/cryoskin",
+      "destination": "/Avere%20CryoSkin.dc.html"
+    },
+    {
+      "source": "/dermal-fillers",
+      "destination": "/Avere%20Dermal%20Fillers.dc.html"
+    },
+    {
+      "source": "/kybella",
+      "destination": "/Avere%20Kybella.dc.html"
+    },
+    {
+      "source": "/pdo-threads",
+      "destination": "/Avere%20PDO%20Threads.dc.html"
+    },
+    {
+      "source": "/rha",
+      "destination": "/Avere%20RHA%20Filler.dc.html"
+    },
+    {
+      "source": "/skinpen-microneedling",
+      "destination": "/Avere%20SkinPen%20Microneedling.dc.html"
+    },
+    {
+      "source": "/subnovii",
+      "destination": "/Avere%20Subnovii.dc.html"
+    },
+    {
+      "source": "/versa",
+      "destination": "/Avere%20Versa.dc.html"
+    },
+    {
+      "source": "/virtuerf",
+      "destination": "/Avere%20VirtueRF.dc.html"
+    },
+    {
+      "source": "/laser-treatments",
+      "destination": "/Avere%20Lasers.dc.html"
+    },
+    {
+      "source": "/tattoo-removal",
+      "destination": "/Avere%20Tattoo%20Removal.dc.html"
+    },
+    {
+      "source": "/laser-hair-removal",
+      "destination": "/Laser%20Hair%20Removal.dc.html"
+    },
+    {
+      "source": "/tetra-coolpeel",
+      "destination": "/Avere%20CoolPeel.dc.html"
+    },
+    {
+      "source": "/motusaz",
+      "destination": "/Avere%20MotusAZ.dc.html"
+    },
+    {
+      "source": "/esthetics",
+      "destination": "/Avere%20Esthetics.dc.html"
+    },
+    {
+      "source": "/skin-care-products",
+      "destination": "/Avere%20Skin%20Care%20Products.dc.html"
+    },
+    {
+      "source": "/before-after-gallery",
+      "destination": "/Avere%20Before%20and%20After.dc.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/Avere%20Blog.dc.html"
+    },
+    {
+      "source": "/post/:path*",
+      "destination": "/Avere%20Blog.dc.html"
+    },
+    {
+      "source": "/policies",
+      "destination": "/Avere%20Policies.dc.html"
+    },
+    {
+      "source": "/financing",
+      "destination": "/Avere%20Financing.dc.html"
+    },
+    {
+      "source": "/what-to-expect",
+      "destination": "/Avere%20What%20to%20Expect.dc.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/Avere%20Privacy%20Policy.dc.html"
+    },
+    {
+      "source": "/copyright-notice",
+      "destination": "/Avere%20Copyright%20Notice.dc.html"
+    },
+    {
+      "source": "/our-story",
+      "destination": "/Avere%20Our%20Story.dc.html"
+    },
+    {
+      "source": "/careers",
+      "destination": "/Avere%20Careers.dc.html"
+    },
+    {
+      "source": "/promos",
+      "destination": "/Avere%20Promos.dc.html"
+    },
+    {
+      "source": "/ipl",
+      "destination": "/Avere%20IPL.dc.html"
+    },
+    {
+      "source": "/hydrafacial",
+      "destination": "/Avere%20HydraFacial.dc.html"
+    },
+    {
+      "source": "/aftercare",
+      "destination": "/Avere%20Aftercare.dc.html"
+    },
+    {
+      "source": "/back-facial",
+      "destination": "/Avere%20Back%20Facial.dc.html"
+    },
+    {
+      "source": "/brow-and-lash",
+      "destination": "/Avere%20Brow%20and%20Lash.dc.html"
+    },
+    {
+      "source": "/chemical-peels",
+      "destination": "/Avere%20Chemical%20Peels.dc.html"
+    },
+    {
+      "source": "/dermaplaning",
+      "destination": "/Avere%20Dermaplaning.dc.html"
+    },
+    {
+      "source": "/express-facial",
+      "destination": "/Avere%20Express%20Facial.dc.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/Avere%20FAQ.dc.html"
+    },
+    {
+      "source": "/free-consultation",
+      "destination": "/Avere%20Free%20Consultation.dc.html"
+    },
+    {
+      "source": "/iv-therapy",
+      "destination": "/Avere%20IV%20Therapy.dc.html"
+    },
+    {
+      "source": "/injector-training",
+      "destination": "/Avere%20Injector%20Training.dc.html"
+    },
+    {
+      "source": "/laser-guide",
+      "destination": "/Avere%20Laser%20Guide.dc.html"
+    },
+    {
+      "source": "/laser-hair-removal-quote",
+      "destination": "/Avere%20Laser%20Hair%20Removal%20Quote.dc.html"
+    },
+    {
+      "source": "/locations",
+      "destination": "/Avere%20Locations.dc.html"
+    },
+    {
+      "source": "/new-patient-forms",
+      "destination": "/Avere%20New%20Patient%20Forms.dc.html"
+    },
+    {
+      "source": "/new-patient-offer",
+      "destination": "/Avere%20New%20Patient%20Offer.dc.html"
+    },
+    {
+      "source": "/quick-book",
+      "destination": "/Avere%20Quick%20Book.dc.html"
+    },
+    {
+      "source": "/refer-a-friend",
+      "destination": "/Avere%20Refer%20a%20Friend.dc.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/Avere%20Resources.dc.html"
+    },
+    {
+      "source": "/sculptra",
+      "destination": "/Avere%20Sculptra.dc.html"
+    },
+    {
+      "source": "/signature-facial",
+      "destination": "/Avere%20Signature%20Facial.dc.html"
+    },
+    {
+      "source": "/tour-the-spa",
+      "destination": "/Avere%20Tour%20the%20Spa.dc.html"
+    },
+    {
+      "source": "/tox-tuesdays",
+      "destination": "/Avere%20Tox%20Tuesdays.dc.html"
+    },
+    {
+      "source": "/claim-the-promo",
+      "destination": "/Claim%20the%20Promo.dc.html"
+    },
+    {
+      "source": "/lip-filler-still-deciding",
+      "destination": "/Lip%20Filler%20Still%20Deciding.dc.html"
+    },
+    {
+      "source": "/lip-filler",
+      "destination": "/Lip%20Filler.dc.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}

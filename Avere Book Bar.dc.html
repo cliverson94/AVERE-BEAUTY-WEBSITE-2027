@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0}*{box-sizing:border-box}a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}</style>
+</helmet>
+<sc-if value="{{ show }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ wrap }}">
+    <div style="display:grid;grid-template-columns:52px 52px minmax(0,1fr);gap:8px;align-items:center;font-family:'Lato',sans-serif">
+      <a href="tel:4129527592" aria-label="Call Avere Beauty" style="height:52px;border-radius:50%;border:1px solid #EFC3C7;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#2B2226">Call</a>
+      <a href="sms:4129527592" aria-label="Text Avere Beauty" style="height:52px;border-radius:50%;border:1px solid #EFC3C7;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#2B2226">Text</a>
+      <a href="{{ href }}" style="height:52px;border-radius:999px;background:#2B2226;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2" style-hover="background:#B04A62;color:#fff">
+        <span style="font-size:15px;font-weight:700">{{ label }}</span>
+        <span style="font-size:11px;color:#EFC3C7">{{ note }}</span>
+      </a>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;390px&quot;,&quot;height&quot;:&quot;120px&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Book now&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;note&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;4 Pittsburgh offices · 10% off first visit&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;after&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:480,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { y: 0, w: typeof window !== 'undefined' ? window.innerWidth : 390 };
+  componentDidMount() {
+    this.on = () => this.setState({ y: window.scrollY, w: window.innerWidth });
+    window.addEventListener('scroll', this.on, { passive: true });
+    window.addEventListener('resize', this.on);
+    this.on();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.on); window.removeEventListener('resize', this.on); }
+  renderVals() {
+    const { y, w } = this.state;
+    const nearEnd = typeof document !== 'undefined' && y + window.innerHeight > document.documentElement.scrollHeight - 700;
+    const show = w < 1080 && y > (this.props.after ?? 480) && !nearEnd;
+    return {
+      show,
+      href: this.props.href ?? 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa',
+      label: this.props.label ?? 'Book now',
+      note: this.props.note ?? '4 Pittsburgh offices · 10% off first visit',
+      wrap: { position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 40, padding: '10px 12px calc(10px + env(safe-area-inset-bottom))', background: 'rgba(255,255,255,.96)', backdropFilter: 'blur(10px)', borderTop: '1px solid #F4DADC', boxShadow: '0 -10px 30px rgba(43,34,38,.08)' },
+    };
+  }
+}
+</script>
+</body>
+</html>

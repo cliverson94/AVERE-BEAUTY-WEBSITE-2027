@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Client Policies | Cancellation, Payments, Refunds, HIPAA &amp; Privacy | Avere Beauty</title>
+<meta name="description" content="Avere Beauty client policies: 24-hour cancellation policy, payments and rewards, refunds, late arrivals, HIPAA notice of privacy practices, privacy, SMS terms and accessibility.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--subtop:107px}@media(max-width:1079px){:root{--subtop:98px}}
+body{margin:0;background:#fff;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#B04A62;text-decoration:none}a:hover{color:#8E3A4F}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:130px}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="about" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+  <section style="background:#FFF5F5;padding:clamp(36px,5vw,64px) 24px">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:14px">
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(37.4px,5vw,66.2px);line-height:1.1;margin:0;letter-spacing:-.02em">Our policies</h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#4A3B40;max-width:680px">Our policies allow us to provide a higher standard of service, therefore we have implemented them to provide you an exceptional experience.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px;padding-top:10px;max-width:900px">
+        <div style="background:#fff;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;letter-spacing:-.02em">24 hours</span><span style="font-size:13px;color:#6E5F64">notice to cancel with no charge</span></div>
+        <div style="background:#fff;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;letter-spacing:-.02em">Card on file</span><span style="font-size:13px;color:#6E5F64">to guarantee your appointment</span></div>
+        <div style="background:#fff;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:24px;letter-spacing:-.02em">All sales final</span><span style="font-size:13px;color:#6E5F64">credit toward other services when possible</span></div>
+      </div>
+    </div>
+  </section>
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(32px,5vw,64px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px;align-items:start">
+    <nav aria-label="Policies" style="position:sticky;top:140px;display:flex;flex-direction:column;gap:4px;border-left:2px solid #F4DADC;padding-left:16px">
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="10">
+        <a href="{{ t.href }}" style="font-size:15px;padding:11px 0;color:#2B2226" style-hover="color:#B04A62">{{ t.t }}</a>
+      </sc-for>
+    </nav>
+    <div style="grid-column:span 3;min-width:min(100%,560px);display:flex;flex-direction:column;gap:48px">
+      <sc-for list="{{ sections }}" as="s" hint-placeholder-count="4">
+        <article id="{{ s.id }}" style="display:flex;flex-direction:column;gap:14px;padding-bottom:40px;border-bottom:1px solid #F4DADC">
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(24.5px,2.9vw,34.6px);line-height:1.1;margin:0;letter-spacing:-.02em">{{ s.h }}</h2>
+          <sc-for list="{{ s.p }}" as="p" hint-placeholder-count="2">
+            <p style="margin:0;font-size:16px;line-height:1.7;color:#4A3B40">{{ p }}</p>
+          </sc-for>
+          <sc-if value="{{ s.hasList }}" hint-placeholder-val="{{ false }}">
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.6;color:#4A3B40">
+              <sc-for list="{{ s.list }}" as="l" hint-placeholder-count="3"><li>{{ l }}</li></sc-for>
+            </ul>
+          </sc-if>
+        </article>
+      </sc-for>
+      <p style="margin:0;font-size:15px;color:#6E5F64">Questions? Email <a href="mailto:info@averebeauty.com">info@averebeauty.com</a> or call <a href="tel:4129527592">412-952-7592</a>.</p>
+    </div>
+  </div>
+  <dc-import name="Avere Book Bar" label="Book now" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const S = [
+  { id: 'cancellation', h: 'Cancellation policy', p: ['In an effort to remain timely with our patient flow and allow for optimal client access, we have implemented the following cancellation policy.', 'Please understand that when you forget or cancel your appointment without giving enough notice, we miss the opportunity to fill the appointment time and clients on our waiting list miss the opportunity to receive services they need. We ask all new and established clients supply a credit card to have on file. All cards on file are added to the system via a secure electronic process that ensures the information is encrypted and remains secure.'],
+    list: ['Notification given at least 24 hours prior to your appointment will NOT receive a charge.', 'No-shows or notifications given less than 24 hours prior to appointment time will result in a cancellation fee. Appointment cancellation fees are relative to the service.', 'When reserving your appointment, you will be asked to use a credit card to guarantee the appointment, however you will not be charged a fee unless you cancel less than 24 hours prior or fail to show up.', 'Multiple appointment reminders will be sent to the number provided when you book. To cancel or reschedule, call 412-952-7592 or email info@averebeauty.com.', 'Please note, when you schedule an appointment, that is your acceptance of the policies.'] },
+  { id: 'late', h: 'Late arrivals', p: ['If you are not able to be on time, we will do our best to complete as much of the treatment as possible. In fairness to others, your treatment must end on time so the next scheduled patient’s service can begin on time. Depending on how late you arrive, you may be asked to reschedule your appointment for another day.'] },
+  { id: 'payments', h: 'Payments & rewards', p: ['We accept all major credit cards, cash, Care Credit, Allē gift cards & rewards, Aspire rewards, and Evolus Rewards (we partake in most aesthetic rewards programs). Depending on the treatment amount, payment options may be available as we are able to complete Care Credit applications.', 'Gift certificates are non-refundable and not a valid form of payment for a no-show or cancellation fees. We have physical gift cards in the office and e-gift cards on our website.'] },
+  { id: 'refunds', h: 'Refund policy', p: ['While we make every effort to make our customers as happy as possible, all sales are final and are non-transferable. As a medical office, we cannot offer refunds on any used or unused appointments/sessions for individual services, service packages or service series. However, if possible, we will allow our patients to use the charges towards other services and/or products. Avere Beauty reserves the right to review all refund requests and make a decision on any resolution.', 'Because of the nature of many of our services, there is no guarantee of absolute results. Our in-office consent forms will explain in detail. In the case of concerns after treatment, we will ask that you provide a photograph of the area of concern and the date of treatment, and we will schedule a follow-up appointment to evaluate further options.'] },
+  { id: 'hipaa', h: 'HIPAA Notice of Privacy Practices', p: ['Avere Beauty is committed to protecting your health information. Our Notice of Privacy Practices describes how medical information about you may be used and disclosed, and how you can get access to this information. Please review it carefully.', '[Full Notice of Privacy Practices to be provided by Avere Beauty’s compliance counsel.]'],
+    list: ['You have the right to request a copy of your medical records.', 'You have the right to request corrections to your records.', 'You have the right to request a paper copy of this notice at any office.', 'To file a privacy concern, contact our Privacy Officer at info@averebeauty.com.'] },
+  { id: 'privacy', h: 'Website privacy policy', p: ['[Website privacy policy covering cookies, analytics, forms and advertising pixels to be provided by counsel.] Forms on this website that collect health information are processed through HIPAA-compliant systems.'] },
+  { id: 'sms', h: 'SMS terms', p: ['By providing your mobile number and opting in, you agree to receive recurring appointment reminders and marketing text messages from Avere Beauty. Consent is not a condition of purchase. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help.'] },
+  { id: 'accessibility', h: 'Accessibility', p: ['Avere Beauty is committed to making our website usable for everyone, and we work toward WCAG 2.2 AA standards. If you have trouble using any part of this site, call 412-952-7592 or email info@averebeauty.com and we will help.'] },
+  { id: 'terms', h: 'Terms of use', p: ['[Website terms of use to be provided by counsel.] Content on this site is educational and not a substitute for a medical consultation. Individual results vary.'] },
+  { id: 'copyright', h: 'Copyright notice', p: ['All content, photography and before-and-after images on this site are the property of Avere Beauty and are shared with patient consent. Do not reproduce without permission.'] },
+];
+class Component extends DCLogic {
+  renderVals() {
+    return { toc: S.map(s => ({ t: s.h, href: '#' + s.id })), sections: S.map(s => ({ ...s, hasList: !!(s.list && s.list.length), list: s.list || [] })) };
+  }
+}
+</script>
+</body>
+</html>

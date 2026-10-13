@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Pre &amp; Aftercare Instructions | Botox, Filler, Laser &amp; Skin Treatments | Avere Beauty</title>
+<meta name="description" content="Pre-care and aftercare instructions for every Avere Beauty treatment: neurotoxins, fillers, laser hair removal, CoolPeel, IPL, microneedling, peels, HydraFacial, threads, Kybella and GLP-1 weight loss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--subtop:107px}@media(max-width:1079px){:root{--subtop:98px}}
+body{margin:0;background:#fff;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="background:#FFF5F5;padding:clamp(36px,5vw,72px) 24px">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(37.4px,5vw,69.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Pre &amp; aftercare</h1>
+      <p style="margin:0;font-size:18px;line-height:1.6;color:#4A3B40;max-width:640px">Pick your treatment to see exactly what to do before, the day of, and after. Save it, or text it to yourself.</p>
+      <input value="{{ query }}" onChange="{{ setQuery }}" placeholder="Search a treatment, e.g. Botox" style="max-width:520px;height:56px;border:1px solid #EFC3C7;border-radius:999px;padding:0 22px;font-size:16px;font-family:'Lato',sans-serif;background:#fff;color:#2B2226;outline:none">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="11">
+          <button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.name }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="{{ cur.id }}" data-screen-label="Guide" style="max-width:1320px;margin:0 auto;padding:clamp(40px,6vw,72px) 24px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">{{ cur.group }}</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.6vw,47.5px);line-height:1.1;margin:0;letter-spacing:-.02em">{{ cur.name }}</h2>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a href="{{ smsHref }}" style="border:1px solid #2B2226;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;min-height:46px" style-hover="background:#FFF5F5;color:#2B2226">Text me this</a>
+        <button onClick="{{ print }}" style="border:1px solid #2B2226;background:#fff;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;min-height:46px;cursor:pointer;font-family:'Lato',sans-serif;color:#2B2226">Print</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
+      <sc-for list="{{ cur.phases }}" as="p" hint-placeholder-count="4">
+        <div style="{{ p.style }}">
+          <span style="display:flex;align-items:center;gap:10px"><span style="{{ p.dot }}"></span><span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#8E3A4F">{{ p.when }}</span></span>
+          <sc-for list="{{ p.items }}" as="i" hint-placeholder-count="3">
+            <span style="display:flex;gap:10px;font-size:15px;line-height:1.5"><span style="color:#B04A62;flex-shrink:0">•</span>{{ i }}</span>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+    <div style="background:#2B2226;color:#FFF5F5;border-radius:24px;padding:22px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;align-items:center">
+      <span style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'Poppins',sans-serif;font-size:22.4px;color:#fff;letter-spacing:-.02em">Call us right away if…</span><span style="font-size:15px;line-height:1.55;color:#EFC3C7">{{ cur.call }}</span></span>
+      <a href="tel:4129527592" style="justify-self:start;background:#FFE3E3;color:#2B2226;padding:0 24px;border-radius:999px;font-size:15px;font-weight:700;min-height:50px;display:inline-flex;align-items:center;justify-content:center;text-align:center" style-hover="background:#fff;color:#2B2226">Call 412-952-7592</a>
+    </div>
+    <sc-if value="{{ cur.hasLink }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ cur.link }}" style="align-self:flex-start;font-size:15px;font-weight:600;border-bottom:1px solid #2B2226;padding-bottom:2px">Learn more about {{ cur.name }} →</a>
+    </sc-if>
+  </section>
+
+  <section data-screen-label="General" style="padding:0 24px clamp(48px,7vw,88px)">
+    <div style="max-width:1320px;margin:0 auto;background:repeating-radial-gradient(circle at 0% 100%, rgba(176,74,98,0) 0 46px, rgba(176,74,98,.12) 46px 47px), #FFE3E3;border-radius:36px;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(24.5px,2.9vw,36px);line-height:1.1;margin:0;letter-spacing:-.02em">For every appointment</h2>
+      <sc-for list="{{ general }}" as="g" hint-placeholder-count="4">
+        <div style="background:#fff;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:6px"><span style="font-weight:700;font-size:16px">{{ g.t }}</span><span style="font-size:15px;line-height:1.55;color:#4A3B40">{{ g.b }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book your next visit" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const G = [
+  { id: 'neurotoxins', name: 'Botox & neurotoxins', group: 'Injectables', link: '/botox',
+    before: ['Avoid alcohol, aspirin, ibuprofen and fish oil for 24–48 hours to reduce bruising', 'Come with a clean face, no makeup on the treatment area', 'Tell us if you are pregnant, breastfeeding or have a neuromuscular condition'],
+    day: ['Stay upright for 4 hours', 'Don’t rub, massage or press on treated areas', 'Gently move the treated muscles (frown, raise brows) for the first hour'],
+    after: ['No exercise, saunas or hot yoga for 24 hours', 'Avoid facials, lasers and face-down massage for 2 weeks', 'Results start in 3–5 days and peak at about 2 weeks'],
+    later: ['Book your 2-week check if something looks uneven', 'Plan maintenance every 3–4 months'],
+    call: 'you notice drooping of the eyelid or brow, difficulty swallowing or breathing, or vision changes.' },
+  { id: 'fillers', name: 'Lip & dermal fillers', group: 'Injectables', link: '/lip-filler',
+    before: ['If you get cold sores, tell us so antivirals can be started beforehand', 'Avoid alcohol, blood thinners and fish oil for 48 hours; arnica can help if you bruise easily', 'Avoid dental work 2 weeks before and after'],
+    day: ['Ice gently, 10 minutes on and 10 minutes off', 'Don’t press, massage or kiss the area hard', 'Skip makeup on the area until tomorrow'],
+    after: ['No exercise, heat, alcohol or facials for 48 hours', 'Sleep on your back with your head slightly elevated for 2 nights', 'Swelling peaks at 24–48 hours, then settles over a week'],
+    later: ['Your final result shows at 4 weeks', 'Book a touch-up visit if you’d like to adjust'],
+    call: 'skin turns white, grey, blue or dusky, pain gets worse instead of better, or you notice any vision change. We answer after hours.' },
+  { id: 'laser-hair-removal', name: 'Laser hair removal', group: 'Lasers', link: '/laser-hair-removal',
+    before: ['Shave the area 24 hours before — don’t wax, pluck or thread for 4 weeks', 'Avoid sun, tanning beds and self-tanner for 2 weeks', 'Arrive with clean skin, no deodorant, lotion or makeup on the area'],
+    day: ['Mild redness and bumps are normal for a few hours', 'Apply aloe or a cool compress if warm'],
+    after: ['Avoid hot showers, saunas and workouts for 24–48 hours', 'Use SPF 30+ daily on treated areas', 'Treated hairs shed over 1–3 weeks — you can gently exfoliate after a week'],
+    later: ['Keep sessions spaced 4–6 weeks apart', 'Shave only between sessions'],
+    call: 'you develop blisters, crusting or skin color changes.' },
+  { id: 'coolpeel', name: 'CoolPeel laser', group: 'Lasers', link: '/laser-treatments#coolpeel',
+    before: ['Avoid sun exposure and tanning beds for at least 2 weeks prior', 'Skin must be completely free of self-tanner', 'Avoid active ingredients (retinol, benzoyl peroxide, salicylic acid, Vitamin C, etc.) 1 week prior', 'Come in with a clean face, free of makeup'],
+    day: ['Expect a warm, sunburn-like feeling for the day', 'Keep the area hydrated with aloe during the day and a thin layer of bacitracin before bed', 'Rinse with cool or lukewarm water only, no harsh cleansers'],
+    after: ['Sleep on a clean pillowcase with your head slightly elevated', 'Avoid intense workouts, saunas and heavy sweating for 72 hours', 'Skin may feel like sandpaper for 3–4 days', 'Mineral makeup can be reapplied after 24–48 hours'],
+    later: ['Avoid sun exposure for a minimum of 2 weeks', 'Repeat monthly until results; maintain every 6–12 months'],
+    call: 'you notice blistering, oozing, signs of infection or severe pain.' },
+  { id: 'ipl', name: 'IPL & BBL', group: 'Lasers', link: '/laser-treatments#ipl',
+    before: ['No sun, tanning or self-tanner for 2–4 weeks', 'Stop retinoids and exfoliating acids 5–7 days before', 'Tell us about any photosensitizing medications'],
+    day: ['Mild redness and warmth are normal', 'Brown spots may darken — this is expected'],
+    after: ['Darkened spots flake off over 7–10 days — don’t pick', 'Use SPF 30+ daily and avoid direct sun', 'Skip hot tubs, saunas and intense exercise for 48 hours'],
+    later: ['Series are usually spaced about 4 weeks apart'],
+    call: 'you develop blisters, crusting or unexpected pain.' },
+  { id: 'tattoo-removal', name: 'Tattoo removal', group: 'Lasers', link: '/laser-treatments#tattoo-removal',
+    before: ['Avoid sun and tanning on the tattoo for 4 weeks', 'Shave the area if needed'],
+    day: ['Keep the dressing on as directed', 'Frosting, redness and swelling are normal'],
+    after: ['Keep clean and apply a thin layer of healing ointment', 'Don’t pick blisters or scabs', 'No swimming or soaking until healed'],
+    later: ['Wait 6–8 weeks between sessions', 'Protect the area with SPF once healed'],
+    call: 'you see signs of infection like increasing redness, heat, pus or fever.' },
+  { id: 'microneedling', name: 'SkinPen & VirtueRF microneedling', group: 'Skin', link: '',
+    before: ['Stop retinoids and exfoliating acids 5–7 days before', 'Avoid sun and tanning for 2 weeks', 'Tell us if you get cold sores'],
+    day: ['Skin will look pink, like a sunburn', 'Use only the gentle products we give you', 'No makeup for 24 hours'],
+    after: ['Avoid sweating, saunas and swimming for 48 hours', 'Use SPF 30+ and avoid direct sun', 'Resume actives after about 5–7 days'],
+    later: ['Collagen builds over weeks — results improve over 1–3 months'],
+    call: 'you notice signs of infection or unusual swelling.' },
+  { id: 'peels', name: 'Chemical peels', group: 'Skin', link: '',
+    before: ['Stop retinoids and exfoliants 5–7 days before', 'No waxing or threading on the face for a week'],
+    day: ['Skin may feel tight and look pink', 'Cleanse gently and moisturize'],
+    after: ['Peeling usually starts day 2–3 — don’t pick', 'Use SPF 30+ daily', 'Avoid heavy sweating for 48 hours'],
+    later: ['A customized series gives the best result'],
+    call: 'you notice blistering, oozing or severe irritation.' },
+  { id: 'hydrafacial', name: 'HydraFacial & facials', group: 'Skin', link: '',
+    before: ['Pause retinoids 48 hours before', 'Avoid waxing the face for a week'],
+    day: ['You can usually wear makeup the same day', 'Skin may be slightly pink for an hour'],
+    after: ['Wait 24 hours before exfoliants or retinoids', 'Keep up SPF and hydration'],
+    later: ['Monthly facials keep results going'],
+    call: 'you have a reaction that doesn’t settle within a day.' },
+  { id: 'threads', name: 'PDO threads', group: 'Injectables', link: '',
+    before: ['Avoid blood thinners and alcohol for 48 hours', 'Avoid dental work 2 weeks before and after'],
+    day: ['Mild tenderness, swelling and puckering are normal', 'Ice gently'],
+    after: ['Sleep on your back for a week', 'Avoid wide mouth opening, facial massage and strenuous exercise for 2 weeks'],
+    later: ['Results continue to improve as collagen builds'],
+    call: 'you notice increasing pain, redness, heat or a thread end poking through.' },
+  { id: 'kybella', name: 'Kybella', group: 'Injectables', link: '',
+    before: ['Avoid blood thinners and alcohol for 48 hours'],
+    day: ['Expect swelling, numbness and firmness under the chin', 'Ice as needed'],
+    after: ['Swelling can last up to a week', 'Sleep with your head elevated'],
+    later: ['Sessions are usually spaced 4–6 weeks apart'],
+    call: 'you have trouble swallowing, an uneven smile, or severe pain.' },
+  { id: 'weight-loss', name: 'GLP-1 weight loss', group: 'Wellness', link: '/weight-loss',
+    before: ['Share your full medical history and medications at intake', 'Do not use if you or your family have a history of MTC or MEN 2'],
+    day: ['Inject on the same day each week', 'Rotate injection sites'],
+    after: ['Eat smaller meals and stop when full', 'Stay well hydrated', 'Nausea is common early on and usually improves'],
+    later: ['Attend your follow-ups so your dose can be adjusted'],
+    call: 'you have severe stomach pain, persistent vomiting, a lump in the neck, or signs of an allergic reaction.' },
+];
+const PH = [['before', 'Before'], ['day', 'Day of'], ['after', 'First 48 hours & week'], ['later', 'Longer term']];
+const GENERAL = [['Arrive 10 minutes early', 'Especially for your first visit so we can complete intake.'], ['Clean skin', 'Come without makeup on the treatment area when possible.'], ['Tell us everything', 'Medications, supplements, pregnancy, cold sores and recent treatments all matter.'], ['SPF daily', 'Almost every treatment works better and heals better with sunscreen.']].map(([t, b]) => ({ t, b }));
+
+class Component extends DCLogic {
+  state = { sel: 'neurotoxins', query: '' };
+  componentDidMount() { const h = (location.hash || '').slice(1); if (G.some(g => g.id === h)) this.setState({ sel: h }); }
+  renderVals() {
+    const { sel, query } = this.state;
+    const q = query.trim().toLowerCase();
+    const list = G.filter(g => !q || (g.name + ' ' + g.group).toLowerCase().includes(q));
+    const g = G.find(x => x.id === sel) || G[0];
+    const txt = `Avere ${g.name} care:\n` + PH.map(([k, l]) => `${l}: ${g[k].join('; ')}`).join('\n');
+    return {
+      query, setQuery: e => { const v = e.target.value; const m = G.find(x => (x.name + ' ' + x.group).toLowerCase().includes(v.trim().toLowerCase())); this.setState({ query: v, ...(v && m ? { sel: m.id } : {}) }); },
+      tabs: list.map(x => ({ name: x.name, pick: () => this.setState({ sel: x.id }), style: { padding: '11px 18px', minHeight: 44, borderRadius: 999, cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 600, border: '1px solid ' + (x.id === sel ? '#2B2226' : '#EFC3C7'), background: x.id === sel ? '#2B2226' : '#fff', color: x.id === sel ? '#fff' : '#2B2226' } })),
+      cur: { ...g, hasLink: !!g.link, phases: PH.map(([k, when], i) => ({ when, items: g[k],
+        style: { borderRadius: 24, padding: 22, display: 'flex', flexDirection: 'column', gap: 10, background: i === 0 ? '#FFE3E3' : '#fff', border: '1px solid ' + (i === 0 ? '#FFE3E3' : '#F4DADC') },
+        dot: { width: 10, height: 10, borderRadius: '50%', background: ['#B04A62', '#D99AA6', '#EFC3C7', '#F4DADC'][i] } })) },
+      smsHref: 'sms:?&body=' + encodeURIComponent(txt),
+      print: () => window.print(),
+      general: GENERAL,
+    };
+  }
+}
+</script>
+</body>
+</html>

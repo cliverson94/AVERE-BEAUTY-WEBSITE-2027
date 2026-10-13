@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Which Laser Is Right for Me? | Laser Guide | Avere Beauty Pittsburgh</title>
+<meta name="description" content="Compare every laser treatment at Avere Beauty: what it treats, sessions, downtime, and which devices are at Lawrenceville, Murrysville and Cranberry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth}button{-webkit-tap-highlight-color:transparent}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="lasers" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Guide hero" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(28px,5vw,56px) clamp(16px,4vw,32px) clamp(32px,5vw,56px);display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64;flex-wrap:wrap"><a href="/" style="color:#6E5F64">Home</a><span>/</span><a href="/laser-treatments" style="color:#6E5F64">Laser Treatments</a><span>/</span><span style="color:#2B2226">Laser Guide</span></div>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,6vw,72px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance;max-width:900px">Not sure which laser is right for you?</h1>
+      <p style="margin:0;font-size:clamp(16px,2vw,18px);line-height:1.6;color:#4A3B40;max-width:640px">Pick what you want to treat and where you'd like to go. Every laser and skin device we offer is compared below, with the office that has it.</p>
+    </div>
+  </section>
+
+  <section id="pick" data-screen-label="Filters" style="max-width:1320px;margin:0 auto;padding:clamp(24px,4vw,40px) clamp(16px,4vw,32px) 8px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64;font-weight:700">1 · What do you want to treat?</span>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ concerns }}" as="c" hint-placeholder-count="12">
+          <button onClick="{{ c.toggle }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64;font-weight:700">2 · Which office?</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <sc-for list="{{ locTabs }}" as="l" hint-placeholder-count="4">
+          <button onClick="{{ l.pick }}" style="{{ l.style }}">{{ l.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 0;border-top:1px solid #F4DADC;border-bottom:1px solid #F4DADC">
+      <span style="font-family:'Poppins',sans-serif;font-size:clamp(18px,2.4vw,22px)">{{ summary }}</span>
+      <sc-if value="{{ hasFilters }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ clearAll }}" style="background:none;border:1px solid #2B2226;border-radius:999px;min-height:44px;padding:0 18px;cursor:pointer;font-family:'Lato',sans-serif;font-size:14px;font-weight:700;color:#2B2226">Clear</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <section id="compare" data-screen-label="Comparison chart" style="max-width:1320px;margin:0 auto;padding:16px clamp(16px,4vw,32px) clamp(48px,7vw,88px);display:flex;flex-direction:column;gap:16px">
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+          <div style="{{ r.card }}">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+              <span style="font-family:'Poppins',sans-serif;font-size:22px;line-height:1.15">{{ r.name }}</span>
+              <span style="{{ r.badgeStyle }}">{{ r.badge }}</span>
+            </div>
+            <span style="font-size:15px;line-height:1.5;color:#4A3B40">{{ r.bestFor }}</span>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#F4DADC;border:1px solid #F4DADC;border-radius:14px;overflow:hidden">
+              <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#6E5F64">Sessions</span><span style="font-size:14px;line-height:1.35">{{ r.sessions }}</span></div>
+              <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#6E5F64">Downtime</span><span style="font-size:14px;line-height:1.35">{{ r.downtime }}</span></div>
+              <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#6E5F64">Skin types</span><span style="font-size:14px;line-height:1.35">{{ r.skin }}</span></div>
+              <div style="background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#6E5F64">Offices</span><span style="font-size:14px;line-height:1.35">{{ r.locs }}</span></div>
+            </div>
+            <span style="font-size:13px;color:#6E5F64">Device: {{ r.devices }}</span>
+            <a href="{{ r.href }}" style="align-self:flex-start;min-height:44px;display:inline-flex;align-items:center;font-size:15px;font-weight:700;border-bottom:1px solid #2B2226">Learn more →</a>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="border:1px solid #F4DADC;border-radius:28px;overflow:hidden">
+        <div style="display:grid;grid-template-columns:1.2fr 1.9fr 1fr 1fr 1fr 1.2fr 1.3fr;background:#FFF5F5">
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Treatment</span>
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Best for</span>
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Sessions</span>
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Downtime</span>
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Skin types</span>
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Device</span>
+          <span style="padding:16px 18px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Offices</span>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+          <a href="{{ r.href }}" style="{{ r.row }}" style-hover="background:#FFF5F5;color:#2B2226">
+            <span style="padding:18px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Poppins',sans-serif;font-size:19px;line-height:1.15">{{ r.name }}</span><span style="{{ r.badgeStyle }}">{{ r.badge }}</span></span>
+            <span style="padding:18px;font-size:15px;line-height:1.5;color:#4A3B40">{{ r.bestFor }}</span>
+            <span style="padding:18px;font-size:14px;line-height:1.5">{{ r.sessions }}</span>
+            <span style="padding:18px;font-size:14px;line-height:1.5">{{ r.downtime }}</span>
+            <span style="padding:18px;font-size:14px;line-height:1.5">{{ r.skin }}</span>
+            <span style="padding:18px;font-size:14px;line-height:1.5">{{ r.devices }}</span>
+            <span style="padding:18px;font-size:14px;line-height:1.5">{{ r.locs }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
+    <p style="margin:0;font-size:14px;line-height:1.6;color:#6E5F64">Session counts and downtime vary by skin, hair and treatment area. Your provider confirms your plan at consultation.</p>
+  </section>
+
+  <section id="offices" data-screen-label="Devices by office" style="background:#2B2226;color:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,104px) clamp(16px,4vw,32px);display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:720px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">Devices by office</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,4vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0;color:#fff">Which machine is where</h2>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#EFC3C7">Tap an office to see its devices, or tap a device to see what it treats.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(110px,1.4fr) repeat(4,minmax(0,1fr));border:1px solid #4A3B40;border-radius:clamp(16px,3vw,24px);overflow:hidden">
+        <span style="padding:12px;background:#352A2E"></span>
+        <sc-for list="{{ matrixCols }}" as="c" hint-placeholder-count="4">
+          <button onClick="{{ c.pick }}" style="{{ c.style }}"><span style="font-size:clamp(12px,1.6vw,15px);font-weight:700">{{ c.short }}</span><span style="font-size:11px;opacity:.8">{{ c.note }}</span></button>
+        </sc-for>
+        <sc-for list="{{ matrix }}" as="m" hint-placeholder-count="5">
+          <button onClick="{{ m.pick }}" style="{{ m.labelStyle }}"><span style="font-family:'Poppins',sans-serif;font-size:clamp(14px,1.8vw,18px);line-height:1.2">{{ m.name }}</span><span style="font-size:12px;color:#C9A9B1">{{ m.type }}</span></button>
+          <sc-for list="{{ m.cells }}" as="x" hint-placeholder-count="4">
+            <span style="{{ x.cell }}"><span style="{{ x.dot }}">{{ x.q }}</span></span>
+          </sc-for>
+        </sc-for>
+      </div>
+      <div style="background:#352A2E;border-radius:clamp(16px,3vw,24px);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+          <span style="font-family:'Poppins',sans-serif;font-size:clamp(22px,3vw,30px);color:#fff">{{ detailTitle }}</span>
+          <span style="font-size:14px;color:#EFC3C7">{{ detailSub }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ detailItems }}" as="d" hint-placeholder-count="3">
+            <a href="{{ d.href }}" style="display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px;padding:10px 0;border-top:1px solid #4A3B40;color:#FFF5F5" style-hover="color:#EFC3C7">
+              <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:16px;font-weight:700">{{ d.title }}</span><span style="font-size:14px;color:#C9A9B1">{{ d.sub }}</span></span>
+              <span style="font-size:18px;color:#EFC3C7">→</span>
+            </a>
+          </sc-for>
+        </div>
+        <sc-if value="{{ detailBook }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ detailBookHref }}" style="align-self:flex-start;background:#fff;color:#2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#EFC3C7;color:#2B2226">{{ detailBookLabel }}</a>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Still unsure" style="max-width:1320px;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(16px,4vw,32px);display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0">Still not sure?</h2>
+    <p style="margin:0;font-size:16px;line-height:1.6;color:#4A3B40;max-width:600px">Book a free consultation. A laser specialist will look at your skin and recommend the right treatment and office.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="/free-consultation" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book a free consultation</a>
+      <a href="tel:4129527592" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700">Call 412-952-7592</a>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book a laser consult" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const BOOK = { L: 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa', M: 'https://square.site/book/LRK1T17YQYTVG/avere-beauty-murrysville-export-pa', C: '#' };
+const LOCS = [['L', 'Lawrenceville', 'Lawr.', ''], ['M', 'Murrysville', 'Murr.', ''], ['C', 'Cranberry', 'Cranb.', ''], ['F', 'Blawnox', 'Blawnox', 'Fox Chapel']];
+const DEV = [
+  { id: 'motus', name: 'MOTUS AZ+', type: 'Alexandrite + Nd:YAG', at: ['L'], href: '/motusaz' },
+  { id: 'evo', name: 'EVO Quantum', type: 'Multi-application laser', at: ['M'], href: '/laser-treatments#technology' },
+  { id: 'tetra', name: 'SmartXide Tetra', type: 'CO2 laser', at: ['L', 'M'], href: '/tetra-coolpeel' },
+  { id: 'toro', name: 'DEKA Toro', type: 'Pico / nano laser', at: ['L'], href: '/tattoo-removal' },
+  { id: 'bbl', name: 'Sciton BBL', type: 'BroadBand Light', at: ['C'], href: '/ipl' },
+  { id: 'moxi', name: 'Sciton Moxi', type: 'Fractional laser', at: ['C'], href: '/laser-treatments' },
+  { id: 'subnovii', name: 'Subnovii', type: 'Plasma pen', at: ['L', 'M'], href: '/subnovii' },
+  { id: 'hydra', name: 'HydraFacial', type: 'Hydradermabrasion', at: ['L', 'M'], href: '/hydrafacial' },
+  { id: 'skinpen', name: 'SkinPen', type: 'Microneedling', at: ['L', 'M', 'C', 'F'], href: '/skinpen-microneedling' }
+];
+const T = [
+  { id: 'hair', name: 'Laser Hair Removal', dev: ['motus', 'evo'], bestFor: 'Unwanted hair on the face and body, for men and women', sessions: '9 to 12, every 4 to 6 weeks', downtime: 'None', skin: 'All', href: '/laser-hair-removal', c: ['hair'] },
+  { id: 'facial', name: 'Laser Facial', dev: ['motus', 'evo'], bestFor: 'Breakouts, dullness and uneven tone', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'Ask at consult', href: '/laser-treatments#laser-facial', c: ['acne', 'glow', 'tone'] },
+  { id: 'ipl', name: 'IPL Photofacial', dev: ['motus', 'evo', 'bbl'], bestFor: 'Sun spots, rosacea, redness and uneven tone', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'Ask at consult', href: '/ipl', c: ['spots', 'redness', 'veins', 'tone'] },
+  { id: 'pig', name: 'Pigmentation', dev: ['motus', 'evo'], bestFor: 'Flat moles, sun spots and age spots', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'Ask at consult', href: '/laser-treatments#pigmentation', c: ['spots', 'moles', 'tone'] },
+  { id: 'vasc', name: 'Vascular Laser', dev: ['motus', 'evo'], bestFor: 'Spider veins and broken capillaries', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'Ask at consult', href: '/laser-treatments#vascular-laser', c: ['veins', 'redness'] },
+  { id: 'coolpeel', name: 'CoolPeel', dev: ['tetra'], bestFor: 'Fine lines, sun damage, texture, pores and mild scarring', sessions: 'Monthly, then every 6 to 12 months', downtime: '1 to 2 days of redness', skin: 'Caution on deeper tones', href: '/tetra-coolpeel', c: ['lines', 'texture', 'scars', 'spots', 'tone', 'stretch', 'laxity'] },
+  { id: 'co2', name: 'Full CO2 Resurfacing', dev: ['tetra'], bestFor: 'Deeper wrinkles, acne scars and loose skin', sessions: 'Often 1', downtime: 'About 1 to 2 weeks', skin: 'Caution on deeper tones', href: '/tetra-coolpeel#co2', c: ['lines', 'scars', 'laxity', 'texture'] },
+  { id: 'moxi', name: 'Moxi', dev: ['moxi'], bestFor: 'Early sun damage, uneven tone, texture and a fresh glow', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'Ask at consult', href: '/laser-treatments', c: ['tone', 'texture', 'spots', 'glow', 'lines'] },
+  { id: 'subnovii', name: 'Subnovii Plasma', dev: ['subnovii'], bestFor: 'Loose skin, fine lines and crepey texture, including around the eyes', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'Ask at consult', href: '/subnovii', c: ['laxity', 'lines', 'texture'] },
+  { id: 'hydra', name: 'HydraFacial', dev: ['hydra'], bestFor: 'Deep cleanse, hydration, congestion and dullness', sessions: 'Any time, often monthly', downtime: 'None', skin: 'All', href: '/hydrafacial', c: ['glow', 'acne', 'texture'] },
+  { id: 'skinpen', name: 'SkinPen Microneedling', dev: ['skinpen'], bestFor: 'Acne scars, texture, fine lines and stretch marks', sessions: 'Set at consultation', downtime: 'Set at consultation', skin: 'All', href: '/skinpen-microneedling', c: ['scars', 'texture', 'lines', 'stretch'] },
+  { id: 'tattoo', name: 'Tattoo Removal', dev: ['toro'], bestFor: 'Tattoos of every ink color, or fading for a cover-up', sessions: '4 to 10, every 6 to 8 weeks', downtime: 'Minimal', skin: 'All', href: '/tattoo-removal', c: ['tattoo'] }
+];
+const CONCERNS = [['hair', 'Unwanted hair'], ['spots', 'Sun & age spots'], ['redness', 'Redness & rosacea'], ['veins', 'Spider veins'], ['lines', 'Fine lines & wrinkles'], ['texture', 'Texture & pores'], ['scars', 'Acne scars'], ['acne', 'Breakouts'], ['tone', 'Uneven tone'], ['moles', 'Flat moles'], ['laxity', 'Loose skin'], ['stretch', 'Stretch marks'], ['glow', 'Dull skin'], ['tattoo', 'A tattoo']];
+const locsOf = t => [...new Set(t.dev.flatMap(d => DEV.find(x => x.id === d).at))];
+const locName = k => LOCS.find(l => l[0] === k)[1];
+class Component extends DCLogic {
+  state = { picks: [], loc: 'all', dev: null, w: typeof window !== 'undefined' ? window.innerWidth : 1200 };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); addEventListener('resize', this.onR); this.onR(); }
+  componentWillUnmount() { removeEventListener('resize', this.onR); }
+  renderVals() {
+    const { picks, loc, dev, w } = this.state;
+    const mobile = w < 820;
+    const chip = on => ({ minHeight: 44, padding: '0 16px', borderRadius: 999, cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 15, fontWeight: 500, border: '1px solid ' + (on ? '#2B2226' : '#EFC3C7'), background: on ? '#2B2226' : '#fff', color: on ? '#fff' : '#2B2226', transition: 'all .15s' });
+    const rows = T.map(t => {
+      const tl = locsOf(t), match = picks.length ? t.c.filter(c => picks.includes(c)).length : 0;
+      const here = loc === 'all' || tl.includes(loc);
+      const dim = (picks.length && !match) || !here;
+      return { t, tl, match, here, dim };
+    }).sort((a, b) => (a.dim - b.dim) || (b.match - a.match));
+    const shown = rows.filter(r => !r.dim).length;
+    const badgeFor = r => !r.here ? `Not at ${locName(loc)}` : r.match ? (r === rows[0] ? 'Best match' : 'Match') : '';
+    const out = rows.map(r => {
+      const badge = badgeFor(r);
+      return {
+        name: r.t.name, bestFor: r.t.bestFor, sessions: r.t.sessions, downtime: r.t.downtime, skin: r.t.skin, href: r.t.href,
+        devices: r.t.dev.map(d => DEV.find(x => x.id === d).name).join(', '),
+        locs: r.tl.map(locName).join(', '), badge,
+        badgeStyle: { display: badge ? 'inline-flex' : 'none', alignSelf: 'flex-start', whiteSpace: 'nowrap', fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 700, padding: '4px 10px', borderRadius: 999, background: r.here ? '#B04A62' : 'transparent', color: r.here ? '#fff' : '#6E5F64', border: r.here ? 'none' : '1px dashed #C9A9B1' },
+        card: { border: '1px solid ' + (r.match && r.here ? '#2B2226' : '#F4DADC'), borderRadius: 20, padding: 18, display: 'flex', flexDirection: 'column', gap: 12, opacity: r.dim ? .45 : 1, background: '#fff', transition: 'opacity .25s, border-color .25s' },
+        row: { display: 'grid', gridTemplateColumns: '1.2fr 1.9fr 1fr 1fr 1fr 1.2fr 1.3fr', borderTop: '1px solid #F4DADC', opacity: r.dim ? .4 : 1, transition: 'opacity .25s, background .15s', color: '#2B2226', background: r.match && r.here ? '#FFF9F9' : '#fff' }
+      };
+    });
+    const hasFilters = picks.length > 0 || loc !== 'all';
+    let detailTitle, detailSub, detailItems, detailBook = false, detailBookHref = '#', detailBookLabel = '';
+    if (dev) {
+      const d = DEV.find(x => x.id === dev);
+      detailTitle = d.name; detailSub = d.tbd ? 'Office to confirm' : d.at.length === LOCS.length ? 'Every office' : d.at.map(locName).join(' & ');
+      detailItems = T.filter(t => t.dev.includes(dev)).map(t => ({ title: t.name, sub: t.bestFor, href: t.href }));
+    } else {
+      const k = this.state.office || (loc === 'all' ? 'L' : loc);
+      const devs = DEV.filter(d => d.at.includes(k));
+      detailTitle = locName(k); detailSub = `${devs.length} device${devs.length === 1 ? '' : 's'}`;
+      detailItems = devs.length ? devs.map(d => ({ title: d.name, sub: T.filter(t => t.dev.includes(d.id)).map(t => t.name).join(', '), href: d.href })) : [{ title: 'Join the waitlist', sub: 'Be first to know when lasers arrive', href: '/membership' }];
+      if (BOOK[k] && BOOK[k] !== '#') { detailBook = true; detailBookHref = BOOK[k]; detailBookLabel = `Book in ${locName(k)}`; }
+    }
+    const activeLoc = dev ? null : (this.state.office || (loc === 'all' ? 'L' : loc));
+    return {
+      isMobile: mobile, isDesktop: !mobile,
+      concerns: CONCERNS.map(([k, label]) => ({ label, style: chip(picks.includes(k)), toggle: () => this.setState(s => ({ picks: s.picks.includes(k) ? s.picks.filter(x => x !== k) : [...s.picks, k] })) })),
+      locTabs: [['all', 'Any office'], ...LOCS.map(l => [l[0], l[1]])].map(([k, label]) => ({ label, style: chip(loc === k), pick: () => this.setState({ loc: k, dev: null, office: null }) })),
+      summary: !hasFilters ? `${T.length} laser & device treatments` : shown ? `${shown} treatment${shown === 1 ? '' : 's'} for you` : 'No match at this office. Try another.',
+      hasFilters, clearAll: () => this.setState({ picks: [], loc: 'all', dev: null }),
+      rows: out,
+      matrixCols: LOCS.map(([k, name, short, note]) => {
+        const on = activeLoc === k;
+        return { short: mobile ? short : name, note, pick: () => this.setState({ office: k, dev: null }), style: { minHeight: 56, padding: '10px 4px', border: 'none', borderLeft: '1px solid #4A3B40', cursor: 'pointer', fontFamily: "'Lato',sans-serif", background: on ? '#FFE3E3' : '#352A2E', color: on ? '#2B2226' : '#FFF5F5', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2, transition: 'all .2s' } };
+      }),
+      matrix: DEV.map(d => {
+        const on = dev === d.id;
+        return {
+          name: d.name, type: d.type,
+          pick: () => this.setState({ dev: on ? null : d.id }),
+          labelStyle: { minHeight: 60, padding: '10px 12px', border: 'none', borderTop: '1px solid #4A3B40', cursor: 'pointer', textAlign: 'left', fontFamily: "'Lato',sans-serif", background: on ? '#FFE3E3' : 'transparent', color: on ? '#2B2226' : '#FFF5F5', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2, transition: 'all .2s' },
+          cells: LOCS.map(([k]) => {
+            const has = d.at.includes(k), hl = on || activeLoc === k;
+            if (d.tbd) return { q: '?', cell: { borderTop: '1px solid #4A3B40', borderLeft: '1px solid #4A3B40', display: 'flex', alignItems: 'center', justifyContent: 'center' }, dot: { fontSize: 13, fontWeight: 700, color: '#C9A9B1', display: 'block' } };
+            return { q: '', cell: { borderTop: '1px solid #4A3B40', borderLeft: '1px solid #4A3B40', display: 'flex', alignItems: 'center', justifyContent: 'center', background: hl ? 'rgba(255,227,227,.08)' : 'transparent', transition: 'background .2s' },
+              dot: { width: has ? 18 : 6, height: has ? 18 : 6, borderRadius: '50%', background: has ? (hl ? '#FFE3E3' : '#B04A62') : '#5A474D', transform: has && hl ? 'scale(1.2)' : 'none', transition: 'all .25s cubic-bezier(.2,.7,.2,1)', display: 'block' } };
+          })
+        };
+      }),
+      detailTitle, detailSub, detailItems, detailBook, detailBookHref, detailBookLabel
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--subtop:107px}@media(max-width:1079px){:root{--subtop:98px}}
+body{margin:0;background:#fff;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .3 0 0 0 0 .36 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes avMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="inject" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Service hero" style="background:radial-gradient(ellipse 60% 70% at 85% 30%, #FFE3E3 0%, rgba(255,227,227,0) 70%), #FFF5F5;position:relative;overflow:hidden">
+    <img src="assets/avere-logo-black.png" alt="" style="position:absolute;left:-6%;bottom:-18%;width:min(1200px,110vw);opacity:.05;pointer-events:none">
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:24px clamp(20px,4vw,32px) clamp(48px,7vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="/" style="color:#6E5F64">Home</a><span>/</span><a href="#" style="color:#6E5F64">Injectables</a><span>/</span><span style="color:#2B2226">Neurotoxins</span></div>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(40.3px,5vw,74.9px);line-height:1.1;margin:0;letter-spacing:-.02em">Neurotoxins</h1>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:#fff;border:1px solid #EFC3C7;border-radius:999px;padding:7px 16px;font-size:14px">Botox</span>
+          <span style="background:#fff;border:1px solid #EFC3C7;border-radius:999px;padding:7px 16px;font-size:14px">Jeuveau</span>
+          <span style="background:#fff;border:1px solid #EFC3C7;border-radius:999px;padding:7px 16px;font-size:14px">Xeomin</span>
+          <span style="background:#fff;border:1px solid #EFC3C7;border-radius:999px;padding:7px 16px;font-size:14px">Dysport</span>
+          <span style="background:#fff;border:1px solid #EFC3C7;border-radius:999px;padding:7px 16px;font-size:14px">Daxxify</span>
+        </div>
+        <p style="font-size:18px;line-height:1.65;color:#4A3B40;margin:0;max-width:540px;text-wrap:pretty">Our Botox treatments are meticulously designed to address your unique needs, whether it's smoothing out fine lines, softening wrinkles, or enhancing your natural beauty with a non-invasive touch. Administered by our team of highly skilled and certified professionals.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;max-width:420px">
+          <a href="#book" style="background:#2B2226;color:#fff;padding:0 30px;min-height:52px;display:flex;align-items:center;justify-content:center;flex:1 1 180px;border-radius:999px;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book neurotoxins</a>
+          <a href="#results" style="border:1px solid #2B2226;padding:0 28px;min-height:52px;display:flex;align-items:center;justify-content:center;flex:1 1 140px;border-radius:999px;font-size:15px;font-weight:700" style-hover="background:#fff;color:#2B2226">See results</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#EFC3C7;border:1px solid #EFC3C7;border-radius:20px;overflow:hidden;max-width:540px">
+          <div style="background:#FFF5F5;padding:14px clamp(12px,2vw,18px);display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:700;color:#6E5F64">Treatment</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(16px,2vw,20.8px);letter-spacing:-.02em">10–20 min</span></div>
+          <div style="background:#FFF5F5;padding:14px clamp(12px,2vw,18px);display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:700;color:#6E5F64">Lasts</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(16px,2vw,20.8px);letter-spacing:-.02em">3–6 months</span></div>
+          <div style="background:#FFF5F5;padding:14px clamp(12px,2vw,18px);display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:700;color:#6E5F64">Downtime</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(16px,2vw,20.8px);letter-spacing:-.02em">Minimal</span></div>
+        </div>
+      </div>
+      <div style="position:relative;padding:0 28px 48px 48px">
+        <div style="position:absolute;left:0;top:28px;right:56px;bottom:20px;border:1px solid #EFC3C7;border-radius:24px"></div>
+        <img src="https://static.wixstatic.com/media/903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg/v1/fill/w_1000,h_1200,al_c,q_85/neuro.jpg" alt="Neurotoxin treatment" style="position:relative;width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:24px;display:block;background:#FFE3E3">
+        <img src="assets/avere-interior.jpg" alt="Avere Beauty studio" style="position:absolute;left:0;bottom:0;width:38%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:8px solid #FFF5F5;display:block">
+        <span style="position:absolute;right:0;top:12%;background:#fff;border-radius:999px;padding:10px 18px;font-family:'Poppins',sans-serif;font-size:16px;box-shadow:0 12px 40px rgba(176,74,98,.14);letter-spacing:-.02em">Natural, never frozen</span>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:#2B2226;color:#FFE3E3;overflow:hidden;padding:18px 0">{{ marquee }}</div>
+
+  <nav style="position:sticky;top:{{ subTop }};z-index:10;background:#fff;border-bottom:1px solid #F4DADC">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;gap:clamp(22px,3vw,32px);overflow-x:auto;scrollbar-width:none;font-size:14px;font-weight:700">
+      <a href="#fit" style="padding:16px 0;white-space:nowrap">Is it for me?</a><a href="#how" style="padding:16px 0;white-space:nowrap">How it works</a><a href="#areas" style="padding:16px 0;white-space:nowrap">Treatment areas</a><a href="#results" style="padding:16px 0;white-space:nowrap">Results</a><a href="#faq" style="padding:16px 0;white-space:nowrap">FAQ</a><a href="#book" style="padding:16px 0;white-space:nowrap">Book</a>
+    </div>
+  </nav>
+
+  <section id="fit" data-screen-label="Right place" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,56px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:32px;position:sticky;top:160px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">You're in the right place if you…</h2>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:12px;align-items:end">
+        <img src="https://static.wixstatic.com/media/903d63_24a51d18d7c849a984bed99e9da2ab5b~mv2.jpg/v1/fill/w_700,h_900,al_c,q_85/a.jpg" alt="Treatment room at Avere" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;display:block;background:#FFE3E3">
+        <img src="https://static.wixstatic.com/media/903d63_9d021e833968439ea117454c700a369a~mv2.jpg/v1/fill/w_500,h_500,al_c,q_85/b.jpg" alt="Medical grade skincare" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;display:block;background:#FFE3E3">
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:10px">
+      <sc-for list="{{ rightPlace }}" as="r" hint-placeholder-count="7">
+        <div style="border:1px solid #F4DADC;border-radius:18px;padding:clamp(14px,2vw,22px) clamp(16px,2vw,24px);display:flex;gap:14px;align-items:flex-start">
+          <span style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#FFE3E3;color:#B04A62;display:flex;align-items:center;justify-content:center;font-size:14px">✓</span>
+          <span style="font-size:16px;line-height:1.5">{{ r }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="how" data-screen-label="How it works" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;background:repeating-radial-gradient(circle at 0% 100%, rgba(176,74,98,0) 0 46px, rgba(176,74,98,.13) 46px 47px), #FFE3E3;border-radius:clamp(24px,4vw,40px);padding:clamp(40px,7vw,72px) clamp(24px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,5vw,56px);overflow:hidden">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8E3A4F">The science</div>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(27.4px,2.9vw,40.3px);line-height:1.02;margin:0;letter-spacing:-.02em">How do neurotoxins work?</h2>
+        <p style="font-size:17px;line-height:1.65;color:#4A3B40;margin:0;text-wrap:pretty">Neurotoxins work by blocking nerve signals that tell muscles to contract. This results in temporary muscle relaxation, which can reduce wrinkles or treat conditions like chronic migraines and muscle spasms.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ science }}" as="s" hint-placeholder-count="3">
+          <div style="background:#fff;border-radius:22px;overflow:hidden">
+            <button onClick="{{ s.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;background:none;border:none;cursor:pointer;text-align:left;font-family:'Lato',sans-serif;color:#2B2226">
+              <span style="display:flex;gap:16px;align-items:baseline"><span style="font-family:'Poppins',sans-serif;font-size:17.6px;color:#B04A62;letter-spacing:-.02em">{{ s.n }}</span><span style="font-size:18px;font-weight:600">{{ s.title }}</span></span>
+              <span style="font-size:22px;color:#B04A62">{{ s.icon }}</span>
+            </button>
+            <sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 26px 24px 64px;font-size:15px;line-height:1.65;color:#6E5F64">{{ s.body }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas" data-screen-label="Treatment areas" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px);display:flex;flex-direction:column;gap:40px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Common treatment areas</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:stretch">
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ areaRows }}" as="a" hint-placeholder-count="6">
+          <button onClick="{{ a.pick }}" style="{{ a.style }}"><span>{{ a.name }}</span><span style="font-size:18px">{{ a.arrow }}</span></button>
+        </sc-for>
+      </div>
+      <div style="position:relative;overflow:hidden;background:linear-gradient(to top, #FFF5F5 38%, rgba(255,245,245,.55) 62%, rgba(255,245,245,0) 100%), url(https://static.wixstatic.com/media/903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg/v1/fill/w_1000,h_900,al_c,q_85/area.jpg) center/cover, #FFE3E3;border-radius:32px;padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:flex-end;gap:16px;min-height:clamp(380px,48vw,520px);border:1px solid #F4DADC">
+        <span style="position:absolute;right:32px;top:8px;font-family:'Poppins',sans-serif;font-size:clamp(86.4px,10.1vw,144px);line-height:1.1;color:#fff;opacity:.85;letter-spacing:-.02em">{{ areaNum }}</span>
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62">{{ areaCount }}</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(28.8px,2.9vw,43.2px);line-height:1.1;letter-spacing:-.02em">{{ area.name }}</span>
+        <p style="margin:0;font-size:18px;line-height:1.6;color:#4A3B40;max-width:520px;text-wrap:pretty">{{ area.body }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Candidates" style="background:repeating-radial-gradient(circle at 100% 0%, rgba(176,74,98,0) 0 56px, rgba(176,74,98,.09) 56px 57px), #FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);position:relative;overflow:hidden">
+    <div style="position:relative;max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:680px">
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Who is a candidate?</h2>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;text-wrap:pretty">Candidates include adults with dynamic wrinkles caused by facial muscle movements and those in good general health. Those who are pregnant or breastfeeding cannot get treated.</p>
+        </div>
+        <div style="display:flex;gap:4px;padding:4px;background:#fff;border:1px solid #F4DADC;border-radius:999px">
+          <button onClick="{{ showFor }}" style="{{ forTab }}">For you if…</button>
+          <button onClick="{{ showNot }}" style="{{ notTab }}">Not for you if…</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+        <sc-for list="{{ candidates }}" as="c" hint-placeholder-count="4">
+          <div style="background:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px">
+            <span style="width:32px;height:32px;border-radius:50%;background:{{ c.dotBg }};color:{{ c.dotColor }};display:flex;align-items:center;justify-content:center;font-size:15px">{{ c.mark }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:20.8px;line-height:1.1;letter-spacing:-.02em">{{ c.title }}</span>
+            <span style="font-size:15px;line-height:1.6;color:#6E5F64">{{ c.body }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" data-screen-label="Results" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">The proof is in the pictures</h2>
+      <a href="#" style="font-size:15px;font-weight:600">Full before &amp; after gallery →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,200px),1fr));grid-auto-flow:dense;gap:12px">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
+        <img src="{{ g.src }}" alt="Neurotoxin before and after" style="{{ g.style }}">
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="faq" data-screen-label="FAQ" style="border-top:1px solid #F4DADC">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28.8px,3.3vw,46.1px);line-height:1.1;margin:0;letter-spacing:-.02em">Frequently asked questions</h2>
+        <p style="margin:0;font-size:16px;color:#6E5F64">Still unsure? Call us at <a href="tel:4129527592" style="font-weight:600;color:#2B2226">412-952-7592</a>.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;grid-column:span 1">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="9">
+          <div style="border-bottom:1px solid #F4DADC">
+            <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Lato',sans-serif;font-size:18px;font-weight:500;color:#2B2226"><span>{{ f.q }}</span><span style="color:#B04A62;font-size:22px;line-height:1">{{ f.icon }}</span></button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 40px 24px 0;font-size:16px;line-height:1.65;color:#6E5F64">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" data-screen-label="Book" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;background:repeating-radial-gradient(circle at 100% 100%, rgba(176,74,98,0) 0 46px, rgba(176,74,98,.13) 46px 47px), #FFE3E3;border-radius:clamp(24px,4vw,40px);padding:clamp(36px,6vw,64px) clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(27.4px,2.9vw,40.3px);line-height:1.1;margin:0;letter-spacing:-.02em">Book neurotoxins near you</h2>
+      <div style="{{ locGrid }}">
+        <sc-for list="{{ locs }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.book }}" style="background:#fff;border-radius:24px;padding:10px 10px 24px;display:flex;flex-direction:column;gap:8px;transition:transform .2s;scroll-snap-align:start" style-hover="transform:translateY(-3px);color:#2B2226">
+            <img src="{{ l.img }}" alt="{{ l.name }} location" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px;display:block;background:#FFE3E3;margin-bottom:10px">
+            <span style="display:flex;flex-direction:column;gap:8px;padding:0 14px">
+            <span style="font-family:'Poppins',sans-serif;font-size:24px;line-height:1.1;letter-spacing:-.02em">{{ l.name }}</span>
+            <span style="font-size:14px;line-height:1.5;color:#6E5F64">{{ l.addr }}<br>{{ l.city }}</span>
+            <span style="font-size:15px;font-weight:700;padding-top:8px">Book here →</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:#4A3B40">Serving Pittsburgh, Cranberry, Fox Chapel, Mt. Lebanon, Sewickley, Export, Squirrel Hill, Moon, Upper St Clair, Wexford, and Greensburg.</p>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book neurotoxins" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const RIGHT = [
+  'Are looking to smooth out fine lines and wrinkles for a more youthful appearance.',
+  'Want to enhance your natural beauty with non-surgical treatments.',
+  'Are seeking a safe, effective solution for dynamic facial lines.',
+  'Desire a quick, minimally invasive procedure with little to no downtime.',
+  "Wish to address frown lines, crow's feet, and forehead wrinkles.",
+  'Are interested in personalized treatments tailored to your unique facial structure.',
+  'Want to feel more confident and rejuvenated in your skin.',
+];
+const SCIENCE = [
+  { title: 'Neurotoxins block nerve signals to muscles', body: 'Neurotoxins disrupt the communication between nerves and muscles by targeting the neuromuscular junction, the site where nerve cells meet muscle cells. By blocking these nerve signals, they prevent the muscles from receiving the instructions needed for movement, leading to temporary relaxation of the targeted muscles.' },
+  { title: 'They prevent the release of acetylcholine', body: "Acetylcholine is released from nerve endings and binds to receptors on muscle cells, triggering a contraction. Neurotoxins block this release by cleaving specific proteins essential for acetylcholine's release. Without acetylcholine, the muscle fibers cannot contract, resulting in a relaxed state of the muscle." },
+  { title: 'Effects are temporary and reversible', body: 'Over time, new nerve endings grow and re-establish the ability to release acetylcholine, restoring normal muscle function. This typically takes three to six months, depending on the individual and the specific neurotoxin used, so repeat treatments maintain the desired effects.' },
+];
+const AREAS = [
+  { name: 'Forehead Lines', body: 'Botox is frequently used to smooth horizontal lines on the forehead that form due to repetitive muscle movements from facial expressions like raising the eyebrows.' },
+  { name: 'Glabellar (Frown) Lines', body: 'These vertical lines, also known as "11s," appear between the eyebrows when a person frowns. Botox helps relax these muscles to reduce the appearance of these lines.' },
+  { name: "Crow's Feet", body: 'The fine lines that form at the outer corners of the eyes, often due to smiling or squinting, can be treated with Botox to create a smoother, more youthful look.' },
+  { name: 'Bunny Lines', body: 'These lines form on the sides of the nose when a person scrunches their nose, and Botox can help minimize their appearance.' },
+  { name: 'Marionette Lines', body: 'These lines run downward from the corners of the mouth, and Botox can be used to soften them and create a more pleasant expression.' },
+  { name: 'Masseters', body: 'Botox can be injected into the masseter muscles to slim the jawline and treat conditions like bruxism (teeth grinding).' },
+];
+const FOR = [
+  { title: 'Individuals seeking wrinkle reduction', body: "Those noticing dynamic wrinkles, such as frown lines, crow's feet, and forehead lines, can benefit significantly. Neurotoxins effectively smooth these lines, giving a more youthful appearance." },
+  { title: 'People interested in prevention', body: 'If you\'re looking to prevent the formation of new wrinkles, regular neurotoxin treatments can reduce muscle movement and help maintain a youthful look over time.' },
+  { title: 'Those needing minimal downtime', body: 'Neurotoxins are ideal for individuals who want quick, effective treatments with little to no downtime, allowing you to resume normal activities almost immediately.' },
+  { title: 'Patients with specific medical conditions', body: 'Neurotoxins can provide significant relief for those suffering from conditions like chronic migraines, excessive sweating, and muscle spasticity.' },
+];
+const NOT = [
+  { title: 'Individuals with health concerns', body: 'Those with certain health conditions, such as neuromuscular disorders, or who are pregnant or nursing, should avoid neurotoxin treatments due to potential risks and safety concerns.' },
+  { title: 'People worried about side effects', body: 'If you are concerned about side effects like bruising, swelling, headaches, or rare complications such as eyelid drooping, neurotoxin treatments may not be suitable for you.' },
+  { title: 'Those seeking permanent results', body: 'Neurotoxin effects are temporary, lasting three to six months. If you\'re looking for a permanent solution, you might consider other treatments.' },
+  { title: 'Individuals with unrealistic expectations', body: 'These treatments provide subtle, natural results, so it\'s important to understand their limitations.' },
+];
+const GALLERY = ['9272ed_7865247b29d84bcbbd4a5a400261f145~mv2.png', '9272ed_1db11f5194734db7933a87dee5f6c4e2~mv2.png', '9272ed_06ebb300dd1a4b6a92cc92c40e466d4c~mv2.png', '9272ed_225369d459b84e20b61a47824f958a89~mv2.png', '9272ed_3baf20a64e244abcbef97d7c4a53b03b~mv2.png', '9272ed_a636a58b2ccf4b5b95821eccdd1c8db6~mv2.png', '9272ed_4d803145df39417ca224eaaefe15c6bf~mv2.png', '9272ed_18d2efa8757a43aaa307bac8ece93aca~mv2.png']
+  .map((id, i) => ({ src: `https://static.wixstatic.com/media/${id}/v1/fill/w_${i === 0 ? 900 : 500},h_${i === 0 ? 900 : 500},al_c,q_85/ba.png`, style: { width: '100%', height: '100%', aspectRatio: '1', objectFit: 'cover', borderRadius: i === 0 ? 28 : 20, display: 'block', background: '#FFE3E3', gridColumn: i === 0 ? 'span 2' : undefined, gridRow: i === 0 ? 'span 2' : undefined } }));
+const WX = (id, w, h) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/img.jpg`;
+const MARQ = ['Botox', 'Jeuveau', 'Xeomin', 'Dysport', 'Daxxify', 'Forehead Lines', "Crow's Feet", 'Frown Lines', 'Masseters'];
+const FAQS = [
+  ['What are neurotoxins?', 'Neurotoxins are substances that disrupt the normal functioning of the nervous system. In cosmetic treatments, neurotoxins like Botox are used to temporarily reduce muscle activity, which can smooth out wrinkles and fine lines.'],
+  ['How do neurotoxins work?', 'Neurotoxins work by blocking the release of acetylcholine, a neurotransmitter that signals muscles to contract. By inhibiting this signal, neurotoxins cause temporary muscle paralysis or relaxation, which can reduce the appearance of wrinkles.'],
+  ['Are neurotoxin treatments safe?', 'When administered by a trained healthcare professional, neurotoxin treatments are generally safe. However, like any medical procedure, there are potential risks and side effects, such as bruising, swelling, or temporary muscle weakness. These are usually mild and resolve on their own.'],
+  ['How long do neurotoxin effects last?', 'The effects of neurotoxins typically last between three to six months, depending on the individual and the specific neurotoxin used. Over time, the treated muscles regain their function, and repeat treatments are necessary to maintain the results.'],
+  ['Are neurotoxin treatments painful?', 'Most people find neurotoxin injections to be relatively painless. The needles used are very fine, and some practitioners may apply a topical anesthetic to numb the area beforehand.'],
+  ['What areas can be treated with neurotoxins?', "Neurotoxins are commonly used to treat wrinkles and fine lines on the face, including forehead lines, crow's feet, and frown lines. They can also be used to treat medical conditions like chronic migraines, excessive sweating, and muscle spasms."],
+  ['Who is a good candidate for neurotoxin treatments?', 'Good candidates for neurotoxin treatments are generally healthy adults who have wrinkles or fine lines caused by muscle movement. Pregnant or nursing women and individuals with certain medical conditions may not be suitable candidates.'],
+  ['What should I expect during a neurotoxin treatment?', 'During a neurotoxin treatment, a healthcare provider will use a very fine needle to inject the neurotoxin into specific muscles. The procedure typically takes about 10-20 minutes, and there is minimal downtime afterward.'],
+  ['Are there any alternatives to neurotoxin treatments?', 'There are several alternatives to neurotoxin treatments for wrinkle reduction, including dermal fillers, laser resurfacing, and chemical peels. These treatments work in different ways and may be more suitable for some individuals depending on their specific goals and concerns.'],
+];
+const LOCS = [
+  { name: 'Lawrenceville', addr: '3453 Butler Street', city: 'Pittsburgh, PA 15201', img: WX('903d63_24475366948040e78160f8ec6409949a~mv2.jpg', 700, 525), book: 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa' },
+  { name: 'Cranberry', addr: '179 Scharberry Ln', city: 'Mars, PA 16046', img: 'assets/avere-interior.jpg', book: '#' },
+  { name: 'Murrysville', addr: '5100 Old William Penn Hwy, STE 3', city: 'Export, PA 15632', img: WX('903d63_5a1d874c69244c898c653a743d295eaa~mv2.jpg', 700, 525), book: 'https://square.site/book/LRK1T17YQYTVG/avere-beauty-murrysville-export-pa' },
+  { name: 'Blawnox', addr: '307 Freeport Road', city: 'Blawnox, PA 15238', img: WX('903d63_e208abbb61e548489e222ef57af90fdc~mv2.jpg', 700, 525), book: '#' },
+];
+const tab = on => ({ padding: '10px 18px', borderRadius: 999, border: 'none', cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 500, background: on ? '#2B2226' : 'transparent', color: on ? '#fff' : '#2B2226', transition: 'all .2s' , minHeight: 44 });
+
+class Component extends DCLogic {
+  state = { sci: 0, area: 0, fit: 'for', faq: 0, w: typeof window !== 'undefined' ? window.innerWidth : 1200 };
+  componentDidMount() { this.onResize = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const { sci, area, fit, faq, w } = this.state;
+    const mobile = w < 760;
+    const isFor = fit === 'for';
+    return {
+      rightPlace: RIGHT,
+      science: SCIENCE.map((s, i) => ({ ...s, n: '0' + (i + 1), open: sci === i, icon: sci === i ? '−' : '+', toggle: () => this.setState({ sci: sci === i ? -1 : i }) })),
+      areaRows: AREAS.map((a, i) => ({ name: a.name, arrow: i === area ? '→' : '', pick: () => this.setState({ area: i }), style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: mobile ? '14px 16px' : '20px 20px', minHeight: 52, background: i === area ? '#FFE3E3' : 'transparent', border: 'none', borderRadius: 18, borderBottom: '1px solid ' + (i === area ? 'transparent' : '#F4DADC'), cursor: 'pointer', textAlign: 'left', fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 19 : 26, color: '#2B2226', transition: 'background .2s' } })),
+      marquee: this.marquee || (this.marquee = React.createElement('div', { style: { display: 'flex', width: 'max-content', animation: 'avMarquee 40s linear infinite' } },
+        [0, 1].map(k => React.createElement('div', { key: k, style: { display: 'flex', gap: 40, paddingRight: 40, alignItems: 'center', fontFamily: "'Poppins',sans-serif", fontSize: mobile ? 20 : 26, whiteSpace: 'nowrap' } },
+          MARQ.flatMap((m, i) => [React.createElement('span', { key: 'm' + i }, m), React.createElement('span', { key: 'd' + i, style: { color: '#B04A62', fontSize: 18, fontStyle: 'normal' } }, '✦')]))))),
+      areaNum: '0' + (area + 1),
+      area: AREAS[area], areaCount: `Area ${area + 1} of ${AREAS.length}`,
+      forTab: tab(isFor), notTab: tab(!isFor),
+      showFor: () => this.setState({ fit: 'for' }), showNot: () => this.setState({ fit: 'not' }),
+      candidates: (isFor ? FOR : NOT).map(c => ({ ...c, mark: isFor ? '✓' : '✕', dotBg: isFor ? '#FFE3E3' : '#F3ECED', dotColor: isFor ? '#B04A62' : '#6E5F64' })),
+      gallery: GALLERY,
+      faqs: FAQS.map(([q, a], i) => ({ q, a, open: faq === i, icon: faq === i ? '−' : '+', toggle: () => this.setState({ faq: faq === i ? -1 : i }) })),
+      locs: LOCS,
+      subTop: (w < 1080 ? 98 : 107) + 'px',
+      locGrid: mobile ? { display: 'grid', gridAutoFlow: 'column', gridAutoColumns: '78%', gap: 12, overflowX: 'auto', scrollSnapType: 'x mandatory', margin: '0 -20px', padding: '0 20px 4px', scrollbarWidth: 'none' } : { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,240px),1fr))', gap: 12 },
+    };
+  }
+}
+</script>
+</body>
+</html>

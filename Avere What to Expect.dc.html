@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,4vw,32px) clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">What to Expect</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(36px,5vw,64px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Your first visit, start to finish.</h1>
+      <p style="margin:0;font-size:clamp(17px,1.6vw,19px);line-height:1.65;color:#6E5F64;max-width:540px;text-wrap:pretty">Most first appointments take about 30 minutes. Follow-ups take 10 to 15, short enough for a lunch break. Not sure what you need? Book a consultation and we’ll take it from there.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book a consultation</a>
+        <a href="sms:4129527592" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Text us</a>
+      </div>
+    </div>
+    <div style="position:relative;width:100%;aspect-ratio:5/6;border-radius:28px;overflow:hidden;background:#FFE3E3">
+      <image-slot id="expect-hero" shape="rect" placeholder="Front desk greeting a client"></image-slot>
+    </div>
+  </section>
+
+  <section data-screen-label="Steps" style="background:#FFF5F5;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">Step by step</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px clamp(16px,3vw,32px);padding:24px 0;border-top:1px solid #EFC3C7">
+            <span style="font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;color:#B04A62;padding-top:3px">{{ s.n }}</span>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(19px,2vw,22px);margin:0">{{ s.title }}</h3>
+              <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;max-width:640px;text-wrap:pretty">{{ s.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="The consult" style="padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;background:#2B2226;color:#fff;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:clamp(36px,6vw,72px) clamp(24px,5vw,64px);display:flex;flex-direction:column;gap:20px;justify-content:center">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#FFC9CF;font-weight:700">The consultation</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;margin:0">Like studying a painting.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#F4E6E8;text-wrap:pretty">Your face is already beautiful. We look closely at anatomy and symmetry, and at how a small change in one place affects the whole picture. You bring the picture in your head. We bring the tools and the medical training to get there safely.</p>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#F4E6E8;text-wrap:pretty">It’s a lot to take in, so we go at your pace. We also talk, laugh and get to know you.</p>
+      </div>
+      <div style="position:relative;min-height:clamp(280px,36vw,440px)">
+        <div style="position:absolute;inset:0"><image-slot id="expect-consult" shape="rect" placeholder="Injector assessing a client’s face in a mirror"></image-slot></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Timing and comfort" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,6vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0">How long it takes</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ times }}" as="t" hint-placeholder-count="4">
+          <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #F4DADC;font-size:16px">
+            <span>{{ t.what }}</span>
+            <span style="font-weight:700;text-align:right">{{ t.len }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.2;margin:0">Keeping you comfortable</h2>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#6E5F64;text-wrap:pretty">Our offices feel more like a friend’s house than a clinic. Some have soundproof treatment rooms, and on certain days Daphne, our Great Dane therapy dog, is in.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ comfort }}" as="c" hint-placeholder-count="8">
+          <span style="border:1px solid #EFC3C7;border-radius:999px;padding:10px 18px;font-size:15px">{{ c }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Questions" style="background:#FFF5F5;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">First-timer questions</h2>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="border-top:1px solid #EFC3C7">
+            <button onClick="{{ f.toggle }}" style="all:unset;box-sizing:border-box;width:100%;min-height:64px;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:clamp(17px,1.8vw,20px);font-weight:500">
+              <span>{{ f.q }}</span>
+              <span style="font-size:24px;font-weight:400;color:#B04A62;flex-shrink:0">{{ f.icon }}</span>
+            </button>
+            <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0 0 22px;font-size:16px;line-height:1.7;color:#6E5F64;max-width:680px;text-wrap:pretty">{{ f.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Arrival" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:32px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin:0">Getting here</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:32px clamp(24px,3vw,40px)">
+      <sc-for list="{{ parking }}" as="p" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid #2B2226">
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">{{ p.name }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#6E5F64;text-wrap:pretty">{{ p.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Before and after" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+      <a href="/aftercare" style="display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:24px;background:#FFF5F5;min-height:140px;justify-content:space-between" style-hover="background:#FFE3E3;color:#2B2226">
+        <span style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:500">Pre &amp; Aftercare →</span>
+        <span style="font-size:15px;line-height:1.55;color:#6E5F64">How to prepare and what to avoid afterward, by treatment.</span>
+      </a>
+      <a href="/policies" style="display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:24px;background:#FFF5F5;min-height:140px;justify-content:space-between" style-hover="background:#FFE3E3;color:#2B2226">
+        <span style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:500">Policies →</span>
+        <span style="font-size:15px;line-height:1.55;color:#6E5F64">Cancellations, late arrivals, payments and privacy.</span>
+      </a>
+      <a href="/financing" style="display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:24px;background:#FFF5F5;min-height:140px;justify-content:space-between" style-hover="background:#FFE3E3;color:#2B2226">
+        <span style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:500">Financing →</span>
+        <span style="font-size:15px;line-height:1.55;color:#6E5F64">Ways to spread out the cost of a treatment plan.</span>
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book a consultation" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STEPS = [
+  { title: 'Book however you like', body: 'Online, by phone, by text or iMessage, through Square messages or by email. Our team will tell you what you need. If you’re not sure, book a consultation.' },
+  { title: 'Arrive and settle in', body: 'Our front desk team will greet you and hand you a water. Every one of them is trained to answer your questions.' },
+  { title: 'Paperwork, on paper', body: 'First-time clients fill out an intake form in the office and are seen by an advanced practitioner, as Pennsylvania law requires. You’ll also sign a consent for each treatment. We’ll walk you through all of it.' },
+  { title: 'Before photos', body: 'We take photos at every visit so we can track your results over time. They stay in your private chart.' },
+  { title: 'Meet your injector', body: 'You’ll head back to a treatment room for your consultation and, in most cases, your treatment.' },
+  { title: 'Leave with a plan', body: 'You’ll go home with an aftercare kit and instructions, and we’ll book your next visit before you go.' },
+].map((s, i) => ({ ...s, n: String(i + 1).padStart(2, '0') }));
+const TIMES = [
+  { what: 'First visit: tox or filler with evaluation', len: '~30 min' },
+  { what: 'Combination treatments', len: '~1 hour' },
+  { what: 'Laser treatments', len: 'Depends on area' },
+  { what: 'Follow-up appointments', len: '10–15 min' },
+];
+const COMFORT = ['Numbing cream', 'Ice packs', 'Vibration tools', 'Water or juice', 'Comfy chairs', 'Pillows and blankets', 'High-CRI lighting', 'Daphne the therapy dog'];
+const FAQS = [
+  { q: 'Will I look frozen?', a: 'Not unless you want to. We plan your dose around how much movement you want to keep, and we’d rather start light and add at a follow-up than overdo it.' },
+  { q: 'Does it hurt?', a: 'Most clients describe it as a quick pinch. We use numbing cream, ice and vibration tools to keep you comfortable, and you can ask us to pause at any time.' },
+  { q: 'Can I bring someone?', a: 'Yes. You’re welcome to bring a friend, partner or family member for support.' },
+  { q: 'What if I don’t like my results?', a: 'Tell us. The human body has endless variables, so no one can guarantee an exact outcome, but we’ll follow up and adjust until you’re happy.' },
+  { q: 'What will it cost?', a: 'Budget is one of the first things we talk about. We’ll be upfront about what’s realistic for your budget and build a plan around it. Financing is available.' },
+];
+const PARKING = [
+  { name: 'Fox Chapel', body: 'Free parking in the front or back lot. We have the whole building.' },
+  { name: 'Murrysville', body: 'Free parking in our private lot.' },
+  { name: 'Lawrenceville', body: 'Street parking on Butler Street. Pay with the ParkPGH app.' },
+  { name: 'Cranberry', body: 'Free parking in the large shared lot. You can’t miss us.' },
+];
+class Component extends DCLogic {
+  state = { open: 0 };
+  renderVals() {
+    return {
+      steps: STEPS, times: TIMES, comfort: COMFORT, parking: PARKING,
+      faqs: FAQS.map((f, i) => ({ ...f, open: this.state.open === i, icon: this.state.open === i ? '−' : '+', toggle: () => this.setState({ open: this.state.open === i ? -1 : i }) })),
+    };
+  }
+}
+</script>
+</body>
+</html>
