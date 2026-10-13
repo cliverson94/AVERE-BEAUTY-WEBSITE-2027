@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Avere Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#FFF5F5}*{box-sizing:border-box}a{color:#B04A62;text-decoration:none}a:hover{color:#2B2226}input,textarea,select,button{font-family:inherit}</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+  <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;font-size:14px;color:#6E5F64">Loading Avere Studio…</div>
+  </sc-if>
+
+  <sc-if value="{{ isOut }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px">
+      <div style="width:100%;max-width:400px;background:#fff;border:1px solid #F4DADC;border-radius:24px;padding:36px 28px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+        <span style="width:52px;height:52px;border-radius:50%;background:#2B2226;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:22px">A</span>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:26px;margin:0">Avere Studio</h1>
+        <p style="margin:0;font-size:15px;line-height:1.55;color:#4A3B40">Sign in with the Google account the owner added.</p>
+        <div ref="{{ gbtnRef }}" style="min-height:44px;display:flex;justify-content:center"></div>
+        <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.5;color:#8A3A4E">{{ err }}</span></sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isIn }}" hint-placeholder-val="{{ false }}">
+    <header style="display:flex;align-items:center;gap:14px;padding:12px 20px;background:#2B2226;color:#fff;flex-wrap:wrap">
+      <span style="display:flex;align-items:center;gap:10px"><span style="width:30px;height:30px;border-radius:50%;background:#B04A62;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:14px">A</span><span style="font-family:'Poppins',sans-serif;font-size:16px">Avere Studio</span></span>
+      <div style="display:flex;gap:4px">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button></sc-for>
+      </div>
+      <a href="Avere Page Editor.dc.html" style="min-height:32px;padding:0 14px;border-radius:999px;display:flex;align-items:center;font-size:13px;font-weight:700;color:#E8CDD2;white-space:nowrap">Edit pages</a>
+      <span style="flex:1"></span>
+      <span style="font-size:13px;color:#E8CDD2">{{ userLine }}</span>
+      <button onClick="{{ signOut }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #5A4A50;background:none;color:#fff;font-size:13px;cursor:pointer">Sign out</button>
+    </header>
+    <sc-if value="{{ demo }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#F4DADC;padding:8px 20px;font-size:13px;line-height:1.5">Preview mode: not connected to Vercel yet. Uploads are compressed for real but stay in this browser tab.</div>
+    </sc-if>
+
+    <sc-if value="{{ isLibrary }}" hint-placeholder-val="{{ true }}">
+      <div onDragOver="{{ onDragOver }}" onDragLeave="{{ onDragLeave }}" onDrop="{{ onDrop }}" style="flex:1;display:flex;flex-wrap:wrap;min-height:0;position:relative">
+        <aside style="flex:1 1 210px;max-width:100%;background:#fff;border-right:1px solid #F4DADC;padding:16px;display:flex;flex-direction:column;gap:16px">
+          <input value="{{ q }}" onChange="{{ setQ }}" placeholder="Search name, alt text, label" style="min-height:38px;border:1px solid #EFC3C7;border-radius:999px;padding:0 14px;font-size:13px">
+          <sc-for list="{{ filterGroups }}" as="g" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">{{ g.label }}</span>
+              <div style="display:flex;flex-wrap:wrap;gap:4px">
+                <sc-for list="{{ g.opts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }} <span style="opacity:.55">{{ o.count }}</span></button></sc-for>
+              </div>
+            </div>
+          </sc-for>
+          <button onClick="{{ clearFilters }}" style="align-self:flex-start;border:none;background:none;color:#B04A62;font-size:12px;font-weight:700;cursor:pointer;padding:0">Clear filters</button>
+        </aside>
+
+        <section style="flex:999 1 400px;min-width:0;padding:16px 20px;display:flex;flex-direction:column;gap:14px">
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <label style="min-height:40px;padding:0 18px;border-radius:999px;background:#B04A62;color:#fff;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;white-space:nowrap">Upload photos or clips<input type="file" multiple="" accept="image/*,video/mp4,video/webm,video/quicktime" onChange="{{ onPick }}" style="display:none"></label>
+              <span style="font-size:13px;color:#6E5F64">or drop files anywhere. New uploads get these labels:</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ presetFields }}" as="p" hint-placeholder-count="5">
+                <select value="{{ p.value }}" onChange="{{ p.set }}" style="min-height:34px;border:1px solid #EFC3C7;border-radius:8px;padding:0 8px;font-size:13px;background:#fff;max-width:180px">
+                  <option value="">{{ p.label }}: none</option>
+                  <sc-for list="{{ p.options }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+                </select>
+              </sc-for>
+              <input value="{{ presetCampaign }}" onChange="{{ setPresetCampaign }}" placeholder="Season / campaign" list="campaigns" style="min-height:34px;border:1px solid #EFC3C7;border-radius:8px;padding:0 10px;font-size:13px;width:170px">
+            </div>
+          </div>
+
+          <sc-if value="{{ hasQueue }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:10px 14px;display:flex;flex-direction:column;gap:6px">
+              <sc-for list="{{ queue }}" as="u" hint-placeholder-count="2">
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;font-size:13px;align-items:center"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ u.name }}</span><span style="{{ u.style }}">{{ u.msg }}</span></div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#6E5F64"><span>{{ countLine }}</span><span>{{ savedLine }}</span></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px">
+            <sc-for list="{{ grid }}" as="m" hint-placeholder-count="8">
+              <button onClick="{{ m.pick }}" style="{{ m.card }}">
+                <div style="position:relative;width:100%;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#F4DADC">
+                  <img src="{{ m.thumbUrl }}" alt="{{ m.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+                  <sc-if value="{{ m.isVideo }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;bottom:6px;left:6px;background:rgba(43,34,38,.8);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px">▶ {{ m.dur }}</span></sc-if>
+                  <sc-if value="{{ m.pending }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:6px;left:6px;background:#B04A62;color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px">Needs approval</span></sc-if>
+                </div>
+                <span style="font-size:12px;font-weight:700;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left">{{ m.title }}</span>
+                <span style="{{ m.flagStyle }}">{{ m.flag }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding:40px 0;text-align:center;font-size:14px;color:#6E5F64">Nothing matches. Clear filters or upload something.</div></sc-if>
+        </section>
+
+        <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+          <aside style="flex:1 1 300px;max-width:100%;background:#fff;border-left:1px solid #F4DADC;padding:16px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Details</span><button onClick="{{ closeSel }}" style="border:none;background:none;font-size:18px;cursor:pointer;color:#6E5F64">×</button></div>
+            <sc-if value="{{ selIsVideo }}" hint-placeholder-val="{{ false }}"><video src="{{ sel.url }}" controls="" playsinline="" style="width:100%;border-radius:12px;background:#000;display:block"></video></sc-if>
+            <sc-if value="{{ selIsImage }}" hint-placeholder-val="{{ true }}"><img src="{{ sel.url }}" alt="{{ sel.alt }}" style="width:100%;border-radius:12px;display:block;background:#F4DADC"></sc-if>
+            <sc-if value="{{ selPending }}" hint-placeholder-val="{{ false }}"><button onClick="{{ approve }}" style="min-height:38px;border-radius:999px;border:none;background:#2B2226;color:#fff;font-size:13px;font-weight:700;cursor:pointer">Approve for the website</button></sc-if>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64">Title<input value="{{ sel.title }}" onChange="{{ setTitle }}" onBlur="{{ save }}" style="min-height:36px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px;color:#2B2226"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64"><span style="display:flex;justify-content:space-between">Alt text<span style="{{ altCountStyle }}">{{ altCount }}</span></span><textarea value="{{ sel.alt }}" onChange="{{ setAlt }}" onBlur="{{ save }}" rows="3" style="border:1px solid #EFC3C7;border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.5;color:#2B2226;resize:vertical"></textarea></label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button onClick="{{ altFromLabels }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #EFC3C7;background:#FFF5F5;font-size:12px;font-weight:700;cursor:pointer">Write from labels</button>
+              <button onClick="{{ altAi }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #EFC3C7;background:#FFF5F5;font-size:12px;font-weight:700;cursor:pointer">{{ aiLabel }}</button>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <sc-for list="{{ selFields }}" as="p" hint-placeholder-count="4">
+                <label style="display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;color:#6E5F64;min-width:0">{{ p.label }}
+                  <select value="{{ p.value }}" onChange="{{ p.set }}" style="min-height:32px;border:1px solid #EFC3C7;border-radius:8px;padding:0 6px;font-size:12px;background:#fff;min-width:0">
+                    <option value="">None</option>
+                    <sc-for list="{{ p.options }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+                  </select>
+                </label>
+              </sc-for>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;color:#6E5F64">Season / campaign<input value="{{ selCampaign }}" onChange="{{ setSelCampaign }}" onBlur="{{ save }}" list="campaigns" style="min-height:32px;border:1px solid #EFC3C7;border-radius:8px;padding:0 8px;font-size:12px"></label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+              <div style="background:#FBEFF0;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:2px"><span style="color:#6E5F64">Original</span><strong style="font-size:14px">{{ selOrig }}</strong></div>
+              <div style="background:#FBEFF0;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:2px"><span style="color:#6E5F64">On the website</span><strong style="font-size:14px">{{ selSize }}</strong></div>
+            </div>
+            <span style="font-size:12px;line-height:1.5;color:#6E5F64;word-break:break-all">{{ selMeta }}</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button onClick="{{ copyUrl }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;font-size:12px;font-weight:700;cursor:pointer">{{ copyUrlLabel }}</button>
+              <button onClick="{{ copyHtml }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;font-size:12px;font-weight:700;cursor:pointer">{{ copyHtmlLabel }}</button>
+            </div>
+            <sc-if value="{{ canDelete }}" hint-placeholder-val="{{ false }}"><button onClick="{{ remove }}" style="margin-top:auto;align-self:flex-start;border:none;background:none;color:#8A3A4E;font-size:12px;font-weight:700;cursor:pointer;padding:0">{{ removeLabel }}</button></sc-if>
+          </aside>
+        </sc-if>
+
+        <sc-if value="{{ dragging }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;inset:8px;border:2px dashed #B04A62;border-radius:20px;background:rgba(255,245,245,.92);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:22px;pointer-events:none">Drop to upload</div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isTeam }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:24px 20px;display:flex;flex-direction:column;gap:16px;max-width:760px;width:100%">
+        <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;overflow:hidden">
+          <sc-for list="{{ users }}" as="u" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:12px 16px;border-bottom:1px solid #FBEFF0;font-size:14px">
+              <span style="overflow:hidden;text-overflow:ellipsis"><strong>{{ u.email }}</strong></span>
+              <span style="font-size:12px;color:#6E5F64">{{ u.roleLine }}</span>
+              <button onClick="{{ u.remove }}" disabled="{{ u.fixed }}" style="{{ u.btn }}">{{ u.btnLabel }}</button>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Poppins',sans-serif;font-size:16px">Add a freelancer</span>
+          <span style="font-size:13px;line-height:1.5;color:#4A3B40">They sign in with this Google email. Access stops at the end of the expiry date. Their uploads need an owner's approval.</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input value="{{ nuEmail }}" onChange="{{ setNuEmail }}" placeholder="name@gmail.com" style="flex:2 1 200px;min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px">
+            <input type="date" value="{{ nuExpires }}" onChange="{{ setNuExpires }}" style="flex:1 1 140px;min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px">
+            <button onClick="{{ addUser }}" style="min-height:38px;padding:0 16px;border-radius:999px;border:none;background:#2B2226;color:#fff;font-size:13px;font-weight:700;cursor:pointer">Add</button>
+          </div>
+          <span style="font-size:12px;color:#6E5F64">Owners are set in Vercel (STUDIO_OWNERS) so nobody can lock you out from here.</span>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+  <datalist id="campaigns"><option value="Fall 2026"></option><option value="Holiday 2026"></option><option value="Tox Tuesdays"></option><option value="Bridal season"></option><option value="Grand opening Blawnox"></option></datalist>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const LABELS={
+  treatment:['Tattoo removal','Laser hair removal','CoolPeel','MotusAZ+','Moxi','Subnovii','SkinPen','HydraFacial','IPL','VirtueRF','Versa','Botox','Fillers','Lip filler','Sculptra','Kybella','PDO threads','Facials','Chemical peels','IV therapy','Weight loss','Office / team'],
+  office:['Lawrenceville','Murrysville','Cranberry','Blawnox (Fox Chapel)'],
+  provider:['Natalie Lombardo NP','Alyssa Luciano RN','Dylan Wolfe RN'],
+  device:['DEKA Toro','Tetra CoolPeel','MotusAZ+','Moxi','Subnovii','SkinPen','HydraFacial','VirtueRF','Versa']};
+const NAMES={treatment:'Treatment',office:'Office',provider:'Provider',device:'Device'};
+const DEMO=[
+  {id:'d1',url:'assets/toro-machine.webp',thumbUrl:'assets/toro-machine.webp',type:'image',file:'deka-toro-tattoo-removal-lawrenceville.webp',title:'Toro machine',alt:'DEKA Toro tattoo removal laser at Avere Beauty Lawrenceville',labels:{treatment:'Tattoo removal',office:'Lawrenceville',device:'DEKA Toro'},width:1600,height:1600,bytes:182000,origBytes:2400000,status:'approved',createdBy:'info@averebeauty.com',createdAt:'2026-10-01'},
+  {id:'d2',url:'assets/toro-detail.jpg',thumbUrl:'assets/toro-detail.jpg',type:'image',file:'IMG_4471.jpg',title:'Toro detail',alt:'',labels:{treatment:'Tattoo removal',device:'DEKA Toro'},width:1200,height:1500,bytes:240000,origBytes:5100000,status:'approved',createdBy:'sophie@averebeauty.com',createdAt:'2026-10-02'},
+  {id:'d3',url:'assets/office-cranberry.jpg',thumbUrl:'assets/office-cranberry.jpg',type:'image',file:'avere-cranberry-office.webp',title:'Cranberry office',alt:'Avere Beauty treatment room in Cranberry',labels:{treatment:'Office / team',office:'Cranberry',campaign:'Fall 2026'},width:2000,height:1333,bytes:210000,origBytes:3800000,status:'approved',createdBy:'info@averebeauty.com',createdAt:'2026-10-03'},
+  {id:'d4',url:'assets/office-foxchapel.jpg',thumbUrl:'assets/office-foxchapel.jpg',type:'image',file:'avere-blawnox-office.webp',title:'Blawnox office',alt:'Avere Beauty storefront in Blawnox near Fox Chapel',labels:{treatment:'Office / team',office:'Blawnox (Fox Chapel)',campaign:'Grand opening Blawnox'},width:2000,height:1333,bytes:198000,origBytes:4200000,status:'pending',createdBy:'freelancer@gmail.com',createdAt:'2026-10-04'},
+  {id:'d5',url:'assets/alyssa-luciano.jpg',thumbUrl:'assets/alyssa-luciano.jpg',type:'image',file:'alyssa-luciano-rn.webp',title:'Alyssa headshot',alt:'Alyssa Luciano, RN, at Avere Beauty',labels:{treatment:'Office / team',provider:'Alyssa Luciano RN'},width:1200,height:1500,bytes:150000,origBytes:2900000,status:'approved',createdBy:'sophie@averebeauty.com',createdAt:'2026-10-05'},
+  {id:'d6',url:'assets/avere-interior.jpg',thumbUrl:'assets/avere-interior.jpg',type:'image',file:'avere-lawrenceville-interior.webp',title:'Lawrenceville lobby',alt:'Avere Beauty lobby in Lawrenceville',labels:{treatment:'Office / team',office:'Lawrenceville'},width:2000,height:1333,bytes:230000,origBytes:4600000,status:'approved',createdBy:'info@averebeauty.com',createdAt:'2026-10-06'}];
+const C={rose:'#B04A62',ink:'#2B2226',blush:'#F4DADC',line:'#EFC3C7',mute:'#6E5F64'};
+const kb=b=>!b?'—':b>=1e6?(b/1e6).toFixed(1)+' MB':Math.round(b/1e3)+' KB';
+const slug=s=>String(s).toLowerCase().replace(/\(.*?\)/g,'').replace(/\+/g,'-plus').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const autoAlt=l=>{const t=l.treatment&&l.treatment!=='Office / team'?l.treatment:'';const parts=[t?(t+(l.device&&!t.includes(l.device)?' with the '+l.device:'')):(l.device||'Avere Beauty'),l.provider?'by '+l.provider:'',l.office?'at Avere Beauty '+l.office:(t||l.device?'at Avere Beauty':'')].filter(Boolean);return parts.join(' ').replace(/\s+/g,' ').trim();};
+
+class Component extends DCLogic {
+  gbtnRef=React.createRef();
+  state={phase:'loading',demo:false,user:null,items:[],q:'',f:{},preset:{},sel:null,queue:[],err:'',tab:'library',users:[],nuEmail:'',nuExpires:'',dragging:false,saved:'',copied:'',aiBusy:false,confirmDel:false};
+  async componentDidMount(){
+    try{
+      const r=await fetch('/api/auth/me',{credentials:'same-origin'});
+      const ct=r.headers.get('content-type')||'';
+      if(!ct.includes('json'))throw new Error('no api');
+      if(r.ok){const j=await r.json();this.setState({phase:'in',user:j.user});this.load();}
+      else{this.setState({phase:'out'});this.google();}
+    }catch(e){this.setState({phase:'in',demo:true,user:{email:'info@averebeauty.com',role:'owner'},items:DEMO});}
+  }
+  async api(path,opt={}){
+    const r=await fetch(path,{credentials:'same-origin',headers:{'content-type':'application/json'},...opt,body:opt.body?JSON.stringify(opt.body):undefined});
+    const j=await r.json().catch(()=>({}));
+    if(r.status===401){this.setState({phase:'out'});this.google();}
+    if(!r.ok)throw new Error(j.error||'Something went wrong');
+    return j;
+  }
+  async load(){try{const j=await this.api('/api/media');this.setState({items:j.items});}catch(e){this.setState({saved:e.message});}}
+  async google(){
+    const cfg=await fetch('/api/config').then(r=>r.json()).catch(()=>({}));
+    if(!cfg.googleClientId){this.setState({err:'Google sign-in is not set up yet (GOOGLE_CLIENT_ID).'});return;}
+    if(!window.google){await new Promise(res=>{const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.onload=res;document.head.appendChild(s);});}
+    window.google.accounts.id.initialize({client_id:cfg.googleClientId,callback:async r=>{
+      try{const j=await this.api('/api/auth/google',{method:'POST',body:{credential:r.credential}});this.setState({phase:'in',user:j.user,err:''});this.load();}
+      catch(e){this.setState({err:e.message});}}});
+    const draw=()=>{if(this.gbtnRef.current)window.google.accounts.id.renderButton(this.gbtnRef.current,{theme:'outline',size:'large',shape:'pill',text:'signin_with'});else setTimeout(draw,100);};draw();
+  }
+  async loadUsers(){if(this.state.demo){this.setState({users:[{email:'info@averebeauty.com',role:'owner',fixed:true},{email:'sophie@averebeauty.com',role:'owner',fixed:true},{email:'frankudavcak@gmail.com',role:'owner',fixed:true}]});return;}
+    try{const j=await this.api('/api/users');this.setState({users:j.users});}catch(e){this.setState({saved:e.message});}}
+  patchSel(p){this.setState(s=>({sel:{...s.sel,...p},items:s.items.map(i=>i.id===s.sel.id?{...i,...p}:i),dirty:true}));}
+  async save(){const s=this.state;if(!s.sel||!s.dirty)return;this.setState({dirty:false});
+    if(s.demo){this.setState({saved:'Saved'});return;}
+    try{const {title,alt,labels,status}=s.sel;await this.api('/api/media?id='+s.sel.id,{method:'PATCH',body:{title,alt,labels,status}});this.setState({saved:'Saved '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})});}catch(e){this.setState({saved:e.message});}}
+  async sha(buf){const h=await crypto.subtle.digest('SHA-256',buf);return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');}
+  toWebp(src,w,h,max,q){const sc=Math.min(1,max/Math.max(w,h));const cv=document.createElement('canvas');cv.width=Math.round(w*sc);cv.height=Math.round(h*sc);cv.getContext('2d').drawImage(src,0,0,cv.width,cv.height);return new Promise(r=>cv.toBlob(b=>r({blob:b,w:cv.width,h:cv.height}),'image/webp',q));}
+  async videoInfo(file){const v=document.createElement('video');v.muted=true;v.playsInline=true;v.preload='auto';v.src=URL.createObjectURL(file);
+    await new Promise((res,rej)=>{v.onloadedmetadata=res;v.onerror=()=>rej(new Error('Can\'t read this video'));});
+    v.currentTime=Math.min(1,v.duration/2);await new Promise(r=>{v.onseeked=r;});
+    const poster=await this.toWebp(v,v.videoWidth,v.videoHeight,800,.75);return{duration:v.duration,w:v.videoWidth,h:v.videoHeight,poster};}
+  async putBlob(name,blob){
+    if(this.state.demo)return URL.createObjectURL(blob);
+    const mod=await import('https://esm.sh/@vercel/blob@1.0.0/client');
+    const r=await mod.upload('media/'+name,blob,{access:'public',handleUploadUrl:'/api/media/upload',contentType:blob.type});
+    return r.url;}
+  q(id,msg,tone){this.setState(s=>({queue:s.queue.map(u=>u.id===id?{...u,msg,tone}:u)}));}
+  async uploadAll(files){
+    const list=[...files].filter(f=>/^(image|video)\//.test(f.type));
+    const jobs=list.map((f,i)=>({id:Date.now()+'-'+i,name:f.name,msg:'Waiting',tone:'mute',file:f}));
+    this.setState(s=>({queue:[...jobs.map(({file,...j})=>j),...s.queue].slice(0,12)}));
+    for(const j of jobs)await this.uploadOne(j);
+  }
+  async uploadOne({id,file}){
+    const s=this.state,labels={...s.preset};
+    try{
+      this.q(id,'Checking…');
+      const hash=await this.sha(await file.arrayBuffer());
+      const dup=this.state.items.find(i=>i.hash===hash);
+      if(dup){this.q(id,'Already in library: '+(dup.title||dup.file),'warn');return;}
+      const base=slug([labels.treatment,labels.device,labels.provider,labels.office].filter(x=>x&&x!=='Office / team').join(' ')||file.name.replace(/\.[^.]+$/,''))||'avere';
+      const n=Math.random().toString(36).slice(2,6);
+      let rec;
+      if(file.type.startsWith('image/')){
+        this.q(id,'Compressing…');
+        const bmp=await createImageBitmap(file);
+        const main=await this.toWebp(bmp,bmp.width,bmp.height,2400,.82);
+        const thumb=await this.toWebp(bmp,bmp.width,bmp.height,640,.75);
+        this.q(id,'Uploading '+kb(main.blob.size)+'…');
+        const fname=base+'-avere-beauty-'+n+'.webp';
+        const [url,thumbUrl]=await Promise.all([this.putBlob(fname,main.blob),this.putBlob('thumbs/'+fname,thumb.blob)]);
+        rec={url,thumbUrl,type:'image',file:fname,width:main.w,height:main.h,bytes:main.blob.size,origBytes:file.size};
+      }else{
+        this.q(id,'Reading video…');
+        const v=await this.videoInfo(file);
+        if(v.duration>65){this.q(id,'Too long ('+Math.round(v.duration)+'s). Clips must be under 1 minute.','warn');return;}
+        if(file.size>60e6){this.q(id,'Too large ('+kb(file.size)+'). Export at 1080p and try again.','warn');return;}
+        this.q(id,'Uploading '+kb(file.size)+'…');
+        const ext=(file.name.match(/\.[a-z0-9]+$/i)||['.mp4'])[0].toLowerCase();
+        const fname=base+'-avere-beauty-'+n+ext;
+        const [url,thumbUrl]=await Promise.all([this.putBlob(fname,file),this.putBlob('thumbs/'+base+'-'+n+'.webp',v.poster.blob)]);
+        rec={url,thumbUrl,type:'video',file:fname,width:v.w,height:v.h,bytes:file.size,origBytes:file.size,duration:v.duration};
+      }
+      const meta={...rec,hash,title:file.name.replace(/\.[^.]+$/,''),alt:autoAlt(labels),labels};
+      let item;
+      if(this.state.demo)item={...meta,id:'l'+Date.now(),status:'approved',createdBy:this.state.user.email,createdAt:new Date().toISOString()};
+      else item=(await this.api('/api/media',{method:'POST',body:meta})).item;
+      this.setState(st=>({items:[item,...st.items]}));
+      this.q(id,rec.type==='image'?'Done · '+kb(file.size)+' → '+kb(rec.bytes):'Done','ok');
+    }catch(e){this.q(id,e.message||'Failed','warn');}
+  }
+  renderVals(){
+    const s=this.state,u=s.user||{},owner=u.role==='owner',f=s.f;
+    const match=(i,skip)=>Object.entries(f).every(([k,v])=>!v||k===skip||(k==='status'?(v==='Needs alt text'?!i.alt:v==='Needs approval'?i.status==='pending':true):(i.labels||{})[k]===v))&&(!s.q||[i.title,i.alt,i.file,...Object.values(i.labels||{})].join(' ').toLowerCase().includes(s.q.toLowerCase()));
+    const shown=s.items.filter(i=>match(i));
+    const groups=[['status','Needs work',['Needs alt text','Needs approval']],...Object.keys(LABELS).map(k=>[k,NAMES[k],LABELS[k]]),['campaign','Season / campaign',[...new Set(s.items.map(i=>(i.labels||{}).campaign).filter(Boolean))]]];
+    const filterGroups=groups.map(([k,label,opts])=>({label,opts:opts.map(o=>{const cnt=s.items.filter(i=>match(i,k)&&(k==='status'?(o==='Needs alt text'?!i.alt:i.status==='pending'):(i.labels||{})[k]===o)).length;return{label:o,count:String(cnt),on:f[k]===o,cnt};}).filter(o=>o.cnt||o.on).map(o=>({...o,pick:()=>this.setState(st=>({f:{...st.f,[k]:st.f[k]===o.label?'':o.label}})),style:{minHeight:28,padding:'0 10px',borderRadius:999,border:o.on?'none':'1px solid '+C.line,background:o.on?C.ink:'#fff',color:o.on?'#fff':C.ink,fontSize:12,fontWeight:700,cursor:'pointer'}}))})).filter(g=>g.opts.length);
+    const sel=s.sel,sl=(sel&&sel.labels)||{};
+    const fieldList=(obj,setter)=>Object.keys(LABELS).map(k=>({label:NAMES[k],value:obj[k]||'',options:LABELS[k],set:e=>setter(k,e.target.value)}));
+    const altLen=sel?(sel.alt||'').length:0;
+    return{
+      isLoading:s.phase==='loading',isOut:s.phase==='out',isIn:s.phase==='in',gbtnRef:this.gbtnRef,hasErr:!!s.err,err:s.err,demo:s.demo,
+      tabs:[['library','Library'],...(owner?[['team','Team']]:[])].map(([k,l])=>({label:l,go:()=>{this.setState({tab:k});if(k==='team')this.loadUsers();},style:{minHeight:32,padding:'0 14px',borderRadius:999,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?'#fff':'transparent',color:s.tab===k?C.ink:'#E8CDD2'}})),
+      userLine:(u.email||'')+' · '+(u.role==='owner'?'Owner':u.role==='freelancer'?'Freelancer'+(u.expires?' until '+u.expires:''):'Editor'),
+      signOut:async()=>{if(!s.demo)await fetch('/api/auth/logout',{method:'POST'});this.setState({phase:s.demo?'in':'out',user:s.demo?s.user:null});if(!s.demo)this.google();},
+      isLibrary:s.tab==='library',isTeam:s.tab==='team',
+      q:s.q,setQ:e=>this.setState({q:e.target.value}),filterGroups,clearFilters:()=>this.setState({f:{},q:''}),
+      presetFields:fieldList(s.preset,(k,v)=>this.setState(st=>({preset:{...st.preset,[k]:v}}))),
+      presetCampaign:s.preset.campaign||'',setPresetCampaign:e=>{const v=e.target.value;this.setState(st=>({preset:{...st.preset,campaign:v}}));},
+      onPick:e=>{this.uploadAll(e.target.files);e.target.value='';},
+      onDragOver:e=>{e.preventDefault();if(!s.dragging)this.setState({dragging:true});},
+      onDragLeave:e=>{if(e.currentTarget.contains(e.relatedTarget))return;this.setState({dragging:false});},
+      onDrop:e=>{e.preventDefault();this.setState({dragging:false});this.uploadAll(e.dataTransfer.files);},
+      dragging:s.dragging,
+      hasQueue:!!s.queue.length,queue:s.queue.map(q=>({name:q.name,msg:q.msg,style:{fontSize:12,fontWeight:700,whiteSpace:'nowrap',color:q.tone==='warn'?'#8A3A4E':q.tone==='ok'?C.ink:C.mute}})),
+      countLine:shown.length+' of '+s.items.length+' files',savedLine:s.saved,
+      isEmpty:!shown.length,
+      grid:shown.map(i=>({thumbUrl:i.thumbUrl||i.url,alt:i.alt||'',title:i.title||i.file,isVideo:i.type==='video',dur:Math.round(i.duration||0)+'s',pending:i.status==='pending',
+        flag:!i.alt?'Needs alt text':[i.labels&&i.labels.treatment,i.labels&&i.labels.office].filter(Boolean).join(' · ')||'No labels',
+        flagStyle:{fontSize:11,fontWeight:700,color:!i.alt?'#8A3A4E':C.mute,width:'100%',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',textAlign:'left'},
+        pick:()=>{this.save();this.setState({sel:{...i,labels:{...(i.labels||{})}},copied:'',confirmDel:false});},
+        card:{display:'flex',flexDirection:'column',gap:6,padding:8,borderRadius:14,background:'#fff',border:'2px solid '+(sel&&sel.id===i.id?C.rose:C.blush),cursor:'pointer',minWidth:0}})),
+      hasSel:!!sel,sel:sel||{},selIsVideo:!!sel&&sel.type==='video',selIsImage:!sel||sel.type!=='video',selPending:!!sel&&sel.status==='pending'&&owner,
+      closeSel:()=>{this.save();this.setState({sel:null});},
+      approve:()=>{this.patchSel({status:'approved'});setTimeout(()=>this.save());},
+      setTitle:e=>this.patchSel({title:e.target.value}),setAlt:e=>this.patchSel({alt:e.target.value}),save:()=>this.save(),
+      altCount:altLen+' / 125',altCountStyle:{color:!altLen||altLen>125?'#8A3A4E':C.mute},
+      altFromLabels:()=>{this.patchSel({alt:autoAlt(sl)});setTimeout(()=>this.save());},
+      aiLabel:s.aiBusy?'Looking at the photo…':'Write with AI',
+      altAi:async()=>{if(s.demo){this.patchSel({alt:autoAlt(sl)});this.setState({saved:'AI alt text works once deployed with ANTHROPIC_API_KEY'});return;}
+        this.setState({aiBusy:true});try{const j=await this.api('/api/ai/alt',{method:'POST',body:{url:sel.type==='video'?sel.thumbUrl:sel.url,labels:sl}});this.patchSel({alt:j.alt});setTimeout(()=>this.save());}catch(e){this.setState({saved:e.message});}this.setState({aiBusy:false});},
+      selFields:fieldList(sl,(k,v)=>{this.patchSel({labels:{...sl,[k]:v}});setTimeout(()=>this.save());}),
+      selCampaign:sl.campaign||'',setSelCampaign:e=>this.patchSel({labels:{...sl,campaign:e.target.value}}),
+      selOrig:sel?kb(sel.origBytes):'',selSize:sel?kb(sel.bytes)+(sel.type==='image'?' WebP':''):'',
+      selMeta:sel?[sel.file,sel.width&&sel.width+'×'+sel.height+'px','added by '+sel.createdBy].filter(Boolean).join(' · '):'',
+      copyUrlLabel:s.copied==='url'?'Copied':'Copy link',copyHtmlLabel:s.copied==='html'?'Copied':'Copy embed code',
+      copyUrl:()=>{navigator.clipboard.writeText(sel.url);this.setState({copied:'url'});},
+      copyHtml:()=>{const a=(sel.alt||'').replace(/"/g,'&quot;');const h=sel.type==='video'?`<video src="${sel.url}" poster="${sel.thumbUrl}" width="${sel.width}" height="${sel.height}" muted playsinline loop autoplay aria-label="${a}"></video>`:`<img src="${sel.url}" alt="${a}" width="${sel.width}" height="${sel.height}" loading="lazy" decoding="async">`;navigator.clipboard.writeText(h);this.setState({copied:'html'});},
+      canDelete:owner,removeLabel:s.confirmDel?'Tap again to delete for good':'Delete file',
+      remove:async()=>{if(!s.confirmDel){this.setState({confirmDel:true});return;}
+        try{if(!s.demo)await this.api('/api/media?id='+sel.id,{method:'DELETE'});this.setState(st=>({items:st.items.filter(i=>i.id!==sel.id),sel:null,confirmDel:false}));}catch(e){this.setState({saved:e.message});}},
+      users:s.users.map(x=>({email:x.email,fixed:!!x.fixed,roleLine:x.role==='owner'?'Owner':x.role==='freelancer'?'Freelancer'+(x.expires?' · until '+x.expires:''):'Editor',
+        btnLabel:x.fixed?'Set in Vercel':'Remove',btn:{minHeight:30,padding:'0 12px',borderRadius:999,border:'1px solid '+C.line,background:'#fff',fontSize:12,fontWeight:700,cursor:x.fixed?'default':'pointer',color:x.fixed?C.mute:'#8A3A4E'},
+        remove:async()=>{if(x.fixed)return;try{if(!s.demo)await this.api('/api/users?email='+encodeURIComponent(x.email),{method:'DELETE'});this.setState(st=>({users:st.users.filter(y=>y.email!==x.email)}));}catch(e){this.setState({saved:e.message});}}})),
+      nuEmail:s.nuEmail,nuExpires:s.nuExpires,setNuEmail:e=>this.setState({nuEmail:e.target.value}),setNuExpires:e=>this.setState({nuExpires:e.target.value}),
+      addUser:async()=>{const rec={email:s.nuEmail.trim().toLowerCase(),role:'freelancer',expires:s.nuExpires||null};if(!rec.email)return;
+        try{if(!s.demo)await this.api('/api/users',{method:'POST',body:rec});this.setState(st=>({users:[...st.users.filter(y=>y.email!==rec.email),rec],nuEmail:'',nuExpires:''}));}catch(e){this.setState({saved:e.message});}}
+    };
+  }
+}
+</script>
+</body>
+</html>

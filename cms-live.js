@@ -1,11 +1,17 @@
 // Avere Studio live-content layer. Pages load this; it applies saved edits and, with ?edit=1, makes the page editable in place.
 (function () {
-  const PAGE = decodeURIComponent(location.pathname.split('/').pop()).replace(/\.dc\.html$|\.html$/, '');
+  const meta = document.querySelector('meta[name="cms-page"]');
+  const PAGE = meta ? meta.content : decodeURIComponent(location.pathname.split('/').pop()).replace(/\.dc\.html$|\.html$/, '').replace(/^Avere /, '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const EDIT = /[?&]edit=1/.test(location.search);
   const LIVE = 'avere-cms:' + PAGE + ':live', DRAFT = 'avere-cms:' + PAGE + ':draft';
   const read = k => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } };
+  // Preview fallback: browser storage. On the live site, content comes from /api/content.
   let data = (EDIT ? read(DRAFT) || read(LIVE) : read(LIVE)) || {};
   window.__cmsData = data;
+  fetch('/api/content?page=' + encodeURIComponent(PAGE) + (EDIT ? '&stage=draft' : ''), { credentials: 'same-origin' })
+    .then(r => (r.ok && (r.headers.get('content-type') || '').includes('json')) ? r.json() : null)
+    .then(j => { if (j && j.data) set(j.data); })
+    .catch(() => {});
   const orig = {};
   let origTitle = null, origDesc = null;
 

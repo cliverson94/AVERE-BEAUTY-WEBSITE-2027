@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Avere Studio · Edit Tattoo Removal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#FBEFF0}*{box-sizing:border-box}a{color:#B04A62;text-decoration:none}a:hover{color:#2B2226}input,textarea,select,button{font-family:inherit}</style>
+</helmet>
+<div style="display:flex;flex-direction:column;height:100vh;overflow:hidden">
+  <header style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:#2B2226;color:#fff;flex-wrap:wrap">
+    <a href="Avere Studio.dc.html" style="color:#E8CDD2;font-size:13px;font-weight:700;white-space:nowrap">← Studio</a>
+    <span style="width:1px;height:20px;background:#5A4A50"></span>
+    <span style="font-family:'Poppins',sans-serif;font-size:16px;white-space:nowrap">Tattoo Removal</span>
+    <span style="{{ statusPill }}">{{ statusText }}</span>
+    <span style="flex:1"></span>
+    <div style="display:flex;gap:2px;padding:3px;background:#3A2E33;border-radius:999px">
+      <sc-for list="{{ devices }}" as="d" hint-placeholder-count="3"><button onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button></sc-for>
+    </div>
+    <button onClick="{{ undo }}" disabled="{{ noUndo }}" style="{{ undoStyle }}">Undo</button>
+    <a href="Avere Tattoo Removal.dc.html" target="_blank" style="color:#E8CDD2;font-size:13px;font-weight:700;white-space:nowrap">View live ↗</a>
+    <button onClick="{{ publish }}" style="min-height:36px;padding:0 16px;border-radius:999px;border:none;background:#B04A62;color:#fff;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Publish</button>
+  </header>
+
+  <div style="display:flex;flex:1;min-height:0">
+    <aside style="width:230px;flex-shrink:0;background:#fff;border-right:1px solid #F4DADC;display:flex;flex-direction:column;overflow-y:auto">
+      <div style="padding:14px 14px 8px;display:flex;flex-direction:column;gap:4px">
+        <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Sections</span>
+        <span style="font-size:12px;color:#6E5F64;line-height:1.4">Drag to reorder. Eye hides a section.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;padding:0 10px 14px">
+        <sc-for list="{{ sections }}" as="s" hint-placeholder-count="10">
+          <div draggable="true" onDragStart="{{ s.dragStart }}" onDragOver="{{ s.dragOver }}" onDrop="{{ s.drop }}" style="{{ s.style }}">
+            <span style="color:#C9A9B0;cursor:grab">⋮⋮</span>
+            <button onClick="{{ s.go }}" style="flex:1;min-width:0;text-align:left;background:none;border:none;padding:0;font-size:13px;font-weight:700;color:inherit;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ s.label }}</button>
+            <button onClick="{{ s.toggle }}" title="Show or hide" style="{{ s.eyeStyle }}">{{ s.eye }}</button>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:auto;padding:14px;border-top:1px solid #F4DADC;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:12px;color:#6E5F64;line-height:1.5">Click any text on the page to type over it. Click a photo to replace it.</span>
+        <button onClick="{{ discard }}" style="min-height:32px;border:none;background:none;color:#8A3A4E;font-size:12px;font-weight:700;cursor:pointer;text-align:left;padding:0">Discard all unpublished changes</button>
+      </div>
+    </aside>
+
+    <section style="flex:1;min-width:0;display:flex;justify-content:center;padding:16px;overflow:auto">
+      <div style="{{ frameWrap }}">
+        <iframe ref="{{ frameRef }}" src="Avere Tattoo Removal.dc.html?edit=1" title="Tattoo Removal page" style="width:100%;height:100%;border:0;display:block;background:#0E0B0C"></iframe>
+      </div>
+    </section>
+
+    <aside style="width:320px;flex-shrink:0;background:#fff;border-left:1px solid #F4DADC;display:flex;flex-direction:column;overflow:hidden">
+      <div style="display:flex;gap:2px;padding:8px;border-bottom:1px solid #F4DADC">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button></sc-for>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px">
+
+        <sc-if value="{{ isEdit }}" hint-placeholder-val="{{ true }}">
+          <sc-if value="{{ noSel }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:10px;padding:8px 0">
+              <span style="font-family:'Poppins',sans-serif;font-size:18px">Nothing selected</span>
+              <span style="font-size:14px;line-height:1.55;color:#4A3B40">Click a heading, paragraph, button or photo in the page to edit it here.</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isText }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">{{ selKindLabel }} · {{ sel.section }}</span>
+            <textarea value="{{ selValue }}" onChange="{{ setSelValue }}" rows="5" style="border:1px solid #EFC3C7;border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.5;color:#2B2226;resize:vertical"></textarea>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#6E5F64"><span>{{ selCount }}</span><sc-if value="{{ selChanged }}" hint-placeholder-val="{{ false }}"><button onClick="{{ resetSel }}" style="border:none;background:none;color:#B04A62;font-size:12px;font-weight:700;cursor:pointer;padding:0">Restore original</button></sc-if></div>
+            <sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64">Button goes to<input value="{{ selHref }}" onChange="{{ setSelHref }}" style="min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px;color:#2B2226"></label>
+              <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ linkPresets }}" as="l" hint-placeholder-count="3"><button onClick="{{ l.pick }}" style="font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid #EFC3C7;background:#FFF5F5;cursor:pointer">{{ l.label }}</button></sc-for></div>
+            </sc-if>
+            <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #F4DADC;padding-top:12px">
+              <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Avere AI</span>
+              <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ aiActions }}" as="a" hint-placeholder-count="4"><button onClick="{{ a.go }}" style="font-size:12px;padding:7px 11px;border-radius:999px;border:1px solid #EFC3C7;background:#FFF5F5;cursor:pointer;font-weight:700">{{ a.label }}</button></sc-for></div>
+              <sc-if value="{{ aiBusy }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#6E5F64">Thinking…</span></sc-if>
+              <sc-if value="{{ hasSuggest }}" hint-placeholder-val="{{ false }}">
+                <div style="background:#FFF5F5;border:1px solid #F4DADC;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px">
+                  <span style="font-size:14px;line-height:1.5;white-space:pre-wrap">{{ suggest }}</span>
+                  <div style="display:flex;gap:8px"><sc-if value="{{ suggestUsable }}" hint-placeholder-val="{{ true }}"><button onClick="{{ useSuggest }}" style="min-height:32px;padding:0 14px;border-radius:999px;border:none;background:#2B2226;color:#fff;font-size:12px;font-weight:700;cursor:pointer">Use this</button></sc-if><button onClick="{{ clearSuggest }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;font-size:12px;cursor:pointer">Dismiss</button></div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+          <sc-if value="{{ isImg }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Photo · {{ sel.section }}</span>
+            <div style="aspect-ratio:4/3;border-radius:12px;background:#1A1315;overflow:hidden;display:flex;align-items:center;justify-content:center"><img src="{{ selSrc }}" alt="" style="max-width:100%;max-height:100%;object-fit:contain;display:block"></div>
+            <label style="min-height:40px;border-radius:999px;background:#2B2226;color:#fff;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center">Replace photo<input type="file" accept="image/*" onChange="{{ onFile }}" style="display:none"></label>
+            <span style="font-size:12px;color:#6E5F64;line-height:1.5">{{ imgNote }}</span>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64">Alt text (for Google and screen readers)<textarea value="{{ selAlt }}" onChange="{{ setSelAlt }}" rows="3" style="border:1px solid #EFC3C7;border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.5;color:#2B2226;resize:vertical"></textarea></label>
+            <span style="{{ altHint }}">{{ altNote }}</span>
+            <button onClick="{{ aiAlt }}" style="min-height:34px;border-radius:999px;border:1px solid #EFC3C7;background:#FFF5F5;font-size:13px;font-weight:700;cursor:pointer">Write alt text with AI</button>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:13px;line-height:1.5;color:#4A3B40">Drag to reorder. Changes show on the page as you type.</span>
+          <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+            <div draggable="true" onDragStart="{{ q.dragStart }}" onDragOver="{{ q.dragOver }}" onDrop="{{ q.drop }}" style="border:1px solid #F4DADC;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px;background:#fff">
+              <div style="display:flex;gap:6px;align-items:center"><span style="color:#C9A9B0;cursor:grab">⋮⋮</span><input value="{{ q.q }}" onChange="{{ q.setQ }}" style="flex:1;min-width:0;min-height:32px;border:1px solid #F4DADC;border-radius:8px;padding:0 8px;font-size:13px;font-weight:700"><button onClick="{{ q.del }}" style="border:none;background:none;color:#8A3A4E;cursor:pointer;font-size:16px">×</button></div>
+              <textarea value="{{ q.a }}" onChange="{{ q.setA }}" rows="3" style="border:1px solid #F4DADC;border-radius:8px;padding:6px 8px;font-size:13px;line-height:1.45;resize:vertical"></textarea>
+            </div>
+          </sc-for>
+          <button onClick="{{ addFaq }}" style="min-height:36px;border:1px dashed #EFC3C7;border-radius:10px;background:none;color:#B04A62;font-size:13px;font-weight:700;cursor:pointer">+ Add question</button>
+        </sc-if>
+
+        <sc-if value="{{ isSpecs }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:13px;line-height:1.5;color:#4A3B40">Device specs table. Drag to reorder.</span>
+          <sc-for list="{{ specs }}" as="r" hint-placeholder-count="5">
+            <div draggable="true" onDragStart="{{ r.dragStart }}" onDragOver="{{ r.dragOver }}" onDrop="{{ r.drop }}" style="display:flex;gap:6px;align-items:center">
+              <span style="color:#C9A9B0;cursor:grab">⋮⋮</span>
+              <input value="{{ r.k }}" onChange="{{ r.setK }}" style="width:100px;min-height:32px;border:1px solid #F4DADC;border-radius:8px;padding:0 8px;font-size:12px;font-weight:700">
+              <input value="{{ r.v }}" onChange="{{ r.setV }}" style="flex:1;min-width:0;min-height:32px;border:1px solid #F4DADC;border-radius:8px;padding:0 8px;font-size:12px">
+              <button onClick="{{ r.del }}" style="border:none;background:none;color:#8A3A4E;cursor:pointer;font-size:16px">×</button>
+            </div>
+          </sc-for>
+          <button onClick="{{ addSpec }}" style="min-height:36px;border:1px dashed #EFC3C7;border-radius:10px;background:none;color:#B04A62;font-size:13px;font-weight:700;cursor:pointer">+ Add row</button>
+        </sc-if>
+
+        <sc-if value="{{ isSeo }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:12px"><span style="{{ scoreStyle }}">{{ score }}</span><span style="font-size:13px;line-height:1.45;color:#4A3B40">{{ scoreNote }}</span></div>
+          <div style="border:1px solid #F4DADC;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:3px;background:#fff">
+            <span style="font-size:12px;color:#4A3B40">averebeauty.com › tattoo-removal</span>
+            <span style="font-size:17px;color:#1A0DAB;line-height:1.3">{{ seoTitle }}</span>
+            <span style="font-size:13px;line-height:1.45;color:#4A3B40">{{ seoDesc }}</span>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64"><span style="display:flex;justify-content:space-between">Page title<span style="{{ titleCountStyle }}">{{ titleCount }}</span></span><input value="{{ seoTitle }}" onChange="{{ setSeoTitle }}" style="min-height:38px;border:1px solid #EFC3C7;border-radius:10px;padding:0 10px;font-size:13px;color:#2B2226"></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64"><span style="display:flex;justify-content:space-between">Meta description<span style="{{ descCountStyle }}">{{ descCount }}</span></span><textarea value="{{ seoDesc }}" onChange="{{ setSeoDesc }}" rows="4" style="border:1px solid #EFC3C7;border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.5;color:#2B2226;resize:vertical"></textarea></label>
+          <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #F4DADC;padding-top:12px">
+            <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">Checks</span>
+            <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5"><div style="display:flex;gap:8px;font-size:13px;line-height:1.45"><span style="{{ c.dot }}"></span><span>{{ c.text }}</span></div></sc-for>
+          </div>
+        </sc-if>
+
+      </div>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const PAGE='tattoo-removal';
+const DRAFT='avere-cms:'+PAGE+':draft',LIVE='avere-cms:'+PAGE+':live';
+const DEF_FAQS=[
+ ['How many tattoo removal sessions will I need?','Most tattoos require between 4 and 10 sessions, depending on color, size, ink type and skin type. You will usually wait 6 to 8 weeks between treatments so your skin can heal completely.'],
+ ['Does tattoo removal hurt?','Many clients describe minimal discomfort, similar to quick snaps against the skin. Topical numbing can be applied for extra comfort.'],
+ ['Will laser tattoo removal leave a scar?','The risk of scarring is very low when performed by experienced providers using advanced lasers. Following your aftercare instructions lowers it further.'],
+ ['Can every tattoo be fully removed?','Most fade dramatically, but full clearance is not guaranteed. Tattoo inks are not regulated and some mixed or unusual pigments resist removal. We will tell you what to expect at your consultation.'],
+ ['Can you just fade it for a cover-up?','Yes. Fading usually takes fewer sessions than full removal and gives your tattoo artist a cleaner canvas.'],
+ ['Is it safe for darker skin?','Yes. The Toro\'s 1064 nm and 785 nm wavelengths are absorbed less by melanin, which makes them suited to deeper skin tones. Your provider sets the energy for your skin type.']];
+const DEF_SPECS=[['Laser type','Q-switched Nd:YAG'],['Wavelengths','532 nm · 785 nm · 1064 nm'],['Pulse modes','Picosecond, nanosecond, double nano, thermal'],['Ink colors','Black, dark blue, red, orange, yellow, green, blue, purple'],['Skin types','Fitzpatrick I to VI with wavelength selection'],['Also treats','Sun spots, age spots, freckles, post-inflammatory hyperpigmentation'],['Clearance','FDA-cleared'],['Where','Lawrenceville, 3453 Butler Street']].map(([k,v])=>({k,v}));
+const read=k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}};
+const C={rose:'#B04A62',ink:'#2B2226',blush:'#F4DADC',line:'#EFC3C7',mute:'#6E5F64'};
+const CLAIMS=/guarantee|permanent(ly)?\b|100%|pain[- ]?free|no (risk|downtime)|cure|miracle|best in/i;
+
+class Component extends DCLogic {
+  frameRef=React.createRef();
+  state={data:read(DRAFT)||read(LIVE)||{},info:null,sel:null,device:'desktop',tab:'edit',hist:[],status:'saved',dragSec:null,dragRow:null,suggest:'',aiBusy:false};
+  async componentDidMount(){
+    try{const r=await fetch('/api/auth/me',{credentials:'same-origin'});
+      if((r.headers.get('content-type')||'').includes('json')){
+        if(r.status===401){location.href='/studio';return;}
+        const j=await r.json();this.remote=true;this.setState({user:j.user});
+        const c=await fetch('/api/content?page='+PAGE+'&stage=draft',{credentials:'same-origin'}).then(x=>x.json());
+        const data=c.data||{};this.setState({data,status:c.meta&&c.meta.updatedAt&&c.meta.updatedAt!==c.meta.publishedAt?'draft':'saved'});const cm=this.cms();cm&&cm.set(data);}
+    }catch(err){}
+    this.onMsg=e=>{const m=e.data;if(!m||!m.cms)return;
+      if(m.type==='ready')this.loadInfo();
+      if(m.type==='select')this.setState({sel:m,tab:'edit',suggest:''});
+      if(m.type==='deselect')this.setState({sel:null,suggest:''});
+      if(m.type==='text'){this.commit(d=>({...d,texts:{...(d.texts||{}),[m.key]:m.value}}),{push:'text:'+m.key,noApply:true});this.setState(s=>({sel:s.sel&&s.sel.key===m.key?{...s.sel,value:m.value}:s.sel}));}};
+    addEventListener('message',this.onMsg);
+    this.poll=setInterval(()=>{if(!this.state.info)this.loadInfo();else clearInterval(this.poll);},500);
+  }
+  componentWillUnmount(){removeEventListener('message',this.onMsg);clearInterval(this.poll);}
+  cms(){const w=this.frameRef.current&&this.frameRef.current.contentWindow;return w&&w.__cms;}
+  loadInfo(){const c=this.cms();if(!c)return;const info=c.info();if(!info.sections.length)return;this.setState({info});c.set(this.state.data);}
+  commit(fn,opt={}){
+    this.setState(s=>{const data=fn(s.data);const same=opt.push&&s.lastPush===opt.push;
+      const hist=same?s.hist:[...s.hist.slice(-49),s.data];
+      localStorage.setItem(DRAFT,JSON.stringify(data));this.queueSave(data);
+      if(!opt.noApply){const c=this.cms();c&&c.set(data);}
+      return{data,hist,lastPush:opt.push||null,status:'draft'};});
+  }
+  queueSave(data){if(!this.remote)return;clearTimeout(this.st);this.st=setTimeout(async()=>{try{const r=await fetch('/api/content?page='+PAGE+'&stage=draft',{method:'PUT',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({data})});if(!r.ok)throw new Error((await r.json()).error);this.setState({saveErr:''});}catch(err){this.setState({saveErr:err.message||'Could not save'});}},800);}
+  async putImage(blob){const mod=await import('https://esm.sh/@vercel/blob@1.0.0/client');const r=await mod.upload('media/tattoo-removal-avere-beauty.webp',blob,{access:'public',handleUploadUrl:'/api/media/upload',contentType:'image/webp'});return r.url;}
+  undo=()=>{this.setState(s=>{if(!s.hist.length)return null;const data=s.hist[s.hist.length-1];localStorage.setItem(DRAFT,JSON.stringify(data));this.queueSave(data);const c=this.cms();c&&c.set(data);return{data,hist:s.hist.slice(0,-1),lastPush:null,status:'draft'};});};
+  orig(k){const i=this.state.info;return i&&i.orig[k]||{};}
+  async ai(prompt,fallback){
+    this.setState({aiBusy:true,suggest:''});let out='';
+    try{if(window.claude&&window.claude.complete)out=(await window.claude.complete(prompt)).trim().replace(/^"|"$/g,'');}catch(e){}
+    this.setState({aiBusy:false,suggest:out||fallback});
+  }
+  async compress(file){
+    const url=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(file);});
+    const img=await new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.src=url;});
+    const sc=Math.min(1,1600/Math.max(img.width,img.height));const cv=document.createElement('canvas');cv.width=Math.round(img.width*sc);cv.height=Math.round(img.height*sc);
+    cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+    if(this.remote){const blob=await new Promise(r=>cv.toBlob(r,'image/webp',.82));const src=await this.putImage(blob);return{src,before:Math.round(file.size/1024),after:Math.round(blob.size/1024),w:cv.width,h:cv.height};}
+    const out=cv.toDataURL('image/webp',.8);return{src:out,before:Math.round(file.size/1024),after:Math.round(out.length*.75/1024),w:cv.width,h:cv.height};
+  }
+  renderVals(){
+    const s=this.state,d=s.data,info=s.info,sel=s.sel;
+    const labels=info?info.sections:[];
+    const order=[...(d.order||[]).filter(l=>labels.includes(l)),...labels.filter(l=>!(d.order||[]).includes(l))];
+    const hidden=d.hidden||[];
+    const texts=d.texts||{},imgs=d.imgs||{},links=d.links||{};
+    const selVal=sel?(sel.kind==='img'?'':(texts[sel.key]!=null?texts[sel.key]:this.orig(sel.key).text||sel.value)):'';
+    const selImg=sel&&sel.kind==='img'?(imgs[sel.key]||this.orig(sel.key)):{};
+    const faqs=d.faqs||DEF_FAQS,specs=d.specs||DEF_SPECS;
+    const seoTitle=(d.seo&&d.seo.title)||(info&&info.title)||'',seoDesc=(d.seo&&d.seo.desc)||(info&&info.desc)||'';
+    const allText=[...Object.values(texts),...faqs.flat(),seoDesc].join(' ');
+    const altMissing=Object.entries(imgs).filter(([k,v])=>!v.alt).length;
+    const checks=[
+      [seoTitle.length>=30&&seoTitle.length<=60,'Title is '+seoTitle.length+' characters (aim for 30–60)'],
+      [seoDesc.length>=120&&seoDesc.length<=160,'Description is '+seoDesc.length+' characters (aim for 120–160)'],
+      [/pittsburgh/i.test(seoTitle+seoDesc),'Mentions Pittsburgh for local search'],
+      [!altMissing,altMissing?altMissing+' replaced photo(s) missing alt text':'Every photo has alt text'],
+      [!CLAIMS.test(allText),CLAIMS.test(allText)?'Possible medical claim found: "'+(allText.match(CLAIMS)||[''])[0]+'"':'No outcome guarantees or risky claims'],
+      [faqs.length>=3,faqs.length+' FAQs (published as FAQ schema for Google)']];
+    const score=Math.round(checks.filter(c=>c[0]).length/checks.length*100);
+    const swap=(arr,from,to)=>{const a=[...arr];const [m]=a.splice(from,1);a.splice(to,0,m);return a;};
+    const setTab=k=>()=>this.setState({tab:k});
+    const devW={desktop:'100%',tablet:'820px',phone:'390px'}[s.device];
+    const isLink=sel&&sel.kind==='link';
+    const linkPresets=[['Lawrenceville Square booking','https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa'],['Quick Book','Avere Quick Book.dc.html'],['Ink chart (#ink)','#ink']];
+    return{
+      frameRef:this.frameRef,
+      statusText:s.saveErr?s.saveErr:s.status==='published'?'Published':s.status==='draft'?(this.remote?'Draft saved · not live yet':'Unpublished changes'):'Up to date',
+      statusPill:{fontSize:11,fontWeight:700,padding:'4px 10px',borderRadius:999,whiteSpace:'nowrap',background:s.status==='draft'?C.rose:'#4A3B40',color:'#fff'},
+      devices:[['desktop','Desktop'],['tablet','Tablet'],['phone','Phone']].map(([k,l])=>({label:l,pick:()=>this.setState({device:k}),style:{minHeight:28,padding:'0 12px',borderRadius:999,border:'none',fontSize:12,fontWeight:700,cursor:'pointer',background:s.device===k?'#fff':'transparent',color:s.device===k?C.ink:'#E8CDD2'}})),
+      undo:this.undo,noUndo:!s.hist.length,undoStyle:{minHeight:32,padding:'0 12px',borderRadius:999,border:'1px solid #5A4A50',background:'transparent',color:s.hist.length?'#fff':'#7A6A70',fontSize:13,fontWeight:700,cursor:s.hist.length?'pointer':'default'},
+      publish:async()=>{localStorage.setItem(LIVE,JSON.stringify(s.data));
+        if(this.remote){clearTimeout(this.st);try{const r=await fetch('/api/content?page='+PAGE+'&stage=live',{method:'PUT',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({data:s.data})});const j=await r.json();if(!r.ok)throw new Error(j.error);}catch(err){this.setState({saveErr:err.message});return;}}
+        this.setState({status:'published',hist:[],saveErr:''});},
+      discard:async()=>{let live=read(LIVE)||{};if(this.remote){try{live=(await fetch('/api/content?page='+PAGE).then(x=>x.json())).data||{};}catch(err){}this.queueSave(live);}localStorage.setItem(DRAFT,JSON.stringify(live));const c=this.cms();c&&c.set(live);this.setState({data:live,hist:[],sel:null,status:'saved'});},
+      frameWrap:{width:devW,maxWidth:'100%',height:'100%',borderRadius:s.device==='desktop'?10:24,overflow:'hidden',boxShadow:'0 1px 0 #EFC3C7, 0 16px 40px rgba(43,34,38,.12)',transition:'width .25s',flexShrink:0,background:'#0E0B0C'},
+      sections:order.map((l,i)=>{const hid=hidden.includes(l);return{label:l,eye:hid?'Show':'Hide',
+        go:()=>{const c=this.cms();c&&c.scrollTo(l);},
+        toggle:()=>this.commit(dd=>{const h=dd.hidden||[];return{...dd,hidden:h.includes(l)?h.filter(x=>x!==l):[...h,l]};}),
+        dragStart:()=>this.setState({dragSec:i}),dragOver:e=>e.preventDefault(),
+        drop:()=>{if(s.dragSec==null||s.dragSec===i)return;this.commit(dd=>({...dd,order:swap(order,s.dragSec,i)}));this.setState({dragSec:null});},
+        style:{display:'flex',alignItems:'center',gap:8,padding:'8px 10px',borderRadius:10,border:'1px solid '+(sel&&sel.section===l?C.rose:C.blush),background:hid?'#FBEFF0':'#fff',color:hid?'#A8979C':C.ink,textDecoration:hid?'line-through':'none'},
+        eyeStyle:{border:'none',background:'none',fontSize:11,fontWeight:700,color:hid?C.rose:C.mute,cursor:'pointer',padding:0}};}),
+      tabs:[['edit','Edit'],['faq','FAQs'],['specs','Specs'],['seo','SEO']].map(([k,l])=>({label:l,pick:setTab(k),style:{flex:1,minHeight:32,borderRadius:8,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?C.ink:'transparent',color:s.tab===k?'#fff':C.ink}})),
+      isEdit:s.tab==='edit',isFaq:s.tab==='faq',isSpecs:s.tab==='specs',isSeo:s.tab==='seo',
+      noSel:!sel,isText:!!sel&&sel.kind!=='img',isImg:!!sel&&sel.kind==='img',isLink,sel:sel||{},
+      selKindLabel:sel?(sel.kind==='link'?'Button':({h1:'Page headline',h2:'Heading',h3:'Subheading',p:'Paragraph'}[sel.tag]||'Text')):'',
+      selValue:selVal,selCount:selVal.length+' characters',selChanged:!!sel&&texts[sel.key]!=null&&texts[sel.key]!==this.orig(sel.key).text,
+      setSelValue:e=>{const v=e.target.value;this.commit(dd=>({...dd,texts:{...(dd.texts||{}),[sel.key]:v}}),{push:'text:'+sel.key});},
+      resetSel:()=>this.commit(dd=>{const t={...(dd.texts||{})};delete t[sel.key];return{...dd,texts:t};}),
+      selHref:sel?(links[sel.key]||sel.href||''):'',
+      setSelHref:e=>{const v=e.target.value;this.commit(dd=>({...dd,links:{...(dd.links||{}),[sel.key]:v}}),{push:'link:'+sel.key});},
+      linkPresets:linkPresets.map(([l,h])=>({label:l,pick:()=>this.commit(dd=>({...dd,links:{...(dd.links||{}),[sel.key]:h}}))})),
+      aiActions:[
+        ['Rewrite in Avere voice',()=>this.ai(`Rewrite this website text for Avere Beauty, a Pittsburgh med spa. Voice: warm, plain, confident, specific, no hype, no exclamation marks, no guaranteed results. Keep similar length. Return only the new text.\n\n${selVal}`,selVal.replace(/\bvery\b|\breally\b/gi,'').replace(/\s+/g,' ').trim())],
+        ['Shorter',()=>this.ai(`Make this med spa website text about 40% shorter, same meaning, plain words. Return only the text.\n\n${selVal}`,selVal.split(/(?<=[.!?])\s/)[0])],
+        ['Check claims',()=>{const m=selVal.match(CLAIMS);this.setState({suggest:m?`"${m[0]}" can read as a promised medical result. Try "many clients see…" or "results vary".`:'No guaranteed outcomes or risky claims in this text.',suggestUsable:false});}],
+        ['Instagram caption',()=>this.ai(`Turn this into a short Instagram caption for Avere Beauty (Pittsburgh med spa). 2–3 sentences, warm, end with "Book at the link in bio." Max 3 relevant hashtags. Return only the caption.\n\n${selVal}`,selVal+'\n\nBook at the link in bio. #tattooremoval #pittsburgh')]
+      ].map(([label,go])=>({label,go:()=>{this.setState({suggestUsable:label!=='Check claims'&&label!=='Instagram caption'});go();}})),
+      aiBusy:s.aiBusy,hasSuggest:!!s.suggest,suggest:s.suggest,suggestUsable:s.suggestUsable!==false,
+      useSuggest:()=>{const v=s.suggest;this.commit(dd=>({...dd,texts:{...(dd.texts||{}),[sel.key]:v}}));this.setState({suggest:''});},
+      clearSuggest:()=>this.setState({suggest:''}),
+      selSrc:selImg.src||'',selAlt:selImg.alt||'',
+      imgNote:selImg.after?`Uploaded ${selImg.before} KB → saved as ${selImg.after} KB WebP, ${selImg.w}×${selImg.h}px.`:'New photos are resized to 1600px and converted to WebP automatically.',
+      altNote:!selImg.alt?'Missing. Describe what is in the photo and where.':selImg.alt.length>125?'A bit long. Keep it under 125 characters.':'Good.',
+      altHint:{fontSize:12,fontWeight:700,color:!selImg.alt||(selImg.alt||'').length>125?'#8A3A4E':C.mute},
+      setSelAlt:e=>{const v=e.target.value;this.commit(dd=>({...dd,imgs:{...(dd.imgs||{}),[sel.key]:{...selImg,alt:v}}}),{push:'alt:'+sel.key});},
+      aiAlt:async()=>{const fb='Laser tattoo removal with the DEKA Toro at Avere Beauty in Lawrenceville, Pittsburgh';let out='';
+        try{if(window.claude&&window.claude.complete)out=(await window.claude.complete(`Write image alt text (under 120 characters, no "image of") for a photo in the "${sel.section}" section of Avere Beauty's laser tattoo removal page in Pittsburgh. Current alt: "${selImg.alt||''}". Return only the alt text.`)).trim().replace(/^"|"$/g,'');}catch(e){}
+        const v=out||fb;this.commit(dd=>({...dd,imgs:{...(dd.imgs||{}),[sel.key]:{...selImg,alt:v}}}));},
+      onFile:async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=await this.compress(f);this.commit(dd=>({...dd,imgs:{...(dd.imgs||{}),[sel.key]:{...selImg,...r}}}));},
+      faqs:faqs.map((f,i)=>({q:f[0],a:f[1],
+        setQ:e=>{const v=e.target.value;this.commit(dd=>({...dd,faqs:(dd.faqs||DEF_FAQS).map((x,j)=>j===i?[v,x[1]]:x)}),{push:'fq'+i});},
+        setA:e=>{const v=e.target.value;this.commit(dd=>({...dd,faqs:(dd.faqs||DEF_FAQS).map((x,j)=>j===i?[x[0],v]:x)}),{push:'fa'+i});},
+        del:()=>this.commit(dd=>({...dd,faqs:(dd.faqs||DEF_FAQS).filter((x,j)=>j!==i)})),
+        dragStart:()=>this.setState({dragRow:i}),dragOver:e=>e.preventDefault(),
+        drop:()=>{if(s.dragRow==null)return;this.commit(dd=>({...dd,faqs:swap(dd.faqs||DEF_FAQS,s.dragRow,i)}));this.setState({dragRow:null});}})),
+      addFaq:()=>this.commit(dd=>({...dd,faqs:[...(dd.faqs||DEF_FAQS),['New question','Answer']]})),
+      specs:specs.map((r,i)=>({k:r.k,v:r.v,
+        setK:e=>{const v=e.target.value;this.commit(dd=>({...dd,specs:(dd.specs||DEF_SPECS).map((x,j)=>j===i?{...x,k:v}:x)}),{push:'sk'+i});},
+        setV:e=>{const v=e.target.value;this.commit(dd=>({...dd,specs:(dd.specs||DEF_SPECS).map((x,j)=>j===i?{...x,v}:x)}),{push:'sv'+i});},
+        del:()=>this.commit(dd=>({...dd,specs:(dd.specs||DEF_SPECS).filter((x,j)=>j!==i)})),
+        dragStart:()=>this.setState({dragRow:i}),dragOver:e=>e.preventDefault(),
+        drop:()=>{if(s.dragRow==null)return;this.commit(dd=>({...dd,specs:swap(dd.specs||DEF_SPECS,s.dragRow,i)}));this.setState({dragRow:null});}})),
+      addSpec:()=>this.commit(dd=>({...dd,specs:[...(dd.specs||DEF_SPECS),{k:'Label',v:'Value'}]})),
+      seoTitle,seoDesc,
+      setSeoTitle:e=>{const v=e.target.value;this.commit(dd=>({...dd,seo:{...(dd.seo||{}),title:v}}),{push:'st'});},
+      setSeoDesc:e=>{const v=e.target.value;this.commit(dd=>({...dd,seo:{...(dd.seo||{}),desc:v}}),{push:'sd'});},
+      titleCount:seoTitle.length+' / 60',descCount:seoDesc.length+' / 160',
+      titleCountStyle:{color:seoTitle.length>60?'#8A3A4E':C.mute},descCountStyle:{color:seoDesc.length>160||seoDesc.length<120?'#8A3A4E':C.mute},
+      score,scoreNote:score>=85?'Ready to publish.':'Fix the red items below before publishing.',
+      scoreStyle:{width:48,height:48,borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:900,fontSize:16,background:score>=85?C.ink:C.rose,color:'#fff'},
+      checks:checks.map(([ok,text])=>({text,dot:{width:10,height:10,borderRadius:'50%',flexShrink:0,marginTop:5,background:ok?'#2B2226':C.rose}}))
+    };
+  }
+}
+</script>
+</body>
+</html>

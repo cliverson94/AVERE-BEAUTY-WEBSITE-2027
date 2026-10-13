@@ -46,6 +46,20 @@
   "rewrites": [
     {
       "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "studio.averebeauty.com"
+        }
+      ],
+      "destination": "/Avere%20Studio.dc.html"
+    },
+    {
+      "source": "/studio",
+      "destination": "/Avere%20Studio.dc.html"
+    },
+    {
+      "source": "/",
       "destination": "/Avere%20Home%20A.dc.html"
     },
     {
