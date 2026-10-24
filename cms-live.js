@@ -42,7 +42,8 @@
         if (v.src && el.getAttribute('src') !== v.src) el.setAttribute('src', v.src);
         if (v.alt != null && el.alt !== v.alt) el.alt = v.alt;
       } else {
-        const v = t[k] != null ? t[k] : orig[k].text;
+        let v = t[k] != null ? t[k] : orig[k].text;
+        (data.replace || []).forEach(r => { if (r && r.find && v.trim() === r.find.trim()) v = r.replace; });
         if (el.textContent !== v && document.activeElement !== el) el.textContent = v;
         if (el.tagName === 'A') { const h = ln[k] || orig[k].href; if (h && el.getAttribute('href') !== h) el.setAttribute('href', h); }
       }

@@ -41,6 +41,11 @@
       "source": "/skinwavehydrafacial",
       "destination": "/hydrafacial",
       "permanent": true
+    },
+    {
+      "source": "/iv-therapy",
+      "destination": "/injectables",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -60,279 +65,303 @@
     },
     {
       "source": "/",
-      "destination": "/Avere%20Home%20A.dc.html"
+      "destination": "/api/render?f=Avere%20Home%20A.dc.html&p=%2F"
     },
     {
       "source": "/team",
-      "destination": "/Avere%20Team.dc.html"
+      "destination": "/api/render?f=Avere%20Team.dc.html&p=%2Fteam"
     },
     {
       "source": "/contact",
-      "destination": "/Avere%20Contact.dc.html"
+      "destination": "/api/render?f=Avere%20Contact.dc.html&p=%2Fcontact"
     },
     {
       "source": "/membership",
-      "destination": "/Avere%20VIP%20Membership.dc.html"
+      "destination": "/api/render?f=Avere%20VIP%20Membership.dc.html&p=%2Fmembership"
     },
     {
       "source": "/love-lasers",
-      "destination": "/Avere%20Love%20Lasers.dc.html"
+      "destination": "/api/render?f=Avere%20Love%20Lasers.dc.html&p=%2Flove-lasers"
     },
     {
       "source": "/pittsburgh-medical-spa",
-      "destination": "/Avere%20Pittsburgh%20Medical%20Spa.dc.html"
+      "destination": "/api/render?f=Avere%20Pittsburgh%20Medical%20Spa.dc.html&p=%2Fpittsburgh-medical-spa"
     },
     {
       "source": "/bridal-experience",
-      "destination": "/Avere%20Bridal%20Experience.dc.html"
+      "destination": "/api/render?f=Avere%20Bridal%20Experience.dc.html&p=%2Fbridal-experience"
     },
     {
       "source": "/scar-revisions",
-      "destination": "/Avere%20Scar%20Revisions.dc.html"
+      "destination": "/api/render?f=Avere%20Scar%20Revisions.dc.html&p=%2Fscar-revisions"
     },
     {
       "source": "/cleft-lip-repair",
-      "destination": "/Avere%20Cleft%20Lip%20Repair.dc.html"
+      "destination": "/api/render?f=Avere%20Cleft%20Lip%20Repair.dc.html&p=%2Fcleft-lip-repair"
     },
     {
       "source": "/advanced-acne-treatments",
-      "destination": "/Avere%20Advanced%20Acne.dc.html"
+      "destination": "/api/render?f=Avere%20Advanced%20Acne.dc.html&p=%2Fadvanced-acne-treatments"
     },
     {
       "source": "/excessive-sweating-hyperhydrosis-treatment",
-      "destination": "/Avere%20Excessive%20Sweating.dc.html"
+      "destination": "/api/render?f=Avere%20Excessive%20Sweating.dc.html&p=%2Fexcessive-sweating-hyperhydrosis-treatment"
     },
     {
       "source": "/tmj-treatment-pittsburgh",
-      "destination": "/Avere%20TMJ%20Treatment.dc.html"
+      "destination": "/api/render?f=Avere%20TMJ%20Treatment.dc.html&p=%2Ftmj-treatment-pittsburgh"
     },
     {
       "source": "/weight-loss",
-      "destination": "/Weight%20Loss%20Consult%20Landing.dc.html"
+      "destination": "/api/render?f=Weight%20Loss%20Consult%20Landing.dc.html&p=%2Fweight-loss"
     },
     {
       "source": "/our-services",
-      "destination": "/Avere%20Injectables.dc.html"
+      "destination": "/api/render?f=Avere%20Injectables.dc.html&p=%2Four-services"
     },
     {
       "source": "/botox",
-      "destination": "/Avere%20Service%20Page%20v2.dc.html"
+      "destination": "/api/render?f=Avere%20Service%20Page%20v2.dc.html&p=%2Fbotox"
     },
     {
       "source": "/cryoskin",
-      "destination": "/Avere%20CryoSkin.dc.html"
+      "destination": "/api/render?f=Avere%20CryoSkin.dc.html&p=%2Fcryoskin"
     },
     {
       "source": "/dermal-fillers",
-      "destination": "/Avere%20Dermal%20Fillers.dc.html"
+      "destination": "/api/render?f=Avere%20Dermal%20Fillers.dc.html&p=%2Fdermal-fillers"
     },
     {
       "source": "/kybella",
-      "destination": "/Avere%20Kybella.dc.html"
+      "destination": "/api/render?f=Avere%20Kybella.dc.html&p=%2Fkybella"
     },
     {
       "source": "/pdo-threads",
-      "destination": "/Avere%20PDO%20Threads.dc.html"
+      "destination": "/api/render?f=Avere%20PDO%20Threads.dc.html&p=%2Fpdo-threads"
     },
     {
       "source": "/rha",
-      "destination": "/Avere%20RHA%20Filler.dc.html"
+      "destination": "/api/render?f=Avere%20RHA%20Filler.dc.html&p=%2Frha"
     },
     {
       "source": "/skinpen-microneedling",
-      "destination": "/Avere%20SkinPen%20Microneedling.dc.html"
+      "destination": "/api/render?f=Avere%20SkinPen%20Microneedling.dc.html&p=%2Fskinpen-microneedling"
     },
     {
       "source": "/subnovii",
-      "destination": "/Avere%20Subnovii.dc.html"
+      "destination": "/api/render?f=Avere%20Subnovii.dc.html&p=%2Fsubnovii"
     },
     {
       "source": "/versa",
-      "destination": "/Avere%20Versa.dc.html"
+      "destination": "/api/render?f=Avere%20Versa.dc.html&p=%2Fversa"
     },
     {
       "source": "/virtuerf",
-      "destination": "/Avere%20VirtueRF.dc.html"
+      "destination": "/api/render?f=Avere%20VirtueRF.dc.html&p=%2Fvirtuerf"
     },
     {
       "source": "/laser-treatments",
-      "destination": "/Avere%20Lasers.dc.html"
+      "destination": "/api/render?f=Avere%20Lasers.dc.html&p=%2Flaser-treatments"
     },
     {
       "source": "/tattoo-removal",
-      "destination": "/Avere%20Tattoo%20Removal.dc.html"
+      "destination": "/api/render?f=Avere%20Tattoo%20Removal.dc.html&p=%2Ftattoo-removal"
     },
     {
       "source": "/laser-hair-removal",
-      "destination": "/Laser%20Hair%20Removal.dc.html"
+      "destination": "/api/render?f=Laser%20Hair%20Removal.dc.html&p=%2Flaser-hair-removal"
     },
     {
       "source": "/tetra-coolpeel",
-      "destination": "/Avere%20CoolPeel.dc.html"
+      "destination": "/api/render?f=Avere%20CoolPeel.dc.html&p=%2Ftetra-coolpeel"
     },
     {
       "source": "/motusaz",
-      "destination": "/Avere%20MotusAZ.dc.html"
+      "destination": "/api/render?f=Avere%20MotusAZ.dc.html&p=%2Fmotusaz"
     },
     {
       "source": "/esthetics",
-      "destination": "/Avere%20Esthetics.dc.html"
+      "destination": "/api/render?f=Avere%20Esthetics.dc.html&p=%2Festhetics"
     },
     {
       "source": "/skin-care-products",
-      "destination": "/Avere%20Skin%20Care%20Products.dc.html"
+      "destination": "/api/render?f=Avere%20Skin%20Care%20Products.dc.html&p=%2Fskin-care-products"
     },
     {
       "source": "/before-after-gallery",
-      "destination": "/Avere%20Before%20and%20After.dc.html"
+      "destination": "/api/render?f=Avere%20Before%20and%20After.dc.html&p=%2Fbefore-after-gallery"
     },
     {
       "source": "/blog",
-      "destination": "/Avere%20Blog.dc.html"
-    },
-    {
-      "source": "/post/:path*",
-      "destination": "/Avere%20Blog.dc.html"
+      "destination": "/api/render?f=Avere%20Blog.dc.html&p=%2Fblog"
     },
     {
       "source": "/policies",
-      "destination": "/Avere%20Policies.dc.html"
+      "destination": "/api/render?f=Avere%20Policies.dc.html&p=%2Fpolicies"
     },
     {
       "source": "/financing",
-      "destination": "/Avere%20Financing.dc.html"
+      "destination": "/api/render?f=Avere%20Financing.dc.html&p=%2Ffinancing"
     },
     {
       "source": "/what-to-expect",
-      "destination": "/Avere%20What%20to%20Expect.dc.html"
+      "destination": "/api/render?f=Avere%20What%20to%20Expect.dc.html&p=%2Fwhat-to-expect"
     },
     {
       "source": "/privacy-policy",
-      "destination": "/Avere%20Privacy%20Policy.dc.html"
+      "destination": "/api/render?f=Avere%20Privacy%20Policy.dc.html&p=%2Fprivacy-policy"
     },
     {
       "source": "/copyright-notice",
-      "destination": "/Avere%20Copyright%20Notice.dc.html"
+      "destination": "/api/render?f=Avere%20Copyright%20Notice.dc.html&p=%2Fcopyright-notice"
     },
     {
       "source": "/our-story",
-      "destination": "/Avere%20Our%20Story.dc.html"
+      "destination": "/api/render?f=Avere%20Our%20Story.dc.html&p=%2Four-story"
     },
     {
       "source": "/careers",
-      "destination": "/Avere%20Careers.dc.html"
+      "destination": "/api/render?f=Avere%20Careers.dc.html&p=%2Fcareers"
     },
     {
       "source": "/promos",
-      "destination": "/Avere%20Promos.dc.html"
+      "destination": "/api/render?f=Avere%20Promos.dc.html&p=%2Fpromos"
     },
     {
       "source": "/ipl",
-      "destination": "/Avere%20IPL.dc.html"
+      "destination": "/api/render?f=Avere%20IPL.dc.html&p=%2Fipl"
     },
     {
       "source": "/hydrafacial",
-      "destination": "/Avere%20HydraFacial.dc.html"
+      "destination": "/api/render?f=Avere%20HydraFacial.dc.html&p=%2Fhydrafacial"
     },
     {
       "source": "/aftercare",
-      "destination": "/Avere%20Aftercare.dc.html"
+      "destination": "/api/render?f=Avere%20Aftercare.dc.html&p=%2Faftercare"
     },
     {
       "source": "/back-facial",
-      "destination": "/Avere%20Back%20Facial.dc.html"
+      "destination": "/api/render?f=Avere%20Back%20Facial.dc.html&p=%2Fback-facial"
     },
     {
       "source": "/brow-and-lash",
-      "destination": "/Avere%20Brow%20and%20Lash.dc.html"
+      "destination": "/api/render?f=Avere%20Brow%20and%20Lash.dc.html&p=%2Fbrow-and-lash"
     },
     {
       "source": "/chemical-peels",
-      "destination": "/Avere%20Chemical%20Peels.dc.html"
+      "destination": "/api/render?f=Avere%20Chemical%20Peels.dc.html&p=%2Fchemical-peels"
     },
     {
       "source": "/dermaplaning",
-      "destination": "/Avere%20Dermaplaning.dc.html"
+      "destination": "/api/render?f=Avere%20Dermaplaning.dc.html&p=%2Fdermaplaning"
     },
     {
       "source": "/express-facial",
-      "destination": "/Avere%20Express%20Facial.dc.html"
+      "destination": "/api/render?f=Avere%20Express%20Facial.dc.html&p=%2Fexpress-facial"
     },
     {
       "source": "/faq",
-      "destination": "/Avere%20FAQ.dc.html"
+      "destination": "/api/render?f=Avere%20FAQ.dc.html&p=%2Ffaq"
     },
     {
       "source": "/free-consultation",
-      "destination": "/Avere%20Free%20Consultation.dc.html"
-    },
-    {
-      "source": "/iv-therapy",
-      "destination": "/Avere%20IV%20Therapy.dc.html"
+      "destination": "/api/render?f=Avere%20Free%20Consultation.dc.html&p=%2Ffree-consultation"
     },
     {
       "source": "/injector-training",
-      "destination": "/Avere%20Injector%20Training.dc.html"
+      "destination": "/api/render?f=Avere%20Injector%20Training.dc.html&p=%2Finjector-training"
     },
     {
       "source": "/laser-guide",
-      "destination": "/Avere%20Laser%20Guide.dc.html"
+      "destination": "/api/render?f=Avere%20Laser%20Guide.dc.html&p=%2Flaser-guide"
     },
     {
       "source": "/laser-hair-removal-quote",
-      "destination": "/Avere%20Laser%20Hair%20Removal%20Quote.dc.html"
+      "destination": "/api/render?f=Avere%20Laser%20Hair%20Removal%20Quote.dc.html&p=%2Flaser-hair-removal-quote"
     },
     {
       "source": "/locations",
-      "destination": "/Avere%20Locations.dc.html"
+      "destination": "/api/render?f=Avere%20Locations.dc.html&p=%2Flocations"
     },
     {
       "source": "/new-patient-forms",
-      "destination": "/Avere%20New%20Patient%20Forms.dc.html"
+      "destination": "/api/render?f=Avere%20New%20Patient%20Forms.dc.html&p=%2Fnew-patient-forms"
     },
     {
       "source": "/new-patient-offer",
-      "destination": "/Avere%20New%20Patient%20Offer.dc.html"
+      "destination": "/api/render?f=Avere%20New%20Patient%20Offer.dc.html&p=%2Fnew-patient-offer"
     },
     {
       "source": "/quick-book",
-      "destination": "/Avere%20Quick%20Book.dc.html"
+      "destination": "/api/render?f=Avere%20Quick%20Book.dc.html&p=%2Fquick-book"
     },
     {
       "source": "/refer-a-friend",
-      "destination": "/Avere%20Refer%20a%20Friend.dc.html"
+      "destination": "/api/render?f=Avere%20Refer%20a%20Friend.dc.html&p=%2Frefer-a-friend"
     },
     {
       "source": "/resources",
-      "destination": "/Avere%20Resources.dc.html"
+      "destination": "/api/render?f=Avere%20Resources.dc.html&p=%2Fresources"
     },
     {
       "source": "/sculptra",
-      "destination": "/Avere%20Sculptra.dc.html"
+      "destination": "/api/render?f=Avere%20Sculptra.dc.html&p=%2Fsculptra"
     },
     {
       "source": "/signature-facial",
-      "destination": "/Avere%20Signature%20Facial.dc.html"
+      "destination": "/api/render?f=Avere%20Signature%20Facial.dc.html&p=%2Fsignature-facial"
     },
     {
       "source": "/tour-the-spa",
-      "destination": "/Avere%20Tour%20the%20Spa.dc.html"
+      "destination": "/api/render?f=Avere%20Tour%20the%20Spa.dc.html&p=%2Ftour-the-spa"
     },
     {
       "source": "/tox-tuesdays",
-      "destination": "/Avere%20Tox%20Tuesdays.dc.html"
+      "destination": "/api/render?f=Avere%20Tox%20Tuesdays.dc.html&p=%2Ftox-tuesdays"
     },
     {
       "source": "/claim-the-promo",
-      "destination": "/Claim%20the%20Promo.dc.html"
+      "destination": "/api/render?f=Claim%20the%20Promo.dc.html&p=%2Fclaim-the-promo"
     },
     {
       "source": "/lip-filler-still-deciding",
-      "destination": "/Lip%20Filler%20Still%20Deciding.dc.html"
+      "destination": "/api/render?f=Lip%20Filler%20Still%20Deciding.dc.html&p=%2Flip-filler-still-deciding"
     },
     {
       "source": "/lip-filler",
-      "destination": "/Lip%20Filler.dc.html"
+      "destination": "/api/render?f=Lip%20Filler.dc.html&p=%2Flip-filler"
+    },
+    {
+      "source": "/rewards",
+      "destination": "/api/render?f=Avere%20Rewards.dc.html&p=%2Frewards"
+    },
+    {
+      "source": "/home-a",
+      "destination": "/api/render?f=Avere%20Home%20A.dc.html&p=%2Fhome-a"
+    },
+    {
+      "source": "/home-b",
+      "destination": "/api/render?f=Avere%20Home%20B.dc.html&p=%2Fhome-b"
+    },
+    {
+      "source": "/home-c",
+      "destination": "/api/render?f=Avere%20Home%20C.dc.html&p=%2Fhome-c"
+    },
+    {
+      "source": "/post/:file(.*\\..*)",
+      "destination": "/:file"
+    },
+    {
+      "source": "/post/:slug",
+      "destination": "/api/render?f=Avere%20Blog%20Post.dc.html&p=/post/:slug"
+    },
+    {
+      "source": "/derm-services",
+      "destination": "/api/render?f=Avere%20Dermatology.dc.html&p=%2Fderm-services"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/router?__p=:path*"
     }
   ],
   "headers": [
@@ -345,5 +374,16 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/router.js": {
+      "maxDuration": 60
+    },
+    "api/lead.js": {
+      "maxDuration": 20
+    },
+    "api/render.js": {
+      "maxDuration": 15
+    }
+  }
 }

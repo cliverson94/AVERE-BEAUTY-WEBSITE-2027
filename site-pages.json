@@ -1,0 +1,532 @@
+{
+ "pages": [
+  {
+   "path": "/",
+   "file": "Avere Home A.dc.html",
+   "title": "Avere Beauty | Med Spa in Pittsburgh: Botox, Filler, Lasers",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/team",
+   "file": "Avere Team.dc.html",
+   "title": "Team | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/contact",
+   "file": "Avere Contact.dc.html",
+   "title": "Contact | Avere Beauty",
+   "desc": "Call, text or email Avere Beauty, or request a free consultation.",
+   "auto": true
+  },
+  {
+   "path": "/membership",
+   "file": "Avere VIP Membership.dc.html",
+   "title": "VIP Membership in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/love-lasers",
+   "file": "Avere Love Lasers.dc.html",
+   "title": "Love Lasers | Avere Beauty",
+   "desc": "Love Lasers: laser facials for glow, tone and texture at Avere Beauty."
+  },
+  {
+   "path": "/pittsburgh-medical-spa",
+   "file": "Avere Pittsburgh Medical Spa.dc.html",
+   "title": "Pittsburgh Medical Spa | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/bridal-experience",
+   "file": "Avere Bridal Experience.dc.html",
+   "title": "Bridal Experience in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/scar-revisions",
+   "file": "Avere Scar Revisions.dc.html",
+   "title": "Scar Revision in Pittsburgh | Acne & Surgical Scars | Avere Beauty",
+   "desc": "Non-surgical scar revision at Avere Beauty in Pittsburgh. CoolPeel CO2, VirtueRF and SkinPen microneedling, IPL and filler to soften acne, surgical and injury scars."
+  },
+  {
+   "path": "/cleft-lip-repair",
+   "file": "Avere Cleft Lip Repair.dc.html",
+   "title": "Cleft Lip Scar & Lip Refinement in Pittsburgh | Avere Beauty",
+   "desc": "Non-surgical cleft lip refinement at Avere Beauty in Pittsburgh. Filler, neurotoxin, PDO lip threads and laser to improve lip symmetry, the lip border and repair scars."
+  },
+  {
+   "path": "/advanced-acne-treatments",
+   "file": "Avere Advanced Acne.dc.html",
+   "title": "Advanced Acne Solutions in Pittsburgh | Customized Care, Dermatology & Aesthetic Treatments | Avere Beauty",
+   "desc": "Advanced acne treatments at Avere Beauty in Pittsburgh combine prescriptions, lasers, peels, HydraFacial, and scar care for customized acne plans."
+  },
+  {
+   "path": "/excessive-sweating-hyperhydrosis-treatment",
+   "file": "Avere Excessive Sweating.dc.html",
+   "title": "Excessive Sweating (Hyperhidrosis) Treatment in Pittsburgh | Botox | Avere Beauty",
+   "desc": "Botox for excessive sweating at Avere Beauty in Pittsburgh. A quick in-office treatment that reduces underarm, hand and scalp sweating for months."
+  },
+  {
+   "path": "/tmj-treatment-pittsburgh",
+   "file": "Avere TMJ Treatment.dc.html",
+   "title": "TMJ Botox Treatment in Pittsburgh | Jaw Clenching & Grinding | Avere Beauty",
+   "desc": "Botox for TMJ at Avere Beauty in Pittsburgh. Relaxes the masseter muscles to ease jaw clenching, teeth grinding, jaw pain and tension headaches."
+  },
+  {
+   "path": "/weight-loss",
+   "file": "Weight Loss Consult Landing.dc.html",
+   "title": "$50 Medical Weight Loss Consultation in Pittsburgh | Semaglutide & Tirzepatide | Avere Beauty",
+   "desc": "Book a $50 medical weight loss consultation at Avere Beauty in Pittsburgh. Meet a nurse practitioner, discuss GLP-1 options like semaglutide and tirzepatide, and leave with a personalized plan."
+  },
+  {
+   "path": "/our-services",
+   "file": "Avere Injectables.dc.html",
+   "title": "Injectables in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/botox",
+   "file": "Avere Service Page v2.dc.html",
+   "title": "Botox & Neurotoxins in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/cryoskin",
+   "file": "Avere CryoSkin.dc.html",
+   "title": "CryoSkin in Pittsburgh | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/dermal-fillers",
+   "file": "Avere Dermal Fillers.dc.html",
+   "title": "Dermal Fillers in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/kybella",
+   "file": "Avere Kybella.dc.html",
+   "title": "Kybella in Pittsburgh | Avere Beauty",
+   "desc": "Kybella double chin treatment at Avere Beauty in Pittsburgh.",
+   "auto": true
+  },
+  {
+   "path": "/pdo-threads",
+   "file": "Avere PDO Threads.dc.html",
+   "title": "PDO Threads in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/rha",
+   "file": "Avere RHA Filler.dc.html",
+   "title": "RHA Filler in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/skinpen-microneedling",
+   "file": "Avere SkinPen Microneedling.dc.html",
+   "title": "SkinPen Microneedling in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/subnovii",
+   "file": "Avere Subnovii.dc.html",
+   "title": "Subnovii Plasma Pen in Pittsburgh | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/versa",
+   "file": "Avere Versa.dc.html",
+   "title": "Versa Filler | Avere Beauty",
+   "desc": "Revanesse Versa+ filler at Avere Beauty in Pittsburgh."
+  },
+  {
+   "path": "/virtuerf",
+   "file": "Avere VirtueRF.dc.html",
+   "title": "VirtueRF Microneedling in Pittsburgh | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/laser-treatments",
+   "file": "Avere Lasers.dc.html",
+   "title": "Laser Treatments in Pittsburgh, PA | Hair Removal, IPL, CoolPeel & Tattoo Removal | Avere Beauty",
+   "desc": "Laser Hair Removal, Laser Facial, IPL, pigmentation, vascular laser, CoolPeel and tattoo removal at Avere Beauty in Pittsburgh. Find the right laser for your skin."
+  },
+  {
+   "path": "/tattoo-removal",
+   "file": "Avere Tattoo Removal.dc.html",
+   "title": "Laser Tattoo Removal in Pittsburgh | DEKA Toro | Avere Beauty",
+   "desc": "Laser tattoo removal in Pittsburgh with the DEKA Toro: three wavelengths for black, red, orange, yellow, green and blue ink, on all skin types."
+  },
+  {
+   "path": "/laser-hair-removal",
+   "file": "Laser Hair Removal.dc.html",
+   "title": "Laser Hair Removal in Pittsburgh, PA | Permanent Hair Reduction for Men & Women | Avere Beauty",
+   "desc": "Permanent hair reduction with modern laser technology at Avere Beauty in Pittsburgh. Face, underarms, bikini, legs and more, with minimal pain for men and women."
+  },
+  {
+   "path": "/tetra-coolpeel",
+   "file": "Avere CoolPeel.dc.html",
+   "title": "Tetra CoolPeel in Pittsburgh | CO2 Laser Resurfacing | Avere Beauty",
+   "desc": "CoolPeel CO2 laser resurfacing with the DEKA SmartXide Tetra at Avere Beauty in Pittsburgh. Smoother texture, tone and scars with 1 to 2 days of redness."
+  },
+  {
+   "path": "/motusaz",
+   "file": "Avere MotusAZ.dc.html",
+   "title": "MOTUS AZ+ Laser Hair Removal in Pittsburgh | Lawrenceville | Avere Beauty",
+   "desc": "Virtually painless laser hair removal with the DEKA MOTUS AZ+ and Moveo technology at Avere Beauty Lawrenceville. Alexandrite 755 nm and Nd:YAG 1064 nm."
+  },
+  {
+   "path": "/esthetics",
+   "file": "Avere Esthetics.dc.html",
+   "title": "Esthetics in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/skin-care-products",
+   "file": "Avere Skin Care Products.dc.html",
+   "title": "Skin Care Products in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/before-after-gallery",
+   "file": "Avere Before and After.dc.html",
+   "title": "Before and After in Pittsburgh | Avere Beauty",
+   "desc": "Real Avere Beauty patient before-and-after results.",
+   "auto": true
+  },
+  {
+   "path": "/blog",
+   "file": "Avere Blog.dc.html",
+   "title": "The Avere Journal | Skin, Injectables & Laser Guides | Avere Beauty",
+   "desc": "In-depth guides from Avere Beauty's clinical team in Pittsburgh: Botox, lip filler, acne, skincare, lasers and aftercare."
+  },
+  {
+   "path": "/policies",
+   "file": "Avere Policies.dc.html",
+   "title": "Client Policies | Cancellation, Payments, Refunds, HIPAA & Privacy | Avere Beauty",
+   "desc": "Avere Beauty client policies: 24-hour cancellation policy, payments and rewards, refunds, late arrivals, HIPAA notice of privacy practices, privacy, SMS terms and accessibility."
+  },
+  {
+   "path": "/financing",
+   "file": "Avere Financing.dc.html",
+   "title": "Financing | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/what-to-expect",
+   "file": "Avere What to Expect.dc.html",
+   "title": "What to Expect in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/privacy-policy",
+   "file": "Avere Privacy Policy.dc.html",
+   "title": "Privacy Policy | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/copyright-notice",
+   "file": "Avere Copyright Notice.dc.html",
+   "title": "Copyright Notice | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/our-story",
+   "file": "Avere Our Story.dc.html",
+   "title": "Our Story | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/careers",
+   "file": "Avere Careers.dc.html",
+   "title": "Join Our Team | Avere Beauty",
+   "desc": "Join Avere Beauty: 50+ women, 4 locations, 401(k), bonuses and trainings."
+  },
+  {
+   "path": "/promos",
+   "file": "Avere Promos.dc.html",
+   "title": "Med Spa Specials & Promos in Pittsburgh | Avere Beauty",
+   "desc": "Every current Avere Beauty offer in one place: 10% off your first treatment, Tox Tuesdays, referral rewards, VIP membership, gift cards and financing."
+  },
+  {
+   "path": "/ipl",
+   "file": "Avere IPL.dc.html",
+   "title": "IPL Photofacial in Pittsburgh | Avere Beauty",
+   "desc": ""
+  },
+  {
+   "path": "/hydrafacial",
+   "file": "Avere HydraFacial.dc.html",
+   "title": "HydraFacial in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/aftercare",
+   "file": "Avere Aftercare.dc.html",
+   "title": "Pre & Aftercare Instructions | Botox, Filler, Laser & Skin Treatments | Avere Beauty",
+   "desc": "Pre-care and aftercare instructions for every Avere Beauty treatment: neurotoxins, fillers, laser hair removal, CoolPeel, IPL, microneedling, peels, HydraFacial, threads, Kybella and GLP-1 weight loss."
+  },
+  {
+   "path": "/back-facial",
+   "file": "Avere Back Facial.dc.html",
+   "title": "Back Facial in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/brow-and-lash",
+   "file": "Avere Brow and Lash.dc.html",
+   "title": "Brow and Lash in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/chemical-peels",
+   "file": "Avere Chemical Peels.dc.html",
+   "title": "Chemical Peels in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/dermaplaning",
+   "file": "Avere Dermaplaning.dc.html",
+   "title": "Dermaplaning in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/express-facial",
+   "file": "Avere Express Facial.dc.html",
+   "title": "Express Facial in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/faq",
+   "file": "Avere FAQ.dc.html",
+   "title": "FAQ | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/free-consultation",
+   "file": "Avere Free Consultation.dc.html",
+   "title": "Free Consultation in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/injector-training",
+   "file": "Avere Injector Training.dc.html",
+   "title": "Injector Training in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/laser-guide",
+   "file": "Avere Laser Guide.dc.html",
+   "title": "Which Laser Is Right for Me? | Laser Guide | Avere Beauty Pittsburgh",
+   "desc": "Compare every laser treatment at Avere Beauty: what it treats, sessions, downtime, and which devices are at Lawrenceville, Murrysville and Cranberry."
+  },
+  {
+   "path": "/laser-hair-removal-quote",
+   "file": "Avere Laser Hair Removal Quote.dc.html",
+   "title": "Laser Hair Removal Quote in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/locations",
+   "file": "Avere Locations.dc.html",
+   "title": "Locations in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/new-patient-forms",
+   "file": "Avere New Patient Forms.dc.html",
+   "title": "New Patient Forms | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/new-patient-offer",
+   "file": "Avere New Patient Offer.dc.html",
+   "title": "New Patient Offer in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/quick-book",
+   "file": "Avere Quick Book.dc.html",
+   "title": "Book at Avere Beauty | Quick Book",
+   "desc": ""
+  },
+  {
+   "path": "/refer-a-friend",
+   "file": "Avere Refer a Friend.dc.html",
+   "title": "Refer a Friend in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/resources",
+   "file": "Avere Resources.dc.html",
+   "title": "Resources | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/sculptra",
+   "file": "Avere Sculptra.dc.html",
+   "title": "Sculptra in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/signature-facial",
+   "file": "Avere Signature Facial.dc.html",
+   "title": "Signature Facial in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/tour-the-spa",
+   "file": "Avere Tour the Spa.dc.html",
+   "title": "Tour the Spa in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/tox-tuesdays",
+   "file": "Avere Tox Tuesdays.dc.html",
+   "title": "Tox Tuesdays in Pittsburgh | Avere Beauty",
+   "desc": "",
+   "auto": true
+  },
+  {
+   "path": "/claim-the-promo",
+   "file": "Claim the Promo.dc.html",
+   "title": "Current Promotion | Avere Beauty Medical Spa Pittsburgh",
+   "desc": "Claim the current Avere Beauty promotion. Botox, filler, lasers, microneedling and esthetics across Pittsburgh. Pick your service and claim your offer."
+  },
+  {
+   "path": "/lip-filler-still-deciding",
+   "file": "Lip Filler Still Deciding.dc.html",
+   "title": "Should I Get Lip Filler? Pros, Cons & Honest Answers | Avere Beauty Pittsburgh",
+   "desc": "Thinking about lip filler but not sure? An honest guide to the pros and cons, common fears, and what to ask before your first lip filler in Pittsburgh."
+  },
+  {
+   "path": "/lip-filler",
+   "file": "Lip Filler.dc.html",
+   "title": "Lip Filler in Pittsburgh, PA | Natural Lip Augmentation, Juvéderm, Restylane & RHA | Avere Beauty",
+   "desc": "Natural, modest lip filler in Pittsburgh from Avere Beauty's nurse injectors. Compare lip filler products, see real results, and get answers to every lip filler question."
+  },
+  {
+   "path": "/post/how-long-does-botox-last",
+   "file": "Avere Blog Post.dc.html",
+   "title": "How Long Does Botox Last? Timeline & Tips | Avere Beauty Pittsburgh",
+   "desc": "Most Botox results last 3 to 4 months. See the day-by-day timeline, what makes it wear off faster, and how to plan touch-ups from a Pittsburgh med spa.",
+   "image": "https://static.wixstatic.com/media/903d63_5ca1937ee3044534b8ed61621f67239a~mv2.png/v1/fill/w_1600,h_1000,al_c,q_85/img.jpg",
+   "blog": true
+  },
+  {
+   "path": "/post/lip-filler-swelling-aftercare",
+   "file": "Avere Blog Post.dc.html",
+   "title": "Lip Filler Swelling & Aftercare Day by Day | Avere Beauty",
+   "desc": "Lip filler swelling usually peaks in 24 to 72 hours and settles within 2 weeks. A day-by-day guide to what's normal and how to care for your lips.",
+   "image": "https://static.wixstatic.com/media/903d63_97a1bd98bcc34ff6b57646720ceaf636~mv2.png/v1/fill/w_1600,h_1000,al_c,q_85/img.jpg",
+   "blog": true
+  },
+  {
+   "path": "/post/dry-vs-dehydrated-skin",
+   "file": "Avere Blog Post.dc.html",
+   "title": "Dry vs. Dehydrated Skin: How to Tell & What Helps | Avere Beauty",
+   "desc": "Dry skin lacks oil; dehydrated skin lacks water. Learn the signs, a simple at-home test, and the ingredients and treatments that help each one.",
+   "image": "https://static.wixstatic.com/media/4f1ed5_a1391e652435470c85fa68f9bdd97f39~mv2.png/v1/fill/w_1600,h_1000,al_c,q_85/img.jpg",
+   "blog": true
+  },
+  {
+   "path": "/post/how-to-get-rid-of-acne",
+   "file": "Avere Blog Post.dc.html",
+   "title": "How to Get Rid of Acne: A Clinical Guide | Avere Beauty Pittsburgh",
+   "desc": "What causes acne, which ingredients work, how long to give them, and the in-office treatments that help clear breakouts and scarring in Pittsburgh.",
+   "image": "https://static.wixstatic.com/media/903d63_d53785a64d0f4dd4a37fb3313cfad7bd~mv2.png/v1/fill/w_1600,h_1000,al_c,q_85/img.jpg",
+   "blog": true
+  },
+  {
+   "path": "/post/kybella-for-stomach",
+   "file": "Avere Blog Post.dc.html",
+   "title": "Can You Get Kybella for the Stomach? | Avere Beauty Pittsburgh",
+   "desc": "Kybella is FDA-approved for fat under the chin, not the stomach. Learn why, what the risks of off-label use are, and better options for belly fat.",
+   "image": "https://static.wixstatic.com/media/903d63_9d9f7c7dfb134f248d75d89c33657e80~mv2.png/v1/fill/w_1600,h_1000,al_c,q_85/img.jpg",
+   "blog": true
+  },
+  {
+   "path": "/rewards",
+   "file": "Avere Rewards.dc.html",
+   "title": "Rewards Programs: Allē, ASPIRE, Xperience+ & Evolus | Avere Beauty Pittsburgh",
+   "desc": "Save on Botox, Dysport, Xeomin, Jeuveau, filler and more at Avere Beauty. Sign up for Allē, Galderma ASPIRE, Merz Xperience+ and Evolus Rewards before your visit."
+  },
+  {
+   "path": "/home-c",
+   "file": "Avere Home C.dc.html",
+   "title": "Avere Beauty | Pittsburgh's #1 Med Spa · 4 Locations",
+   "desc": "Botox, filler, lasers and facials at four Avere Beauty offices around Pittsburgh: Lawrenceville, Murrysville, Cranberry and Blawnox."
+  },
+  {
+   "path": "/home-a",
+   "file": "Avere Home A.dc.html",
+   "title": "Avere Beauty | Pittsburgh's #1 Med Spa",
+   "desc": "Botox, filler, lasers and facials at four Avere Beauty offices around Pittsburgh: Lawrenceville, Murrysville, Cranberry and Blawnox."
+  },
+  {
+   "path": "/home-b",
+   "file": "Avere Home B.dc.html",
+   "title": "Avere Beauty | Pittsburgh's #1 Med Spa",
+   "desc": "Botox, filler, lasers and facials at four Avere Beauty offices around Pittsburgh: Lawrenceville, Murrysville, Cranberry and Blawnox."
+  },
+  {
+   "path": "/derm-services",
+   "file": "Avere Dermatology.dc.html",
+   "title": "Medical & Dermatology Services in Pittsburgh | Avere Beauty",
+   "desc": "Medical and dermatology services at Avere Beauty in Pittsburgh: scar revision, cleft lip refinement, advanced acne care, hyperhidrosis and TMJ treatment."
+  },
+  {
+   "path": "/frank",
+   "file": "Avere Frank.dc.html",
+   "title": "Frank Udavcak, Co-founder | Avere Beauty",
+   "desc": "Meet Frank Udavcak, co-founder of Avere Beauty in Pittsburgh."
+  },
+  {
+   "path": "/frank-story",
+   "file": "Avere Frank Story.dc.html",
+   "title": "Frank’s Story | Avere Beauty",
+   "desc": "",
+   "hidden": true
+  },
+  {
+   "path": "/11s-day",
+   "file": "Avere 11s Day.dc.html",
+   "title": "11’s Day at Avere Beauty | Our Biggest Day of the Year",
+   "desc": "Avere Beauty’s biggest event of the year, every November 11. Reserve your spot."
+  }
+ ]
+}
