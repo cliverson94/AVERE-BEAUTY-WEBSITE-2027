@@ -8,27 +8,135 @@
 <body>
 <x-dc>
 <helmet>
+<title>Tour the Spa | Avere Beauty Pittsburgh Locations</title>
+<meta name="description" content="Take a look inside Avere Beauty's four Pittsburgh med spas: Lawrenceville, Cranberry, Murrysville and Fox Chapel. Treatment rooms, lounges, parking and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+<script src="./image-slot.js"></script>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth;scroll-padding-top:180px}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
-  <dc-import name="Avere Nav" active="about" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Tour the Spa" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">About</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Tour the Spa</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) clamp(32px,5vw,56px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="Avere Home A.dc.html">Home</a><span>/</span><a href="Avere Resources.dc.html">Resources</a><span>/</span><span style="color:#2B2226">Tour the Spa</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:24px;align-items:end">
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(40px,6vw,84px);line-height:1.02;letter-spacing:-.03em;margin:0;text-wrap:balance">Step inside before you visit</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;max-width:520px;text-wrap:pretty">Four offices across Pittsburgh, each designed to feel calm from the moment you park. Pick a location to see the front desk, treatment rooms, lounge and the details in between.</p>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  </section>
+
+  <div style="position:sticky;top:96px;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid #F4DADC;border-bottom:1px solid #F4DADC">
+    <div style="max-width:1320px;margin:0 auto;padding:10px clamp(20px,4vw,32px);display:flex;gap:6px;overflow-x:auto">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <button onClick="{{ t.pick }}" style="{{ t.style }}"><span style="font-family:'Poppins',sans-serif;font-size:16px">{{ t.name }}</span><span style="{{ t.subStyle }}">{{ t.city }}</span></button>
+      </sc-for>
+    </div>
+  </div>
+
+  <sc-for list="{{ locs }}" as="l" hint-placeholder-count="1">
+    <div style="{{ l.show }}">
+      <section data-screen-label="{{ l.label }}" style="max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(24px,4vw,48px);align-items:stretch">
+        <div style="position:relative;min-width:0;min-height:clamp(320px,40vw,520px);border-radius:32px;overflow:hidden;background:#FFE3E3">
+          <image-slot id="{{ l.extId }}" shape="rect" src="{{ l.extSrc }}" placeholder="{{ l.extPh }}"></image-slot>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px;justify-content:center">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">{{ l.kicker }}</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,4.4vw,60px);line-height:1.04;letter-spacing:-.03em;margin:0">{{ l.name }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;text-wrap:pretty">{{ l.blurb }}</p>
+          <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+            <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #F4DADC;font-size:15px"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;padding-top:2px">Address</span><span>{{ l.addr }}</span></div>
+            <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #F4DADC;font-size:15px"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;padding-top:2px">Parking</span><span>{{ l.parking }}</span></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book at {{ l.name }}</a>
+            <a href="{{ l.map }}" target="_blank" rel="noopener" style="border:1px solid #2B2226;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Directions ↗</a>
+            <a href="#tour3d" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">3D tour</a>
+          </div>
+        </div>
+      </section>
+      <section style="max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,56px) clamp(20px,4vw,32px) clamp(56px,8vw,96px);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));grid-auto-flow:dense;gap:14px">
+        <sc-for list="{{ l.areas }}" as="a" hint-placeholder-count="8">
+          <figure style="{{ a.cell }}">
+            <div style="position:relative;min-width:0;flex:1;min-height:220px;border-radius:24px;overflow:hidden;background:#FFF5F5">
+              <image-slot id="{{ a.id }}" shape="rect" src="{{ a.src }}" placeholder="{{ a.ph }}"></image-slot>
+            </div>
+            <figcaption style="display:flex;flex-direction:column;gap:3px;padding:0 4px">
+              <span style="font-family:'Poppins',sans-serif;font-size:18px">{{ a.name }}</span>
+              <span style="font-size:14px;line-height:1.5;color:#6E5F64">{{ a.note }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </section>
+    </div>
+  </sc-for>
+
+  <section id="tour3d" data-screen-label="3D tour" style="background:#2B2226;color:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">3D tour</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Walk through {{ cur.name }}</h2>
+        </div>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#EFC3C7">Drag to look around and click the floor to move from room to room.</p>
+      </div>
+      <div style="position:relative;aspect-ratio:16/9;min-height:320px;border-radius:32px;overflow:hidden;background:#1E1619;border:1px solid rgba(239,195,199,.2)">
+        <sc-if value="{{ cur.has3d }}" hint-placeholder-val="{{ false }}">
+          <iframe src="{{ cur.tour }}" title="3D tour of Avere {{ cur.name }}" allow="xr-spatial-tracking; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+        </sc-if>
+        <sc-if value="{{ cur.no3d }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px">
+            <span style="width:64px;height:64px;border-radius:50%;border:1px dashed #EFC3C7;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:20px;color:#EFC3C7">3D</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:22px">3D tour coming soon</span>
+            <span style="font-size:14px;color:#C9B3B8;max-width:420px">Paste this location's tour link into the page settings to show it here.</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book a visit" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+<script type="text/x-dc" data-dc-script data-props="{&quot;tourLawrenceville&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;3D tour links&quot;},&quot;tourCranberry&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;3D tour links&quot;},&quot;tourMurrysville&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;3D tour links&quot;},&quot;tourFoxChapel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;3D tour links&quot;},&quot;parking&quot;:{&quot;editor&quot;:null,&quot;default&quot;:{},&quot;tsType&quot;:&quot;Record&lt;string,string&gt;&quot;}}">
+const AREAS = [
+  ['front', 'Front desk', 'Where you’re greeted and checked in.', 2],
+  ['lounge', 'Waiting lounge', 'A quiet spot before your appointment.', 1],
+  ['bev', 'Beverage bar', 'Water, coffee and tea while you wait.', 1],
+  ['room', 'Treatment rooms', 'Private rooms with medical-grade lighting.', 2],
+  ['bath', 'Restrooms', 'Yes, the bathrooms are worth a photo.', 1],
+  ['skin', 'Skin care shelf', 'Shop PCA Skin, SkinMedica and Avere Cosmetics.', 1],
+  ['promo', 'Promos & displays', 'This month’s offers and new treatments.', 1],
+  ['parking', 'Parking & entrance', 'Where to park and how to find our door.', 1],
+];
+const LOCS = [
+  { k: 'lawrenceville', name: 'Lawrenceville', city: 'Pittsburgh', kicker: 'Our flagship · Butler Street', addr: '3453 Butler Street, Pittsburgh, PA 15201', map: 'https://maps.app.goo.gl/9nzKxWPxhcgexSAX8', ext: 'assets/avere-interior.jpg', blurb: 'Where Avere started, a few doors down from the original basement room. Right in the heart of Lawrenceville’s Butler Street.', src: {} },
+  { k: 'cranberry', name: 'Cranberry', city: 'Mars', kicker: 'North of the city', addr: '179 Scharberry Ln, Mars, PA 16046', map: 'https://maps.app.goo.gl/1dVzPj2E5dEMNkaZ6', ext: 'assets/office-cranberry.jpg', blurb: 'An easy stop for the North Hills and Butler County, with on-site parking right outside.', src: {} },
+  { k: 'murrysville', name: 'Murrysville', city: 'Export', kicker: 'Our hometown office', addr: '5100 Old William Penn Hwy, Export, PA 15632', map: 'https://maps.app.goo.gl/VREmjDntVtmiQHMM8', ext: 'assets/office-murrysville.avif', blurb: 'Our second office, opened in our own hometown to serve the east side.', src: {} },
+  { k: 'foxchapel', name: 'Fox Chapel', city: 'Blawnox', kicker: 'Our newest office', addr: '307 Freeport Road, Blawnox, PA 15238', map: 'https://maps.app.goo.gl/EEWexjiBBBwrVH9u7', ext: 'assets/office-foxchapel.jpg', blurb: 'Our newest space on Freeport Road, with a chandelier-lit lobby and spa-style lockers.', src: { front: 'assets/foxchapel-lobby.jpg', lounge: 'assets/foxchapel-lobby-wide.jpg', room: 'assets/foxchapel-room.jpg', bath: 'assets/foxchapel-sink.jpg', promo: 'assets/foxchapel-chandelier.jpg' } },
+];
+class Component extends DCLogic {
+  state = { loc: 0, w: typeof window !== 'undefined' ? window.innerWidth : 1200 };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const cur = this.state.loc, parking = this.props.parking || {}, wide = this.state.w >= 720;
+    const tours = { lawrenceville: this.props.tourLawrenceville, cranberry: this.props.tourCranberry, murrysville: this.props.tourMurrysville, foxchapel: this.props.tourFoxChapel };
+    const L = LOCS[cur], t = tours[L.k] || '';
+    return {
+      tabs: LOCS.map((l, i) => ({ name: l.name, city: l.city, pick: () => this.setState({ loc: i }),
+        style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1, padding: '8px 18px', minHeight: 52, borderRadius: 16, border: '1px solid ' + (i === cur ? '#2B2226' : 'transparent'), background: i === cur ? '#2B2226' : 'transparent', color: i === cur ? '#fff' : '#2B2226', cursor: 'pointer', fontFamily: "'Lato',sans-serif", whiteSpace: 'nowrap', transition: 'all .2s' },
+        subStyle: { fontSize: 12, color: i === cur ? '#EFC3C7' : '#6E5F64' } })),
+      locs: LOCS.map((l, i) => ({ ...l, label: `Tour · ${l.name}`, show: { display: i === cur ? 'block' : 'none' },
+        extId: `tour-${l.k}-exterior`, extSrc: l.ext, extPh: `${l.name} exterior or hero photo`,
+        parking: parking[l.k] || 'Parking details coming soon. Call us and we’ll walk you through it.',
+        areas: AREAS.map(([k, name, note, span]) => ({ id: `tour-${l.k}-${k}`, name, note, src: l.src[k] || '', ph: `${l.name}: ${name.toLowerCase()}`,
+          cell: { margin: 0, display: 'flex', flexDirection: 'column', gap: 12, minWidth: 0, gridColumn: span === 2 && wide ? 'span 2' : 'auto', minHeight: span === 2 && wide ? 380 : 300 } })) })),
+      cur: { name: L.name, tour: t, has3d: !!t, no3d: !t },
+    };
+  }
+}
 </script>
 </body>
 </html>

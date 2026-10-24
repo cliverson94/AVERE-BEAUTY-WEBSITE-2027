@@ -71,7 +71,7 @@
         <p style="margin:0;font-size:14px;color:#A3324B;font-weight:700">{{ error }}</p>
       </sc-if>
       <button type="submit" style="min-height:56px;border-radius:999px;border:none;cursor:pointer;font-family:'Lato',sans-serif;font-size:17px;font-weight:700;background:#2B2226;color:#fff;margin-top:4px" style-hover="background:#B04A62">{{ cfg.button }}</button>
-      <p style="margin:0;font-size:12px;line-height:1.5;color:#6E5F64;text-align:center">We’ll reach out {{ speed }}. Please don’t include medical history. <a href="/policies#privacy" style="text-decoration:underline">Privacy</a></p>
+      <p style="margin:0;font-size:12px;line-height:1.5;color:#6E5F64;text-align:center">We’ll reach out {{ speed }}. Please don’t include medical history. <a href="Avere Policies.dc.html#privacy" style="text-decoration:underline">Privacy</a></p>
     </form>
   </sc-if>
   <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
@@ -89,6 +89,8 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;460px&quot;,&quot;height&quot;:&quot;820px&quot;},&quot;form&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;newpatient&quot;,&quot;consult&quot;,&quot;bridal&quot;,&quot;vip&quot;,&quot;refer&quot;,&quot;lhr&quot;,&quot;training&quot;,&quot;weightloss&quot;],&quot;default&quot;:&quot;consult&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;speed&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;the same business day&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;webhook&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const TREATMENTS = ['Botox / Neurotoxins', 'Lip Filler', 'Dermal Filler', 'Laser Hair Removal', 'Skin Resurfacing / Lasers', 'HydraFacial / Facials', 'PDO Threads', 'Microneedling', 'Weight Loss', 'Not sure yet'];
 const FORMS = {
+  elevens: { title: 'Reserve your spot for 11’s Day', sub: 'Join the waitlist. Natalie will confirm your spot and time by text.', button: 'Reserve my spot', loc: true, book: false, done: 'You’re on the list. We’ll text you to confirm your spot.',
+    fields: [{ key: 'interest', type: 'select', ph: 'What are you most excited for?', options: ['Botox / Neurotoxins', 'Filler', 'Lasers', 'Facials', 'Skin care products', 'A bit of everything'] }, { key: 'notes', type: 'textarea', ph: 'Preferred day or time (optional)' }] },
   newpatient: { title: 'Claim 10% off your first treatment', sub: 'New clients only. We’ll text your offer and help you book.', button: 'Claim my 10%', loc: true, book: true, done: 'Your 10% offer is saved to your number. We’ll text you to pick a time.',
     fields: [{ key: 'interest', type: 'select', ph: 'What are you interested in?', options: TREATMENTS }] },
   consult: { title: 'Request a free consultation', sub: 'Tell us what you’re curious about. A team member will reach out to schedule.', button: 'Request my consult', loc: true, book: true, done: 'A team member will reach out to schedule your consultation.',
@@ -103,6 +105,8 @@ const FORMS = {
     fields: [{ key: 'interest', type: 'select', ph: 'Main area', options: ['Underarms', 'Bikini / Brazilian', 'Full legs', 'Lower legs', 'Face / upper lip', 'Back', 'Multiple areas'] }, { key: 'prior_lhr', type: 'select', ph: 'Had laser hair removal before?', options: ['No, first time', 'Yes, elsewhere', 'Yes, at Avere'] }] },
   training: { title: 'Apply for injector training', sub: 'For licensed medical professionals.', button: 'Submit application', loc: false, book: false, done: 'Our training team will review your application and reach out.',
     fields: [{ key: 'credential', type: 'select', ph: 'Your credential', options: ['RN', 'NP', 'PA', 'MD / DO', 'DDS', 'Other'] }, { key: 'license_state', type: 'text', ph: 'License state' }, { key: 'experience', type: 'select', ph: 'Injecting experience', options: ['Brand new', 'Under 1 year', '1–3 years', '3+ years'] }, { key: 'interest', type: 'select', ph: 'Course interest', options: ['Foundations: tox & filler', 'Advanced filler', 'PDO threads', 'Shadowing Program', 'Not sure'] }] },
+  beautybank: { title: 'Open your Beauty Bank', sub: 'Free to join. Start earning on your next visit.', button: 'Join Beauty Bank', loc: true, book: false, done: 'You’re in. Your points start on your next visit; just give the desk your phone number.',
+    fields: [{ key: 'birthday', type: 'text', ph: 'Birthday (MM/DD) for your bonus' }] },
   weightloss: { title: 'Request a weight loss consult', sub: 'Our NP will reach out to schedule your consultation.', button: 'Request my consult', loc: true, book: true, done: 'Our weight loss team will reach out to schedule.',
     fields: [{ key: 'best_time', type: 'select', ph: 'Best time to reach you', options: ['Morning', 'Afternoon', 'Evening'] }] },
 };
@@ -125,9 +129,9 @@ class Component extends DCLogic {
     if ((v.phone || '').replace(/\D/g, '').length < 10) return this.setState({ error: 'Please add a 10-digit mobile number.' });
     if (!/^\S+@\S+\.\S+$/.test(v.email || '')) return this.setState({ error: 'Please add a valid email.' });
     const payload = { form_id: this.cfg().id, submitted_at: new Date().toISOString(), ...v, ...track };
+    fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
     const hook = this.props.webhook || window.AVERE_LEAD_WEBHOOK;
     if (hook) fetch(hook, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(() => {});
-    else console.info('[Avere lead]', payload);
     this.setState({ sent: true });
   }
   cfg() { const id = this.props.form || 'consult'; return { id, ...(FORMS[id] || FORMS.consult) }; }

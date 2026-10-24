@@ -8,28 +8,91 @@
 <body>
 <x-dc>
 <helmet>
-<title>Love Lasers | Avere Beauty</title>
+<title>Love Lasers | Laser Facials at Avere Beauty Pittsburgh</title>
+<meta name="description" content="Love Lasers at Avere Beauty: laser facials for glow, tone and texture with IPL, CoolPeel, MotusAZ+ and more. Claim the offer and book in Pittsburgh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="promos" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Love Lasers" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Promos</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Love Lasers</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <section data-screen-label="Hero + form" style="position:relative;overflow:hidden;background:radial-gradient(ellipse 55% 65% at 80% 40%, #4A3238 0%, #2B2226 60%, #1E1619 100%);color:#FFF5F5">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(36px,6vw,88px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">Promo · Love Lasers</span>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(40px,5.6vw,76px);line-height:1.02;letter-spacing:-.03em;margin:0;text-wrap:balance">Fall in love with your skin again</h1>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#F4DADC;max-width:520px;text-wrap:pretty">Laser facials clear sun spots and redness, smooth texture and bring back glow, often in a lunch break. Claim the Love Lasers offer and we’ll match you with the right device.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="border:1px solid rgba(255,227,227,.35);border-radius:999px;padding:8px 14px;font-size:14px">Sun spots</span>
+          <span style="border:1px solid rgba(255,227,227,.35);border-radius:999px;padding:8px 14px;font-size:14px">Redness</span>
+          <span style="border:1px solid rgba(255,227,227,.35);border-radius:999px;padding:8px 14px;font-size:14px">Texture &amp; pores</span>
+          <span style="border:1px solid rgba(255,227,227,.35);border-radius:999px;padding:8px 14px;font-size:14px">Fine lines</span>
+        </div>
+      </div>
+      <div style="background:#fff;color:#2B2226;border-radius:32px;padding:clamp(20px,3vw,32px)">
+        <dc-import name="Avere Lead Form" form="consult" hint-size="100%,520px"></dc-import>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  </section>
+
+  <section data-screen-label="Devices" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Pick your laser facial</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">One goal, the right device</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+      <sc-for list="{{ devices }}" as="d" hint-placeholder-count="4">
+        <a href="{{ d.href }}" style="border:1px solid #F4DADC;border-radius:28px;overflow:hidden;display:flex;flex-direction:column" style-hover="border-color:#B04A62;color:#2B2226">
+          <div style="position:relative;aspect-ratio:4/3;background:#FFE3E3"><image-slot id="{{ d.id }}" shape="rect" placeholder="{{ d.t }}"></image-slot></div>
+          <div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px">
+            <span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#B04A62;font-weight:700">{{ d.goal }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:22px">{{ d.t }}</span>
+            <span style="font-size:15px;line-height:1.6;color:#4A3B40">{{ d.d }}</span>
+            <span style="font-size:14px;font-weight:700;color:#B04A62;margin-top:6px">Learn more →</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Steps" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:28px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:2px solid #2B2226;padding-top:20px">
+          <span style="font-family:'Poppins',sans-serif;font-size:14px;color:#B04A62;font-weight:600">{{ s.n }}</span>
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">{{ s.t }}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#4A3B40">{{ s.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Fine print" style="max-width:960px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:10px">
+    <p style="margin:0;font-size:14px;line-height:1.65;color:#6E5F64">Offer details are confirmed at booking. Cannot be combined with other promotions. A consultation is required to confirm laser candidacy. See <a href="Avere Policies.dc.html" style="color:#B04A62;font-weight:700">policies</a>.</p>
+  </section>
+  <dc-import name="Avere Book Bar" label="Claim Love Lasers" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      devices: [
+        ['ipl', 'IPL Photofacial', 'Spots & redness', 'Light pulses fade sun damage, freckles and redness for even tone.', 'Avere IPL.dc.html'],
+        ['coolpeel', 'CoolPeel', 'Glow & texture', 'A CO₂ laser facial with little downtime. Brighter, smoother skin in days.', 'Avere CoolPeel.dc.html'],
+        ['motus', 'MotusAZ+', 'Pigment & hair', 'Gentle on all skin types. Treats pigment and removes unwanted hair.', 'Avere MotusAZ.dc.html'],
+        ['devices', 'All laser devices', 'Not sure?', 'Compare every device by concern, wavelength and downtime.', 'Avere Laser Devices.dc.html'],
+      ].map(([k, t, goal, d, href]) => ({ id: `lovelasers-${k}`, t, goal, d, href })),
+      steps: [
+        ['Claim the offer', 'Fill out the form. Our patient care team will text you within the business day.'],
+        ['Skin consult', 'A provider looks at your skin type and goals and picks the right laser.'],
+        ['Glow', 'Most laser facials take under an hour, with results building over the following weeks.'],
+      ].map(([t, d], i) => ({ t, d, n: String(i + 1).padStart(2, '0') })),
+    };
+  }
+}
 </script>
 </body>
 </html>

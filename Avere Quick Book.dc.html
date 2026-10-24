@@ -249,7 +249,7 @@ class Component extends DCLogic {
       barText: [t && t.label, o && o.name, dObj && fmt(dObj)].filter(Boolean).join(' · '),
       submitLabel: instant ? 'Book now' : 'Send request',
       submitStyle: { minHeight: 52, padding: '0 24px', borderRadius: 999, border: 'none', fontSize: 16, fontWeight: 700, cursor: ready ? 'pointer' : 'not-allowed', background: ready ? '#2B2226' : '#E6D8DB', color: ready ? '#fff' : '#8A7A7F', flexShrink: 0, transition: 'all .2s' },
-      submit: () => ready && this.setState({ done: true }),
+      submit: () => { if (!ready) return; fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ form_id: 'quickbook', first_name: S.name, phone: S.phone, interest: t && t.label, location: o && o.name, preferred_day: dObj && fmt(dObj), preferred_time: instant ? S.slot : winLabel, new_client: S.isNew, sms_consent: S.texts, page: location.pathname }) }).catch(() => {}); this.setState({ done: true }); },
       doneTitle: instant ? "You're booked" : 'Request sent',
       doneBody: instant ? `See you ${dObj ? fmt(dObj) : ''} at ${S.slot}. A confirmation is on its way.` : `We'll text ${S.phone} to confirm an exact time${S.isNew ? ', plus your new patient forms' : ''}.`,
       summaryRows: [{ k: 'Treatment', v: t ? t.label : '' }, { k: 'Office', v: o ? o.name : '' }, { k: 'When', v: dObj ? fmt(dObj) + ' · ' + (instant ? S.slot : winLabel) : '' }, { k: 'Name', v: S.name }],

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>11’s Day at Avere Beauty | Our Biggest Day of the Year</title>
+<meta name="description" content="11’s Day is Avere Beauty’s biggest event of the year, every November 11 across all four Pittsburgh locations. Reserve your spot on the waitlist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth;scroll-padding-top:120px}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff;color:#2B2226;overflow-x:hidden">
+  <dc-import name="Avere Nav" active="promos" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,150px"></dc-import>
+
+  <section data-screen-label="Hero" style="position:relative;overflow:hidden;background:radial-gradient(ellipse 55% 70% at 78% 35%, #4A3238 0%, #2B2226 58%, #1E1619 100%);color:#FFF5F5">
+    <span style="position:absolute;right:-3vw;bottom:-6vw;font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(220px,38vw,560px);line-height:.8;color:rgba(239,195,199,.07);letter-spacing:-.06em;pointer-events:none">11</span>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(36px,6vw,88px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">November 11, {{ year }} · All 4 locations</span>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(48px,7vw,96px);line-height:.98;letter-spacing:-.04em;margin:0;color:#FFF5F5">11’s Day</h1>
+        <p style="margin:0;font-size:18px;line-height:1.7;color:#F4DADC;max-width:520px;text-wrap:pretty">Our biggest day of the year. One day of our best pricing on the treatments and products you love, at every Avere location. Spots fill fast, so reserve yours now.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:460px">
+          <sc-for list="{{ units }}" as="u" hint-placeholder-count="4">
+            <div style="background:rgba(255,245,245,.08);border:1px solid rgba(239,195,199,.25);border-radius:18px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:2px">
+              <span style="font-family:'Poppins',sans-serif;font-size:clamp(28px,3.4vw,40px);line-height:1;font-variant-numeric:tabular-nums">{{ u.v }}</span>
+              <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#EFC3C7;font-weight:700">{{ u.k }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <span style="font-size:14px;color:#EFC3C7">{{ status }}</span>
+      </div>
+      <div id="reserve" style="background:#fff;color:#2B2226;border-radius:32px;padding:clamp(20px,3vw,32px);box-shadow:0 30px 80px rgba(0,0,0,.35)">
+        <dc-import name="Avere Lead Form" form="elevens" hint-size="100%,560px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="How it works" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">How 11’s Day works</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:28px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:10px;border-top:2px solid #2B2226;padding-top:20px">
+          <span style="font-family:'Poppins',sans-serif;font-size:14px;color:#B04A62;font-weight:600">{{ s.n }}</span>
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">{{ s.t }}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#4A3B40">{{ s.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Deals" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:640px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The deals</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">Revealed to the waitlist first</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#4A3B40">Everyone on the list gets the full deal sheet by text before it goes public.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+        <sc-for list="{{ deals }}" as="d" hint-placeholder-count="4">
+          <div style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="position:relative;aspect-ratio:4/3;background:#FFE3E3"><image-slot id="{{ d.id }}" shape="rect" placeholder="{{ d.t }}" style="position:absolute;inset:0"></image-slot></div>
+            <div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Poppins',sans-serif;font-size:21px">{{ d.t }}</span><span style="font-size:14px;color:#6E5F64">{{ d.d }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:960px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:24px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0">11’s Day questions</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
+        <div style="padding:20px 0;border-bottom:1px solid #F4DADC;display:flex;flex-direction:column;gap:8px">
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:19px;margin:0">{{ q.q }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">{{ q.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1200px;margin:0 auto;background:#B04A62;color:#fff;border-radius:32px;padding:clamp(36px,5vw,64px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.1;margin:0;color:#fff">Don’t miss 11’s Day</h2>
+      <a href="#reserve" data-cta="event:elevens:bottom" style="background:#fff;color:#2B2226;min-height:52px;padding:0 30px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#FFE3E3;color:#2B2226">Reserve your space now</a>
+    </div>
+  </section>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// Reusable every year: dates and copy roll forward automatically.
+class Component extends DCLogic {
+  state = { now: Date.now() };
+  componentDidMount() { this.t = setInterval(() => this.setState({ now: Date.now() }), 1000); }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    const now = new Date(this.state.now);
+    let y = now.getFullYear();
+    if (now >= new Date(y, 10, 12)) y += 1;
+    const target = new Date(y, 10, 11), live = now >= target;
+    const ms = Math.max(0, target - now);
+    const units = [[Math.floor(ms / 864e5), 'Days'], [Math.floor(ms / 36e5) % 24, 'Hours'], [Math.floor(ms / 6e4) % 60, 'Min'], [Math.floor(ms / 1e3) % 60, 'Sec']].map(([v, k]) => ({ v: String(v).padStart(2, '0'), k }));
+    return {
+      year: String(y), units,
+      status: live ? '11’s Day is happening now. Call or text 412-952-7592.' : 'Waitlist spots are confirmed in the order they come in.',
+      steps: [
+        ['Join the waitlist', 'Fill out the form with your favorite location and what you’re most excited for.'],
+        ['Natalie confirms your spot', 'Our team adds you to the 11’s Day schedule and texts you to confirm your time.'],
+        ['Show up and glow', 'Come in on November 11 and enjoy our best pricing of the year.'],
+      ].map(([t, d], i) => ({ t, d, n: String(i + 1).padStart(2, '0') })),
+      deals: [['tox', 'Neurotoxins', 'Botox, Dysport, Xeomin, Daxxify, Jeuveau'], ['filler', 'Filler', 'Lips, cheeks, chin and more'], ['laser', 'Lasers', 'Hair removal, IPL, CoolPeel'], ['skin', 'Skin care', 'PCA Skin, SkinMedica, Avere Cosmetics']].map(([k, t, d]) => ({ id: 'elevens-deal-' + k, t, d })),
+      faqs: [
+        ['When is 11’s Day?', 'Every year on November 11, at all four Avere locations.'],
+        ['Do I need to reserve?', 'Yes. Appointments fill quickly, so we book from the waitlist first.'],
+        ['When will I get the deals?', 'Waitlist members get the full deal sheet by text before it goes public.'],
+        ['Can I buy now and use later?', 'Ask us about prepaying for treatments or gift cards on 11’s Day.'],
+        ['Can I use financing?', 'Yes. Cherry, Afterpay and CareCredit all work with 11’s Day pricing.'],
+      ].map(([q, a]) => ({ q, a })),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -8,27 +8,166 @@
 <body>
 <x-dc>
 <helmet>
+<script src="./image-slot.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="esth" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="All Esthetics" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Esthetics</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">All Esthetics</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+
+  <section data-screen-label="Esthetics hero" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:24px clamp(20px,4vw,32px) clamp(48px,7vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="Avere Home A.dc.html" style="color:#6E5F64">Home</a><span>/</span><span style="color:#2B2226">Esthetics</span></div>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(37px,4.8vw,69px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance">Facials and skin care in Pittsburgh</h1>
+        <p style="font-size:18px;line-height:1.65;color:#4A3B40;margin:0;max-width:560px;text-wrap:pretty">Facials, peels, microneedling and brow and lash services from licensed estheticians, for clear, healthy skin between bigger treatments or on their own.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#explore" style="background:#2B2226;color:#fff;padding:0 30px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center" style-hover="background:#B04A62;color:#fff">Explore esthetics</a>
+          <a href="Avere HydraFacial.dc.html" style="border:1px solid #2B2226;padding:0 28px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center" style-hover="background:#fff;color:#2B2226">See the HydraFacial</a>
+        </div>
+      </div>
+      <img src="https://static.wixstatic.com/media/903d63_9d021e833968439ea117454c700a369a~mv2.jpg/v1/fill/w_1000,h_1000,al_c,q_85/img.jpg" alt="Facial at Avere Beauty Pittsburgh" style="width:100%;aspect-ratio:1/1;max-height:560px;object-fit:cover;border-radius:28px;display:block;background:#FFE3E3">
     </div>
-  </main>
+  </section>
+
+  <section data-screen-label="What is esthetics" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0;display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The basics</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance">Skin care that keeps your results going</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+      <div style="background:#FFF5F5;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">Facials</h3><p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Deep cleansing, exfoliation and hydration matched to your skin. No downtime, so they fit before events.</p><span style="font-size:14px;color:#6E5F64">Best every 4–6 weeks</span></div>
+      <div style="background:#FFF5F5;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">Skin health</h3><p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Peels, dermaplaning and microneedling for texture, acne marks, dullness and fine lines.</p><span style="font-size:14px;color:#6E5F64">Often done as a series</span></div>
+      <div style="background:#FFF5F5;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">Brows, lashes and home care</h3><p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Shaping, tinting and lifts, plus medical-grade products to keep skin on track between visits.</p><span style="font-size:14px;color:#6E5F64">Ask your esthetician for a routine</span></div>
+    </div>
+  </section>
+
+  <section id="timeline" data-screen-label="Skin care timeline" style="padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0">
+    <div style="max-width:1320px;margin:0 auto;background:#FFF5F5;border-radius:clamp(24px,4vw,40px);padding:clamp(28px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(32px,5vw,64px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:18px;position:sticky;top:140px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Your skin care timeline</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance">Where to start, and what comes next</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#4A3B40;text-wrap:pretty">Good skin is built in steps. Here’s how most of our clients go from a first visit to skin that stays clear and healthy.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">Start by goal</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <a href="Avere Advanced Acne.dc.html" style="min-height:40px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid #EFC3C7;font-size:14px;font-weight:700;display:flex;align-items:center">Breakouts</a>
+            <a href="Avere HydraFacial.dc.html" style="min-height:40px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid #EFC3C7;font-size:14px;font-weight:700;display:flex;align-items:center">Dull or dry skin</a>
+            <a href="Avere Chemical Peels.dc.html" style="min-height:40px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid #EFC3C7;font-size:14px;font-weight:700;display:flex;align-items:center">Dark spots</a>
+            <a href="Avere SkinPen Microneedling.dc.html" style="min-height:40px;padding:0 16px;border-radius:999px;background:#fff;border:1px solid #EFC3C7;font-size:14px;font-weight:700;display:flex;align-items:center">Fine lines</a>
+            <a href="?popup=quiz-skin" style="min-height:40px;padding:0 16px;border-radius:999px;background:#2B2226;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center" style-hover="background:#B04A62;color:#fff">Not sure? Take the quiz</a>
+          </div>
+        </div>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:14px">
+        <div style="position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:linear-gradient(#FFD0D5,#B04A62);border-radius:2px"></div>
+        <li style="position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start"><span style="width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #FFD0D5;color:#B04A62;font-family:'Poppins',sans-serif;font-weight:600;display:flex;align-items:center;justify-content:center;position:relative">1</span><div style="background:#fff;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#FFE3E3;color:#8E3A4F;border-radius:999px;padding:4px 10px">Week 1</span><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">Start with a skin consult</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#4A3B40">Book a Signature Facial. Your esthetician looks at your skin, asks about your routine and writes your plan.</p><a href="Avere Signature Facial.dc.html" style="font-size:14px;font-weight:700;color:#B04A62">Signature Facial →</a></div></li>
+        <li style="position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start"><span style="width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #F7B9C1;color:#B04A62;font-family:'Poppins',sans-serif;font-weight:600;display:flex;align-items:center;justify-content:center;position:relative">2</span><div style="background:#fff;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#FFE3E3;color:#8E3A4F;border-radius:999px;padding:4px 10px">Weeks 1–4</span><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">Build your home routine</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;font-size:14px;line-height:1.55;color:#4A3B40"><div><strong style="color:#2B2226">Morning</strong><br>Gentle cleanser<br>Vitamin C serum<br>SPF 30 or higher</div><div><strong style="color:#2B2226">Night</strong><br>Cleanser<br>Retinol or treatment serum<br>Moisturizer</div></div><a href="Avere Skin Care Products.dc.html" style="font-size:14px;font-weight:700;color:#B04A62">Shop skin care →</a></div></li>
+        <li style="position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start"><span style="width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #E8909E;color:#B04A62;font-family:'Poppins',sans-serif;font-weight:600;display:flex;align-items:center;justify-content:center;position:relative">3</span><div style="background:#fff;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#FFE3E3;color:#8E3A4F;border-radius:999px;padding:4px 10px">Months 1–3</span><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">Reset with a series</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#4A3B40">Three HydraFacials or peels, about four weeks apart, to clear congestion and even out tone.</p><a href="Avere Chemical Peels.dc.html" style="font-size:14px;font-weight:700;color:#B04A62">Chemical peels →</a></div></li>
+        <li style="position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start"><span style="width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid #CC6A7E;color:#B04A62;font-family:'Poppins',sans-serif;font-weight:600;display:flex;align-items:center;justify-content:center;position:relative">4</span><div style="background:#fff;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#FFE3E3;color:#8E3A4F;border-radius:999px;padding:4px 10px">Months 3–6</span><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">Target your main concern</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#4A3B40">Add SkinPen microneedling for scars and fine lines, or CoolPeel and IPL for spots and redness.</p><a href="Avere SkinPen Microneedling.dc.html" style="font-size:14px;font-weight:700;color:#B04A62">SkinPen microneedling →</a></div></li>
+        <li style="position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start"><span style="width:48px;height:48px;border-radius:50%;background:#B04A62;color:#fff;font-family:'Poppins',sans-serif;font-weight:600;display:flex;align-items:center;justify-content:center;position:relative">5</span><div style="background:#2B2226;color:#fff;border-radius:22px;padding:20px 22px;display:flex;flex-direction:column;gap:8px"><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#B04A62;color:#fff;border-radius:999px;padding:4px 10px">Ongoing</span><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;margin:0">Maintain</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#E8CDD2">A facial every 4–6 weeks, a peel each season, and a yearly check-in to adjust your products.</p><a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="font-size:14px;font-weight:700;color:#FFB8BE">Book your next facial →</a></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="explore" data-screen-label="Explore gallery" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px;scroll-margin-top:120px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Explore</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em">Find your treatment</h2>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,24px)">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
+        <a href="{{ c.href }}" style="display:flex;flex-direction:column;gap:14px;color:#2B2226" style-hover="color:#B04A62">
+          <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#FFE3E3"><image-slot id="{{ c.slot }}" shape="rect" placeholder="{{ c.ph }}"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px">
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">{{ c.cat }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:22px;line-height:1.2;display:flex;justify-content:space-between;gap:12px">{{ c.name }}<span style="color:#B04A62">→</span></span>
+            <span style="font-size:15px;line-height:1.5;color:#6E5F64">{{ c.blurb }}</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="compare" data-screen-label="Compare facials" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Compare</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em">What’s in each facial</h2>
+    </div>
+    <div style="overflow-x:auto;border:1px solid #F4DADC;border-radius:24px">
+      <div style="min-width:680px">
+        <div style="display:grid;grid-template-columns:minmax(180px,1.4fr) repeat(4,minmax(110px,1fr));background:#2B2226;color:#fff">
+          <span style="padding:18px 20px;font-size:13px;color:#E8CDD2">Included</span>
+          <sc-for list="{{ facialCols }}" as="c" hint-placeholder-count="4"><a href="{{ c.href }}" style="padding:18px 12px;text-align:center;font-family:'Poppins',sans-serif;font-size:16px;color:#fff" style-hover="color:#FFB8BE">{{ c.name }}</a></sc-for>
+        </div>
+        <sc-for list="{{ facialRows }}" as="r" hint-placeholder-count="8">
+          <div style="{{ r.style }}">
+            <span style="padding:14px 20px;font-size:15px;font-weight:700">{{ r.label }}</span>
+            <sc-for list="{{ r.cells }}" as="x" hint-placeholder-count="4">
+              <span style="display:flex;align-items:center;justify-content:center;padding:10px">
+                <sc-if value="{{ x.yes }}" hint-placeholder-val="{{ true }}"><span aria-label="Included" style="width:26px;height:26px;border-radius:50%;background:#B04A62;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900">✓</span></sc-if>
+                <sc-if value="{{ x.no }}" hint-placeholder-val="{{ false }}"><span aria-label="Not included" style="width:14px;height:2px;background:#EFC3C7;border-radius:2px"></span></sc-if>
+                <sc-if value="{{ x.text }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px;color:#4A3B40;text-align:center">{{ x.text }}</span></sc-if>
+              </span>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Consult CTA" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;background:#2B2226;color:#FFF5F5;border-radius:clamp(24px,4vw,40px);padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.15;margin:0;letter-spacing:-.02em">Not sure which facial?</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#E8CDD2">Start with our Signature Facial. Your esthetician will look at your skin and build your plan from there.</p>
+      </div>
+      <a href="Avere Signature Facial.dc.html" style="background:#FFE3E3;color:#2B2226;padding:0 30px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:inline-flex;align-items:center" style-hover="background:#fff;color:#2B2226">Start with a Signature Facial</a>
+    </div>
+  </section>
+
+  <dc-import name="Avere Founder" variant="strip" kicker="Meet the founder" hint-size="100%,160px"></dc-import>
   <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const ITEMS=[
+  ['Facials','Signature Facial','Avere Signature Facial.dc.html','A custom facial built around your skin.','est-signature','Signature facial in progress'],
+  ['Facials','HydraFacial','Avere HydraFacial.dc.html','Cleanse, extract and hydrate in one pass.','est-hydra','HydraFacial device on client'],
+  ['Facials','Express Facial','Avere Express Facial.dc.html','A quick refresh in under an hour.','est-express','Express facial'],
+  ['Facials','Back Facial','Avere Back Facial.dc.html','Clear, smooth skin where you can’t reach.','est-back','Back facial'],
+  ['Skin health','Dermaplaning','Avere Dermaplaning.dc.html','Removes peach fuzz and dead skin for a smooth finish.','est-derma','Dermaplaning close-up'],
+  ['Skin health','Chemical peels','Avere Chemical Peels.dc.html','Even out tone, texture and acne marks.','est-peel','Chemical peel application'],
+  ['Skin health','SkinPen microneedling','Avere SkinPen Microneedling.dc.html','Collagen boost for scars and fine lines.','est-skinpen','SkinPen treatment'],
+  ['Skin health','CryoSkin','Avere CryoSkin.dc.html','Cooling treatment to tone and tighten.','est-cryo','CryoSkin facial'],
+  ['Brows, lashes & products','Brow & lash','Avere Brow and Lash.dc.html','Shaping, tinting and lifts.','est-browlash','Brow or lash service'],
+  ['Brows, lashes & products','Skin care products','Avere Skin Care Products.dc.html','Medical-grade products for home.','est-products','Product shelf at the office'],
+];
+const CATS=['All','Facials','Skin health','Brows, lashes & products'];
+const FCOLS=[['Express','Avere Express Facial.dc.html'],['Signature','Avere Signature Facial.dc.html'],['HydraFacial','Avere HydraFacial.dc.html'],['Back Facial','Avere Back Facial.dc.html']];
+const FROWS=[
+  ['Skin analysis',[1,1,1,1]],['Double cleanse',[1,1,1,1]],['Exfoliation',[1,1,1,1]],['Manual extractions',[0,1,0,1]],
+  ['Vortex suction extractions',[0,0,1,0]],['Custom mask',[0,1,0,1]],['Booster serum',[0,0,1,0]],['Facial massage',[0,1,0,0]],
+  ['LED light therapy',[0,1,0,0]],['Hydration + SPF',[1,1,1,1]],['Time',['30 min','60 min','45 min','45 min']],['Downtime',['None','None','None','None']]];
+class Component extends DCLogic {
+  state={cat:'All'};
+  renderVals(){
+    const cat=this.state.cat;
+    return{
+      facialCols:FCOLS.map(([name,href])=>({name,href})),
+      facialRows:FROWS.map(([label,v],i)=>({label,style:{display:'grid',gridTemplateColumns:'minmax(180px,1.4fr) repeat(4,minmax(110px,1fr))',alignItems:'center',background:i%2?'#FFF5F5':'#fff',borderTop:'1px solid #F4DADC'},cells:v.map(x=>({yes:x===1,no:x===0,text:typeof x==='string'?x:''}))})),
+      chips:CATS.map(c=>({label:c,pick:()=>this.setState({cat:c}),style:{minHeight:40,padding:'0 16px',borderRadius:999,border:cat===c?'1px solid #2B2226':'1px solid #EFC3C7',background:cat===c?'#2B2226':'#fff',color:cat===c?'#fff':'#2B2226',fontFamily:"'Lato',sans-serif",fontSize:14,fontWeight:700,cursor:'pointer'}})),
+      cards:ITEMS.filter(i=>cat==='All'||i[0]===cat).map(([c,name,href,blurb,slot,ph])=>({cat:c,name,href,blurb,slot,ph})),
+    };
+  }
+}
 </script>
 </body>
 </html>

@@ -10,6 +10,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./avere-consent.js"></script>
 <style>body{margin:0}*{box-sizing:border-box}a{color:inherit;text-decoration:none}</style>
 </helmet>
 <footer style="background:#2B2226;color:#FFF5F5;font-family:'Lato',sans-serif;position:relative;overflow:hidden">
@@ -20,6 +21,7 @@
         <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#FFE3E3;color:#2B2226;padding:0 22px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center;grid-column:1/-1" style-hover="background:#fff;color:#2B2226">Book now</a>
         <a href="tel:4129527592" style="color:#FFF5F5;border:1px solid rgba(255,227,227,.4);padding:0 14px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center;white-space:nowrap" style-hover="background:rgba(255,255,255,.08);color:#fff">Call 412-952-7592</a>
         <a href="sms:4129527592" style="color:#FFF5F5;border:1px solid rgba(255,227,227,.4);padding:0 18px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.08);color:#fff">Text us</a>
+        <a href="/financing" style="grid-column:1/-1;background:#B04A62;color:#fff;padding:0 22px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px" style-hover="background:#8E3A4F;color:#fff">Apply now<span style="font-weight:400;opacity:.85">· Treat now, pay later</span></a>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px">
@@ -78,6 +80,7 @@
           <sc-for list="{{ legal }}" as="l" hint-placeholder-count="6">
             <a href="{{ l.href }}" style="color:#EFC3C7;min-height:36px;display:flex;align-items:center" style-hover="color:#fff">{{ l.t }}</a>
           </sc-for>
+          <button type="button" onClick="{{ cookieSettings }}" style="background:none;border:0;padding:0;color:#EFC3C7;font:inherit;font-size:13px;min-height:36px;cursor:pointer" style-hover="color:#fff">Cookie settings</button>
         </nav>
         <div style="display:flex;gap:8px">
           <a href="https://www.instagram.com/averebeauty/" aria-label="Instagram" style="color:#FFF5F5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,227,227,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700" style-hover="background:#FFE3E3;color:#2B2226">IG</a>
@@ -94,9 +97,10 @@
 const L = (t, href = '#') => ({ t, href });
 const COLS = [
   { h: 'Treatments', links: [L('Botox & Neurotoxins', '/botox'), L('Lip Filler', '/lip-filler'), L('Laser Treatments', '/laser-treatments'), L('Laser Hair Removal', '/laser-hair-removal'), L('Esthetics', '/esthetics'), L('Weight Loss', '/weight-loss')] },
-  { h: 'Patients', links: [L('Locations', '/locations'), L('Pre & Aftercare', '/aftercare'), L('Before & After', '/before-after-gallery'), L('Membership', '/membership'), L('Financing', '/financing'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order')] },
-  { h: 'About', links: [L('Meet the Team', '/team'), L('Careers', '/team#join'), L('Injector Training', '/injector-training'), L('Blog', '/blog'), L('Contact', '/contact')] },
+  { h: 'Patients', links: [L('Locations', '/locations'), L('Pre & Aftercare', '/aftercare'), L('Before & After', '/before-after-gallery'), L('Membership', '/membership'), L('Financing', '/financing'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order'), L('Avere Cosmetics', 'https://www.averecosmetics.com')] },
+  { h: 'About', links: [L('Meet the Team', '/team'), L('Careers', '/careers'), L('Injector Training', '/injector-training'), L('Blog', '/blog'), L('Contact', '/contact')] },
   { h: 'Policies', links: [L('Cancellation Policy', '/policies#cancellation'), L('Payments & Refunds', '/policies#refunds'), L('HIPAA Notice', '/policies#hipaa'), L('Privacy Policy', '/policies#privacy'), L('Accessibility', '/policies#accessibility')] },
+  { h: 'Medical & Derm', links: [L('Scar Revisions', '/scar-revisions'), L('Cleft Lip Repair', '/cleft-lip-repair'), L('Advanced Acne', '/advanced-acne-treatments'), L('Excessive Sweating', '/excessive-sweating-hyperhydrosis-treatment'), L('TMJ Treatment', '/tmj-treatment-pittsburgh')] }
 ];
 const OFFICES = [
   { name: 'Lawrenceville', addr: '3453 Butler Street, Pittsburgh, PA 15201', map: 'https://maps.app.goo.gl/9nzKxWPxhcgexSAX8' },
@@ -111,7 +115,7 @@ class Component extends DCLogic {
   state = { phone: '', joined: false };
   renderVals() {
     return {
-      cols: COLS, offices: OFFICES, badges: BADGES, legal: LEGAL, year: new Date().getFullYear(),
+      cols: COLS, offices: OFFICES, badges: BADGES, legal: LEGAL, cookieSettings: () => window.avereCookieSettings && window.avereCookieSettings(), year: new Date().getFullYear(),
       phone: this.state.phone, setPhone: e => this.setState({ phone: e.target.value }),
       notJoined: !this.state.joined, joined: this.state.joined,
       join: () => this.state.phone.replace(/\D/g, '').length >= 10 && this.setState({ joined: true }),

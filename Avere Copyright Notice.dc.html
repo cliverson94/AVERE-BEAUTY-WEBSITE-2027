@@ -9,27 +9,60 @@
 <x-dc>
 <helmet>
 <title>Copyright Notice | Avere Beauty</title>
+<meta name="description" content="Copyright, trademark and permitted use of Avere Beauty content, photos and brand assets.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:#B04A62;text-decoration:none}a:hover{color:#8E3A4F}html{scroll-behavior:smooth;scroll-padding-top:130px}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
-  <dc-import name="Avere Nav" active="" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Copyright Notice" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Legal</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Copyright Notice</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+  <section data-screen-label="Copyright header" style="background:#FFF5F5">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Legal</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-.03em;margin:0">Copyright Notice</h1>
+      <span style="font-size:15px;color:#4A3B40">Effective {{ date }}</span>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  </section>
+  <div style="max-width:1120px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,64px);align-items:flex-start">
+    <nav aria-label="Sections" style="position:sticky;top:130px;display:flex;flex-direction:column;gap:2px;flex:1 1 220px;max-width:280px">
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="10"><a href="{{ t.href }}" style="color:#4A3B40;font-size:14px;padding:8px 0;border-bottom:1px solid #F4DADC" style-hover="color:#B04A62">{{ t.label }}</a></sc-for>
+    </nav>
+    <article style="flex:999 1 480px;min-width:0;display:flex;flex-direction:column;gap:36px;max-width:720px">
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#2B2226">© {{ year }} Avere Beauty. All rights reserved. This notice covers everything on averebeauty.com and our social channels, including text, photography, video, graphics, logos, before-and-after images and training materials.</p>
+      <sc-for list="{{ secs }}" as="s" hint-placeholder-count="10">
+        <section id="{{ s.id }}" style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.01em;margin:0">{{ s.n }}. {{ s.title }}</h2>
+          <sc-for list="{{ s.paras }}" as="p" hint-placeholder-count="1"><p style="margin:0;font-size:16px;line-height:1.75;color:#4A3B40">{{ p.t }}</p></sc-for>
+          <sc-if value="{{ s.hasList }}" hint-placeholder-val="{{ false }}">
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.65;color:#4A3B40"><sc-for list="{{ s.list }}" as="li" hint-placeholder-count="3"><li>{{ li.t }}</li></sc-for></ul>
+          </sc-if>
+        </section>
+      </sc-for>
+    </article>
+  </div>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+<script type="text/x-dc" data-dc-script data-props="{&quot;effectiveDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;October 23, 2026&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const S = [
+  ['ownership', 'Ownership', ['All content on this site, including text, page designs, photographs, videos, illustrations, before-and-after images, quizzes and calculators, is owned by Avere Beauty or used with permission, and is protected by United States and international copyright laws.'], []],
+  ['trademarks', 'Trademarks', ['Avere Beauty, Avere Cosmetics, Beauty Bank, the Avere logo and the names of our proprietary training programs are trademarks of Avere Beauty or its owners. They may not be used without our prior written permission.', 'Product and brand names such as Botox, Juvéderm, Restylane, RHA, Sculptra, PCA Skin, SkinMedica, HydraFacial, Cartessa, DEKA, Quanta System, Sciton, Cherry, Afterpay and CareCredit are trademarks of their respective owners. Their use here identifies the products we offer and does not imply endorsement.'], []],
+  ['photos', 'Patient photos', ['Before-and-after photos are shared with each patient’s written consent and are for educational purposes only. They may not be copied, reposted, edited or used in any other context. Individual results vary.'], []],
+  ['training', 'Training materials', ['Our published and trademarked training program, course content, manuals and recordings are licensed to enrolled participants for their personal professional education only. They may not be reproduced, shared, resold or taught to others without written permission.'], []],
+  ['use', 'Permitted use', [], ['You may view, print or share links to pages for personal, non-commercial use.', 'You may share our social posts using the platform’s built-in share features, with credit to Avere Beauty.', 'You may not copy, republish, scrape, frame or modify our content, or use it to train software, without written permission.']],
+  ['press', 'Press and partnership requests', ['Media, brand partners and other practices who would like to use our photos, logos or content can request permission and approved assets by contacting us.'], []],
+  ['dmca', 'Copyright complaints', ['If you believe content on our site infringes your copyright, send a notice that includes: your contact information; a description of the work you believe is infringed; the page where the material appears; a statement that you have a good-faith belief the use is not authorized; a statement that the information is accurate and that you are the owner or authorized to act for the owner; and your physical or electronic signature. We will review and respond promptly.'], []],
+  ['contact', 'Contact', ['Send permission requests and copyright notices to Avere Beauty, 3453 Butler Street, Pittsburgh, PA 15201, or call 412-952-7592.'], []],
+];
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      date: this.props.effectiveDate ?? 'October 23, 2026', year: String(new Date().getFullYear()),
+      toc: S.map(([id, title], i) => ({ href: `#${id}`, label: `${i + 1}. ${title}` })),
+      secs: S.map(([id, title, paras, list], i) => ({ id, title, n: String(i + 1), paras: paras.map(t => ({ t })), list: list.map(t => ({ t })), hasList: list.length > 0 })),
+    };
+  }
+}
 </script>
 </body>
 </html>

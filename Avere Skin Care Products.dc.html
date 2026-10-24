@@ -8,27 +8,139 @@
 <body>
 <x-dc>
 <helmet>
+<title>Medical-Grade Skin Care in Pittsburgh | PCA Skin, SkinMedica &amp; Avere Cosmetics</title>
+<meta name="description" content="Shop medical-grade skin care at Avere Beauty: PCA Skin, SkinMedica and Avere Cosmetics. Build a routine with an esthetician and keep treatment results going at home.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+<script src="./image-slot.js"></script>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth;scroll-padding-top:120px}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
-  <dc-import name="Avere Nav" active="esth" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Skin Care Products" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Esthetics</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Skin Care Products</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <dc-import name="Avere Nav" active="shop" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) clamp(48px,7vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="Avere Home A.dc.html">Home</a><span>/</span><a href="Avere Esthetics.dc.html">Esthetics</a><span>/</span><span style="color:#2B2226">Skin Care Products</span></div>
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Medical-grade skin care</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance">What you do at home matters most</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;max-width:540px;text-wrap:pretty">Treatments happen a few times a year. Your routine happens every day. We carry the professional lines our providers trust, and our estheticians will build a routine around your skin and your treatments.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="#routine" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Build my routine</a>
+        <a href="https://www.averecosmetics.com" target="_blank" rel="noopener" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Shop Avere Cosmetics ↗</a>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+    <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px;min-height:520px">
+      <div style="position:relative;min-width:0;border-radius:32px;overflow:hidden;background:#FFE3E3;grid-row:span 2"><image-slot id="skin-hero-1" shape="rect" placeholder="Skin care shelf in office"></image-slot></div>
+      <div style="position:relative;min-width:0;border-radius:28px;overflow:hidden;background:#FFF5F5"><image-slot id="skin-hero-2" shape="rect" src="https://www.averecosmetics.com/cdn/shop/files/av-ai-medspa-tray.png?v=1791508905&amp;width=700" placeholder="Avere Cosmetics product"></image-slot></div>
+      <div style="position:relative;min-width:0;border-radius:28px;overflow:hidden;background:#FFF5F5"><image-slot id="skin-hero-3" shape="rect" placeholder="Product texture or flat lay"></image-slot></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Brands" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">The lines we carry</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px">
+        <div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62;font-weight:700">Physician-developed</span><span style="font-family:'Poppins',sans-serif;font-size:30px;letter-spacing:-.02em">PCA Skin</span><span style="font-size:15px;line-height:1.6;color:#4A3B40">The same brand behind our chemical peels. Gentle, effective formulas for pigment, acne, sensitivity and aging, made to work for every skin tone.</span><a href="Avere Chemical Peels.dc.html" style="margin-top:auto;font-size:15px;font-weight:700;color:#B04A62">Pairs with PCA peels →</a></div>
+        <div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62;font-weight:700">Allergan Aesthetics</span><span style="font-family:'Poppins',sans-serif;font-size:30px;letter-spacing:-.02em">SkinMedica</span><span style="font-size:15px;line-height:1.6;color:#4A3B40">Science-backed serums, growth factors and hydrators. SkinMedica purchases can earn Allē points.</span><a href="Avere Rewards.dc.html" style="margin-top:auto;font-size:15px;font-weight:700;color:#B04A62">Earn Allē points →</a></div>
+        <div style="background:#2B2226;color:#FFF5F5;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#EFC3C7;font-weight:700">Our own line</span><span style="font-family:'Poppins',sans-serif;font-size:30px;letter-spacing:-.02em">Avere Cosmetics</span><span style="font-size:15px;line-height:1.6;color:#EFC3C7">Created by Alyssa for life after treatment, starting with a post-injection lip balm designed for fresh filler.</span><a href="https://www.averecosmetics.com" target="_blank" rel="noopener" style="margin-top:auto;font-size:15px;font-weight:700;color:#FFE3E3">Shop online ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="routine" data-screen-label="Routine builder" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Routine builder</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Your starting routine</h2>
+      </div>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Pick your main concern to see the steps and ingredients we'd start with. Your esthetician will match exact products at your visit.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{ concerns }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button></sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px">
+      <sc-for list="{{ routine }}" as="r" hint-placeholder-count="2">
+        <div style="{{ r.card }}">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Poppins',sans-serif;font-size:26px">{{ r.when }}</span><span style="{{ r.badge }}">{{ r.count }}</span></div>
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ r.steps }}" as="s" hint-placeholder-count="4">
+              <div style="{{ s.row }}"><span style="{{ s.num }}">{{ s.n }}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:16px;font-weight:700">{{ s.step }}</span><span style="{{ s.subStyle }}">{{ s.what }}</span></span></div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="background:#FFF5F5;border-radius:24px;padding:20px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center">
+      <span style="font-size:15px;line-height:1.6;color:#4A3B40">{{ tip }}</span>
+      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:44px;padding:0 20px;border-radius:999px;display:flex;align-items:center;font-size:14px;font-weight:700;white-space:nowrap" style-hover="background:#B04A62;color:#fff">Book a skin consult</a>
+    </div>
+  </section>
+
+  <section data-screen-label="After treatment" style="background:#2B2226;color:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Protect your treatment results</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
+        <a href="Avere Chemical Peels.dc.html" style="border:1px solid rgba(239,195,199,.25);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:21px">After a peel</span><span style="font-size:15px;line-height:1.55;color:#EFC3C7">Gentle cleanser, barrier cream and mineral SPF. No acids or retinol until flaking stops.</span></a>
+        <a href="Avere Lasers.dc.html" style="border:1px solid rgba(239,195,199,.25);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:21px">After laser</span><span style="font-size:15px;line-height:1.55;color:#EFC3C7">Calming hydration and strict daily SPF to protect new skin and prevent pigment.</span></a>
+        <a href="Lip Filler.dc.html" style="border:1px solid rgba(239,195,199,.25);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:21px">After lip filler</span><span style="font-size:15px;line-height:1.55;color:#EFC3C7">Avere’s post-injection lip balm, made for freshly treated lips.</span></a>
+        <a href="Avere SkinPen Microneedling.dc.html" style="border:1px solid rgba(239,195,199,.25);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:8px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:21px">After microneedling</span><span style="font-size:15px;line-height:1.55;color:#EFC3C7">Hyaluronic acid and growth factors while channels are open; skip actives for 48 hours.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:960px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:24px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0">Skin care questions</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #EFC3C7">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid #EFC3C7">
+          <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;align-items:center;background:none;border:none;padding:20px 0;cursor:pointer;text-align:left;font-family:'Poppins',sans-serif;font-size:18px;color:#2B2226;min-height:48px">{{ f.q }}<span style="{{ f.icon }}">+</span></button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 0 22px;font-size:15px;line-height:1.7;color:#4A3B40;max-width:760px">{{ f.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Avere Founder" variant="strip" kicker="Avere Cosmetics founder" hint-size="100%,160px"></dc-import>
+  <dc-import name="Avere Book Bar" label="Book a skin consult" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const R = {
+  pigment: { label: 'Dark spots & melasma', tip: 'Pigment responds best to a home routine plus a PCA peel series. Daily SPF is non-negotiable.', am: [['Cleanse', 'Gentle, non-stripping cleanser'], ['Treat', 'Brightening serum with vitamin C, tranexamic or azelaic acid'], ['Hydrate', 'Lightweight moisturizer'], ['Protect', 'Tinted mineral SPF 30+ (iron oxides help with melasma)']], pm: [['Cleanse', 'Same gentle cleanser'], ['Treat', 'Pigment gel or retinoid, alternating nights at first'], ['Hydrate', 'Barrier-repair moisturizer']] },
+  acne: { label: 'Acne & breakouts', tip: 'Pair your routine with a Detox or PCA peel series and our advanced acne program for faster clearing.', am: [['Cleanse', 'Salicylic acid cleanser'], ['Treat', 'Niacinamide or azelaic acid serum'], ['Hydrate', 'Oil-free gel moisturizer'], ['Protect', 'Non-comedogenic SPF 30+']], pm: [['Cleanse', 'Double cleanse if you wear makeup or SPF'], ['Treat', 'Retinoid or benzoyl peroxide spot treatment'], ['Hydrate', 'Light, non-clogging moisturizer']] },
+  aging: { label: 'Fine lines & firmness', tip: 'Retinol and growth factors at home extend the results of neurotoxin, filler and Sculptra.', am: [['Cleanse', 'Hydrating cleanser'], ['Treat', 'Antioxidant serum (vitamin C) and growth factors'], ['Hydrate', 'Hyaluronic acid serum and moisturizer'], ['Protect', 'Broad-spectrum SPF 30+']], pm: [['Cleanse', 'Hydrating cleanser'], ['Treat', 'Retinol, building up slowly'], ['Hydrate', 'Peptide-rich night cream']] },
+  sensitive: { label: 'Sensitive & redness', tip: 'Keep it short and soothing. We may suggest a gentle Sensi Peel or IPL once your barrier is calm.', am: [['Cleanse', 'Creamy, fragrance-free cleanser'], ['Treat', 'Calming serum with niacinamide or azelaic acid'], ['Hydrate', 'Barrier-repair moisturizer'], ['Protect', 'Mineral SPF (zinc oxide)']], pm: [['Cleanse', 'Same gentle cleanser'], ['Hydrate', 'Ceramide-rich moisturizer']] },
+  dry: { label: 'Dry & dull', tip: 'A HydraFacial every month or two keeps dull skin glowing between your routine.', am: [['Cleanse', 'Milky or cream cleanser'], ['Treat', 'Hyaluronic acid serum on damp skin'], ['Hydrate', 'Rich moisturizer'], ['Protect', 'Moisturizing SPF 30+']], pm: [['Cleanse', 'Oil or balm cleanser'], ['Treat', 'Gentle lactic acid 2–3 nights a week'], ['Hydrate', 'Night cream or facial oil']] },
+  post: { label: 'Post-treatment', tip: 'Ask your provider when to restart actives. Most routines go back to normal in 3–7 days.', am: [['Cleanse', 'Lukewarm water or a gentle cleanser'], ['Hydrate', 'Soothing hyaluronic acid'], ['Protect', 'Mineral SPF, reapplied often']], pm: [['Cleanse', 'Gentle cleanser'], ['Hydrate', 'Barrier balm or healing ointment'], ['Lips', 'Avere post-injection lip balm after filler']] },
+};
+const FAQS = [
+  ['Why buy skin care from a med spa?', 'Professional lines contain active ingredients at levels tested for results, and our team can match products to your skin and your treatments.'],
+  ['Can I buy products without an appointment?', 'Yes. Stop by any office during business hours, or call ahead and we’ll have your products ready.'],
+  ['How long until I see results?', 'Most routines take six to twelve weeks to show their full effect, the length of a few skin cycles.'],
+  ['Do product purchases earn rewards?', 'Yes. Skin care earns Beauty Bank points, and SkinMedica purchases can also earn Allē points.'],
+  ['Is retinol safe for everyone?', 'Not during pregnancy or while nursing, and it needs to be introduced slowly. Your esthetician will tell you when and how to start.'],
+];
+class Component extends DCLogic {
+  state = { c: 'pigment', faq: 0 };
+  renderVals() {
+    const cur = R[this.state.c];
+    const pill = on => ({ padding: '10px 18px', minHeight: 44, borderRadius: 999, cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 700, border: '1px solid ' + (on ? '#2B2226' : '#EFC3C7'), background: on ? '#2B2226' : '#fff', color: on ? '#fff' : '#2B2226', transition: 'all .2s' });
+    const col = (when, steps, dark) => ({ when, count: `${steps.length} steps`,
+      card: { borderRadius: 28, padding: 'clamp(22px,3vw,32px)', display: 'flex', flexDirection: 'column', gap: 16, background: dark ? '#2B2226' : '#FFF5F5', color: dark ? '#FFF5F5' : '#2B2226' },
+      badge: { fontSize: 12, fontWeight: 700, padding: '6px 12px', borderRadius: 999, background: dark ? 'rgba(239,195,199,.18)' : '#fff', color: dark ? '#EFC3C7' : '#8E3A4F' },
+      steps: steps.map(([step, what], i) => ({ n: String(i + 1), step, what,
+        row: { display: 'grid', gridTemplateColumns: '36px minmax(0,1fr)', gap: 14, padding: '14px 0', borderTop: '1px solid ' + (dark ? 'rgba(239,195,199,.2)' : '#F4DADC'), alignItems: 'start' },
+        num: { width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Poppins',sans-serif", fontSize: 14, background: dark ? '#FFF5F5' : '#2B2226', color: dark ? '#2B2226' : '#fff' },
+        subStyle: { fontSize: 14, lineHeight: 1.5, color: dark ? '#EFC3C7' : '#4A3B40' } })) });
+    return {
+      concerns: Object.entries(R).map(([k, v]) => ({ label: v.label, pick: () => this.setState({ c: k }), style: pill(this.state.c === k) })),
+      routine: [col('Morning', cur.am, false), col('Evening', cur.pm, true)],
+      tip: cur.tip,
+      faqs: FAQS.map(([q, a], i) => ({ q, a, open: this.state.faq === i, toggle: () => this.setState(s => ({ faq: s.faq === i ? -1 : i })), icon: { fontSize: 22, color: '#B04A62', transform: this.state.faq === i ? 'rotate(45deg)' : 'none', transition: 'transform .25s', flexShrink: 0 } })),
+    };
+  }
+}
 </script>
 </body>
 </html>

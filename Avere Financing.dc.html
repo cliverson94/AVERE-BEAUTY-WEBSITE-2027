@@ -8,27 +8,190 @@
 <body>
 <x-dc>
 <helmet>
+<title>Financing: Cherry, Afterpay &amp; CareCredit | Avere Beauty Pittsburgh</title>
+<meta name="description" content="Pay over time for Botox, filler, lasers and more at Avere Beauty. We accept Cherry, Afterpay and CareCredit. Plus brand rewards and the Avere Beauty Bank.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth;scroll-padding-top:120px}input[type=range]{accent-color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Financing" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Resources</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Financing</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,4vw,32px) clamp(40px,6vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="Avere Home A.dc.html">Home</a><span>/</span><a href="Avere Resources.dc.html">Resources</a><span>/</span><span style="color:#2B2226">Financing</span></div>
+      <sc-if value="{{ hasMatch }}" hint-placeholder-val="{{ false }}"><span style="align-self:flex-start;background:#FFE3E3;color:#8E3A4F;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700">✓ {{ matchText }}</span></sc-if>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance">Treat now, pay later. Start with $0 down.</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;max-width:520px;text-wrap:pretty">Split any treatment into small payments with Cherry, Afterpay or CareCredit. See your options in about a minute, before you book.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="{{ cherryUrl }}" target="_blank" rel="noopener" data-cta="fin-apply:cherry-hero" style="background:#2B2226;color:#fff;min-height:52px;padding:0 28px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Pre-qualify with Cherry</a>
+        <a href="#calc" data-cta="fin-page:hero-calc" style="border:1px solid #2B2226;min-height:52px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Estimate my payments</a>
+      </div>
+      <div style="display:flex;gap:8px 20px;flex-wrap:wrap;font-size:14px;color:#4A3B40">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:7px;height:7px;border-radius:50%;background:#B04A62"></span>Won’t affect your credit score</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:7px;height:7px;border-radius:50%;background:#B04A62"></span>$0 down options</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:7px;height:7px;border-radius:50%;background:#B04A62"></span>Decision in ~60 seconds</span>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+      <a href="#cherry" style="aspect-ratio:3/4;border-radius:28px;background:#2B2226;color:#FFF5F5;padding:22px;display:flex;flex-direction:column;justify-content:space-between" style-hover="color:#FFF5F5;background:#4A3238"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#EFC3C7">Monthly</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.02em">Cherry</span></a>
+      <a href="#afterpay" style="aspect-ratio:3/4;border-radius:28px;background:#FFE3E3;padding:22px;display:flex;flex-direction:column;justify-content:space-between;margin-top:28px" style-hover="color:#2B2226;background:#F4DADC"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E3A4F">Pay in 4</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.02em">Afterpay</span></a>
+      <a href="#carecredit" style="aspect-ratio:3/4;border-radius:28px;border:1px solid #EFC3C7;padding:22px;display:flex;flex-direction:column;justify-content:space-between;margin-top:56px" style-hover="color:#2B2226;border-color:#B04A62"><span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E3A4F">Health card</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(20px,2.4vw,30px);letter-spacing:-.02em">CareCredit</span></a>
+    </div>
+  </section>
+
+  <section id="calc" data-screen-label="Payment calculator" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Calculator</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">What would it cost per payment?</h2>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ presets }}" as="p" hint-placeholder-count="5">
+            <button onClick="{{ p.pick }}" style="{{ p.style }}">{{ p.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:28px;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap"><span style="font-size:15px;font-weight:700">Treatment total</span><span style="font-family:'Poppins',sans-serif;font-size:clamp(40px,5vw,64px);letter-spacing:-.03em;line-height:1">{{ amountLabel }}</span></div>
+        <input type="range" min="100" max="6000" step="50" value="{{ amount }}" onChange="{{ onAmount }}" aria-label="Treatment total" style="width:100%;height:28px">
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:#6E5F64"><span>$100</span><span>$6,000</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:12px;border-top:1px solid #F4DADC;font-size:15px"><span>As low as <strong style="font-family:'Poppins',sans-serif;font-size:20px;color:#B04A62">{{ lowMo }}</strong>/month</span><span style="color:#6E5F64">That’s about <strong style="color:#2B2226">{{ perDay }}</strong> a day over {{ cherryM }} months.</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px">
+        <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+          <div id="{{ p.id }}" style="{{ p.card }}">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-family:'Poppins',sans-serif;font-size:26px;letter-spacing:-.02em">{{ p.name }}</span><span style="{{ p.tagStyle }}">{{ p.tag }}</span></div>
+            <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;opacity:.75">{{ p.headLabel }}</span><span style="font-family:'Poppins',sans-serif;font-size:44px;line-height:1;letter-spacing:-.03em">{{ p.head }}</span><span style="font-size:14px;opacity:.75">{{ p.sub }}</span></div>
+            <div style="display:flex;gap:4px;align-items:flex-end;height:56px">
+              <sc-for list="{{ p.bars }}" as="b" hint-placeholder-count="4"><span style="{{ b.s }}"></span></sc-for>
+            </div>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.5">
+              <sc-for list="{{ p.points }}" as="x" hint-placeholder-count="3"><li style="display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px"><span style="{{ p.dot }}"></span>{{ x.t }}</li></sc-for>
+            </ul>
+            <a href="{{ p.href }}" target="_blank" rel="noopener" data-cta="{{ p.ctaId }}" style="{{ p.cta }}">{{ p.ctaLabel }}</a>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#6E5F64;max-width:900px">Estimates for illustration only. Approval, rates and terms are set by each lender and depend on your credit and the plan offered. Cherry and CareCredit promotional plans may carry interest; CareCredit promotional financing is deferred interest, so interest is charged from the purchase date if the balance isn't paid in full by the end of the promo period.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="How to use" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">How to pay with a plan</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px">
+      <div style="border:1px solid #F4DADC;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Poppins',sans-serif;font-size:40px;color:#EFC3C7;line-height:1">01</span><span style="font-family:'Poppins',sans-serif;font-size:21px">Pre-qualify</span><span style="font-size:15px;line-height:1.6;color:#4A3B40">Apply online before your visit, or at the front desk. Cherry and CareCredit show your options in minutes.</span></div>
+      <div style="border:1px solid #F4DADC;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Poppins',sans-serif;font-size:40px;color:#EFC3C7;line-height:1">02</span><span style="font-family:'Poppins',sans-serif;font-size:21px">Get your treatment</span><span style="font-size:15px;line-height:1.6;color:#4A3B40">Book as usual. Your provider confirms your plan and final price at the visit.</span></div>
+      <div style="border:1px solid #F4DADC;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Poppins',sans-serif;font-size:40px;color:#EFC3C7;line-height:1">03</span><span style="font-family:'Poppins',sans-serif;font-size:21px">Pay at checkout</span><span style="font-size:15px;line-height:1.6;color:#4A3B40">Tell the desk which plan you're using. Payments go directly to the lender after that.</span></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Cost per day" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Think per day</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Less than your morning coffee</h2>
+      </div>
+      <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Results last for months. Spread over a plan, most treatments cost a few dollars a day.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+      <sc-for list="{{ perDayCards }}" as="c" hint-placeholder-count="4">
+        <a href="#calc" onClick="{{ c.pick }}" data-cta="fin-page:perday" style="border:1px solid #F4DADC;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:10px" style-hover="border-color:#B04A62;color:#2B2226">
+          <span style="font-size:14px;font-weight:700;color:#6E5F64">{{ c.t }}</span>
+          <span style="font-family:'Poppins',sans-serif;font-size:44px;line-height:1;letter-spacing:-.03em;color:#B04A62">{{ c.day }}<span style="font-size:16px;color:#6E5F64;letter-spacing:0"> /day</span></span>
+          <span style="font-size:14px;line-height:1.55;color:#4A3B40">{{ c.d }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <p style="margin:0;font-size:12px;color:#6E5F64">Example prices for illustration. Your provider confirms your price at your visit.</p>
+  </section>
+
+  <section id="rewards" data-screen-label="Rewards" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="background:#2B2226;color:#FFF5F5;border-radius:clamp(24px,4vw,40px);padding:clamp(28px,5vw,64px);display:flex;flex-direction:column;gap:32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px;align-items:end">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">Save while you pay</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Stack financing with rewards</h2>
+        </div>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#EFC3C7">Paying with a plan still earns points. Join the programs below before your visit.</p>
+      </div>
+      <a href="Avere Beauty Bank.dc.html" style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;background:rgba(255,245,245,.06);border:1px solid rgba(239,195,199,.3);border-radius:28px;padding:clamp(18px,3vw,28px)" style-hover="background:rgba(255,245,245,.1);color:#FFF5F5">
+        <span style="width:72px;height:72px;border-radius:50%;background:conic-gradient(from 210deg,#F4DADC,#C98A93,#FFE3E3,#B04A62,#F4DADC);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 5px rgba(255,255,255,.2)"><span style="font-family:'Poppins',sans-serif;font-size:34px;font-weight:500;color:#2B2226">A</span></span>
+        <span style="display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-family:'Poppins',sans-serif;font-size:24px;color:#FFF5F5">Avere Beauty Bank</span><span style="font-size:15px;color:#EFC3C7">Our own rewards. Earn on every treatment and spend it like cash.</span></span>
+        <span style="font-size:22px;color:#EFC3C7">→</span>
+      </a>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px">
+        <a href="https://alle.com" target="_blank" rel="noopener" style="border:1px solid rgba(239,195,199,.25);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:22px">Allē ↗</span><span style="font-size:14px;color:#EFC3C7">Botox, Juvéderm, Kybella</span></a>
+        <a href="https://www.aspirerewards.com" target="_blank" rel="noopener" style="border:1px solid rgba(239,195,199,.25);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:22px">ASPIRE ↗</span><span style="font-size:14px;color:#EFC3C7">Dysport, Restylane, Sculptra</span></a>
+        <a href="https://www.xperiencemerz.com" target="_blank" rel="noopener" style="border:1px solid rgba(239,195,199,.25);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:22px">Merz Xperience+ ↗</span><span style="font-size:14px;color:#EFC3C7">Xeomin, Radiesse, Belotero</span></a>
+        <a href="https://www.evolusrewards.com" target="_blank" rel="noopener" style="border:1px solid rgba(239,195,199,.25);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:6px" style-hover="border-color:#EFC3C7;color:#FFF5F5"><span style="font-family:'Poppins',sans-serif;font-size:22px">Evolus Rewards ↗</span><span style="font-size:14px;color:#EFC3C7">Jeuveau</span></a>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="Avere Rewards.dc.html" style="background:#FFF5F5;color:#2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#EFC3C7;color:#2B2226">How brand rewards work</a>
+        <a href="Avere Promos.dc.html" style="border:1px solid rgba(255,245,245,.5);color:#FFF5F5;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="border-color:#fff;color:#fff">Current promos</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(64px,9vw,112px);display:flex;flex-direction:column;gap:24px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0">Financing questions</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #EFC3C7">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid #EFC3C7">
+          <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;align-items:center;background:none;border:none;padding:20px 0;cursor:pointer;text-align:left;font-family:'Poppins',sans-serif;font-size:18px;color:#2B2226;min-height:48px">{{ f.q }}<span style="{{ f.icon }}">+</span></button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 0 22px;font-size:15px;line-height:1.7;color:#4A3B40;max-width:760px">{{ f.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Avere Founder" variant="strip" kicker="Meet the founder" hint-size="100%,160px"></dc-import>
+  <dc-import name="Avere Book Bar" label="Book a visit" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+<script type="text/x-dc" data-dc-script data-props="{&quot;cherryUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://withcherry.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;},&quot;cherryMonths&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[3,6,12,18,24],&quot;default&quot;:12,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Calculator&quot;},&quot;careCreditMonths&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[6,12,18,24],&quot;default&quot;:6,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Calculator&quot;}}">
+const fm = (n, d = 0) => '$' + n.toLocaleString(undefined, { minimumFractionDigits: d, maximumFractionDigits: d });
+const PRESETS = [['Neurotoxin', 400], ['Lip filler', 750], ['HydraFacial series', 900], ['Laser hair package', 1800], ['Full-face plan', 3500]];
+const FAQS = [
+  ['Does applying affect my credit score?', 'Cherry and CareCredit both offer a pre-qualification that uses a soft check, which does not affect your score. Afterpay checks eligibility at purchase. A full application may involve a hard inquiry; each lender explains this before you accept.'],
+  ['Can I use financing for any treatment?', 'Yes. Plans can be used for treatments, packages and memberships. Some minimum amounts apply depending on the lender.'],
+  ['Can I combine financing with promos and rewards?', 'Yes. Promos and brand rewards are applied to your price first, and the remaining balance can go on a plan. You still earn Beauty Bank points.'],
+  ['Which plan should I choose?', 'Afterpay suits smaller purchases you want to split across a few weeks. Cherry suits larger treatments spread across months. CareCredit is a reusable health credit card, useful if you already have one or plan ongoing care.'],
+  ['What happens if I miss a payment?', 'Each lender has its own late-fee and interest rules, which are shown before you accept the plan. Contact the lender directly with questions about your account.'],
+];
+const MATCH = { a: 'Treat now, pay later', b: '$0 down options available', c: 'Check your rate with no credit impact', d: 'Pay over 3 to 24 months', e: 'Pre-qualify in about 60 seconds' };
+const PERDAY = [['Neurotoxin', 400, 105, 'Lasts about 3 to 4 months.'], ['Lip filler', 750, 270, 'Lasts about 6 to 12 months.'], ['Sculptra', 2400, 730, 'Collagen builds for up to 2 years.'], ['Laser hair package', 1800, 1095, 'Long-term hair reduction.']];
+class Component extends DCLogic {
+  state = { amount: 900, faq: 0, fin: '' };
+  componentDidMount() { try { const f = new URLSearchParams(location.search).get('fin') || ''; if (MATCH[f]) this.setState({ fin: f }); } catch (e) {} }
+  renderVals() {
+    const a = this.state.amount, cherryM = this.props.cherryMonths ?? 12, ccM = this.props.careCreditMonths ?? 6;
+    const pill = on => ({ padding: '9px 16px', minHeight: 40, borderRadius: 999, cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 700, border: '1px solid ' + (on ? '#2B2226' : '#EFC3C7'), background: on ? '#2B2226' : '#fff', color: on ? '#fff' : '#2B2226' });
+    const bars = (n, dark) => Array.from({ length: Math.min(n, 24) }, (_, i) => ({ s: { flex: 1, height: `${40 + (i % 2) * 6}px`, borderRadius: 6, background: dark ? 'rgba(239,195,199,.55)' : '#EFC3C7' } }));
+    const card = dark => ({ scrollMarginTop: 130, borderRadius: 28, padding: 'clamp(22px,3vw,32px)', display: 'flex', flexDirection: 'column', gap: 20, background: dark ? '#2B2226' : '#fff', color: dark ? '#FFF5F5' : '#2B2226', border: dark ? 'none' : '1px solid #F4DADC' });
+    const cta = dark => ({ marginTop: 'auto', minHeight: 48, borderRadius: 999, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 15, fontWeight: 700, background: dark ? '#FFF5F5' : '#2B2226', color: dark ? '#2B2226' : '#fff' });
+    const tag = dark => ({ fontSize: 12, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', padding: '6px 12px', borderRadius: 999, background: dark ? 'rgba(239,195,199,.18)' : '#FFE3E3', color: dark ? '#EFC3C7' : '#8E3A4F' });
+    const dot = dark => ({ width: 7, height: 7, borderRadius: '50%', marginTop: 8, background: dark ? '#EFC3C7' : '#B04A62' });
+    const afterOk = a <= 2000;
+    const plans = [
+      { id: 'cherry', name: 'Cherry', tag: 'Most used', dark: true, headLabel: `Example over ${cherryM} months`, head: fm(a / cherryM), sub: 'per month at 0% APR, if offered', n: cherryM, href: this.props.cherryUrl || 'https://withcherry.com', ctaLabel: 'Apply with Cherry ↗', points: ['Plans from 3 to 24 months', 'Soft credit check to see your options', 'Approval in about a minute'] },
+      { id: 'afterpay', name: 'Afterpay', tag: 'Interest-free', dark: false, headLabel: afterOk ? 'Four payments, every 2 weeks' : 'Above typical Afterpay limits', head: afterOk ? fm(a / 4, 2) : '—', sub: afterOk ? 'first payment due at checkout' : 'Try Cherry or CareCredit for this total', n: 4, href: 'https://www.afterpay.com', ctaLabel: 'About Afterpay ↗', points: ['Pay in 4, no interest when paid on time', 'Quick checkout, no long application', 'Best for smaller purchases'] },
+      { id: 'carecredit', name: 'CareCredit', tag: 'Health card', dark: false, headLabel: `Example ${ccM}-month promo`, head: fm(a / ccM), sub: 'per month to pay in full before the promo ends', n: ccM, href: 'https://www.carecredit.com', ctaLabel: 'Apply for CareCredit ↗', points: ['Reusable card for health and beauty', 'Promo periods on qualifying purchases', 'Deferred interest if not paid in full'] },
+    ].map(p => ({ ...p, ctaId: 'fin-apply:' + p.id, card: card(p.dark), cta: cta(p.dark), tagStyle: tag(p.dark), dot: dot(p.dark), bars: bars(p.n, p.dark), points: p.points.map(t => ({ t })) }));
+    return {
+      hasMatch: !!MATCH[this.state.fin], matchText: MATCH[this.state.fin] || '', cherryUrl: this.props.cherryUrl || 'https://withcherry.com', cherryM,
+      lowMo: fm(Math.ceil(a / 24)), perDay: fm(a / (cherryM * 30.4), 2),
+      perDayCards: PERDAY.map(([t, price, days, d]) => ({ t, d, day: fm(price / days, 2), pick: () => this.setState({ amount: price }) })),
+      amount: a, amountLabel: fm(a),
+      onAmount: e => this.setState({ amount: +e.target.value }),
+      presets: PRESETS.map(([label, v]) => ({ label, pick: () => this.setState({ amount: v }), style: pill(a === v) })),
+      plans,
+      faqs: FAQS.map(([q, a2], i) => ({ q, a: a2, open: this.state.faq === i, toggle: () => this.setState(s => ({ faq: s.faq === i ? -1 : i })), icon: { fontSize: 22, color: '#B04A62', transform: this.state.faq === i ? 'rotate(45deg)' : 'none', transition: 'transform .25s', flexShrink: 0 } })),
+    };
+  }
+}
 </script>
 </body>
 </html>

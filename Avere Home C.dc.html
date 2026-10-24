@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Avere Beauty | Pittsburgh's #1 Med Spa · 4 Locations</title>
+<meta name="description" content="Botox, filler, lasers and facials at four Avere Beauty offices around Pittsburgh: Lawrenceville, Murrysville, Cranberry and Blawnox.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff;overflow-x:clip">
+  <dc-import name="Avere Nav" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero slider" style="position:relative;height:calc(100vh - 110px);min-height:560px;overflow:hidden;background:#2B2226;color:#fff">
+    <sc-for list="{{ slides }}" as="s" hint-placeholder-count="0">
+      <div style="{{ s.wrap }}">
+        <sc-if value="{{ s.isVideo }}" hint-placeholder-val="{{ false }}"><video src="{{ s.src }}" autoplay="" muted="" loop="" playsinline="" style="{{ s.media }}"></video></sc-if>
+        <sc-if value="{{ s.isImage }}" hint-placeholder-val="{{ false }}"><img src="{{ s.src }}" alt="{{ s.alt }}" style="{{ s.media }}"></sc-if>
+      </div>
+    </sc-for>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(43,34,38,.25),rgba(43,34,38,.82) 75%),linear-gradient(180deg,rgba(43,34,38,.2),rgba(43,34,38,.7))"></div>
+    <div data-hero-copy="" style="position:relative;height:100%;max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:22px;will-change:transform,opacity">
+      <img src="assets/avere-logo-black.png" alt="Avere Beauty" style="{{ logoStyle }}">
+      <h1 style="{{ h1Style }}">Pittsburgh's #1 Med Spa</h1>
+      <div style="{{ locStyle }}">
+        <span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#EFC3C7">4 locations</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><sc-for list="{{ offices }}" as="o" hint-placeholder-count="4"><span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 14px;font-size:14px;backdrop-filter:blur(6px);background:rgba(255,255,255,.06)">{{ o.name }}</span></sc-for></div>
+      </div>
+      <div style="{{ ctaStyle }}">
+        <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#fff;color:#2B2226;min-height:56px;padding:0 30px;border-radius:999px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;white-space:nowrap" style-hover="background:#EFC3C7;color:#2B2226">Book now</a>
+        <a href="/promos" style="border:1px solid rgba(255,255,255,.55);color:#fff;min-height:56px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;white-space:nowrap" style-hover="border-color:#fff;color:#fff">This month's offers</a>
+      </div>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:28px;display:flex;justify-content:center;gap:10px">
+      <sc-for list="{{ slides }}" as="s" hint-placeholder-count="3"><button onClick="{{ s.go }}" aria-label="{{ s.label }}" style="{{ s.dot }}"></button></sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Statement" style="padding:clamp(80px,12vw,180px) 0;overflow:hidden">
+    <div data-hscroll="-0.6" style="white-space:nowrap;font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(56px,11vw,180px);line-height:1;letter-spacing:-.04em;will-change:transform">Look rested. <span style="color:#B04A62">Still look like you.</span> Look rested.</div>
+    <div data-hscroll="0.4" style="white-space:nowrap;font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(56px,11vw,180px);line-height:1;letter-spacing:-.04em;color:#F4DADC;margin-top:12px;will-change:transform">Botox · Filler · Lasers · Facials · Botox · Filler</div>
+  </section>
+
+  <section data-screen-label="Layered parallax" style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(80px,12vw,160px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,6vw,96px);align-items:center">
+    <div style="position:relative;height:clamp(460px,60vw,720px)">
+      <div data-parallax="0.08" style="position:absolute;left:0;top:0;width:68%;height:78%;border-radius:32px;overflow:hidden;will-change:transform"><img src="https://static.wixstatic.com/media/903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg/v1/fill/w_900,h_1100,al_c,q_85/a.jpg" alt="Injectables at Avere Beauty" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div data-parallax="0.28" style="position:absolute;right:0;bottom:0;width:52%;height:56%;border-radius:32px;overflow:hidden;border:8px solid #fff;will-change:transform"><img src="https://static.wixstatic.com/media/903d63_9d021e833968439ea117454c700a369a~mv2.jpg/v1/fill/w_700,h_800,al_c,q_85/b.jpg" alt="Facial at Avere Beauty" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div style="position:absolute;left:52%;top:6%;width:120px;height:120px;border-radius:50%;background:#B04A62;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Poppins',sans-serif;line-height:1.1;will-change:transform"><span style="font-size:28px">#1</span><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase">Med spa</span></div>
+    </div>
+    <div data-reveal="0" style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Our promise</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(32px,4.4vw,60px);line-height:1.04;letter-spacing:-.03em;margin:0">We are the experts. You make the decisions.</h2>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#4A3B40">No over-filling and no pushing products. Our nurse injectors build a plan around what you want, and you leave feeling relaxed and refreshed.</p>
+      <a href="/what-to-expect" style="align-self:flex-start;border-bottom:1px solid #2B2226;padding-bottom:2px;font-size:16px;font-weight:700">What to expect →</a>
+    </div>
+  </section>
+
+  <section data-founder="" data-screen-label="Founder" style="position:relative;height:320vh;background:#2B2226;color:#fff">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden">
+      <sc-for list="{{ staff }}" as="p" hint-placeholder-count="0">
+        <div data-staff="" data-depth="{{ p.depth }}" style="{{ p.box }}"><img src="{{ p.img }}" alt="{{ p.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.15)"></div>
+      </sc-for>
+      <div style="position:relative;z-index:2;height:100%;max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(24px,5vw,72px)">
+        <div data-founder-photo="" style="flex:0 1 380px;min-width:220px;aspect-ratio:4/5;border-radius:32px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.45);will-change:transform"><img src="assets/alyssa-luciano.jpg" alt="Alyssa Luciano, RN, founder of Avere Beauty" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div data-founder-copy="" style="flex:1 1 360px;max-width:520px;display:flex;flex-direction:column;gap:16px;will-change:transform,opacity">
+          <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#EFC3C7">Meet the founder</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,4.6vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0">Alyssa Luciano, RN</h2>
+          <p style="margin:0;font-size:17px;line-height:1.7;color:#F4DADC">Alyssa founded Avere Beauty in Pittsburgh and has treated more than 10,000 patients as a nurse injector. Her approach is the one the whole practice follows: natural results, honest advice, and no pushing anyone further than they want to go.</p>
+          <p style="margin:0;font-size:17px;line-height:1.7;color:#F4DADC">After thousands of lip appointments, she spent nearly two years with a U.S. cosmetic chemist creating Avere Cosmetics, a post-injection lip balm for the days after treatment.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:6px">
+            <a href="/team" style="background:#fff;color:#2B2226;min-height:52px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#EFC3C7;color:#2B2226">Meet the whole team</a>
+            <a href="https://www.averecosmetics.com" style="border:1px solid rgba(255,255,255,.5);color:#fff;min-height:52px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700" style-hover="border-color:#fff;color:#fff">Avere Cosmetics ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-devices="" data-screen-label="Laser devices" style="position:relative;height:420vh;background:#fff">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column">
+      <div style="max-width:1320px;width:100%;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,4vw,32px) 0;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#B04A62">The technology</span><h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(32px,4.4vw,60px);line-height:1.04;letter-spacing:-.03em;margin:0">Medical-grade lasers,<br>four offices.</h2></div>
+        <a href="/laser-treatments" style="font-size:16px;font-weight:700;border-bottom:1px solid #2B2226;padding-bottom:2px">All laser treatments →</a>
+      </div>
+      <div style="position:relative;flex:1">
+        <sc-for list="{{ devices }}" as="d" hint-placeholder-count="0">
+          <div data-device="" data-k="{{ d.k }}" style="position:absolute;left:50%;top:50%;width:min(56vw,440px);margin-left:calc(min(56vw,440px) / -2);margin-top:-200px;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;will-change:transform,opacity">
+            <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#FFF5F5;box-shadow:0 30px 80px rgba(176,74,98,.18)"><img src="{{ d.img }}" alt="{{ d.name }} laser at Avere Beauty" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="text-align:center;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Poppins',sans-serif;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em">{{ d.name }}</span><span style="font-size:14px;color:#6E5F64">{{ d.where }} · {{ d.use }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-pin="" data-screen-label="Four offices" style="position:relative;height:300vh;background:#FFF5F5">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:32px">
+      <div style="max-width:1320px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,32px);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(32px,4.4vw,60px);line-height:1.04;letter-spacing:-.03em;margin:0">Four offices.<br>One standard.</h2>
+        <a href="/locations" style="font-size:16px;font-weight:700;border-bottom:1px solid #2B2226;padding-bottom:2px">All locations →</a>
+      </div>
+      <div data-pin-track="" style="display:flex;gap:24px;padding:0 clamp(20px,4vw,32px);will-change:transform">
+        <sc-for list="{{ offices }}" as="o" hint-placeholder-count="4">
+          <a href="/locations" style="flex:0 0 min(78vw,520px);background:#fff;border-radius:32px;overflow:hidden;display:flex;flex-direction:column" style-hover="color:#2B2226">
+            <div style="aspect-ratio:16/11;background:#FFE3E3;overflow:hidden"><img src="{{ o.img }}" alt="{{ o.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="padding:22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Poppins',sans-serif;font-size:28px;letter-spacing:-.02em">{{ o.name }}</span><span style="font-size:15px;color:#6E5F64">{{ o.addr }}</span></div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Trust Badges" variant="dark" title="Recognized for care and results" hint-size="100%,320px"></dc-import>
+
+  <section data-screen-label="Closing CTA" style="position:relative;overflow:hidden;color:#fff;background:#2B2226">
+    <div data-parallax="0.3" style="position:absolute;inset:-20% 0;opacity:.4;will-change:transform"><img src="https://static.wixstatic.com/media/903d63_caf0a92094d9497e8c6db7f5b9cf8c45~mv2.jpg/v1/fill/w_1800,h_1200,al_c,q_85/c.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(96px,14vw,200px) clamp(20px,4vw,32px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(36px,5.6vw,80px);line-height:1.02;letter-spacing:-.03em;margin:0">Your first visit is 10% off.</h2>
+      <a href="/promos" style="background:#fff;color:#2B2226;min-height:56px;padding:0 30px;border-radius:999px;display:inline-flex;align-items:center;font-size:16px;font-weight:700" style-hover="background:#EFC3C7;color:#2B2226">Claim my offer</a>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book now" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;videoUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://cdn.shopify.com/s/files/1/0592/7085/6794/files/av-reel-handbag.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const WX = (id, w = 1920, h = 1200) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/i.jpg`;
+const P = (id, w = 500, h = 620) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/p.jpg`;
+const STAFF = [['Natalie Lombardo, NP','4f1ed5_81d2792914a648ac8a3b8ff92e940fc0~mv2.jpg'],['Anna David, PA-C','4f1ed5_d2dd6018e08042d1b270dd016c1c5beb~mv2.jpg'],['Cait Lazzaro, RN','4f1ed5_a7de7e5affde45a8946abb22bd038fc7~mv2.jpg'],['Dylan Wolfe, RN','4f1ed5_dd9539ffa960481a80a04df389fe3f93~mv2.jpg'],['Gina Romano, RN','4f1ed5_caaa136546f543b8ac3149dd908b0ba6~mv2.jpg'],['Ravyn Patrick, RN','4f1ed5_fe9cd11e8c04448db0e10e87ae6a3068~mv2.jpg'],['Paige Salters, Medical Esthetician','4f1ed5_b9cd6dd0ae164e2c9cd3625d1d2b2719~mv2.jpg'],['Madelyn Ensslin, NP','4f1ed5_78d0dd17d6d9488c8e32f7d94f6f9773~mv2.jpg']];
+const SPOTS = [[4,8,15,.9],[78,6,13,.6],[14,62,12,1.3],[86,58,14,1.1],[38,4,10,.5],[62,74,11,1.4],[1,36,10,.7],[92,32,10,.8]];
+const DEVICES = [
+  { name: 'DEKA Toro', where: 'Lawrenceville', use: 'Tattoo removal', img: 'https://static.wixstatic.com/media/903d63_6719fc12e7124029a20b71a0034e89fc~mv2.webp/v1/fill/w_800,h_800,al_c,q_85/d.webp' },
+  { name: 'SmartXide Tetra', where: 'Lawrenceville & Murrysville', use: 'CoolPeel resurfacing', img: 'https://static.wixstatic.com/media/903d63_acb3a5de6ca04fe5b944945d679e7468~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85/d.jpg' },
+  { name: 'MOTUS AZ+', where: 'Lawrenceville', use: 'Laser hair removal', img: 'https://static.wixstatic.com/media/903d63_0e21aa05ff9547bfabc72252e25ddcbd~mv2.jpg/v1/fill/w_800,h_800,al_c,q_85/d.jpg' },
+  { name: 'EVO Quantum Series', where: 'Murrysville', use: 'Hair removal & IPL', img: 'https://static.wixstatic.com/media/903d63_c5d1018459414f6f8bd1e32b8e7acda1~mv2.png/v1/fill/w_800,h_800,al_c,q_85/d.png' },
+  { name: 'Sciton mJOULE BBL', where: 'Cranberry', use: 'BroadBand Light', img: 'https://static.wixstatic.com/media/903d63_e00398ff077e40a3b0082687558b986a~mv2_d_3198_2270_s_2.jpg/v1/fill/w_800,h_800,al_c,q_85/d.jpg' }
+];
+const OFFICES = [
+  { name: 'Lawrenceville', addr: '3453 Butler Street, Pittsburgh', img: 'assets/avere-interior.jpg' },
+  { name: 'Cranberry', addr: '179 Scharberry Lane, Mars', img: 'assets/office-cranberry.jpg' },
+  { name: 'Murrysville', addr: '5100 Old William Penn Hwy, Export', img: 'assets/office-murrysville.avif' },
+  { name: 'Blawnox', addr: '307 Freeport Road, Blawnox · Fox Chapel', img: 'assets/office-foxchapel-room.jpg' }
+];
+class Component extends DCLogic {
+  state = { i: 0, stage: 0 };
+  componentDidMount() {
+    this.reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    [250, 900, 1500, 2100].forEach((ms, k) => setTimeout(() => this.setState({ stage: k + 1 }), this.reduce ? 0 : ms));
+    this.timer = setInterval(() => !this.reduce && this.setState(s => ({ i: (s.i + 1) % 3 })), 6500);
+    const els = [...document.querySelectorAll('[data-reveal]')];
+    if (!this.reduce) {
+      els.forEach(e => { e.style.opacity = 0; e.style.transform = 'translateY(32px)'; e.style.transition = 'opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1)'; });
+      this.io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.style.opacity = 1; x.target.style.transform = 'none'; this.io.unobserve(x.target); } }), { threshold: .15 });
+      els.forEach(e => this.io.observe(e));
+    }
+    this.onScroll = () => {
+      if (this.reduce || this.raf) return;
+      this.raf = requestAnimationFrame(() => {
+        this.raf = 0; const vh = innerHeight;
+        document.querySelectorAll('[data-parallax]').forEach(e => { const r = e.parentElement.getBoundingClientRect(); const c = r.top + r.height / 2 - vh / 2; e.style.transform = `translate3d(0,${(-c * parseFloat(e.dataset.parallax)).toFixed(1)}px,0)`; });
+        document.querySelectorAll('[data-hscroll]').forEach(e => { const r = e.parentElement.getBoundingClientRect(); const c = r.top + r.height / 2 - vh / 2; e.style.transform = `translate3d(${(c * parseFloat(e.dataset.hscroll)).toFixed(1)}px,0,0)`; });
+        const hero = document.querySelector('[data-hero-copy]'); if (hero) { const y = Math.max(0, scrollY); hero.style.transform = `translate3d(0,${(y * 0.35).toFixed(1)}px,0)`; hero.style.opacity = String(Math.max(0, 1 - y / (vh * .7))); }
+        const prog = el => { const r = el.getBoundingClientRect(); return Math.min(1, Math.max(0, -r.top / (r.height - vh))); };
+        const f = document.querySelector('[data-founder]');
+        if (f) {
+          const p = prog(f);
+          const vis = p < .12 ? p / .12 : p > .78 ? Math.max(0, 1 - (p - .78) / .17) : 1;
+          const staffVis = p < .18 ? 0 : p < .4 ? (p - .18) / .22 : p < .62 ? 1 : p < .82 ? 1 - (p - .62) / .2 : 0;
+          document.querySelectorAll('[data-staff]').forEach(e => { const d = parseFloat(e.dataset.depth); e.style.opacity = (staffVis * (.35 + .4 * Math.min(1, d))).toFixed(3); e.style.transform = `translate3d(0,${((.5 - p) * 260 * d).toFixed(1)}px,0) scale(${(.9 + .15 * staffVis).toFixed(3)})`; });
+          const ph = document.querySelector('[data-founder-photo]'), cp = document.querySelector('[data-founder-copy]');
+          if (ph) { ph.style.opacity = vis.toFixed(3); ph.style.transform = `translate3d(0,${((.5 - p) * 60).toFixed(1)}px,0) scale(${(.94 + .06 * vis).toFixed(3)})`; }
+          if (cp) { cp.style.opacity = vis.toFixed(3); cp.style.transform = `translate3d(${((1 - vis) * 40).toFixed(1)}px,0,0)`; }
+        }
+        const dv = document.querySelector('[data-devices]');
+        if (dv) {
+          const items = [...document.querySelectorAll('[data-device]')], n = items.length || 1, p = prog(dv) * (n + .2) - .1;
+          items.forEach(e => {
+            const t = p - parseFloat(e.dataset.k);
+            let x, s, o;
+            if (t <= 0) { x = -70; s = .35; o = 0; }
+            else if (t < .45) { const q = t / .45, ease = 1 - Math.pow(1 - q, 3); x = -70 + 70 * ease; s = .35 + .85 * ease; o = Math.min(1, q * 1.6); }
+            else if (t < .6) { x = 0; s = 1.2; o = 1; }
+            else if (t < 1) { const q = (t - .6) / .4, ease = q * q; x = 48 * ease; s = 1.2 - .8 * ease; o = 1 - q; }
+            else { x = 48; s = .4; o = 0; }
+            e.style.transform = `translate3d(${x}vw,0,0) scale(${s.toFixed(3)})`; e.style.opacity = o.toFixed(3); e.style.zIndex = String(Math.round(s * 10));
+          });
+        }
+        const pin = document.querySelector('[data-pin]'), track = document.querySelector('[data-pin-track]');
+        if (pin && track) { const r = pin.getBoundingClientRect(); const p = Math.min(1, Math.max(0, -r.top / (r.height - vh))); const max = Math.max(0, track.scrollWidth - innerWidth + 40); track.style.transform = `translate3d(${(-p * max).toFixed(1)}px,0,0)`; }
+      });
+    };
+    addEventListener('scroll', this.onScroll, { passive: true }); this.onScroll();
+  }
+  componentWillUnmount() { clearInterval(this.timer); removeEventListener('scroll', this.onScroll); this.io && this.io.disconnect(); }
+  renderVals() {
+    const { i, stage } = this.state;
+    const video = this.props.videoUrl ?? 'https://cdn.shopify.com/s/files/1/0592/7085/6794/files/av-reel-handbag.mp4';
+    const SL = [
+      { kind: 'image', src: WX('903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg'), alt: 'Injector with client at Avere Beauty' },
+      { kind: 'video', src: video, alt: '' },
+      { kind: 'image', src: 'assets/avere-interior.jpg', alt: 'Avere Beauty Lawrenceville office' }
+    ];
+    const fade = (on, d, extra) => ({ opacity: on ? 1 : 0, transform: on ? 'none' : 'translateY(18px)', transition: `opacity 1.2s ease ${d}ms, transform 1.2s cubic-bezier(.2,.7,.2,1) ${d}ms`, ...extra });
+    return {
+      slides: SL.map((s, k) => ({ ...s, isVideo: s.kind === 'video', isImage: s.kind === 'image', label: 'Show slide ' + (k + 1),
+        wrap: { position: 'absolute', inset: 0, opacity: k === i ? 1 : 0, transition: 'opacity 1.6s ease' },
+        media: { width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: k === i ? 'scale(1)' : 'scale(1.1)', transition: 'transform 7s ease-out', filter: s.kind === 'video' ? 'saturate(.85)' : 'none', opacity: s.kind === 'video' ? .7 : 1 },
+        go: () => this.setState({ i: k }),
+        dot: { width: k === i ? 34 : 10, height: 10, borderRadius: 999, border: 'none', cursor: 'pointer', padding: 0, background: k === i ? '#fff' : 'rgba(255,255,255,.45)', transition: 'all .4s ease' } })),
+      logoStyle: fade(stage >= 1, 0, { height: 'clamp(64px,9vw,110px)', width: 'auto', filter: 'invert(1) brightness(2)', transform: stage >= 1 ? 'scale(1)' : 'scale(.92)' }),
+      h1Style: fade(stage >= 2, 0, { fontFamily: "'Poppins',sans-serif", fontWeight: 300, fontSize: 'clamp(38px,6.4vw,92px)', lineHeight: 1.02, letterSpacing: '-.035em', margin: 0, textWrap: 'balance' }),
+      locStyle: fade(stage >= 3, 0, { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }),
+      ctaStyle: fade(stage >= 4, 0, { display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', paddingTop: 6 }),
+      offices: OFFICES.map(o => ({ ...o, alt: 'Avere Beauty ' + o.name + ' office' })),
+      staff: STAFF.map(([name, id], k) => { const [l, t, w, d] = SPOTS[k]; return { img: P(id), alt: name, depth: String(d), box: { position: 'absolute', left: l + '%', top: t + '%', width: w + 'vw', minWidth: 90, maxWidth: 200, aspectRatio: '4/5', borderRadius: 22, overflow: 'hidden', opacity: 0, zIndex: d > 1 ? 1 : 0, willChange: 'transform,opacity' } }; }),
+      devices: DEVICES.map((d, k) => ({ ...d, k: String(k) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -8,27 +8,126 @@
 <body>
 <x-dc>
 <helmet>
+<title>Med Spa Specials &amp; Promos in Pittsburgh | Avere Beauty</title>
+<meta name="description" content="Every current Avere Beauty offer in one place: 10% off your first treatment, Tox Tuesdays, referral rewards, VIP membership, gift cards and financing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth}</style>
 </helmet>
-<div style="min-height:100vh;background:#fff">
+<div style="min-height:100vh;background:#fff;overflow-x:hidden">
   <dc-import name="Avere Nav" active="promos" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="All Promos" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Promos</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">All Promos</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+
+  <section data-screen-label="Promo hero" style="position:relative;overflow:hidden;background:#2B2226;color:#fff">
+    <div data-parallax="0.25" style="position:absolute;inset:-15% 0;will-change:transform;opacity:.35"><img src="https://static.wixstatic.com/media/903d63_24475366948040e78160f8ec6409949a~mv2.jpg/v1/fill/w_1800,h_1200,al_c,q_85/p.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,#2B2226 0%,rgba(43,34,38,.75) 55%,rgba(43,34,38,.2) 100%)"></div>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(72px,11vw,150px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:24px">
+      <span style="align-self:flex-start;background:#B04A62;border-radius:999px;padding:8px 16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700">{{ monthLabel }} specials</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(44px,7vw,104px);line-height:1;letter-spacing:-.035em;margin:0;max-width:900px;text-wrap:balance">Every way to save at Avere.</h1>
+      <p style="margin:0;font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:#F4DADC;max-width:560px">New clients, regulars, gift givers and planners. Pick your offer, claim it in under a minute, and we'll text you to book.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <a href="#claim" style="background:#fff;color:#2B2226;min-height:56px;padding:0 30px;border-radius:999px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;white-space:nowrap" style-hover="background:#EFC3C7;color:#2B2226">Claim 10% off</a>
+        <a href="#offers" style="border:1px solid rgba(255,255,255,.5);min-height:56px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-size:16px;font-weight:700;white-space:nowrap;color:#fff" style-hover="border-color:#fff;color:#fff">See all offers</a>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-top:8px">
+        <span style="font-size:13px;color:#EFC3C7;font-weight:700;letter-spacing:.06em;text-transform:uppercase">This month ends in</span>
+        <sc-for list="{{ countdown }}" as="c" hint-placeholder-count="4"><span style="display:flex;flex-direction:column;align-items:center;min-width:64px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15)"><span style="font-family:'Poppins',sans-serif;font-size:26px;line-height:1">{{ c.v }}</span><span style="font-size:11px;color:#EFC3C7;text-transform:uppercase;letter-spacing:.1em">{{ c.l }}</span></span></sc-for>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  </section>
+
+  <dc-import name="Avere Trust Badges" hint-size="100%,320px"></dc-import>
+
+  <section id="offers" data-screen-label="Offer stack" style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(56px,8vw,104px)">
+    <sc-for list="{{ offers }}" as="o" hint-placeholder-count="4">
+      <div style="{{ o.row }}">
+        <div style="position:relative;flex:1 1 420px;min-width:0;aspect-ratio:5/4;border-radius:32px;overflow:hidden;background:#FFE3E3"><div data-parallax="0.1" style="position:absolute;inset:-10% 0;will-change:transform"><img src="{{ o.img }}" alt="{{ o.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div><span style="position:absolute;top:18px;left:18px;background:#fff;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">{{ o.tag }}</span></div>
+        <div data-reveal="0" style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'Poppins',sans-serif;font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-.03em;color:#B04A62">{{ o.big }}</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.1;letter-spacing:-.02em;margin:0">{{ o.title }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.65;color:#4A3B40;max-width:520px">{{ o.body }}</p>
+          <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ o.points }}" as="pt" hint-placeholder-count="2"><span style="display:flex;gap:10px;font-size:15px;line-height:1.5"><span style="color:#B04A62">✓</span>{{ pt }}</span></sc-for></div>
+          <a href="{{ o.href }}" style="align-self:flex-start;background:#2B2226;color:#fff;min-height:52px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-size:15px;font-weight:700;white-space:nowrap" style-hover="background:#B04A62;color:#fff">{{ o.cta }}</a>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section id="claim" data-screen-label="Claim form" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap;gap:clamp(32px,5vw,72px);align-items:center">
+      <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">New to Avere?</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(32px,4.4vw,60px);line-height:1.04;letter-spacing:-.03em;margin:0">Claim 10% off your first treatment.</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:8px">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3"><div style="display:flex;gap:14px;align-items:flex-start"><span style="width:36px;height:36px;border-radius:50%;background:#2B2226;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;flex-shrink:0">{{ s.n }}</span><span style="font-size:16px;line-height:1.55;padding-top:6px">{{ s.t }}</span></div></sc-for>
+        </div>
+      </div>
+      <div style="flex:1 1 400px;min-width:0;display:flex;justify-content:center"><dc-import name="Avere Lead Form" form="newpatient" hint-size="100%,640px"></dc-import></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Promo FAQ" style="max-width:900px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:6px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);margin:0 0 16px;letter-spacing:-.02em">Offer questions</h2>
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+      <div style="border-bottom:1px solid #F4DADC">
+        <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;padding:20px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Lato',sans-serif;font-size:17px;font-weight:700;color:#2B2226;min-height:48px"><span>{{ f.q }}</span><span style="color:#B04A62;font-size:20px">{{ f.icon }}</span></button>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 32px 20px 0;font-size:16px;line-height:1.65;color:#4A3B40">{{ f.a }}</p></sc-if>
+      </div>
+    </sc-for>
+  </section>
+
+  <dc-import name="Avere Founder" variant="feature" hint-size="100%,900px"></dc-import>
+  <dc-import name="Avere Book Bar" label="Claim my offer" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const WX = (id, w = 1100, h = 880) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/i.jpg`;
+const GIFT = 'https://squareup.com/gift/8CPGZKSHK7T66/order';
+const OFFERS = [
+  { tag: 'New clients', big: '10% off', title: 'Your first treatment', body: 'New to Avere? Take 10% off your first injectable, laser or esthetics treatment at any of our four Pittsburgh offices.', points: ['Any first treatment', 'All four offices', 'Claim online in under a minute'], cta: 'Claim 10% off', href: '#claim', img: WX('903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg') },
+  { tag: 'Weekly', big: 'Tuesdays', title: 'Tox Tuesdays', body: 'Our weekly neurotoxin special. Ask the desk for this week’s Botox, Dysport, Xeomin and Jeuveau pricing.', points: ['Every Tuesday', 'Botox, Dysport, Xeomin, Jeuveau'], cta: 'See Tox Tuesdays', href: 'Avere Tox Tuesdays.dc.html', img: WX('903d63_caf0a92094d9497e8c6db7f5b9cf8c45~mv2.jpg') },
+  { tag: 'Share', big: 'Give + get', title: 'Refer a friend', body: 'Send a friend to Avere. You both get a reward after their first visit.', points: ['Reward for you and your friend', 'No limit on referrals'], cta: 'Refer a friend', href: 'Avere Refer a Friend.dc.html', img: WX('903d63_1fe32a2493cf49fda9b168228b273499~mv2.jpg') },
+  { tag: 'Members', big: 'VIP', title: 'VIP Membership', body: 'Regulars save more with member pricing and perks every month. Spots open in small groups.', points: ['Member pricing', 'Monthly perks'], cta: 'Join the VIP list', href: 'Avere VIP Membership.dc.html', img: WX('903d63_9d021e833968439ea117454c700a369a~mv2.jpg') },
+  { tag: 'Gifting', big: 'Gift cards', title: 'The gift that gets used', body: 'Any amount, any treatment, delivered by email in seconds.', points: ['Email delivery', 'Good at all four offices'], cta: 'Buy a gift card', href: GIFT, img: WX('903d63_24475366948040e78160f8ec6409949a~mv2.jpg') },
+  { tag: 'Rewards', big: 'Points', title: 'Brand rewards programs', body: 'Join Allē, ASPIRE, Xperience+ and Evolus Rewards to earn points on Botox, Dysport, Xeomin, Jeuveau and filler.', points: ['Free to join', 'Stacks with Avere offers'], cta: 'See rewards programs', href: 'Avere Rewards.dc.html', img: WX('9272ed_2572f748eff64b84a72447556b3a61f9~mv2.jpg') },
+  { tag: 'Pay later', big: 'Monthly', title: 'Treat now, pay over time', body: 'Split your treatment into monthly payments with Cherry. Applying takes a minute.', points: ['Quick application', 'Monthly payment options'], cta: 'Apply now', href: 'Avere Financing.dc.html', img: WX('903d63_e208abbb61e548489e222ef57af90fdc~mv2.jpg') }
+];
+const FAQS = [
+  ['Can I combine offers?', 'Brand rewards points usually stack with Avere offers. In-house discounts generally don’t combine with each other. The desk will apply the best option for you.'],
+  ['Who counts as a new client?', 'Anyone who hasn’t had a treatment at any Avere Beauty office before.'],
+  ['Do offers work at every office?', 'Yes, unless an offer names a specific office.'],
+  ['How do I redeem?', 'Claim online or mention the offer when you book. We’ll confirm it at check-in.']
+];
+class Component extends DCLogic {
+  state = { now: Date.now(), faq: 0 };
+  componentDidMount() {
+    this.t = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const els = [...document.querySelectorAll('[data-reveal]')];
+      els.forEach(e => { e.style.opacity = 0; e.style.transform = 'translateY(28px)'; e.style.transition = 'opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)'; });
+      this.io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.style.opacity = 1; x.target.style.transform = 'none'; this.io.unobserve(x.target); } }), { threshold: .12 });
+      els.forEach(e => this.io.observe(e));
+    }
+    this.onScroll = () => { if (reduce || this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = 0; document.querySelectorAll('[data-parallax]').forEach(e => { const r = e.parentElement.getBoundingClientRect(); const c = r.top + r.height / 2 - innerHeight / 2; e.style.transform = `translate3d(0,${(-c * parseFloat(e.dataset.parallax)).toFixed(1)}px,0)`; }); }); };
+    addEventListener('scroll', this.onScroll, { passive: true }); this.onScroll();
+  }
+  componentWillUnmount() { clearInterval(this.t); removeEventListener('scroll', this.onScroll); this.io && this.io.disconnect(); }
+  renderVals() {
+    const now = new Date(this.state.now);
+    const end = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const ms = Math.max(0, end - now);
+    const pad = n => String(n).padStart(2, '0');
+    const { faq } = this.state;
+    return {
+      monthLabel: now.toLocaleDateString('en-US', { month: 'long' }),
+      countdown: [[Math.floor(ms / 864e5), 'days'], [Math.floor(ms / 36e5) % 24, 'hours'], [Math.floor(ms / 6e4) % 60, 'min'], [Math.floor(ms / 1e3) % 60, 'sec']].map(([v, l]) => ({ v: pad(v), l })),
+      offers: OFFERS.map((o, i) => ({ ...o, row: { display: 'flex', flexWrap: 'wrap', flexDirection: i % 2 ? 'row-reverse' : 'row', gap: 'clamp(28px,5vw,72px)', alignItems: 'center' } })),
+      steps: [{ n: '1', t: 'Fill in your name, number and what you’re interested in.' }, { n: '2', t: 'We text you within one business day to pick a time.' }, { n: '3', t: 'Your 10% comes off at checkout.' }],
+      faqs: FAQS.map(([q, a], i) => ({ q, a, open: faq === i, icon: faq === i ? '−' : '+', toggle: () => this.setState({ faq: faq === i ? -1 : i }) }))
+    };
+  }
+}
 </script>
 </body>
 </html>

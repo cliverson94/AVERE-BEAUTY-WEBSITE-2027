@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Our Laser Devices | MOTUS AZ+, EVO, Tetra, Toro &amp; BBL | Avere Beauty Pittsburgh</title>
+<meta name="description" content="Explore the medical-grade lasers at Avere Beauty: wavelengths, what each device treats and where to find it in Pittsburgh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;color:#2B2226;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:120px}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="lasers" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Device showroom" style="position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 50% 38%, #3A2B31 0%, #1E1619 55%, #120D0F 100%);color:#FFF5F5;min-height:clamp(640px,92vh,860px);display:flex;flex-direction:column">
+    <div style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg, rgba(18,13,15,0) 0%, #0D090B 100%);pointer-events:none"></div>
+    <div style="position:absolute;left:50%;top:-4%;width:min(760px,120vw);height:92%;transform:translateX(-50%);background:linear-gradient(180deg, rgba(255,236,238,.30) 0%, rgba(255,227,227,.10) 45%, rgba(255,227,227,0) 100%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);filter:blur(6px);pointer-events:none"></div>
+    <div style="position:absolute;left:50%;bottom:13%;width:min(560px,90vw);height:110px;transform:translateX(-50%);background:radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,227,227,.22) 0%, rgba(255,227,227,0) 70%);pointer-events:none"></div>
+    <canvas ref="{{ canvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
+
+    <div style="position:relative;max-width:1320px;width:100%;margin:0 auto;padding:24px clamp(20px,4vw,32px) 0;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:8px;font-size:13px;color:#C9B3B8"><a href="Avere Home A.dc.html" style="color:#C9B3B8">Home</a><span>/</span><a href="Avere Lasers.dc.html" style="color:#C9B3B8">Lasers</a><span>/</span><span style="color:#FFF5F5">Devices</span></div>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,4.4vw,60px);line-height:1.08;margin:0;letter-spacing:-.02em">Meet the lasers</h1>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:16px;line-height:1.6;color:#EFC3C7;text-wrap:pretty">Five medical-grade devices across our Pittsburgh locations. Spin through them, or tap one for a closer look.</p>
+    </div>
+
+    <div onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" style="position:relative;flex:1;min-height:420px;perspective:1400px;perspective-origin:50% 40%">
+      <div style="{{ ringStyle }}">
+        <sc-for list="{{ ring }}" as="d" hint-placeholder-count="5">
+          <button onClick="{{ d.click }}" aria-label="{{ d.name }}" style="{{ d.style }}">
+            <img src="{{ d.img }}" alt="{{ d.name }} laser" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;display:block;background:#2B2226;box-shadow:0 40px 80px rgba(0,0,0,.55)">
+            <span style="{{ d.reflect }}"></span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="position:relative;max-width:1320px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(32px,5vw,48px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center">
+      <button onClick="{{ prev }}" aria-label="Previous device" style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(239,195,199,.4);background:rgba(255,245,245,.04);color:#FFF5F5;font-size:20px;cursor:pointer" style-hover="background:#FFF5F5;color:#2B2226">←</button>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;min-width:0">
+        <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7">{{ front.maker }} · {{ front.locLine }}</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(26px,3vw,40px);line-height:1.1;letter-spacing:-.02em">{{ front.name }}</span>
+        <span style="font-size:16px;line-height:1.5;color:#EFC3C7;max-width:460px">{{ front.tagline }}</span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding-top:6px">
+          <button onClick="{{ openFront }}" style="background:#FFF5F5;color:#2B2226;border:none;padding:0 26px;border-radius:999px;font-family:'Lato',sans-serif;font-size:14px;font-weight:700;min-height:48px;cursor:pointer" style-hover="background:#FFE3E3">Quick look</button>
+          <a href="{{ front.file }}" style="border:1px solid rgba(255,245,245,.6);color:#FFF5F5;padding:0 24px;border-radius:999px;font-size:14px;font-weight:500;min-height:48px;display:inline-flex;align-items:center" style-hover="background:rgba(255,245,245,.1);color:#fff">Full device page</a>
+        </div>
+        <div style="display:flex;gap:8px;padding-top:12px">
+          <sc-for list="{{ dots }}" as="t" hint-placeholder-count="5">
+            <button onClick="{{ t.go }}" aria-label="{{ t.name }}" style="{{ t.style }}"></button>
+          </sc-for>
+        </div>
+      </div>
+      <button onClick="{{ next }}" aria-label="Next device" style="width:52px;height:52px;border-radius:50%;border:1px solid rgba(239,195,199,.4);background:rgba(255,245,245,.04);color:#FFF5F5;font-size:20px;cursor:pointer" style-hover="background:#FFF5F5;color:#2B2226">→</button>
+    </div>
+  </section>
+
+  <section id="spectrum" data-screen-label="Wavelength spectrum" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:680px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The science</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em">Every wavelength has a target</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40;text-wrap:pretty">Each wavelength is absorbed by something different in the skin: melanin, blood, water or ink. Tap a wavelength to see what it targets and which of our devices use it.</p>
+      </div>
+      <div style="display:flex;gap:4px;padding:4px;background:#FFF5F5;border-radius:999px;flex-wrap:wrap">
+        <sc-for list="{{ specTabs }}" as="t" hint-placeholder-count="6">
+          <button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="border:1px solid #F4DADC;border-radius:28px;padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:28px">
+      <div style="position:relative;height:230px;margin:0 12px">
+        <sc-for list="{{ bands }}" as="b" hint-placeholder-count="2">
+          <button onClick="{{ b.pick }}" style="{{ b.style }}">{{ b.label }}</button>
+        </sc-for>
+        <div style="position:absolute;left:0;right:0;bottom:36px;height:14px;border-radius:999px;background:linear-gradient(90deg,#7B4BB0 0%,#3D6FD1 4%,#3BA56B 7%,#E4C23B 11%,#E07A35 14%,#C8364A 17%,#5A2430 22%,#2B2226 40%,#2B2226 100%)"></div>
+        <sc-for list="{{ marks }}" as="m" hint-placeholder-count="7">
+          <button onClick="{{ m.pick }}" aria-label="{{ m.label }}" style="{{ m.style }}">
+            <span style="{{ m.head }}">{{ m.label }}</span>
+            <span style="{{ m.stem }}"></span>
+          </button>
+        </sc-for>
+        <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="6">
+          <span style="{{ t.style }}">{{ t.label }}</span>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;margin:-16px 12px 0"><span>Visible light</span><span>Infrared →</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;background:#FFF5F5;border-radius:22px;padding:clamp(20px,3vw,32px)">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Poppins',sans-serif;font-size:clamp(36px,4vw,54px);line-height:1;letter-spacing:-.03em">{{ sel.nmLine }}</span>
+          <span style="font-size:15px;font-weight:700">{{ sel.name }}</span>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#4A3B40">{{ sel.body }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64">Targets</span>
+          <sc-for list="{{ sel.targets }}" as="t" hint-placeholder-count="2">
+            <div style="display:flex;gap:12px;align-items:flex-start"><span style="{{ t.dot }}"></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:700">{{ t.label }}</span><span style="font-size:14px;color:#6E5F64">{{ t.note }}</span></span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64">On these devices</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ sel.devices }}" as="d" hint-placeholder-count="2">
+              <a href="{{ d.file }}" style="background:#fff;border:1px solid #EFC3C7;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600" style-hover="border-color:#B04A62">{{ d.name }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare" data-screen-label="Feature compare" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Compare</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em">How the devices stack up</h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Pick devices to overlay. Ratings reflect our providers' experience; your plan depends on your skin and goals.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ radarChips }}" as="c" hint-placeholder-count="5">
+            <button onClick="{{ c.toggle }}" style="{{ c.style }}"><span style="{{ c.dot }}"></span>{{ c.name }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #EFC3C7">
+          <sc-for list="{{ radarRows }}" as="r" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:14px 0;border-bottom:1px solid #EFC3C7;align-items:center">
+              <span style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:700"><span style="{{ r.dot }}"></span>{{ r.name }}</span>
+              <span style="font-size:13px;color:#6E5F64">{{ r.waves }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:32px;padding:clamp(16px,3vw,32px);display:flex;justify-content:center">
+        <svg viewBox="-70 -40 460 400" style="width:100%;max-width:520px;height:auto;overflow:visible">
+          <sc-for list="{{ grid }}" as="g" hint-placeholder-count="5">
+            <polygon points="{{ g.points }}" fill="none" stroke="#F4DADC" stroke-width="1"></polygon>
+          </sc-for>
+          <sc-for list="{{ axes }}" as="a" hint-placeholder-count="5">
+            <line x1="160" y1="160" x2="{{ a.x }}" y2="{{ a.y }}" stroke="#F4DADC" stroke-width="1"></line>
+            <text x="{{ a.lx }}" y="{{ a.ly }}" text-anchor="{{ a.anchor }}" style="font-family:'Lato',sans-serif;font-size:13px;font-weight:700;fill:#4A3B40">{{ a.label }}</text>
+          </sc-for>
+          <sc-for list="{{ polys }}" as="p" hint-placeholder-count="0">
+            <polygon points="{{ p.points }}" fill="{{ p.color }}" fill-opacity="0.12" stroke="{{ p.color }}" stroke-width="2.5" stroke-linejoin="round" style="transition:all .4s"></polygon>
+          </sc-for>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="cartessa" data-screen-label="Cartessa" style="padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;background:#2B2226;color:#FFF5F5;border-radius:clamp(24px,4vw,40px);padding:clamp(28px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,64px);position:relative;overflow:hidden">
+      <img src="assets/avere-logo-black.png" alt="" style="position:absolute;right:-10%;bottom:-25%;width:70%;opacity:.07;filter:invert(1);pointer-events:none">
+      <div style="position:relative;display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7">Our technology partner</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em">Why we work with Cartessa</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#EFC3C7;text-wrap:pretty">Cartessa Aesthetics doesn't build its own lasers. It hand-selects best-in-class technology from manufacturers around the world, then brings it to North American practices with training and clinical support.</p>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#EFC3C7;text-wrap:pretty">That means we aren't locked into one brand's lineup. Our hair removal, resurfacing and tattoo lasers each come from the manufacturer that does that job best, mostly Italy's DEKA and Quanta System.</p>
+      </div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ makers }}" as="m" hint-placeholder-count="2">
+          <div style="border:1px solid rgba(239,195,199,.25);border-radius:24px;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-family:'Poppins',sans-serif;font-size:24px;letter-spacing:-.02em">{{ m.name }}</span><span style="font-size:13px;color:#EFC3C7">{{ m.where }}</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ m.devices }}" as="d" hint-placeholder-count="2">
+                <a href="{{ d.file }}" style="background:rgba(255,245,245,.08);color:#FFF5F5;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600" style-hover="background:#FFF5F5;color:#2B2226">{{ d.name }} →</a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Founder" variant="strip" kicker="Meet the founder" hint-size="100%,160px"></dc-import>
+  <dc-import name="Avere Finance CTA" variant="strip" placement="laser-devices" hint-size="100%,90px"></dc-import>
+  <dc-import name="Avere Book Bar" label="Book a laser consult" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+
+  <div onClick="{{ close }}" style="{{ scrimStyle }}"></div>
+  <aside aria-label="Device quick look" style="{{ sideStyle }}">
+    <sc-if value="{{ hasOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:22px;padding:24px clamp(20px,3vw,32px) 32px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62">Quick look</span>
+          <button onClick="{{ close }}" aria-label="Close" style="width:44px;height:44px;border-radius:50%;border:1px solid #EFC3C7;background:#fff;cursor:pointer;font-size:18px;color:#2B2226">×</button>
+        </div>
+        <img src="{{ od.img }}" alt="{{ od.name }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px;display:block;background:#FFE3E3">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:13px;color:#6E5F64">{{ od.makerLine }}</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:32px;line-height:1.1;margin:0;letter-spacing:-.02em">{{ od.name }}</h2>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#4A3B40">{{ od.tagline }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64">Wavelengths</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ od.waveChips }}" as="w" hint-placeholder-count="2">
+              <span style="border:1px solid #EFC3C7;border-radius:999px;padding:7px 14px;font-size:13px;display:flex;gap:8px;align-items:center"><span style="{{ w.dot }}"></span>{{ w.label }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64">Treatments</span>
+          <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+            <sc-for list="{{ od.treat }}" as="t" hint-placeholder-count="3">
+              <a href="{{ t.href }}" style="display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #F4DADC;font-size:15px" style-hover="color:#B04A62">{{ t.name }}<span style="color:#B04A62">→</span></a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6E5F64">Find it at</span>
+          <span style="font-family:'Poppins',sans-serif;font-size:20px">{{ od.locLine }}</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="{{ od.file }}" style="background:#2B2226;color:#fff;padding:0 26px;border-radius:999px;font-size:14px;font-weight:500;min-height:48px;display:inline-flex;align-items:center" style-hover="background:#B04A62;color:#fff">Full device page</a>
+          <a href="Avere Laser Guide.dc.html" style="border:1px solid #2B2226;padding:0 24px;border-radius:999px;font-size:14px;font-weight:500;min-height:48px;display:inline-flex;align-items:center">Which laser is best for me?</a>
+        </div>
+      </div>
+    </sc-if>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoRotate&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;particles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const N = 5, STEP = 360 / N;
+const PAL = { motus: '#B04A62', evo: '#2B2226', tetra: '#5E8FB0', toro: '#8E3A4F', mjoule: '#C99A6E' };
+const L0 = Math.log(400), L1 = Math.log(11000);
+const xp = nm => ((Math.log(nm) - L0) / (L1 - L0)) * 100;
+const locLine = d => d.locs.join(' & ');
+
+class Component extends DCLogic {
+  state = { D: null, rot: 0, spin: false, open: null, w: typeof window !== 'undefined' ? window.innerWidth : 1200, wave: 755, specDev: 'all', radarSel: ['motus', 'evo', 'toro'] };
+  canvasRef = React.createRef();
+  componentDidMount() {
+    import(new URL('laser-devices.js', document.baseURI).href).then(m => { this.M = m; this.setState({ D: m.DEVICES }); });
+    this.timer = setInterval(() => { if (!this.hover && this.state.open == null && (this.props.autoRotate ?? true)) this.step(1); }, 4800);
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ open: null }); if (this.state.open == null && e.key === 'ArrowRight') this.step(1); if (this.state.open == null && e.key === 'ArrowLeft') this.step(-1); };
+    window.addEventListener('resize', this.onResize); window.addEventListener('keydown', this.onKey);
+    this.gust = 0; this.particles();
+  }
+  componentWillUnmount() { clearInterval(this.timer); cancelAnimationFrame(this.raf); window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); }
+  step(d) { clearTimeout(this.spinT); this.gust += d * 4; this.setState(s => ({ rot: s.rot + d, spin: true })); this.spinT = setTimeout(() => this.setState({ spin: false }), 800); }
+  goTo(i) { const cur = ((Math.round(this.state.rot) % N) + N) % N; let d = i - cur; if (d > N / 2) d -= N; if (d < -N / 2) d += N; if (d) this.step(d); }
+  particles() {
+    if ((this.props.particles ?? true) === false) return;
+    const P = Array.from({ length: 140 }, () => ({ x: Math.random(), y: Math.random(), z: Math.random(), v: 0.0004 + Math.random() * 0.0012, ph: Math.random() * 6.28 }));
+    const tick = t => {
+      const c = this.canvasRef.current; this.raf = requestAnimationFrame(tick); if (!c) return;
+      const dpr = Math.min(2, window.devicePixelRatio || 1), W = c.clientWidth, H = c.clientHeight;
+      if (c.width !== W * dpr) { c.width = W * dpr; c.height = H * dpr; }
+      const g = c.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+      this.gust *= 0.94;
+      P.forEach(p => {
+        p.y -= p.v; p.x += Math.sin(t / 1800 + p.ph) * 0.0003 + this.gust * 0.0009 * (0.4 + p.z);
+        if (p.y < 0) p.y = 1; if (p.x < 0) p.x += 1; if (p.x > 1) p.x -= 1;
+        const half = 0.06 + p.y * 0.42, inCone = Math.abs(p.x - 0.5) < half * (W > 0 ? Math.min(1, 760 / W) : 1);
+        const a = (inCone ? 0.55 : 0.08) * (0.4 + p.z) * (0.6 + 0.4 * Math.sin(t / 700 + p.ph));
+        const r = 0.6 + p.z * 1.6, sx = p.x * W, sy = p.y * H, smear = Math.abs(this.gust) * 4 * p.z;
+        g.fillStyle = `rgba(255,232,234,${a})`;
+        if (smear > 1) { g.fillRect(sx - smear, sy - r / 2, smear * 2, r); } else { g.beginPath(); g.arc(sx, sy, r, 0, 6.283); g.fill(); }
+      });
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  renderVals() {
+    const { D, rot, spin, open, w, wave, specDev, radarSel } = this.state;
+    const list = D || [];
+    const R = Math.max(170, Math.min(460, w * 0.34)), cw = Math.max(170, Math.min(270, w * 0.42));
+    const frontI = ((Math.round(rot) % N) + N) % N;
+    const ring = list.map((d, i) => {
+      let off = (i - rot) % N; off = ((off % N) + N) % N; if (off > N / 2) off -= N;
+      const dist = Math.abs(off), isFront = dist < 0.5, a = i * STEP;
+      return {
+        name: d.name, img: d.img,
+        click: () => isFront ? this.setState({ open: i }) : this.goTo(i),
+        style: { position: 'absolute', left: '50%', top: '46%', width: cw, padding: 0, border: 'none', background: 'none', cursor: 'pointer', transformStyle: 'preserve-3d',
+          transform: `translate(-50%,-50%) rotateY(${a}deg) translateZ(${R}px) rotateY(${-a + rot * STEP}deg) scale(${isFront ? 1.08 : 0.86})`,
+          filter: isFront ? `brightness(1.05)${spin ? ' blur(1px)' : ''}` : `brightness(${Math.max(0.14, 0.42 - dist * 0.12)}) saturate(.6) blur(${spin ? 4 : 1.2}px)`,
+          transition: 'transform .85s cubic-bezier(.22,.7,.18,1), filter .6s ease' },
+        reflect: { display: 'block', height: 60, marginTop: 6, borderRadius: 22, background: `linear-gradient(180deg, rgba(255,227,227,${isFront ? 0.16 : 0.04}) 0%, rgba(255,227,227,0) 100%)`, transform: 'scaleY(-1)' },
+      };
+    });
+    const f = list[frontI];
+    const od = open != null ? list[open] : null;
+    const W = this.M ? this.M.WAVES : {}, T = this.M ? this.M.TARGETS : {};
+    const chip = (nm) => { const tg = (W[nm] || {}).targets || []; return { label: `${nm.toLocaleString()} nm`, dot: { width: 8, height: 8, borderRadius: '50%', background: (T[tg[0]] || {}).color || '#B04A62' } }; };
+    return {
+      canvasRef: this.canvasRef,
+      pause: () => { this.hover = true; }, resume: () => { this.hover = false; },
+      ringStyle: { position: 'absolute', inset: 0, transformStyle: 'preserve-3d', transform: `translateZ(${-R}px) rotateY(${-rot * STEP}deg)`, transition: 'transform .85s cubic-bezier(.22,.7,.18,1)' },
+      ring,
+      prev: () => this.step(-1), next: () => this.step(1),
+      front: f ? { name: f.name, maker: f.maker, tagline: f.tagline, file: f.file, locLine: locLine(f) } : { name: '', maker: '', tagline: '', file: '#', locLine: '' },
+      openFront: () => this.setState({ open: frontI }),
+      dots: list.map((d, i) => ({ name: d.name, go: () => this.goTo(i), style: { width: i === frontI ? 26 : 8, height: 8, borderRadius: 999, border: 'none', padding: 0, cursor: 'pointer', background: i === frontI ? '#FFF5F5' : 'rgba(255,245,245,.3)', transition: 'all .3s' } })),
+      hasOpen: !!od, close: () => this.setState({ open: null }),
+      scrimStyle: { position: 'fixed', inset: 0, zIndex: 60, background: 'rgba(18,13,15,.5)', opacity: od ? 1 : 0, pointerEvents: od ? 'auto' : 'none', transition: 'opacity .3s' },
+      sideStyle: { position: 'fixed', top: 0, right: 0, bottom: 0, zIndex: 61, width: 'min(480px,100vw)', background: '#fff', overflowY: 'auto', boxShadow: '-30px 0 60px rgba(18,13,15,.25)', transform: od ? 'translateX(0)' : 'translateX(105%)', transition: 'transform .45s cubic-bezier(.22,.7,.18,1)' },
+      od: od ? { ...od, makerLine: od.cartessa ? `${od.maker} · distributed by Cartessa` : od.maker, locLine: locLine(od), waveChips: [...od.waves.map(chip), ...od.bands.map(b => ({ label: `${this.M.BANDS[b].from}–${this.M.BANDS[b].to} nm ${b === 'bbl' ? 'BBL' : 'IPL'}`, dot: { width: 8, height: 8, borderRadius: '50%', background: '#C8475E' } }))], treat: od.treatments.map(([name, href]) => ({ name, href })) } : { name: '', img: '', waveChips: [], treat: [] },
+      ...this.specVals(list, W, T, wave, specDev),
+      ...this.radarVals(list, radarSel),
+    };
+  }
+  specVals(list, W, T, wave, specDev) {
+    const B = this.M ? this.M.BANDS : {};
+    const fd = list.find(d => d.id === specDev), LV = { 785: 1, 2940: 1 };
+    const pill = on => ({ padding: '9px 16px', borderRadius: 999, border: 'none', cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 600, minHeight: 40, background: on ? '#2B2226' : 'transparent', color: on ? '#fff' : '#2B2226', transition: 'all .2s', whiteSpace: 'nowrap' });
+    const marks = Object.keys(W).map(Number).map(nm => {
+      const on = wave === nm, dim = fd && !fd.waves.includes(nm), lv = LV[nm] || 0;
+      return { label: nm.toLocaleString(), pick: () => this.setState({ wave: nm }),
+        style: { position: 'absolute', left: `${xp(nm)}%`, bottom: 50, transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'none', border: 'none', padding: 0, cursor: 'pointer', opacity: dim ? 0.2 : 1, transition: 'opacity .3s', zIndex: on ? 3 : 2 },
+        head: { fontFamily: "'Poppins',sans-serif", fontSize: 13, padding: '5px 10px', borderRadius: 999, whiteSpace: 'nowrap', background: on ? '#2B2226' : '#fff', color: on ? '#fff' : '#2B2226', border: '1px solid ' + (on ? '#2B2226' : '#EFC3C7'), boxShadow: on ? '0 6px 16px rgba(43,34,38,.2)' : 'none', transition: 'all .2s' },
+        stem: { display: 'block', width: 2, height: 20 + lv * 40, background: on ? '#2B2226' : '#EFC3C7' } };
+    });
+    const bands = Object.keys(B).map((k, i) => {
+      const b = B[k], on = wave === k, dim = fd && !fd.bands.includes(k), l = xp(b.from);
+      return { label: `${b.name} · ${b.from}–${b.to} nm`, pick: () => this.setState({ wave: k }),
+        style: { position: 'absolute', top: i * 34, left: `${l}%`, width: `${xp(b.to) - l}%`, height: 28, borderRadius: 999, border: '1px solid ' + (on ? '#2B2226' : '#EFC3C7'), background: on ? '#2B2226' : 'linear-gradient(90deg,#FFE3E3,#FFF5F5)', color: on ? '#fff' : '#2B2226', fontFamily: "'Lato',sans-serif", fontSize: 12, fontWeight: 700, cursor: 'pointer', opacity: dim ? 0.2 : 1, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0 12px', transition: 'all .25s' } };
+    });
+    const ticks = [400, 500, 700, 1000, 2000, 5000, 10000].map(nm => ({ label: nm >= 1000 ? `${nm / 1000}k` : String(nm), style: { position: 'absolute', left: `${xp(nm)}%`, bottom: 12, transform: 'translateX(-50%)', fontSize: 11, color: '#6E5F64' } }));
+    const isBand = typeof wave === 'string', src = isBand ? B[wave] : W[wave];
+    const sel = src ? { nmLine: isBand ? `${src.from}–${src.to}` : `${wave.toLocaleString()} nm`, name: src.name, body: src.body,
+      targets: src.targets.map(k => ({ label: T[k].label, note: T[k].note, dot: { width: 14, height: 14, borderRadius: '50%', background: T[k].color, flexShrink: 0, marginTop: 3 } })),
+      devices: list.filter(d => isBand ? d.bands.includes(wave) : d.waves.includes(wave)).map(d => ({ name: d.name, file: d.file })) } : { nmLine: '', name: '', body: '', targets: [], devices: [] };
+    return {
+      specTabs: [{ id: 'all', name: 'All devices' }, ...list].map(d => ({ label: d.id === 'all' ? 'All' : d.name, style: pill(specDev === d.id), pick: () => { const nd = list.find(x => x.id === d.id); this.setState({ specDev: d.id, ...(nd ? { wave: nd.waves[0] || nd.bands[0] } : {}) }); } })),
+      marks, bands, ticks, sel,
+      makers: [['DEKA', 'Florence, Italy'], ['Quanta System', 'Milan, Italy']].map(([name, where]) => ({ name, where, devices: list.filter(d => d.cartessa && d.maker === name).map(d => ({ name: d.name, file: d.file })) })),
+    };
+  }
+  radarVals(list, sel) {
+    const A = this.M ? this.M.AXES : [], n = A.length || 5, C = 160, R = 130;
+    const pt = (i, r) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / n; return [C + Math.cos(a) * r, C + Math.sin(a) * r]; };
+    const poly = vals => vals.map((v, i) => pt(i, (v / 5) * R).map(x => x.toFixed(1)).join(',')).join(' ');
+    return {
+      grid: [1, 2, 3, 4, 5].map(k => ({ points: poly(Array(n).fill(k)) })),
+      axes: A.map(([, label], i) => { const [x, y] = pt(i, R), [lx, ly] = pt(i, R + 26); return { x, y, lx, ly: ly + 4, label, anchor: Math.abs(lx - C) < 8 ? 'middle' : lx > C ? 'start' : 'end' }; }),
+      polys: list.filter(d => sel.includes(d.id)).map(d => ({ color: PAL[d.id], points: poly(A.map(([k]) => d.radar[k])) })),
+      radarChips: list.map(d => { const on = sel.includes(d.id); return { name: d.name, toggle: () => this.setState(s => ({ radarSel: on ? s.radarSel.filter(x => x !== d.id) : [...s.radarSel, d.id] })),
+        style: { display: 'flex', gap: 8, alignItems: 'center', padding: '9px 16px', minHeight: 44, borderRadius: 999, cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 700, border: '1px solid ' + (on ? PAL[d.id] : '#EFC3C7'), background: on ? '#fff' : 'transparent', color: '#2B2226', opacity: on ? 1 : 0.6 },
+        dot: { width: 10, height: 10, borderRadius: '50%', background: PAL[d.id] } }; }),
+      radarRows: list.filter(d => sel.includes(d.id)).map(d => ({ name: d.name, waves: [...d.waves.map(w => `${w.toLocaleString()} nm`), ...d.bands.map(b => b.toUpperCase())].join(' · '), dot: { width: 10, height: 10, borderRadius: '50%', background: PAL[d.id], flexShrink: 0 } })),
+    };
+  }
+}
+</script>
+</body>
+</html>

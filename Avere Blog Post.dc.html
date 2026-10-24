@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>The Avere Journal | Avere Beauty</title>
+<meta name="description" content="Guides from Avere Beauty's clinical team in Pittsburgh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}html{scroll-behavior:smooth}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+  <div style="position:sticky;top:0;z-index:31;height:3px;background:transparent"><div style="{{ progressStyle }}"></div></div>
+
+  <article data-screen-label="Article">
+    <header style="max-width:880px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(20px,4vw,32px) 28px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64;flex-wrap:wrap"><a href="{{ blogHref }}">The Avere Journal</a><span>/</span><span style="color:#B04A62;font-weight:700">{{ post.cat }}</span></div>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5.2vw,62px);line-height:1.05;letter-spacing:-.03em;margin:0;text-wrap:balance">{{ post.title }}</h1>
+      <p style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(19px,2vw,23px);line-height:1.5;color:#4A3B40;text-wrap:pretty">{{ post.dek }}</p>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:10px;border-top:1px solid #F4DADC;margin-top:6px">
+        <span style="width:44px;height:44px;border-radius:50%;background:#2B2226;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:18px;flex-shrink:0">A</span>
+        <span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:180px"><strong style="font-size:14px">Avere Beauty clinical team</strong><span style="font-size:13px;color:#6E5F64">{{ post.dateLabel }} · {{ post.read }} min read</span></span>
+        <button onClick="{{ share }}" style="min-height:38px;padding:0 16px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;font-size:13px;font-weight:700;cursor:pointer;color:#2B2226">{{ shareLabel }}</button>
+      </div>
+    </header>
+
+    <figure style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,32px)">
+      <div style="aspect-ratio:16/8;border-radius:clamp(20px,3vw,32px);overflow:hidden;background:#FFE3E3"><sc-if value="{{ hasPost }}" hint-placeholder-val="{{ false }}"><img src="{{ post.img }}" alt="{{ post.imgAlt }}" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if></div>
+    </figure>
+
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,4vw,32px);display:flex;flex-wrap:wrap-reverse;gap:clamp(32px,5vw,72px);align-items:flex-end">
+      <div style="flex:999 1 560px;min-width:0;max-width:700px;display:flex;flex-direction:column;gap:22px">
+        <div style="background:#FFF5F5;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#B04A62">Key takeaways</span>
+          <sc-for list="{{ takeaways }}" as="t" hint-placeholder-count="4"><div style="display:flex;gap:12px;font-size:16px;line-height:1.5"><span style="width:8px;height:8px;border-radius:50%;background:#B04A62;flex-shrink:0;margin-top:8px"></span><span>{{ t }}</span></div></sc-for>
+        </div>
+        <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="8">
+          <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}"><p style="margin:0;font-family:'Source Serif 4',Georgia,serif;font-size:19px;line-height:1.75;color:#2B2226;text-wrap:pretty">{{ b.x }}</p></sc-if>
+          <sc-if value="{{ b.isH2 }}" hint-placeholder-val="{{ false }}"><h2 id="{{ b.id }}" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(24px,2.6vw,30px);line-height:1.2;letter-spacing:-.015em;margin:20px 0 0;scroll-margin-top:120px">{{ b.x }}</h2></sc-if>
+          <sc-if value="{{ b.isUl }}" hint-placeholder-val="{{ false }}"><ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-family:'Source Serif 4',Georgia,serif;font-size:18px;line-height:1.65"><sc-for list="{{ b.items }}" as="li" hint-placeholder-count="3"><li>{{ li }}</li></sc-for></ul></sc-if>
+          <sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}"><blockquote style="margin:12px 0;padding:6px 0 6px 28px;border-left:3px solid #B04A62;font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,28px);line-height:1.35;letter-spacing:-.01em;color:#2B2226">{{ b.x }}</blockquote></sc-if>
+          <sc-if value="{{ b.isCallout }}" hint-placeholder-val="{{ false }}"><div style="background:#2B2226;color:#F4DADC;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:8px"><strong style="font-family:'Poppins',sans-serif;font-weight:500;font-size:18px;color:#fff">{{ b.title }}</strong><span style="font-size:16px;line-height:1.6">{{ b.x }}</span></div></sc-if>
+          <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+            <div style="overflow-x:auto;border:1px solid #F4DADC;border-radius:16px">
+              <table style="width:100%;border-collapse:collapse;font-size:15px;line-height:1.5;min-width:480px">
+                <thead><tr><sc-for list="{{ b.head }}" as="h" hint-placeholder-count="2"><th style="text-align:left;padding:12px 16px;background:#FFF5F5;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6E5F64">{{ h }}</th></sc-for></tr></thead>
+                <tbody><sc-for list="{{ b.rows }}" as="r" hint-placeholder-count="3"><tr><sc-for list="{{ r }}" as="c" hint-placeholder-count="2"><td style="padding:12px 16px;border-top:1px solid #F4DADC;vertical-align:top">{{ c }}</td></sc-for></tr></sc-for></tbody>
+              </table>
+            </div>
+          </sc-if>
+        </sc-for>
+
+        <section style="margin-top:28px;display:flex;flex-direction:column;gap:4px">
+          <h2 id="faq" style="font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(24px,2.6vw,30px);margin:0 0 12px;scroll-margin-top:120px">Frequently asked questions</h2>
+          <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+            <div style="border-bottom:1px solid #F4DADC">
+              <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;padding:18px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Lato',sans-serif;font-size:17px;font-weight:700;color:#2B2226;min-height:48px"><span>{{ f.q }}</span><span style="color:#B04A62;font-size:20px;line-height:1">{{ f.icon }}</span></button>
+              <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 32px 20px 0;font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.65;color:#4A3B40">{{ f.a }}</p></sc-if>
+            </div>
+          </sc-for>
+        </section>
+
+        <div style="margin-top:28px;background:#FFE3E3;border-radius:24px;padding:clamp(24px,4vw,36px);display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+          <span style="font-family:'Poppins',sans-serif;font-size:clamp(22px,2.6vw,30px);line-height:1.15;letter-spacing:-.01em">Have a question about your skin?</span>
+          <span style="font-size:16px;line-height:1.6;color:#4A3B40">Book a consultation at any of our four Pittsburgh offices. We'll look at your goals and build a plan that fits.</span>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book a consultation</a>
+            <a href="tel:4129527592" style="border:1px solid #2B2226;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">412-952-7592</a>
+          </div>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.6;color:#6E5F64">This article is for general education and isn't medical advice. Results vary. Talk with a licensed provider about your own skin and health.</p>
+      </div>
+
+      <aside style="flex:1 1 240px;min-width:0;position:sticky;top:130px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#6E5F64">In this guide</span>
+        <nav style="display:flex;flex-direction:column;border-left:2px solid #F4DADC">
+          <sc-for list="{{ toc }}" as="t" hint-placeholder-count="5"><a href="{{ t.href }}" style="padding:7px 0 7px 16px;font-size:15px;line-height:1.35;color:#4A3B40">{{ t.x }}</a></sc-for>
+        </nav>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;padding-top:8px"><sc-for list="{{ post.tags }}" as="t" hint-placeholder-count="2"><span style="font-size:12px;padding:5px 12px;border-radius:999px;background:#FFF5F5;border:1px solid #F4DADC">{{ t }}</span></sc-for></div>
+      </aside>
+    </div>
+  </article>
+
+  <section data-screen-label="Related" style="border-top:1px solid #F4DADC;background:#FFF5F5">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(24px,3vw,36px);margin:0;letter-spacing:-.02em">Keep reading</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:28px">
+        <sc-for list="{{ related }}" as="p" hint-placeholder-count="3">
+          <a href="{{ p.href }}" style="display:flex;flex-direction:column;gap:12px" style-hover="color:#2B2226">
+            <div style="aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#FFE3E3"><sc-if value="{{ hasPost }}" hint-placeholder-val="{{ false }}"><img src="{{ p.img }}" alt="{{ p.imgAlt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if></div>
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">{{ p.cat }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:20px;line-height:1.2">{{ p.title }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book a consultation" hint-size="0px,0px"></dc-import>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const PREVIEW = () => /\.html$/.test(location.pathname);
+const postHref = slug => PREVIEW() ? 'Avere Blog Post.dc.html?slug=' + slug : '/post/' + slug;
+const fmtDate = d => new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+class Component extends DCLogic {
+  state = { posts: [], faq: 0, progress: 0, shared: false };
+  componentDidMount() {
+    fetch('blog-posts.json').then(r => r.json()).then(j => { this.setState({ posts: j.posts }); this.applyMeta(); }).catch(() => {});
+    this.onScroll = () => { const h = document.documentElement; const max = h.scrollHeight - h.clientHeight; this.setState({ progress: max > 0 ? Math.min(1, h.scrollTop / max) : 0 }); };
+    addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { removeEventListener('scroll', this.onScroll); }
+  slug() { const q = new URLSearchParams(location.search).get('slug'); if (q) return q; const m = location.pathname.match(/\/post\/([^/?#]+)/); return m ? m[1] : ''; }
+  post() { const s = this.slug(); return this.state.posts.find(p => p.slug === s) || this.state.posts[0]; }
+  applyMeta() {
+    const p = this.post(); if (!p) return;
+    document.title = p.seoTitle || p.title;
+    const md = document.querySelector('meta[name="description"]'); if (md) md.content = p.seoDesc || p.dek;
+    if (!document.querySelector('script[data-article-ld]')) {
+      const ld = [{ '@context': 'https://schema.org', '@type': 'Article', headline: p.title, description: p.seoDesc || p.dek, image: [p.img], datePublished: p.date, author: { '@type': 'Organization', name: 'Avere Beauty' }, publisher: { '@type': 'Organization', name: 'Avere Beauty' } },
+        { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: (p.faq || []).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }];
+      const s = document.createElement('script'); s.type = 'application/ld+json'; s.dataset.articleLd = ''; s.textContent = JSON.stringify(ld); document.head.appendChild(s);
+    }
+  }
+  renderVals() {
+    const { posts, faq, progress, shared } = this.state;
+    const p = this.post() || { title: '', dek: '', cat: '', read: '', date: '2026-01-01', img: '', imgAlt: '', tags: [], takeaways: [], body: [], faq: [] };
+    const blocks = (p.body || []).map(b => ({ ...b, id: b.t === 'h2' ? slugify(b.x) : '', isP: b.t === 'p', isH2: b.t === 'h2', isUl: b.t === 'ul', isQuote: b.t === 'quote', isCallout: b.t === 'callout', isTable: b.t === 'table', items: b.items || [], head: b.head || [], rows: b.rows || [] }));
+    const sameCat = posts.filter(x => x.slug !== p.slug).sort((a, b) => (b.cat === p.cat) - (a.cat === p.cat)).slice(0, 3);
+    return {
+      post: { ...p, dateLabel: fmtDate(p.date) }, hasPost: !!this.post(),
+      blogHref: PREVIEW() ? '/blog' : '/blog',
+      progressStyle: { height: 3, width: (progress * 100) + '%', background: '#B04A62', transition: 'width .1s linear' },
+      takeaways: p.takeaways || [],
+      blocks,
+      toc: [...blocks.filter(b => b.isH2).map(b => ({ x: b.x, href: '#' + b.id })), { x: 'FAQs', href: '#faq' }],
+      faqs: (p.faq || []).map(([q, a], i) => ({ q, a, open: faq === i, icon: faq === i ? '−' : '+', toggle: () => this.setState({ faq: faq === i ? -1 : i }) })),
+      related: sameCat.map(x => ({ ...x, href: postHref(x.slug) })),
+      shareLabel: shared ? 'Link copied' : 'Copy link',
+      share: () => { const url = location.href; if (navigator.share) navigator.share({ title: p.title, url }).catch(() => {}); else navigator.clipboard.writeText(url).then(() => this.setState({ shared: true })); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -8,27 +8,148 @@
 <body>
 <x-dc>
 <helmet>
+<title>FAQ | Avere Beauty Pittsburgh Med Spa</title>
+<meta name="description" content="Answers to common questions about booking, Botox, filler, lasers, facials, weight loss, payments and rewards at Avere Beauty in Pittsburgh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}input:focus{outline:2px solid #B04A62;outline-offset:2px}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="FAQ" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Resources</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">FAQ</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+
+  <section data-screen-label="Hero" style="background:#FFF5F5">
+    <div style="max-width:960px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:22px;align-items:center;text-align:center">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Frequently asked questions</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,5.4vw,68px);line-height:1.04;letter-spacing:-.03em;margin:0">How can we help?</h1>
+      <div style="width:100%;max-width:620px;position:relative">
+        <input type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="Search questions, like “downtime” or “Cherry”" aria-label="Search FAQ" style="width:100%;min-height:60px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;padding:0 26px;font-family:'Lato',sans-serif;font-size:16px;color:#2B2226">
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="7"><button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button></sc-for>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  </section>
+
+  <section data-screen-label="Questions" style="max-width:960px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(32px,5vw,48px)">
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,32px);letter-spacing:-.02em;margin:0">{{ g.name }}</h2><a href="{{ g.href }}" style="font-size:14px;font-weight:700;color:#B04A62">{{ g.linkLabel }}</a></div>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #EFC3C7">
+          <sc-for list="{{ g.items }}" as="f" hint-placeholder-count="4">
+            <div style="border-bottom:1px solid #EFC3C7">
+              <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;gap:16px;align-items:center;background:none;border:none;padding:18px 0;cursor:pointer;text-align:left;font-family:'Lato',sans-serif;font-size:17px;font-weight:700;color:#2B2226;min-height:48px">{{ f.q }}<span style="{{ f.icon }}">+</span></button>
+              <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 0 20px;font-size:15px;line-height:1.7;color:#4A3B40;max-width:780px">{{ f.a }}</p></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+    <sc-if value="{{ none }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px dashed #EFC3C7;border-radius:24px;padding:28px;text-align:center;font-size:16px;color:#4A3B40">No matches. Try another word, or call us at <a href="tel:4129527592" style="font-weight:700">412-952-7592</a>.</div>
+    </sc-if>
+  </section>
+
+  <section data-screen-label="Still have questions" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="background:#2B2226;color:#FFF5F5;border-radius:32px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:10px"><h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);letter-spacing:-.02em;margin:0">Still have a question?</h2><p style="margin:0;font-size:16px;color:#EFC3C7">Our front desk team answers calls and texts during business hours.</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="tel:4129527592" style="background:#FFF5F5;color:#2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#EFC3C7;color:#2B2226">Call 412-952-7592</a>
+        <a href="Avere Aftercare.dc.html" style="border:1px solid rgba(255,245,245,.5);color:#FFF5F5;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="border-color:#fff;color:#fff">Pre &amp; aftercare</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Avere Book Bar" label="Book a visit" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const G = [
+  ['Booking & visits', 'Avere Tour the Spa.dc.html', 'Tour our offices →', [
+    ['How do I book?', 'Book online any time, or call 412-952-7592. You can choose your office, provider and treatment when you book.'],
+    ['Do I need a consultation first?', 'For most treatments we do your consultation and treatment in the same visit. Some, like Sculptra, thread lifts and weight loss, start with a dedicated consult.'],
+    ['Where are your offices?', 'Lawrenceville (3453 Butler Street), Cranberry (179 Scharberry Ln, Mars), Murrysville (5100 Old William Penn Hwy, Export) and Fox Chapel (307 Freeport Road, Blawnox).'],
+    ['What is your cancellation policy?', 'Please give us at least 24 hours’ notice to cancel or reschedule so we can offer the time to someone else.'],
+    ['Do I need to fill out forms before my visit?', 'Yes, new patients complete intake forms before their first appointment. You’ll receive a link when you book.'],
+    ['Is there parking?', 'Yes. Every office has free parking on site or right outside. Each location’s page on Tour the Spa shows where to park.'],
+    ['How early should I arrive?', 'Please arrive 10 minutes early for your first visit so we can review your forms and take photos for your chart.'],
+    ['What if I’m running late?', 'Text us at 412-952-7592. If you arrive more than 15 minutes late we may need to shorten or reschedule your treatment.'],
+    ['Can I bring a friend?', 'Of course. Many clients book together. Ask about our Refer a Friend rewards.'],
+    ['Do you see clients under 18?', 'Some skin treatments like facials and acne care are available with a parent or guardian present. Injectables are for adults 18 and over.'],
+  ]],
+  ['Injectables', 'Avere Injectables.dc.html', 'All injectables →', [
+    ['How long does Botox last?', 'Most neurotoxins last about three to four months. Daxxify can last longer for some patients.'],
+    ['How long does filler last?', 'Usually six to eighteen months depending on the product and area. Lips tend to need touch-ups sooner than cheeks or chin.'],
+    ['Does it hurt?', 'Most patients describe a quick pinch. Fillers contain lidocaine and we offer topical numbing.'],
+    ['Can filler be dissolved?', 'Hyaluronic acid fillers like Juvéderm, Restylane, RHA and Versa can be dissolved with hyaluronidase.'],
+    ['Who does my injections?', 'Licensed nurse injectors and nurse practitioners, trained under Alyssa Luciano, RN, with physician oversight.'],
+    ['When will I see Botox results?', 'Most people notice a change in three to five days, with full results at about two weeks.'],
+    ['Will I look frozen?', 'Not with the right dose. We aim for softened lines while keeping your natural expressions.'],
+    ['Is there downtime after filler?', 'Most people go right back to their day. Expect possible swelling or small bruises for a few days, especially in the lips.'],
+    ['What should I avoid before injectables?', 'If your doctor agrees, skip alcohol, fish oil, ibuprofen and aspirin for a few days beforehand to lower bruising risk.'],
+    ['Can I get injectables while pregnant or breastfeeding?', 'No. We wait until after pregnancy and breastfeeding for all neurotoxins and fillers.'],
+    ['Do you offer a touch-up?', 'We check in at two weeks for new neurotoxin clients and adjust if needed.'],
+  ]],
+  ['Lasers', 'Avere Lasers.dc.html', 'All lasers →', [
+    ['Which laser is right for me?', 'It depends on your skin tone, hair color and goals. Take our laser quiz or book a consult and we’ll match you to the right device.'],
+    ['Can darker skin tones get laser hair removal?', 'Yes. Our Nd:YAG wavelength bypasses surface melanin, which makes it safer for deeper skin tones.'],
+    ['How many laser hair removal sessions will I need?', 'Most people need six to eight sessions spaced a few weeks apart, because hair grows in cycles.'],
+    ['Is there downtime?', 'It varies from none (hair removal, IPL) to about a week (CoolPeel and deeper resurfacing).'],
+    ['Does laser treatment hurt?', 'Most clients describe a warm snap like a rubber band. We use cooling and numbing where needed.'],
+    ['Can I get a laser treatment in the summer?', 'Some lasers are fine year-round, but we avoid certain treatments on tanned skin. Daily SPF is a must either way.'],
+    ['How many tattoo removal sessions will I need?', 'Most tattoos take 6 to 12 sessions spaced about 6 to 8 weeks apart, depending on ink colors, depth and age.'],
+    ['How should I prepare for laser hair removal?', 'Shave the area the day before, and avoid waxing, plucking or tanning for four weeks beforehand.'],
+  ]],
+  ['Esthetics', 'Avere Esthetics.dc.html', 'All esthetics →', [
+    ['What’s the best facial for a first visit?', 'HydraFacial is a great first step: no downtime and suitable for every skin type.'],
+    ['Will I peel after a chemical peel?', 'Gentle peels cause no visible peeling; stronger PCA peels can cause flaking for three to seven days.'],
+    ['How often should I get a facial?', 'Every four to six weeks matches your skin’s natural renewal cycle.'],
+    ['What’s the difference between a HydraFacial and a peel?', 'HydraFacial cleanses, exfoliates and hydrates with no downtime. Peels go deeper to treat pigment, acne and texture, and may cause flaking.'],
+    ['Can I wear makeup after a facial?', 'We recommend waiting until the next day so your skin can absorb the treatment.'],
+    ['Do you treat acne?', 'Yes. We combine peels, facials, medical-grade skin care and, when needed, prescription options from our providers.'],
+    ['Is dermaplaning going to make my hair grow back thicker?', 'No. Hair grows back the same texture and color.'],
+  ]],
+  ['Weight loss', 'Avere Weight Loss.dc.html', 'Weight loss program →', [
+    ['What does the $50 consult include?', 'A visit with a nurse practitioner to review your history and goals, discuss medication options and build a personalized plan.'],
+    ['Where do I get my medication?', 'You pick it up in our office during your weekly follow-up.'],
+    ['Which medications do you offer?', 'Semaglutide, tirzepatide and Contrave. Your NP decides which fits you.'],
+    ['How much weight can I expect to lose?', 'Results vary. Your NP will set realistic goals based on your history and check in weekly.'],
+    ['Are there side effects?', 'Nausea and appetite changes are the most common, especially early on. We adjust your dose to keep you comfortable.'],
+    ['Do I need insurance?', 'No. Our program is self-pay, and you can use financing.'],
+  ]],
+  ['Payments & rewards', 'Avere Financing.dc.html', 'Financing options →', [
+    ['Do you offer financing?', 'Yes. We accept Cherry, Afterpay and CareCredit.'],
+    ['Do you accept HSA or FSA cards?', 'Cosmetic treatments usually aren’t eligible, but some medical treatments may be. Check with your plan administrator.'],
+    ['What rewards programs can I use?', 'Our own Beauty Bank, plus Allē, Galderma ASPIRE, Merz Xperience+ and Evolus Rewards.'],
+    ['Do you sell gift cards?', 'Yes, in any amount, delivered by email. They work at all four offices.'],
+    ['Can I finance with $0 down?', 'Many Cherry plans allow $0 down. Your options appear after a quick soft-check application, which does not affect your credit score.'],
+    ['Do you offer memberships?', 'Yes. VIP Membership spots open in small groups. Join the waitlist to hear first.'],
+    ['Do you price match?', 'We don’t price match, but we run monthly promos and you can stack brand rewards with our Beauty Bank.'],
+    ['What forms of payment do you accept?', 'All major credit and debit cards, Apple Pay, gift cards, Cherry, Afterpay and CareCredit.'],
+  ]],
+  ['Medical & derm', 'Avere Dermatology.dc.html', 'Medical & derm services →', [
+    ['Do you treat medical skin concerns?', 'Yes. We treat acne, scars, excessive sweating and jaw clenching, with oversight from our medical director.'],
+    ['Can Botox help with sweating?', 'Yes. Botox is FDA-approved for underarm hyperhidrosis and usually reduces sweating for six months or more.'],
+    ['Can Botox help TMJ or clenching?', 'Many clients get relief from jaw tension and headaches when Botox relaxes the masseter muscles.'],
+    ['Do you offer scar treatments?', 'Yes. We combine lasers, microneedling and fillers depending on the scar type.'],
+  ]],
+];
+class Component extends DCLogic {
+  state = { q: '', cat: 'All', open: '0-0' };
+  renderVals() {
+    const { q, cat, open } = this.state, term = q.trim().toLowerCase();
+    const pill = on => ({ padding: '9px 16px', minHeight: 44, borderRadius: 999, cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 14, fontWeight: 700, border: '1px solid ' + (on ? '#2B2226' : '#EFC3C7'), background: on ? '#2B2226' : '#fff', color: on ? '#fff' : '#2B2226' });
+    const groups = G.map(([name, href, linkLabel, items], gi) => ({ name, href, linkLabel,
+      items: items.map(([qq, a], i) => ({ qq, a, key: `${gi}-${i}` })).filter(x => !term || (x.qq + ' ' + x.a).toLowerCase().includes(term))
+        .map(x => ({ q: x.qq, a: x.a, open: !!term || open === x.key, toggle: () => this.setState({ open: open === x.key ? '' : x.key }), icon: { fontSize: 22, color: '#B04A62', transform: (term || open === x.key) ? 'rotate(45deg)' : 'none', transition: 'transform .25s', flexShrink: 0 } })) }))
+      .filter(g => (cat === 'All' || g.name === cat) && g.items.length);
+    return {
+      q, onQ: e => this.setState({ q: e.target.value }),
+      cats: ['All', ...G.map(g => g[0])].map(c => ({ label: c, pick: () => this.setState({ cat: c }), style: pill(cat === c) })),
+      groups, none: groups.length === 0,
+    };
+  }
+}
 </script>
 </body>
 </html>

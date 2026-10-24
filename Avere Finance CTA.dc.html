@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ isStrip }}" hint-placeholder-val="{{ false }}">
+  <section data-cta-unit="{{ unitId }}" style="padding:0 clamp(20px,4vw,32px);margin:clamp(32px,5vw,56px) 0">
+    <a href="{{ href }}" data-cta="{{ unitId }}" style="max-width:1320px;margin:0 auto;background:#2B2226;color:#FFF5F5;border-radius:999px;padding:14px 14px 14px clamp(20px,3vw,32px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap" style-hover="color:#FFF5F5;background:#3A2B31">
+      <span style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span style="font-family:'Poppins',sans-serif;font-size:clamp(17px,1.8vw,21px)">{{ h.head }}</span><span style="font-size:14px;color:#EFC3C7">{{ h.sub }}</span></span>
+      <span style="background:#FFE3E3;color:#2B2226;min-height:44px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:14px;font-weight:700">{{ h.btn }} →</span>
+    </a>
+  </section>
+</sc-if>
+<sc-if value="{{ isCard }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" data-cta="{{ unitId }}" data-cta-unit="{{ unitId }}" style="background:radial-gradient(ellipse 80% 90% at 100% 0%, #FFE3E3 0%, rgba(255,227,227,0) 60%), #FFF5F5;border:1px solid #F4DADC;border-radius:28px;padding:clamp(22px,3vw,30px);display:flex;flex-direction:column;gap:12px;max-width:520px" style-hover="border-color:#B04A62;color:#2B2226">
+    <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62;font-weight:700">Treat now, pay later</span>
+    <span style="font-family:'Poppins',sans-serif;font-size:clamp(24px,2.6vw,32px);line-height:1.15;letter-spacing:-.01em">{{ h.head }}</span>
+    <span style="font-size:15px;line-height:1.6;color:#4A3B40">{{ h.sub }}</span>
+    <span style="align-self:flex-start;background:#2B2226;color:#fff;min-height:46px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:14px;font-weight:700;margin-top:4px">{{ h.btn }}</span>
+    <span style="font-size:12px;color:#6E5F64">Cherry · Afterpay · CareCredit. Subject to approval.</span>
+  </a>
+</sc-if>
+<sc-if value="{{ isInline }}" hint-placeholder-val="{{ false }}">
+  <a href="{{ href }}" data-cta="{{ unitId }}" data-cta-unit="{{ unitId }}" style="display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#4A3B40;min-height:44px" style-hover="color:#B04A62">
+    <span style="background:#FFE3E3;color:#8E3A4F;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700">$0 down</span>
+    <span>{{ h.sub }} <strong style="color:#B04A62">{{ h.btn }} →</strong></span>
+  </a>
+</sc-if>
+<sc-if value="{{ isBanner }}" hint-placeholder-val="{{ false }}">
+  <section data-cta-unit="{{ unitId }}" style="padding:clamp(40px,6vw,72px) clamp(20px,4vw,32px)">
+    <div style="position:relative;overflow:hidden;max-width:1320px;margin:0 auto;border-radius:36px;background:radial-gradient(ellipse 50% 80% at 85% 30%, #4A3238 0%, #2B2226 60%, #1E1619 100%);color:#FFF5F5;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,4vw,48px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">Treat now, pay later</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.8vw,52px);line-height:1.06;letter-spacing:-.02em;margin:0;color:#FFF5F5;text-wrap:balance">{{ h.head }}</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#F4DADC;max-width:520px">{{ h.sub }}</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+          <a href="{{ href }}" data-cta="{{ unitId }}" style="background:#FFE3E3;color:#2B2226;min-height:52px;padding:0 28px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#fff;color:#2B2226">{{ h.btn }}</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid rgba(239,195,199,.2);padding:14px 0"><span style="font-size:14px;color:#EFC3C7">Down payment</span><span style="font-family:'Poppins',sans-serif;font-size:28px">$0</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid rgba(239,195,199,.2);padding:14px 0"><span style="font-size:14px;color:#EFC3C7">Credit impact to check</span><span style="font-family:'Poppins',sans-serif;font-size:28px">None</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0"><span style="font-size:14px;color:#EFC3C7">Decision in about</span><span style="font-family:'Poppins',sans-serif;font-size:28px">60 sec</span></div>
+        <span style="font-size:12px;color:#B9A4AA">With Cherry, subject to approval. Terms vary by lender.</span>
+      </div>
+    </div>
+  </section>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;auto&quot;},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;strip&quot;,&quot;card&quot;,&quot;inline&quot;,&quot;banner&quot;],&quot;default&quot;:&quot;strip&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;hook&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;placement&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;page&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;price&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;}}">
+const HOOKS = {
+  a: { head: 'Treat now, pay later.', sub: 'Split any treatment into easy monthly payments.', btn: 'See payment options' },
+  b: { head: '$0 down. Start today.', sub: 'Learn more about how you can finance your treatment with $0 down.', btn: 'Learn about $0 down' },
+  c: { head: 'As low as {mo}/month', sub: 'Checking your rate won’t affect your credit score.', btn: 'Check my rate' },
+  d: { head: 'Your glow, in bite-size payments.', sub: 'No need to wait for the “right time.” Pay over 3 to 24 months.', btn: 'Pay over time' },
+  e: { head: 'Pre-qualify in 60 seconds.', sub: 'Soft credit check. No impact to your score.', btn: 'Pre-qualify now' },
+};
+const KEYS = Object.keys(HOOKS);
+class Component extends DCLogic {
+  pickHook() {
+    const want = this.props.hook || 'auto';
+    if (HOOKS[want]) return want;
+    // Rotate hooks per visitor so the dashboard can compare them
+    try { let k = localStorage.getItem('av_fin_hook'); if (!HOOKS[k]) { k = KEYS[Math.floor(Math.random() * KEYS.length)]; localStorage.setItem('av_fin_hook', k); } return k; } catch (e) { return 'a'; }
+  }
+  renderVals() {
+    const variant = this.props.variant || 'strip';
+    const key = this.pickHook();
+    const price = Number(this.props.price) || 0;
+    const mo = price ? '$' + Math.ceil(price / 12) : '$50';
+    const h0 = HOOKS[key];
+    const h = { ...h0, head: h0.head.replace('{mo}', mo) };
+    const unitId = `fin:${this.props.placement || 'page'}:${variant}:${key}`;
+    return {
+      h, unitId, href: `Avere Financing.dc.html?fin=${key}`,
+      isStrip: variant === 'strip', isCard: variant === 'card', isInline: variant === 'inline', isBanner: variant === 'banner',
+    };
+  }
+}
+</script>
+</body>
+</html>

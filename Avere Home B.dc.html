@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;color:#2B2226;font-family:'Figtree',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff">
+  <header style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #F4DADC">
+    <div style="max-width:1400px;margin:0 auto;padding:10px 32px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px">
+      <nav style="display:flex;gap:26px;flex-wrap:wrap;font-size:14px;font-weight:500">
+        <a href="#rail">Treatments</a><a href="#finder">Find my treatment</a><a href="#">Membership</a>
+      </nav>
+      <a href="#"><img src="assets/avere-logo-black.png" alt="Avere Beauty" style="height:64px;display:block"></a>
+      <div style="display:flex;gap:20px;justify-content:flex-end;align-items:center;flex-wrap:wrap;font-size:14px;font-weight:500">
+        <a href="#locations">Locations</a><a href="#">Gift Cards</a>
+        <a href="#locations" style="background:#FFE3E3;padding:11px 22px;border-radius:999px" style-hover="background:#2B2226;color:#fff">Book now</a>
+      </div>
+    </div>
+  </header>
+
+  <section data-screen-label="Hero" style="padding:20px 20px 0">
+    <div style="position:relative;max-width:1560px;margin:0 auto;border-radius:36px;overflow:hidden;min-height:680px;display:flex;align-items:flex-end;padding:32px">
+      <img src="assets/avere-interior.jpg" alt="Avere Beauty front desk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div style="position:relative;background:#fff;border-radius:28px;padding:44px 44px 40px;max-width:600px;display:flex;flex-direction:column;gap:22px">
+        <div style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#B04A62;font-weight:500">Avere · <em style="font-family:'Bodoni Moda',serif;text-transform:none;letter-spacing:0;font-size:16px">i.e. to have</em></div>
+        <h1 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(44px,5vw,72px);line-height:1;margin:0;letter-spacing:-.015em;text-wrap:balance">Look new, and <em>feel you.</em></h1>
+        <p style="font-size:17px;line-height:1.6;color:#6E5F64;margin:0;text-wrap:pretty">Injectables do more than smooth skin and fill lips – they give you a sense of renewal and help recapture your beauty and confidence.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="#finder" style="background:#2B2226;color:#fff;padding:16px 28px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#B04A62;color:#fff">Find my treatment</a>
+          <a href="#locations" style="background:#FFE3E3;padding:16px 28px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#F7CDD1;color:#2B2226">Book at a location</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:1400px;margin:0 auto;padding:28px 32px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:15px;color:#6E5F64">
+    <span>Pittsburgh's #1 med spa</span><span style="color:#EFC3C7">✦</span><span>Lawrenceville · Cranberry · Murrysville · Blawnox</span><span style="color:#EFC3C7">✦</span><span>Same-week appointments</span>
+  </div>
+
+  <section id="finder" data-screen-label="Treatment finder" style="padding:40px 20px 96px">
+    <div style="max-width:1400px;margin:0 auto;background:#FFE3E3;border-radius:36px;padding:72px clamp(24px,5vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:56px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#8E3A4F;font-weight:500">Treatment finder · Step {{ stepNum }} of 2</div>
+        <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(36px,3.8vw,54px);line-height:1.05;margin:0;text-wrap:balance">{{ question }}</h2>
+        <p style="font-size:16px;line-height:1.6;color:#4A3B40;margin:0;max-width:440px;text-wrap:pretty">Each procedure comes with its own benefits and knowing which one is right for you is made simple at Avere Beauty.</p>
+        <div style="display:flex;gap:6px;padding-top:8px">
+          <div style="height:4px;width:64px;border-radius:4px;background:#2B2226"></div>
+          <div style="{{ bar2 }}"></div>
+        </div>
+        <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ back }}" style="align-self:flex-start;background:none;border:none;padding:0;font:inherit;font-size:14px;font-weight:600;cursor:pointer;color:#2B2226;text-decoration:underline;text-underline-offset:4px">← Start over</button>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <sc-if value="{{ showAreas }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+            <sc-for list="{{ areas }}" as="a" hint-placeholder-count="6">
+              <button onClick="{{ a.pick }}" style="background:#fff;border:1px solid #fff;border-radius:22px;padding:22px 22px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;font-family:'Figtree',sans-serif;color:#2B2226;transition:border-color .2s, transform .2s" style-hover="border-color:#2B2226;transform:translateY(-2px)">
+                <span style="font-family:'Bodoni Moda',serif;font-size:24px">{{ a.label }}</span>
+                <span style="font-size:14px;color:#6E5F64">{{ a.hint }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showResults }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
+              <a href="#" style="background:#fff;border-radius:22px;padding:14px;display:flex;gap:18px;align-items:center" style-hover="color:#2B2226;box-shadow:0 14px 34px rgba(142,58,79,.14)">
+                <img src="{{ r.img }}" alt="{{ r.name }}" style="width:96px;height:96px;border-radius:16px;object-fit:cover;flex-shrink:0">
+                <div style="display:flex;flex-direction:column;gap:4px;flex:1">
+                  <span style="font-family:'Bodoni Moda',serif;font-size:24px">{{ r.name }}</span>
+                  <span style="font-size:14px;line-height:1.5;color:#6E5F64">{{ r.short }}</span>
+                </div>
+                <span style="font-size:22px;padding:0 10px">→</span>
+              </a>
+            </sc-for>
+            <a href="#locations" style="align-self:flex-start;margin-top:8px;background:#2B2226;color:#fff;padding:15px 26px;border-radius:999px;font-size:15px;font-weight:500" style-hover="background:#8E3A4F;color:#fff">Book a consultation</a>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="rail" data-screen-label="Services rail" style="padding:0 0 104px">
+    <div style="max-width:1400px;margin:0 auto;padding:0 32px 32px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(36px,4vw,56px);line-height:1;margin:0">Our services</h2>
+      <div style="display:flex;gap:8px">
+        <button onClick="{{ railPrev }}" style="width:48px;height:48px;border-radius:50%;border:1px solid #2B2226;background:#fff;cursor:pointer;font-size:18px;color:#2B2226" style-hover="background:#FFE3E3">←</button>
+        <button onClick="{{ railNext }}" style="width:48px;height:48px;border-radius:50%;border:1px solid #2B2226;background:#fff;cursor:pointer;font-size:18px;color:#2B2226" style-hover="background:#FFE3E3">→</button>
+      </div>
+    </div>
+    <div ref="{{ railRef }}" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(32px,calc((100vw - 1336px)/2));scrollbar-width:none">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+        <a href="#" style="flex:0 0 min(78vw,340px);scroll-snap-align:start;display:flex;flex-direction:column;gap:16px" style-hover="color:#2B2226">
+          <div style="border-radius:28px;overflow:hidden;background:#FFE3E3;position:relative">
+            <img src="{{ s.img }}" alt="{{ s.name }}" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .5s" style-hover="transform:scale(1.05)">
+            <span style="position:absolute;top:16px;left:16px;background:#fff;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;letter-spacing:.06em">{{ s.catLabel }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px">
+            <span style="font-family:'Bodoni Moda',serif;font-size:26px">{{ s.name }}</span>
+            <span style="font-size:15px;line-height:1.55;color:#6E5F64">{{ s.short }}</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Your visit" style="border-top:1px solid #F4DADC;border-bottom:1px solid #F4DADC">
+    <div style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
+      <div style="padding:64px 40px 64px 32px;display:flex;flex-direction:column;gap:16px;border-right:1px solid #F4DADC">
+        <div style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#B04A62;font-weight:500">Your visit</div>
+        <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(32px,3.2vw,44px);line-height:1.08;margin:0">You always have a voice in the process.</h2>
+      </div>
+      <div style="padding:64px 40px;display:flex;flex-direction:column;gap:14px;border-right:1px solid #F4DADC">
+        <span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:40px;color:#B04A62">01</span>
+        <span style="font-size:19px;font-weight:600">Thorough information</span>
+        <span style="font-size:15px;line-height:1.6;color:#6E5F64">When you visit our med spa, you are provided with thorough information about every option.</span>
+      </div>
+      <div style="padding:64px 40px;display:flex;flex-direction:column;gap:14px;border-right:1px solid #F4DADC">
+        <span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:40px;color:#B04A62">02</span>
+        <span style="font-size:19px;font-weight:600">Feel it for yourself</span>
+        <span style="font-size:15px;line-height:1.6;color:#6E5F64">You get the chance to feel for yourself the different lip fillers we offer before sitting down in the chair.</span>
+      </div>
+      <div style="padding:64px 40px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-family:'Bodoni Moda',serif;font-style:italic;font-size:40px;color:#B04A62">03</span>
+        <span style="font-size:19px;font-weight:600">No over-filling</span>
+        <span style="font-size:15px;line-height:1.6;color:#6E5F64">We are the experts, but you are the one who makes the decisions. No pushing products.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="locations" data-screen-label="Locations" style="padding:104px 32px">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+        <h2 style="font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(36px,4vw,56px);line-height:1;margin:0">Choose your <em>Avere</em></h2>
+        <a href="tel:4129527592" style="font-size:16px;font-weight:600">412-952-7592</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+        <sc-for list="{{ locs }}" as="l" hint-placeholder-count="4">
+          <div style="border:1px solid #F4DADC;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s" style-hover="border-color:#EFC3C7">
+            <img src="{{ l.img }}" alt="{{ l.name }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#FFE3E3">
+            <div style="padding:24px;display:flex;flex-direction:column;gap:14px;flex:1">
+              <span style="font-family:'Bodoni Moda',serif;font-size:30px;line-height:1">{{ l.name }}</span>
+              <a href="{{ l.map }}" style="font-size:14px;line-height:1.5;color:#6E5F64;flex:1">{{ l.addr }}<br>{{ l.city }}</a>
+              <a href="{{ l.book }}" style="background:#FFE3E3;padding:13px 20px;border-radius:999px;font-size:14px;font-weight:600;text-align:center" style-hover="background:#2B2226;color:#fff">Book {{ l.name }}</a>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#2B2226;color:#fff;padding:72px 32px 36px">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:18px;max-width:420px">
+          <span style="font-family:'Bodoni Moda',serif;font-size:40px;line-height:1.05">Follow us on Instagram <a href="https://www.instagram.com/averebeauty/" style="color:#FFE3E3;font-style:italic">@averebeauty</a></span>
+        </div>
+        <div style="display:flex;gap:56px;flex-wrap:wrap;font-size:15px">
+          <div style="display:flex;flex-direction:column;gap:10px"><a href="#" style="color:#fff">Injectables</a><a href="#" style="color:#fff">Laser Treatments</a><a href="#" style="color:#fff">Esthetic Services</a><a href="#" style="color:#fff">Weight Loss</a></div>
+          <div style="display:flex;flex-direction:column;gap:10px"><a href="#" style="color:#fff">Before &amp; After</a><a href="#" style="color:#fff">Membership</a><a href="#" style="color:#fff">Financing</a><a href="#" style="color:#fff">Join Our Team</a></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;color:#D9C7CB;padding-top:24px;border-top:1px solid #4A3B40"><span>COPYRIGHT ©2026 AVERE BEAUTY</span><div style="display:flex;gap:20px"><a href="#" style="color:#D9C7CB">PRIVACY POLICY</a><a href="#" style="color:#D9C7CB">COPYRIGHT NOTICE</a></div></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const W = (id, w, h) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/img.jpg`;
+const SERVICES = [
+  { id: 'neuro', cat: 'Injectable', name: 'Neurotoxins', img: '903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg', short: "From Crow's Feet to Glabellar lines. Botox, Dysport, Jeuveau, and Xeomin." },
+  { id: 'filler', cat: 'Injectable', name: 'Dermal Filler', img: '903d63_caf0a92094d9497e8c6db7f5b9cf8c45~mv2.jpg', short: 'Add volume, fill wrinkles, and enhance facial contours.' },
+  { id: 'threads', cat: 'Injectable', name: 'PDO Threads', img: '903d63_1fe32a2493cf49fda9b168228b273499~mv2.jpg', short: 'Biodegradable threads to lift and rejuvenate the skin.' },
+  { id: 'laser', cat: 'Laser', name: 'Laser Treatments', img: '9272ed_2572f748eff64b84a72447556b3a61f9~mv2.jpg', short: 'Laser hair removal, IPL, vascular, and skin resurfacing.' },
+  { id: 'virtue', cat: 'Device', name: 'VirtueRF', img: '903d63_d3c4a1cb1c3a4acc97d22ccf94ff7d83~mv2.jpg', short: 'RF microneedling for fine lines, scarring, eyebags and jawline.' },
+  { id: 'subnovii', cat: 'Device', name: 'Subnovii', img: '903d63_aece9b78279d47b4abfeee256a8883af~mv2.png', short: 'FDA-cleared plasma skin resurfacing.' },
+  { id: 'skinpen', cat: 'Skin', name: 'SkinPen', img: '903d63_9ab71123ab25476b9e43caaf775f354e~mv2.jpg', short: 'Microneedling that promotes collagen and elastin.' },
+  { id: 'esthetic', cat: 'Skin', name: 'Esthetics', img: '903d63_24a51d18d7c849a984bed99e9da2ab5b~mv2.jpg', short: 'Facials, peels, lash lifts, brow laminations and hydrafacials.' },
+  { id: 'skincare', cat: 'Shop', name: 'Medical Grade Skincare', img: '903d63_9d021e833968439ea117454c700a369a~mv2.jpg', short: 'PCA, SkinBetter, Face Reality, and DMK.' },
+];
+const AREAS = [
+  { k: 'forehead', label: 'Forehead & eyes', hint: 'Lines, 11s, crow\'s feet', ids: ['neuro', 'virtue', 'subnovii'] },
+  { k: 'lips', label: 'Lips', hint: 'Volume, shape, lip flip', ids: ['filler', 'neuro'] },
+  { k: 'jaw', label: 'Jaw & contour', hint: 'Lift, slim, define', ids: ['threads', 'filler', 'virtue'] },
+  { k: 'skin', label: 'Skin', hint: 'Texture, scars, glow', ids: ['skinpen', 'esthetic', 'skincare'] },
+  { k: 'body', label: 'Body', hint: 'Hair removal, vascular', ids: ['laser', 'virtue'] },
+  { k: 'unsure', label: 'Not sure yet', hint: 'Start with a consult', ids: ['neuro', 'filler', 'esthetic'] },
+];
+const LOCS = [
+  { name: 'Lawrenceville', addr: '3453 Butler Street', city: 'Pittsburgh, PA 15201', img: W('903d63_24475366948040e78160f8ec6409949a~mv2.jpg', 800, 600), map: 'https://maps.app.goo.gl/9nzKxWPxhcgexSAX8', book: 'https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa' },
+  { name: 'Cranberry', addr: '179 Scharberry Ln', city: 'Mars, PA 16046', img: 'assets/avere-interior.jpg', map: 'https://maps.app.goo.gl/1dVzPj2E5dEMNkaZ6', book: '#' },
+  { name: 'Murrysville', addr: '5100 Old William Penn Hwy, STE 3', city: 'Export, PA 15632', img: W('903d63_5a1d874c69244c898c653a743d295eaa~mv2.jpg', 800, 600), map: 'https://maps.app.goo.gl/VREmjDntVtmiQHMM8', book: 'https://square.site/book/LRK1T17YQYTVG/avere-beauty-murrysville-export-pa' },
+  { name: 'Blawnox', addr: '307 Freeport Road', city: 'Blawnox, PA 15238', img: W('903d63_e208abbb61e548489e222ef57af90fdc~mv2.jpg', 800, 600), map: 'https://maps.app.goo.gl/EEWexjiBBBwrVH9u7', book: '#' },
+];
+
+class Component extends DCLogic {
+  state = { area: null };
+  railRef = React.createRef();
+  scrollRail(d) { const el = this.railRef.current; if (el) el.scrollBy({ left: d * 360, behavior: 'smooth' }); }
+  renderVals() {
+    const a = AREAS.find(x => x.k === this.state.area);
+    return {
+      stepNum: a ? 2 : 1,
+      question: a ? `Your matches for ${a.label.toLowerCase()}` : 'Where would you like to see a difference?',
+      bar2: { height: 4, width: 64, borderRadius: 4, background: a ? '#2B2226' : '#F2B8BF', transition: 'background .3s' },
+      canBack: !!a, back: () => this.setState({ area: null }),
+      showAreas: !a, showResults: !!a,
+      areas: AREAS.map(x => ({ ...x, pick: () => this.setState({ area: x.k }) })),
+      results: a ? a.ids.map(id => { const s = SERVICES.find(v => v.id === id); return { ...s, img: W(s.img, 240, 240) }; }) : [],
+      services: SERVICES.map(s => ({ ...s, catLabel: s.cat, img: W(s.img, 700, 930) })),
+      railRef: this.railRef, railPrev: () => this.scrollRail(-1), railNext: () => this.scrollRail(1),
+      locs: LOCS,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Frank Udavcak, Co-founder | Avere Beauty</title>
+<meta name="description" content="Meet Frank Udavcak, co-founder of Avere Beauty. Marketer, operator and dad of four, building Pittsburgh's med spa family with Alyssa Luciano since 2019.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
+</helmet>
+<div style="min-height:100vh;background:#fff;color:#2B2226;overflow-x:hidden">
+  <dc-import name="Avere Nav" active="about" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
+
+  <section data-screen-label="Hero" style="position:relative;background:radial-gradient(ellipse 55% 70% at 78% 40%, #FFE3E3 0%, rgba(255,227,227,0) 70%), #FFF5F5;overflow:hidden">
+    <sc-for list="{{ sparkles }}" as="s" hint-placeholder-count="0">
+      <svg data-twinkle="{{ s.phase }}" viewBox="0 0 24 24" style="{{ s.style }}"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z" fill="currentColor"></path></svg>
+    </sc-for>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(32px,5vw,72px) clamp(20px,4vw,32px) clamp(56px,8vw,104px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Co-founder</span>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(44px,6vw,84px);line-height:1;letter-spacing:-.03em;margin:0">Frank Udavcak</h1>
+        <p style="margin:0;font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(22px,2.4vw,30px);line-height:1.35;color:#4A3B40;max-width:560px;text-wrap:pretty">“It’s never about the numbers. It’s about the smiles.”</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="Avere Our Story.dc.html" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Our story</a>
+          <a href="Avere Team.dc.html" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Meet the team</a>
+        </div>
+      </div>
+      <div style="position:relative;min-width:0;aspect-ratio:4/5;max-height:640px;width:100%;border-radius:32px;overflow:hidden;background:#FFE3E3;box-shadow:0 30px 80px rgba(176,74,98,.18)"><image-slot id="frank-portrait" shape="rect" placeholder="Professional portrait of Frank" style="position:absolute;inset:0"></image-slot></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Bio" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">About Frank</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0;text-wrap:balance">Marketer by trade, operator by choice</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#4A3B40;text-wrap:pretty">Frank has been building things on a computer since he was seven. He started out directing music videos, including work for Taylor Gang and Wiz Khalifa, and helped grow GLD into a brand doing $50 million a year. After time in corporate roles at Highmark and PPG, he went back to running his own marketing company for local medical practices.</p>
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#4A3B40;text-wrap:pretty">In 2019 he and Alyssa Luciano signed Avere’s first lease. Today he leads growth, marketing and strategy across Avere Beauty, Avere Cosmetics, Manikure and Aura Hair Studio, and manages a growing real estate portfolio.</p>
+      <a href="Avere Frank Story.dc.html" style="font-size:15px;font-weight:700;color:#B04A62">The long version →</a>
+    </div>
+  </section>
+
+  <section data-screen-label="In his words" style="background:#FFF5F5;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">In his words</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">
+        <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="4">
+          <blockquote style="margin:0;background:#fff;border-radius:28px;padding:clamp(26px,3vw,36px);display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 40px rgba(176,74,98,.08)">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;color:#D99AA6"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z" fill="currentColor"></path></svg>
+            <p style="margin:0;font-family:'Poppins',sans-serif;font-weight:300;font-size:clamp(20px,2vw,24px);line-height:1.45;color:#2B2226;text-wrap:pretty">{{ q.t }}</p>
+            <span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#6E5F64;font-weight:700">{{ q.k }}</span>
+          </blockquote>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Milestones" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px">
+    <sc-for list="{{ marks }}" as="m" hint-placeholder-count="4">
+      <div style="display:flex;flex-direction:column;gap:8px;border-top:2px solid #2B2226;padding-top:18px">
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(30px,3.4vw,44px);line-height:1;color:#B04A62">{{ m.v }}</span>
+        <span style="font-size:15px;line-height:1.5;color:#4A3B40">{{ m.k }}</span>
+      </div>
+    </sc-for>
+  </section>
+
+  <section data-screen-label="Brands" style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,104px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The family of brands</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">What Frank owns and runs</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <sc-for list="{{ brands }}" as="b" hint-placeholder-count="4">
+        <div style="border:1px solid #F4DADC;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-family:'Poppins',sans-serif;font-size:22px">{{ b.t }}</span>
+          <span style="font-size:15px;line-height:1.6;color:#4A3B40">{{ b.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Off the clock" style="background:#FFF5F5;padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+        <div style="position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:#FFE3E3"><image-slot id="frank-kids" shape="rect" placeholder="Frank with the girls" style="position:absolute;inset:0"></image-slot></div>
+        <div style="position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:#FFE3E3;margin-top:40px"><image-slot id="frank-daphne" shape="rect" placeholder="Daphne the Great Dane" style="position:absolute;inset:0"></image-slot></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Off the clock</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1;letter-spacing:-.02em;margin:0">For fun</h2>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+          <sc-for list="{{ fun }}" as="f" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:16px 0;border-bottom:1px solid #F4DADC">
+              <svg viewBox="0 0 24 24" style="width:14px;height:14px;color:#D99AA6;margin-top:5px"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z" fill="currentColor"></path></svg>
+              <span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Poppins',sans-serif;font-size:19px">{{ f.t }}</span><span style="font-size:15px;line-height:1.55;color:#4A3B40">{{ f.d }}</span></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="padding:clamp(56px,8vw,104px) clamp(20px,4vw,32px)">
+    <div style="position:relative;max-width:1320px;margin:0 auto;background:#2B2226;color:#fff;border-radius:32px;padding:clamp(40px,6vw,80px);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;overflow:hidden">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.15;margin:0;max-width:760px;text-wrap:balance">“It’s the life we chose, and we chose it so you can have beauty.”</h2>
+      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#FFE3E3;color:#2B2226;min-height:52px;padding:0 30px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700;margin-top:6px" style-hover="background:#fff;color:#2B2226">Book a visit</a>
+    </div>
+  </section>
+  <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SP = [[6, 18, 14, '#EFC3C7'], [14, 70, 10, '#D99AA6'], [44, 12, 12, '#EFC3C7'], [52, 82, 18, '#B04A62'], [88, 14, 16, '#D99AA6'], [94, 64, 10, '#EFC3C7'], [70, 90, 12, '#EFC3C7']];
+class Component extends DCLogic {
+  componentDidMount() {
+    const tick = t => {
+      document.querySelectorAll('[data-twinkle]').forEach(el => {
+        const p = parseFloat(el.getAttribute('data-twinkle'));
+        const v = (Math.sin(t / 900 + p) + 1) / 2;
+        el.style.opacity = (0.25 + v * 0.75).toFixed(2);
+        el.style.transform = `scale(${(0.7 + v * 0.4).toFixed(2)}) rotate(${(v * 20).toFixed(1)}deg)`;
+      });
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); }
+  renderVals() {
+    return {
+      sparkles: SP.map(([x, y, s, c], i) => ({ phase: String(i * 1.3), style: { position: 'absolute', left: x + '%', top: y + '%', width: s, height: s, color: c, pointerEvents: 'none' } })),
+      quotes: [
+        ['It’s never about the numbers. It’s about the smiles: on our clients’ faces, on ours, and on our kids’.', 'On why we do it'],
+        ['Our kids come to the office and know everyone. When we walk down Butler Street, the other store owners wave out the window.', 'On community'],
+        ['To us, it’s a hobby. The late nights, the calls during dinner: it’s the life we chose.', 'On the work'],
+        ['My vision and big-picture thinking plus Alyssa’s punctuality and logic made a whirlwind.', 'On the partnership'],
+      ].map(([t, k]) => ({ t, k })),
+      marks: [['2019', 'Co-founded Avere Beauty'], ['4', 'Pittsburgh locations'], ['12+', 'Properties in his real estate portfolio'], ['4', 'Daughters']].map(([v, k]) => ({ v, k })),
+      brands: [
+        ['Avere Beauty', 'Four med spa locations around Pittsburgh.'],
+        ['Avere Cosmetics', 'Our own line of skin care and cosmetics.'],
+        ['Manikure', 'Nail salon, acquired in 2024.'],
+        ['Aura Hair Studio', 'Hair salon and stylists.'],
+      ].map(([t, d]) => ({ t, d })),
+      fun: [
+        ['Time with the girls and Daphne', 'Hanging out with the kids and our Great Dane.'],
+        ['Real estate', 'Building a real estate portfolio started as an investment and turned into a hobby.'],
+        ['Building apps with AI', 'Prototyping tools for the business and for fun.'],
+        ['The movies', 'Still the best way to unplug.'],
+      ].map(([t, d]) => ({ t, d })),
+    };
+  }
+}
+</script>
+</body>
+</html>

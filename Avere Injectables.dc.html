@@ -8,27 +8,113 @@
 <body>
 <x-dc>
 <helmet>
+<script src="./image-slot.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="inject" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="All Injectables" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Injectables</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">All Injectables</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+
+  <section data-screen-label="Injectables hero" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:24px clamp(20px,4vw,32px) clamp(48px,7vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;gap:8px;font-size:13px;color:#6E5F64"><a href="Avere Home A.dc.html" style="color:#6E5F64">Home</a><span>/</span><span style="color:#2B2226">Injectables</span></div>
+        <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(37px,4.8vw,69px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance">Injectables in Pittsburgh</h1>
+        <p style="font-size:18px;line-height:1.65;color:#4A3B40;margin:0;max-width:560px;text-wrap:pretty">Neurotoxins, fillers and collagen builders, placed by licensed medical injectors. Soften lines, restore volume and keep looking like you.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#explore" style="background:#2B2226;color:#fff;padding:0 30px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center" style-hover="background:#B04A62;color:#fff">Explore injectables</a>
+          <a href="Avere Free Consultation.dc.html" style="border:1px solid #2B2226;padding:0 28px;border-radius:999px;font-size:15px;font-weight:500;min-height:48px;display:inline-flex;align-items:center" style-hover="background:#fff;color:#2B2226">Free consultation</a>
+        </div>
+      </div>
+      <img src="https://static.wixstatic.com/media/903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg/v1/fill/w_1000,h_1000,al_c,q_85/img.jpg" alt="Injectable treatment at Avere Beauty Pittsburgh" style="width:100%;aspect-ratio:1/1;max-height:560px;object-fit:cover;border-radius:28px;display:block;background:#FFE3E3">
     </div>
-  </main>
+  </section>
+
+  <section data-screen-label="What are injectables" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px) 0;display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The basics</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance">Three kinds of injectables, three different jobs</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+      <div style="background:#FFF5F5;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">Neurotoxins</h3><p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Botox, Dysport, Xeomin, Jeuveau and Daxxify relax the muscles that crease skin. Best for forehead lines, frown lines and crow’s feet.</p><span style="font-size:14px;color:#6E5F64">Results in about 2 weeks · lasts 3–4 months</span></div>
+      <div style="background:#FFF5F5;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">Dermal fillers</h3><p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Hyaluronic acid gels that add volume and shape to lips, cheeks, chin, jawline and under-eyes.</p><span style="font-size:14px;color:#6E5F64">Results right away · lasts 6–18 months</span></div>
+      <div style="background:#FFF5F5;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:22px;margin:0">Collagen builders</h3><p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">Sculptra and PDO threads help your skin make its own collagen for gradual, natural-looking firmness.</p><span style="font-size:14px;color:#6E5F64">Builds over 2–3 months · lasts up to 2 years</span></div>
+    </div>
+  </section>
+
+  <section id="explore" data-screen-label="Explore gallery" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:28px;scroll-margin-top:120px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Explore</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.3vw,46px);line-height:1.1;margin:0;letter-spacing:-.02em">Find your treatment</h2>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="5"><button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button></sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,24px)">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
+        <a href="{{ c.href }}" style="display:flex;flex-direction:column;gap:14px;color:#2B2226" style-hover="color:#B04A62">
+          <div style="aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:#FFE3E3"><image-slot id="{{ c.slot }}" shape="rect" placeholder="{{ c.ph }}"></image-slot></div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:0 4px">
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E5F64;font-weight:700">{{ c.cat }}</span>
+            <span style="font-family:'Poppins',sans-serif;font-size:22px;line-height:1.2;display:flex;justify-content:space-between;gap:12px">{{ c.name }}<span style="color:#B04A62">→</span></span>
+            <span style="font-size:15px;line-height:1.5;color:#6E5F64">{{ c.blurb }}</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Consult CTA" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;background:#2B2226;color:#FFF5F5;border-radius:clamp(24px,4vw,40px);padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:620px">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.15;margin:0;letter-spacing:-.02em">Not sure what you need?</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#E8CDD2">Book a free consultation. Your injector will look at your goals and suggest a plan, with no pressure to book that day.</p>
+      </div>
+      <a href="Avere Free Consultation.dc.html" style="background:#FFE3E3;color:#2B2226;padding:0 30px;border-radius:999px;font-size:15px;font-weight:700;min-height:52px;display:inline-flex;align-items:center" style-hover="background:#fff;color:#2B2226">Book a free consult</a>
+    </div>
+  </section>
+
+  <dc-import name="Avere Founder" variant="feature" hint-size="100%,900px"></dc-import>
+  <dc-import name="Avere Finance CTA" variant="strip" placement="injectables" hint-size="100%,90px"></dc-import>
   <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const TOX='Avere Service Page v2.dc.html';
+const ITEMS=[
+  ['Neurotoxins','Compare neurotoxins',TOX,'How the five brands differ, side by side.','inj-tox','Botox treatment close-up'],
+  ['Neurotoxins','Botox','Avere Botox.dc.html','The original, with 20+ years of cosmetic use.','tox-botox','Botox treatment photo'],
+  ['Neurotoxins','Dysport','Avere Dysport.dc.html','Fast onset with a soft, even finish.','tox-dysport','Dysport treatment photo'],
+  ['Neurotoxins','Xeomin','Avere Xeomin.dc.html','A pure formula without extra proteins.','tox-xeomin','Xeomin treatment photo'],
+  ['Neurotoxins','Jeuveau','Avere Jeuveau.dc.html','The first neurotoxin made only for aesthetics.','tox-jeuveau','Jeuveau treatment photo'],
+  ['Neurotoxins','Daxxify','Avere Daxxify.dc.html','Longer-lasting results for many clients.','tox-daxxify','Daxxify treatment photo'],
+  ['Neurotoxins','Tox Tuesdays','Avere Tox Tuesdays.dc.html','Our weekly neurotoxin special.','inj-toxtue','Tox Tuesday promo photo'],
+  ['Fillers','Dermal fillers','Avere Dermal Fillers.dc.html','Volume and shape for cheeks, chin, jaw and more.','inj-filler','Filler treatment'],
+  ['Fillers','Lip filler','Lip Filler.dc.html','Softer, fuller lips that still look like yours.','inj-lip','Lip filler result'],
+  ['Fillers','RHA filler','Avere RHA Filler.dc.html','Flexible filler made for areas that move.','inj-rha','RHA filler syringe or result'],
+  ['Fillers','Versa','Avere Versa.dc.html','Smooth hyaluronic acid filler for lips and folds.','inj-versa','Versa filler result'],
+  ['Collagen & lifting','Sculptra','Avere Sculptra.dc.html','Gradual collagen boost for firmer skin.','inj-sculptra','Sculptra treatment'],
+  ['Collagen & lifting','PDO threads','Avere PDO Threads.dc.html','Lift and tighten without surgery.','inj-pdo','PDO thread lift'],
+  ['Collagen & lifting','Kybella','Avere Kybella.dc.html','Reduce fat under the chin.','inj-kybella','Kybella under-chin treatment'],
+  ['Medical','TMJ treatment','Avere TMJ Treatment.dc.html','Neurotoxin for jaw clenching and grinding.','inj-tmj','Jaw / masseter treatment'],
+  ['Medical','Excessive sweating','Avere Excessive Sweating.dc.html','Botox for underarm and hand sweating.','inj-sweat','Hyperhidrosis treatment'],
+  ['Wellness','Weight management','Weight Loss Consult Landing.dc.html','Medical weight loss with provider check-ins.','inj-weight','Weight management consult'],
+];
+const CATS=['All','Neurotoxins','Fillers','Collagen & lifting','Medical','Wellness'];
+class Component extends DCLogic {
+  state={cat:'All'};
+  renderVals(){
+    const cat=this.state.cat;
+    return{
+      chips:CATS.map(c=>({label:c,pick:()=>this.setState({cat:c}),style:{minHeight:40,padding:'0 16px',borderRadius:999,border:cat===c?'1px solid #2B2226':'1px solid #EFC3C7',background:cat===c?'#2B2226':'#fff',color:cat===c?'#fff':'#2B2226',fontFamily:"'Lato',sans-serif",fontSize:14,fontWeight:700,cursor:'pointer'}})),
+      cards:ITEMS.filter(i=>cat==='All'||i[0]===cat).map(([c,name,href,blurb,slot,ph])=>({cat:c,name,href,blurb,slot,ph})),
+    };
+  }
+}
 </script>
 </body>
 </html>

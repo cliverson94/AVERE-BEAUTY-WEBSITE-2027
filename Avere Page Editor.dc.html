@@ -8,23 +8,23 @@
 <body>
 <x-dc>
 <helmet>
-<title>Avere Studio · Edit Tattoo Removal</title>
+<title>Avere Studio · Edit pages</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#FBEFF0}*{box-sizing:border-box}a{color:#B04A62;text-decoration:none}a:hover{color:#2B2226}input,textarea,select,button{font-family:inherit}</style>
 </helmet>
 <div style="display:flex;flex-direction:column;height:100vh;overflow:hidden">
   <header style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:#2B2226;color:#fff;flex-wrap:wrap">
-    <a href="Avere Studio.dc.html" style="color:#E8CDD2;font-size:13px;font-weight:700;white-space:nowrap">← Studio</a>
+    <a href="Avere Studio.dc.html" target="_top" style="color:#E8CDD2;font-size:13px;font-weight:700;white-space:nowrap">← Studio</a>
     <span style="width:1px;height:20px;background:#5A4A50"></span>
-    <span style="font-family:'Poppins',sans-serif;font-size:16px;white-space:nowrap">Tattoo Removal</span>
+    <select value="{{ pageId }}" onChange="{{ switchPage }}" style="background:#3A2E33;color:#fff;border:1px solid #5A4A50;border-radius:10px;min-height:34px;padding:0 10px;font-family:'Poppins',sans-serif;font-size:15px"><sc-for list="{{ pageOpts }}" as="p" hint-placeholder-count="2"><option value="{{ p.id }}">{{ p.name }}</option></sc-for></select>
     <span style="{{ statusPill }}">{{ statusText }}</span>
     <span style="flex:1"></span>
     <div style="display:flex;gap:2px;padding:3px;background:#3A2E33;border-radius:999px">
       <sc-for list="{{ devices }}" as="d" hint-placeholder-count="3"><button onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button></sc-for>
     </div>
     <button onClick="{{ undo }}" disabled="{{ noUndo }}" style="{{ undoStyle }}">Undo</button>
-    <a href="Avere Tattoo Removal.dc.html" target="_blank" style="color:#E8CDD2;font-size:13px;font-weight:700;white-space:nowrap">View live ↗</a>
+    <a href="{{ liveHref }}" target="_blank" style="color:#E8CDD2;font-size:13px;font-weight:700;white-space:nowrap">View live ↗</a>
     <button onClick="{{ publish }}" style="min-height:36px;padding:0 16px;border-radius:999px;border:none;background:#B04A62;color:#fff;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">Publish</button>
   </header>
 
@@ -51,7 +51,7 @@
 
     <section style="flex:1;min-width:0;display:flex;justify-content:center;padding:16px;overflow:auto">
       <div style="{{ frameWrap }}">
-        <iframe ref="{{ frameRef }}" src="Avere Tattoo Removal.dc.html?edit=1" title="Tattoo Removal page" style="width:100%;height:100%;border:0;display:block;background:#0E0B0C"></iframe>
+        <iframe ref="{{ frameRef }}" src="{{ frameSrc }}" title="Page being edited" style="width:100%;height:100%;border:0;display:block;background:#0E0B0C"></iframe>
       </div>
     </section>
 
@@ -99,6 +99,17 @@
           </sc-if>
         </sc-if>
 
+        <sc-if value="{{ isPromo }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:13px;line-height:1.5;color:#4A3B40">The scrolling bar under the menu on the Home page. Keep each line short.</span>
+          <sc-for list="{{ promos }}" as="q" hint-placeholder-count="4">
+            <div style="border:1px solid #F4DADC;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px;background:#fff">
+              <div style="display:flex;gap:6px;align-items:center"><button onClick="{{ q.up }}" title="Move up" style="border:none;background:none;color:#C9A9B0;cursor:pointer;font-size:14px">▲</button><input value="{{ q.t }}" onChange="{{ q.setT }}" style="flex:1;min-width:0;min-height:32px;border:1px solid #F4DADC;border-radius:8px;padding:0 8px;font-size:13px;font-weight:700"><button onClick="{{ q.del }}" style="border:none;background:none;color:#8A3A4E;cursor:pointer;font-size:16px">×</button></div>
+              <input value="{{ q.href }}" onChange="{{ q.setHref }}" placeholder="Link (optional)" style="min-height:30px;border:1px solid #F4DADC;border-radius:8px;padding:0 8px;font-size:12px">
+            </div>
+          </sc-for>
+          <button onClick="{{ addPromo }}" style="min-height:36px;border:1px dashed #EFC3C7;border-radius:10px;background:none;color:#B04A62;font-size:13px;font-weight:700;cursor:pointer">+ Add promo line</button>
+        </sc-if>
+
         <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
           <span style="font-size:13px;line-height:1.5;color:#4A3B40">Drag to reorder. Changes show on the page as you type.</span>
           <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
@@ -126,7 +137,7 @@
         <sc-if value="{{ isSeo }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;align-items:center;gap:12px"><span style="{{ scoreStyle }}">{{ score }}</span><span style="font-size:13px;line-height:1.45;color:#4A3B40">{{ scoreNote }}</span></div>
           <div style="border:1px solid #F4DADC;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:3px;background:#fff">
-            <span style="font-size:12px;color:#4A3B40">averebeauty.com › tattoo-removal</span>
+            <span style="font-size:12px;color:#4A3B40">averebeauty.com{{ seoPath }}</span>
             <span style="font-size:17px;color:#1A0DAB;line-height:1.3">{{ seoTitle }}</span>
             <span style="font-size:13px;line-height:1.45;color:#4A3B40">{{ seoDesc }}</span>
           </div>
@@ -144,7 +155,9 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const PAGE='tattoo-removal';
+const PAGES=[{id:'home',name:'Home',file:'Avere Home A.dc.html',live:'/',marquee:true},{id:'tattoo-removal',name:'Tattoo Removal',file:'Avere Tattoo Removal.dc.html',live:'/tattoo-removal',lists:true}];
+const PCFG=PAGES.find(p=>p.id===new URLSearchParams(location.search).get('page'))||PAGES[0];
+const PAGE=PCFG.id;
 const DRAFT='avere-cms:'+PAGE+':draft',LIVE='avere-cms:'+PAGE+':live';
 const DEF_FAQS=[
  ['How many tattoo removal sessions will I need?','Most tattoos require between 4 and 10 sessions, depending on color, size, ink type and skin type. You will usually wait 6 to 8 weeks between treatments so your skin can heal completely.'],
@@ -154,6 +167,7 @@ const DEF_FAQS=[
  ['Can you just fade it for a cover-up?','Yes. Fading usually takes fewer sessions than full removal and gives your tattoo artist a cleaner canvas.'],
  ['Is it safe for darker skin?','Yes. The Toro\'s 1064 nm and 785 nm wavelengths are absorbed less by melanin, which makes them suited to deeper skin tones. Your provider sets the energy for your skin type.']];
 const DEF_SPECS=[['Laser type','Q-switched Nd:YAG'],['Wavelengths','532 nm · 785 nm · 1064 nm'],['Pulse modes','Picosecond, nanosecond, double nano, thermal'],['Ink colors','Black, dark blue, red, orange, yellow, green, blue, purple'],['Skin types','Fitzpatrick I to VI with wavelength selection'],['Also treats','Sun spots, age spots, freckles, post-inflammatory hyperpigmentation'],['Clearance','FDA-cleared'],['Where','Lawrenceville, 3453 Butler Street']].map(([k,v])=>({k,v}));
+const DEF_PROMOS=[{t:'New patients: 10% off your first treatment',href:'Avere New Patient Offer.dc.html'},{t:'Tox Tuesdays',href:'Avere Tox Tuesdays.dc.html'},{t:'Gift cards for every occasion',href:'https://squareup.com/gift/8CPGZKSHK7T66/order'},{t:'Now open in Blawnox · Fox Chapel',href:'Avere Locations.dc.html'},{t:'Free consultations at all four offices',href:'Avere Free Consultation.dc.html'}];
 const read=k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}};
 const C={rose:'#B04A62',ink:'#2B2226',blush:'#F4DADC',line:'#EFC3C7',mute:'#6E5F64'};
 const CLAIMS=/guarantee|permanent(ly)?\b|100%|pain[- ]?free|no (risk|downtime)|cure|miracle|best in/i;
@@ -188,7 +202,7 @@ class Component extends DCLogic {
       return{data,hist,lastPush:opt.push||null,status:'draft'};});
   }
   queueSave(data){if(!this.remote)return;clearTimeout(this.st);this.st=setTimeout(async()=>{try{const r=await fetch('/api/content?page='+PAGE+'&stage=draft',{method:'PUT',credentials:'same-origin',headers:{'content-type':'application/json'},body:JSON.stringify({data})});if(!r.ok)throw new Error((await r.json()).error);this.setState({saveErr:''});}catch(err){this.setState({saveErr:err.message||'Could not save'});}},800);}
-  async putImage(blob){const mod=await import('https://esm.sh/@vercel/blob@1.0.0/client');const r=await mod.upload('media/tattoo-removal-avere-beauty.webp',blob,{access:'public',handleUploadUrl:'/api/media/upload',contentType:'image/webp'});return r.url;}
+  async putImage(blob){const mod=await import('https://esm.sh/@vercel/blob@1.0.0/client');const r=await mod.upload('media/'+PAGE+'-avere-beauty.webp',blob,{access:'public',handleUploadUrl:'/api/media/upload',contentType:'image/webp'});return r.url;}
   undo=()=>{this.setState(s=>{if(!s.hist.length)return null;const data=s.hist[s.hist.length-1];localStorage.setItem(DRAFT,JSON.stringify(data));this.queueSave(data);const c=this.cms();c&&c.set(data);return{data,hist:s.hist.slice(0,-1),lastPush:null,status:'draft'};});};
   orig(k){const i=this.state.info;return i&&i.orig[k]||{};}
   async ai(prompt,fallback){
@@ -222,7 +236,7 @@ class Component extends DCLogic {
       [/pittsburgh/i.test(seoTitle+seoDesc),'Mentions Pittsburgh for local search'],
       [!altMissing,altMissing?altMissing+' replaced photo(s) missing alt text':'Every photo has alt text'],
       [!CLAIMS.test(allText),CLAIMS.test(allText)?'Possible medical claim found: "'+(allText.match(CLAIMS)||[''])[0]+'"':'No outcome guarantees or risky claims'],
-      [faqs.length>=3,faqs.length+' FAQs (published as FAQ schema for Google)']];
+      ...(PCFG.lists?[[faqs.length>=3,faqs.length+' FAQs (published as FAQ schema for Google)']]:[])];
     const score=Math.round(checks.filter(c=>c[0]).length/checks.length*100);
     const swap=(arr,from,to)=>{const a=[...arr];const [m]=a.splice(from,1);a.splice(to,0,m);return a;};
     const setTab=k=>()=>this.setState({tab:k});
@@ -247,8 +261,12 @@ class Component extends DCLogic {
         drop:()=>{if(s.dragSec==null||s.dragSec===i)return;this.commit(dd=>({...dd,order:swap(order,s.dragSec,i)}));this.setState({dragSec:null});},
         style:{display:'flex',alignItems:'center',gap:8,padding:'8px 10px',borderRadius:10,border:'1px solid '+(sel&&sel.section===l?C.rose:C.blush),background:hid?'#FBEFF0':'#fff',color:hid?'#A8979C':C.ink,textDecoration:hid?'line-through':'none'},
         eyeStyle:{border:'none',background:'none',fontSize:11,fontWeight:700,color:hid?C.rose:C.mute,cursor:'pointer',padding:0}};}),
-      tabs:[['edit','Edit'],['faq','FAQs'],['specs','Specs'],['seo','SEO']].map(([k,l])=>({label:l,pick:setTab(k),style:{flex:1,minHeight:32,borderRadius:8,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?C.ink:'transparent',color:s.tab===k?'#fff':C.ink}})),
-      isEdit:s.tab==='edit',isFaq:s.tab==='faq',isSpecs:s.tab==='specs',isSeo:s.tab==='seo',
+      pageId:PAGE,pageOpts:PAGES,frameSrc:encodeURI(PCFG.file)+'?edit=1',liveHref:location.hostname.includes('.')&&!location.hostname.includes('claude')?PCFG.live:PCFG.file,
+      switchPage:ev=>{const u=new URL(location.href);u.searchParams.set('page',ev.target.value);location.href=u.toString();},
+      tabs:[['edit','Edit'],...(PCFG.marquee?[['promo','Promo bar']]:[]),...(PCFG.lists?[['faq','FAQs'],['specs','Specs']]:[]),['seo','SEO']].map(([k,l])=>({label:l,pick:setTab(k),style:{flex:1,minHeight:32,borderRadius:8,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?C.ink:'transparent',color:s.tab===k?'#fff':C.ink}})),
+      isEdit:s.tab==='edit',isPromo:s.tab==='promo',
+      promos:(d.marquee||DEF_PROMOS).map((x,i)=>({t:x.t,href:x.href||'',setT:ev=>{const v=ev.target.value;this.commit(dd=>({...dd,marquee:(dd.marquee||DEF_PROMOS).map((y,j)=>j===i?{...y,t:v}:y)}),{push:'mq'+i});},setHref:ev=>{const v=ev.target.value;this.commit(dd=>({...dd,marquee:(dd.marquee||DEF_PROMOS).map((y,j)=>j===i?{...y,href:v}:y)}),{push:'mh'+i});},del:()=>this.commit(dd=>({...dd,marquee:(dd.marquee||DEF_PROMOS).filter((y,j)=>j!==i)})),up:()=>i>0&&this.commit(dd=>({...dd,marquee:swap(dd.marquee||DEF_PROMOS,i,i-1)}))})),
+      addPromo:()=>this.commit(dd=>({...dd,marquee:[...(dd.marquee||DEF_PROMOS),{t:'New promo',href:''}]})),isFaq:s.tab==='faq',isSpecs:s.tab==='specs',isSeo:s.tab==='seo',
       noSel:!sel,isText:!!sel&&sel.kind!=='img',isImg:!!sel&&sel.kind==='img',isLink,sel:sel||{},
       selKindLabel:sel?(sel.kind==='link'?'Button':({h1:'Page headline',h2:'Heading',h3:'Subheading',p:'Paragraph'}[sel.tag]||'Text')):'',
       selValue:selVal,selCount:selVal.length+' characters',selChanged:!!sel&&texts[sel.key]!=null&&texts[sel.key]!==this.orig(sel.key).text,
@@ -261,7 +279,7 @@ class Component extends DCLogic {
         ['Rewrite in Avere voice',()=>this.ai(`Rewrite this website text for Avere Beauty, a Pittsburgh med spa. Voice: warm, plain, confident, specific, no hype, no exclamation marks, no guaranteed results. Keep similar length. Return only the new text.\n\n${selVal}`,selVal.replace(/\bvery\b|\breally\b/gi,'').replace(/\s+/g,' ').trim())],
         ['Shorter',()=>this.ai(`Make this med spa website text about 40% shorter, same meaning, plain words. Return only the text.\n\n${selVal}`,selVal.split(/(?<=[.!?])\s/)[0])],
         ['Check claims',()=>{const m=selVal.match(CLAIMS);this.setState({suggest:m?`"${m[0]}" can read as a promised medical result. Try "many clients see…" or "results vary".`:'No guaranteed outcomes or risky claims in this text.',suggestUsable:false});}],
-        ['Instagram caption',()=>this.ai(`Turn this into a short Instagram caption for Avere Beauty (Pittsburgh med spa). 2–3 sentences, warm, end with "Book at the link in bio." Max 3 relevant hashtags. Return only the caption.\n\n${selVal}`,selVal+'\n\nBook at the link in bio. #tattooremoval #pittsburgh')]
+        ['Instagram caption',()=>this.ai(`Turn this into a short Instagram caption for Avere Beauty (Pittsburgh med spa). 2–3 sentences, warm, end with "Book at the link in bio." Max 3 relevant hashtags. Return only the caption.\n\n${selVal}`,selVal+'\n\nBook at the link in bio. #averebeauty #pittsburgh')]
       ].map(([label,go])=>({label,go:()=>{this.setState({suggestUsable:label!=='Check claims'&&label!=='Instagram caption'});go();}})),
       aiBusy:s.aiBusy,hasSuggest:!!s.suggest,suggest:s.suggest,suggestUsable:s.suggestUsable!==false,
       useSuggest:()=>{const v=s.suggest;this.commit(dd=>({...dd,texts:{...(dd.texts||{}),[sel.key]:v}}));this.setState({suggest:''});},
@@ -271,8 +289,8 @@ class Component extends DCLogic {
       altNote:!selImg.alt?'Missing. Describe what is in the photo and where.':selImg.alt.length>125?'A bit long. Keep it under 125 characters.':'Good.',
       altHint:{fontSize:12,fontWeight:700,color:!selImg.alt||(selImg.alt||'').length>125?'#8A3A4E':C.mute},
       setSelAlt:e=>{const v=e.target.value;this.commit(dd=>({...dd,imgs:{...(dd.imgs||{}),[sel.key]:{...selImg,alt:v}}}),{push:'alt:'+sel.key});},
-      aiAlt:async()=>{const fb='Laser tattoo removal with the DEKA Toro at Avere Beauty in Lawrenceville, Pittsburgh';let out='';
-        try{if(window.claude&&window.claude.complete)out=(await window.claude.complete(`Write image alt text (under 120 characters, no "image of") for a photo in the "${sel.section}" section of Avere Beauty's laser tattoo removal page in Pittsburgh. Current alt: "${selImg.alt||''}". Return only the alt text.`)).trim().replace(/^"|"$/g,'');}catch(e){}
+      aiAlt:async()=>{const fb=PCFG.name+' at Avere Beauty, Pittsburgh medical spa';let out='';
+        try{if(window.claude&&window.claude.complete)out=(await window.claude.complete(`Write image alt text (under 120 characters, no "image of") for a photo in the "${sel.section}" section of Avere Beauty's ${PCFG.name} page in Pittsburgh. Current alt: "${selImg.alt||''}". Return only the alt text.`)).trim().replace(/^"|"$/g,'');}catch(e){}
         const v=out||fb;this.commit(dd=>({...dd,imgs:{...(dd.imgs||{}),[sel.key]:{...selImg,alt:v}}}));},
       onFile:async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=await this.compress(f);this.commit(dd=>({...dd,imgs:{...(dd.imgs||{}),[sel.key]:{...selImg,...r}}}));},
       faqs:faqs.map((f,i)=>({q:f[0],a:f[1],
@@ -289,7 +307,7 @@ class Component extends DCLogic {
         dragStart:()=>this.setState({dragRow:i}),dragOver:e=>e.preventDefault(),
         drop:()=>{if(s.dragRow==null)return;this.commit(dd=>({...dd,specs:swap(dd.specs||DEF_SPECS,s.dragRow,i)}));this.setState({dragRow:null});}})),
       addSpec:()=>this.commit(dd=>({...dd,specs:[...(dd.specs||DEF_SPECS),{k:'Label',v:'Value'}]})),
-      seoTitle,seoDesc,
+      seoTitle,seoDesc,seoPath:PCFG.live==='/'?'':' › '+PCFG.live.slice(1),
       setSeoTitle:e=>{const v=e.target.value;this.commit(dd=>({...dd,seo:{...(dd.seo||{}),title:v}}),{push:'st'});},
       setSeoDesc:e=>{const v=e.target.value;this.commit(dd=>({...dd,seo:{...(dd.seo||{}),desc:v}}),{push:'sd'});},
       titleCount:seoTitle.length+' / 60',descCount:seoDesc.length+' / 160',

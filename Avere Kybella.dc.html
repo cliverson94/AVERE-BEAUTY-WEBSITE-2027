@@ -8,27 +8,105 @@
 <body>
 <x-dc>
 <helmet>
+<title>Kybella Double Chin Treatment in Pittsburgh | Avere Beauty</title>
+<meta name="description" content="Kybella at Avere Beauty: an injectable that permanently destroys fat cells under the chin. No surgery, no downtime beyond swelling. Free consults in Pittsburgh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="inject" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Kybella" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Injectables</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Kybella</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) clamp(48px,7vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Injectables · Kybella</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance">Say goodbye to the double chin</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;max-width:560px;text-wrap:pretty">Kybella is an FDA-approved injectable that breaks down fat under the chin. Once those fat cells are gone, they don’t come back, so the result is a sharper profile without surgery.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book Kybella</a>
+        <a href="Avere Free Consultation.dc.html" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Free consult</a>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+    <div style="position:relative;min-width:0;aspect-ratio:4/5;max-height:620px;width:100%;overflow:hidden;border-radius:32px"><image-slot style="position:absolute;inset:0" id="kybella-hero" shape="rounded" radius="32" placeholder="Side profile, defined jawline"></image-slot></div>
+  </section>
+
+  <section data-screen-label="Facts" style="background:#2B2226;color:#fff;padding:clamp(40px,5vw,64px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#EFC3C7;font-weight:700">{{ f.k }}</span><span style="font-family:'Poppins',sans-serif;font-size:24px">{{ f.v }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="How it works" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(56px,8vw,96px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">How it works</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Fat cells, dissolved</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#4A3B40;text-wrap:pretty">Kybella is a lab-made version of deoxycholic acid, a molecule your body already uses to absorb dietary fat. Injected into the fat under the chin, it breaks down the walls of fat cells. Your body clears them out naturally over the following weeks.</p>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#4A3B40;text-wrap:pretty">Stubborn chin fat often doesn’t respond to diet or exercise, and it can show up at any weight. Kybella targets just that pocket.</p>
+      </div>
+      <div style="position:relative;min-width:0;aspect-ratio:4/3;border-radius:32px;overflow:hidden;background:#FFE3E3"><image-slot id="kybella-split-1" shape="rect" placeholder="Injector mapping the treatment grid"></image-slot></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Your treatment</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">What to expect</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:#4A3B40;text-wrap:pretty">Your injector marks a small grid under your chin and places a series of tiny injections. The visit takes about 20 minutes. Expect swelling, tenderness and some numbness for several days; the swelling is a sign the product is working. Most people need two to four sessions spaced at least a month apart.</p>
+      </div>
+      <div style="position:relative;min-width:0;aspect-ratio:4/3;border-radius:32px;overflow:hidden;background:#FFE3E3"><image-slot id="kybella-split-2" shape="rect" placeholder="Client after treatment"></image-slot></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Results" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Kybella results</h2>
+        <a href="Avere Before and After.dc.html" style="font-size:15px;font-weight:700;color:#B04A62">Full gallery →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">
+        <sc-for list="{{ results }}" as="r" hint-placeholder-count="2">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2px;border-radius:28px;overflow:hidden;background:#F4DADC">
+            <div style="position:relative;min-width:0;aspect-ratio:3/4;background:#fff"><image-slot id="{{ r.b }}" shape="rect" placeholder="Before"></image-slot></div>
+            <div style="position:relative;min-width:0;aspect-ratio:3/4;background:#fff"><image-slot id="{{ r.a }}" shape="rect" placeholder="After"></image-slot></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:960px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:24px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Kybella questions</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
+        <div style="padding:20px 0;border-bottom:1px solid #F4DADC;display:flex;flex-direction:column;gap:8px">
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:19px;margin:0">{{ q.q }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">{{ q.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <dc-import name="Avere Finance CTA" variant="strip" placement="kybella" hint-size="100%,90px"></dc-import>
+  <dc-import name="Avere Book Bar" label="Book Kybella" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      facts: [['Treatment time', '~20 minutes'], ['Sessions', 'Usually 2–4'], ['Spacing', '4+ weeks apart'], ['Results', 'Permanent fat cell loss']].map(([k, v]) => ({ k, v })),
+      results: [1, 2].map(i => ({ b: `kybella-r${i}-before`, a: `kybella-r${i}-after` })),
+      faqs: [
+        ['Is Kybella permanent?', 'Yes. Treated fat cells are destroyed and don’t return. Significant weight gain can enlarge the fat cells that remain.'],
+        ['Does it hurt?', 'Most people feel a warm, stinging sensation for a few minutes. We use ice and numbing to keep you comfortable.'],
+        ['How much swelling is there?', 'Swelling is normal and can last several days to a week, especially after the first session. Plan around big events.'],
+        ['When will I see results?', 'Changes appear gradually over four to six weeks after each session, with full results after your final treatment.'],
+        ['Who is a good candidate?', 'Adults with moderate fat under the chin and good skin elasticity. If skin laxity is the main concern, we may suggest PDO threads or RF microneedling instead.'],
+      ].map(([q, a]) => ({ q, a })),
+    };
+  }
+}
 </script>
 </body>
 </html>

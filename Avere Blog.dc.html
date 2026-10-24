@@ -8,27 +8,77 @@
 <body>
 <x-dc>
 <helmet>
+<title>The Avere Journal | Skin, Injectables &amp; Laser Guides | Avere Beauty</title>
+<meta name="description" content="In-depth guides from Avere Beauty's clinical team in Pittsburgh: Botox, lip filler, acne, skincare, lasers and aftercare.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="resources" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Blog" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Resources</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Blog</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+
+  <header data-screen-label="Journal header" style="max-width:1320px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,32px) 24px;display:flex;flex-direction:column;gap:14px">
+    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">The Avere Journal</span>
+    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.03em;margin:0;max-width:900px;text-wrap:balance">Straight answers about your skin.</h1>
+    <p style="margin:0;font-size:18px;line-height:1.6;color:#4A3B40;max-width:640px;text-wrap:pretty">Guides from the injectors, nurses and estheticians at Avere Beauty in Pittsburgh. What treatments do, how long they last, and how to care for your skin after.</p>
+  </header>
+
+  <section data-screen-label="Featured post" style="max-width:1320px;margin:0 auto;padding:16px clamp(20px,4vw,32px) clamp(40px,6vw,64px)">
+    <a href="{{ featured.href }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,4vw,56px);align-items:center" style-hover="color:#2B2226">
+      <div style="aspect-ratio:16/11;border-radius:28px;overflow:hidden;background:#FFE3E3"><sc-if value="{{ hasPosts }}" hint-placeholder-val="{{ false }}"><img src="{{ featured.img }}" alt="{{ featured.imgAlt }}" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if></div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="display:flex;gap:10px;align-items:center;font-size:13px;color:#6E5F64"><span style="background:#2B2226;color:#fff;border-radius:999px;padding:5px 12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px">Featured</span>{{ featured.cat }} · {{ featured.read }} min read</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,46px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">{{ featured.title }}</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#4A3B40;text-wrap:pretty">{{ featured.dek }}</p>
+        <span style="font-size:15px;font-weight:700;border-bottom:1px solid #2B2226;align-self:flex-start;padding-bottom:2px">Read the guide →</span>
+      </div>
+    </a>
+  </section>
+
+  <section data-screen-label="All posts" style="border-top:1px solid #F4DADC">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(20px,4vw,32px) clamp(64px,9vw,112px);display:flex;flex-direction:column;gap:32px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,38px);margin:0;letter-spacing:-.02em">Latest</h2>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button></sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:40px 28px">
+        <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+          <a href="{{ p.href }}" style="display:flex;flex-direction:column;gap:14px" style-hover="color:#2B2226">
+            <div style="aspect-ratio:4/3;border-radius:22px;overflow:hidden;background:#FFE3E3"><img src="{{ p.img }}" alt="{{ p.imgAlt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">{{ p.cat }}</span>
+            <h3 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:22px;line-height:1.2;letter-spacing:-.01em;margin:0;text-wrap:balance">{{ p.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.55;color:#4A3B40">{{ p.dek }}</p>
+            <span style="font-size:13px;color:#6E5F64">{{ p.dateLabel }} · {{ p.read }} min read</span>
+          </a>
+        </sc-for>
+      </div>
     </div>
-  </main>
+  </section>
+
   <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const postHref = slug => /\.html$/.test(location.pathname) ? 'Avere Blog Post.dc.html?slug=' + slug : '/post/' + slug;
+const fmtDate = d => new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+class Component extends DCLogic {
+  state = { posts: [], cat: 'All' };
+  componentDidMount() { fetch('blog-posts.json').then(r => r.json()).then(j => this.setState({ posts: j.posts })).catch(() => {}); }
+  renderVals() {
+    const { posts, cat } = this.state;
+    const all = posts.map(p => ({ ...p, href: postHref(p.slug), dateLabel: fmtDate(p.date) }));
+    const featured = all[0] || { title: '', dek: '', cat: '', read: '', img: '', imgAlt: '', href: '#' };
+    const cats = ['All', ...new Set(all.map(p => p.cat))];
+    return {
+      featured, hasPosts: posts.length > 0,
+      cats: cats.map(c => ({ label: c, pick: () => this.setState({ cat: c }), style: { minHeight: 36, padding: '0 16px', borderRadius: 999, cursor: 'pointer', fontSize: 14, fontWeight: 700, border: c === cat ? 'none' : '1px solid #EFC3C7', background: c === cat ? '#2B2226' : '#fff', color: c === cat ? '#fff' : '#2B2226' } })),
+      posts: all.slice(cat === 'All' ? 1 : 0).filter(p => cat === 'All' || p.cat === cat)
+    };
+  }
+}
 </script>
 </body>
 </html>

@@ -31,6 +31,12 @@
           <button type="submit" style="min-height:48px;border-radius:999px;border:none;background:#B04A62;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px">{{ liLabel }}</button>
         </form>
         <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.5;color:#8A3A4E">{{ err }}</span></sc-if>
+        <sc-if value="{{ hasHealth }}" hint-placeholder-val="{{ false }}">
+          <div style="width:100%;border-top:1px solid #F4DADC;padding-top:14px;display:flex;flex-direction:column;gap:8px;text-align:left">
+            <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#6E5F64">Setup check</span>
+            <sc-for list="{{ health }}" as="h" hint-placeholder-count="3"><div style="display:flex;gap:10px;font-size:13px;line-height:1.45"><span style="{{ h.dot }}"></span><span><strong>{{ h.name }}</strong> · {{ h.note }}</span></div></sc-for>
+          </div>
+        </sc-if>
       </div>
     </div>
   </sc-if>
@@ -41,13 +47,100 @@
       <div style="display:flex;gap:4px">
         <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button></sc-for>
       </div>
-      <a href="Avere Page Editor.dc.html" style="min-height:32px;padding:0 14px;border-radius:999px;display:flex;align-items:center;font-size:13px;font-weight:700;color:#E8CDD2;white-space:nowrap">Edit pages</a>
       <span style="flex:1"></span>
       <span style="font-size:13px;color:#E8CDD2">{{ userLine }}</span>
       <button onClick="{{ signOut }}" style="min-height:32px;padding:0 12px;border-radius:999px;border:1px solid #5A4A50;background:none;color:#fff;font-size:13px;cursor:pointer">Sign out</button>
     </header>
     <sc-if value="{{ demo }}" hint-placeholder-val="{{ false }}">
       <div style="background:#F4DADC;padding:8px 20px;font-size:13px;line-height:1.5">Preview mode: not connected to Vercel yet. Uploads are compressed for real but stay in this browser tab.</div>
+    </sc-if>
+
+    <sc-if value="{{ isDash }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:20px;display:flex;flex-direction:column;gap:16px;max-width:1240px;width:100%;margin:0 auto">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:26px;margin:0">{{ greet }}</h1>
+          <div style="display:flex;gap:4px;padding:4px;background:#fff;border:1px solid #F4DADC;border-radius:999px">
+            <sc-for list="{{ ranges }}" as="r" hint-placeholder-count="3"><button onClick="{{ r.pick }}" style="{{ r.style }}">{{ r.label }}</button></sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ statsNote }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #F4DADC;border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.5;color:#4A3B40">{{ statsNote }}</div></sc-if>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px">
+          <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+            <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:4px">
+              <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#6E5F64">{{ k.label }}</span>
+              <span style="font-family:'Poppins',sans-serif;font-size:32px;line-height:1.1">{{ k.value }}</span>
+              <span style="{{ k.subStyle }}">{{ k.sub }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px">
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'Poppins',sans-serif;font-size:16px">Visits per day</span>
+            <div style="display:flex;align-items:flex-end;gap:4px;height:160px">
+              <sc-for list="{{ bars }}" as="b" hint-placeholder-count="7"><div title="{{ b.tip }}" style="{{ b.style }}"></div></sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:#6E5F64"><span>{{ firstDay }}</span><span>{{ lastDay }}</span></div>
+          </div>
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-family:'Poppins',sans-serif;font-size:16px">Speed (real visitors)</span><span style="font-size:12px;color:#6E5F64">75th percentile · {{ samples }}</span></div>
+            <sc-for list="{{ vitals }}" as="v" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #FBEFF0">
+                <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:14px">{{ v.name }}</strong><span style="font-size:12px;color:#6E5F64">{{ v.desc }}</span></span>
+                <span style="font-family:'Poppins',sans-serif;font-size:18px">{{ v.value }}</span>
+                <span style="{{ v.badge }}">{{ v.rating }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px">
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'Poppins',sans-serif;font-size:16px;margin-bottom:6px">Top pages</span>
+            <sc-for list="{{ topPages }}" as="p" hint-placeholder-count="6">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) 56px 64px;gap:10px;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid #FBEFF0">
+                <span style="position:relative;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ p.page }}</span>
+                <strong style="text-align:right">{{ p.views }}</strong>
+                <span style="{{ p.loadStyle }}">{{ p.load }}</span>
+              </div>
+            </sc-for>
+            <span style="font-size:11px;color:#6E5F64">Right column: average time for the main content to show.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:'Poppins',sans-serif;font-size:16px">Where visitors come from</span>
+              <sc-for list="{{ refs }}" as="r" hint-placeholder-count="5">
+                <div style="display:flex;flex-direction:column;gap:4px;font-size:13px"><div style="display:flex;justify-content:space-between"><span>{{ r.source }}</span><strong>{{ r.views }}</strong></div><div style="height:6px;border-radius:999px;background:#FBEFF0;overflow:hidden"><div style="{{ r.bar }}"></div></div></div>
+              </sc-for>
+            </div>
+            <div style="background:#2B2226;color:#F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px">
+              <span style="font-family:'Poppins',sans-serif;font-size:16px;color:#fff">To do</span>
+              <sc-for list="{{ todos }}" as="t" hint-placeholder-count="3"><button onClick="{{ t.go }}" style="display:flex;justify-content:space-between;gap:10px;align-items:center;background:none;border:none;border-bottom:1px solid #4A3B40;padding:8px 0;color:#F4DADC;font-size:14px;cursor:pointer;text-align:left"><span>{{ t.text }}</span><span style="color:#EFC3C7;font-weight:700">{{ t.cta }}</span></button></sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-family:'Poppins',sans-serif;font-size:16px">Financing CTAs</span><span style="font-size:12px;color:#6E5F64">Hooks rotate per visitor. Higher click rate wins.</span></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px">
+            <sc-for list="{{ finFunnel }}" as="f" hint-placeholder-count="5">
+              <div style="background:#FFF5F5;border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6E5F64;font-weight:700">{{ f.k }}</span><strong style="font-family:'Poppins',sans-serif;font-size:22px;font-weight:500">{{ f.v }}</strong></div>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="font-size:12px;font-weight:700;color:#6E5F64;letter-spacing:.06em;text-transform:uppercase">By hook</span>
+              <sc-for list="{{ finHooks }}" as="r" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) 52px 52px 56px;gap:8px;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid #FBEFF0"><span>{{ r.label }}</span><span style="text-align:right;color:#6E5F64">{{ r.views }}</span><strong style="text-align:right">{{ r.clicks }}</strong><span style="{{ r.rateStyle }}">{{ r.rate }}</span></div>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="font-size:12px;font-weight:700;color:#6E5F64;letter-spacing:.06em;text-transform:uppercase">By placement</span>
+              <sc-for list="{{ finPlaces }}" as="r" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) 52px 52px 56px;gap:8px;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid #FBEFF0"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.label }}</span><span style="text-align:right;color:#6E5F64">{{ r.views }}</span><strong style="text-align:right">{{ r.clicks }}</strong><span style="{{ r.rateStyle }}">{{ r.rate }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+          <span style="font-size:11px;color:#6E5F64">Columns: views · clicks · click rate. "Apply clicks" are taps on Cherry, Afterpay or CareCredit from the financing page.</span>
+        </div>
+      </div>
     </sc-if>
 
     <sc-if value="{{ isLibrary }}" hint-placeholder-val="{{ true }}">
@@ -149,6 +242,181 @@
       </div>
     </sc-if>
 
+    <sc-if value="{{ isPages }}" hint-placeholder-val="{{ false }}">
+      <iframe src="{{ editorSrc }}" title="Edit pages" style="flex:1;width:100%;min-height:calc(100vh - 56px);border:0;display:block"></iframe>
+    </sc-if>
+
+    <sc-if value="{{ isSeoTab }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:20px;display:flex;flex-direction:column;gap:16px;max-width:1240px;width:100%;margin:0 auto">
+        <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><span style="font-family:'Poppins',sans-serif;font-size:16px">Home page</span><span style="font-size:12px;color:#6E5F64">{{ homeNote }}</span></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+            <sc-for list="{{ homeModes }}" as="m" hint-placeholder-count="4"><button onClick="{{ m.pick }}" style="{{ m.style }}"><strong style="font-size:14px">{{ m.label }}</strong><span style="font-size:12px;opacity:.8;font-weight:400">{{ m.sub }}</span></button></sc-for>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:13px"><a href="/home-a" target="_blank">Preview Home A ↗</a><a href="/home-b" target="_blank">Preview Home B ↗</a><a href="/home-c" target="_blank">Preview Home C ↗</a><span style="color:#6E5F64">Dashboard shows visits for each version as /home-a, /home-b and /home-c.</span></div>
+        </div>
+        <div style="background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+          <div style="display:flex;flex-direction:column;gap:8px;flex:1 1 220px">
+            <span style="font-family:'Poppins',sans-serif;font-size:16px">Favicon</span>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:64px;height:64px;border-radius:14px;border:1px solid #F4DADC;background:#FFF5F5;display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="{{ site.favicon }}" alt="" style="{{ favStyle }}"></div>
+              <div style="display:flex;align-items:center;gap:6px;background:#F1EEEF;border-radius:10px 10px 0 0;padding:8px 12px;font-size:12px;max-width:200px"><img src="{{ site.favicon }}" alt="" style="{{ favSmall }}"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Avere Beauty | Med Spa</span></div>
+            </div>
+            <label style="align-self:flex-start;min-height:34px;padding:0 14px;border-radius:999px;border:1px solid #EFC3C7;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center">Upload favicon<input type="file" accept="image/*" onChange="{{ onFavicon }}" style="display:none"></label>
+            <span style="font-size:12px;color:#6E5F64">Square image, at least 512×512. We resize it for browsers and phones.</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;flex:2 1 320px">
+            <span style="font-family:'Poppins',sans-serif;font-size:16px">Default share image</span>
+            <span style="font-size:12px;color:#6E5F64">Used when a page has no cover image of its own. 1200×630 works best.</span>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <div style="width:180px;aspect-ratio:1200/630;border-radius:10px;background:#F4DADC;overflow:hidden"><img src="{{ site.image }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+              <label style="min-height:34px;padding:0 14px;border-radius:999px;border:1px solid #EFC3C7;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center">Upload<input type="file" accept="image/*" onChange="{{ onSiteImage }}" style="display:none"></label>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+          <div style="flex:1 1 340px;min-width:0;background:#fff;border:1px solid #F4DADC;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;max-height:calc(100vh - 120px)">
+            <div style="padding:12px;border-bottom:1px solid #F4DADC;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+              <input value="{{ seoQ }}" onChange="{{ setSeoQ }}" placeholder="Search pages" style="flex:1;min-width:120px;min-height:36px;border:1px solid #EFC3C7;border-radius:999px;padding:0 14px;font-size:13px">
+              <button onClick="{{ toggleSeoFix }}" style="{{ seoFixStyle }}">Needs work · {{ seoNeedCount }}</button>
+            </div>
+            <div style="overflow-y:auto">
+              <sc-for list="{{ seoRows }}" as="r" hint-placeholder-count="8">
+                <button onClick="{{ r.pick }}" style="{{ r.row }}">
+                  <span style="{{ r.dot }}"></span>
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0;text-align:left;flex:1"><strong style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.title }}</strong><span style="font-size:12px;color:#6E5F64">{{ r.path }}</span></span>
+                  <span style="font-size:12px;font-weight:700;color:#6E5F64">{{ r.score }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="flex:2 1 460px;min-width:0;background:#fff;border:1px solid #F4DADC;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap"><span style="font-family:'Poppins',sans-serif;font-size:18px">{{ seoSel.path }}</span><a href="{{ seoSel.path }}" target="_blank" style="font-size:12px;font-weight:700">Open page ↗</a></div>
+            <div style="border:1px solid #F4DADC;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:3px">
+              <span style="font-size:12px;color:#4A3B40">averebeauty.com{{ seoSel.crumb }}</span>
+              <span style="font-size:19px;color:#1A0DAB;line-height:1.3">{{ seoSel.title }}</span>
+              <span style="font-size:13px;line-height:1.5;color:#4A3B40">{{ seoSel.desc }}</span>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64"><span style="display:flex;justify-content:space-between">Google headline (title)<span style="{{ seoTitleCountStyle }}">{{ seoTitleCount }}</span></span><input value="{{ seoSel.title }}" onChange="{{ setSeoTitle }}" style="min-height:40px;border:1px solid #EFC3C7;border-radius:10px;padding:0 12px;font-size:14px;color:#2B2226"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64"><span style="display:flex;justify-content:space-between">Description<span style="{{ seoDescCountStyle }}">{{ seoDescCount }}</span></span><textarea value="{{ seoSel.desc }}" onChange="{{ setSeoDesc }}" rows="3" style="border:1px solid #EFC3C7;border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5;color:#2B2226;resize:vertical"></textarea></label>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-size:12px;font-weight:700;color:#6E5F64">Cover image (shown when shared on iMessage, Facebook, LinkedIn)</span>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start">
+                <div style="width:300px;max-width:100%;border:1px solid #F4DADC;border-radius:12px;overflow:hidden">
+                  <div style="aspect-ratio:1200/630;background:#F4DADC"><img src="{{ seoSel.imageShown }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+                  <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px;background:#FBEFF0"><span style="font-size:11px;color:#6E5F64;text-transform:uppercase">averebeauty.com</span><strong style="font-size:13px;line-height:1.3">{{ seoSel.title }}</strong></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px;flex:1;min-width:180px">
+                  <label style="align-self:flex-start;min-height:34px;padding:0 14px;border-radius:999px;border:1px solid #EFC3C7;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center">Upload cover<input type="file" accept="image/*" onChange="{{ onSeoImage }}" style="display:none"></label>
+                  <select value="" onChange="{{ pickLibImage }}" style="min-height:34px;border:1px solid #EFC3C7;border-radius:8px;padding:0 8px;font-size:12px;background:#fff">
+                    <option value="">Choose from library…</option>
+                    <sc-for list="{{ libImages }}" as="m" hint-placeholder-count="3"><option value="{{ m.url }}">{{ m.title }}</option></sc-for>
+                  </select>
+                  <span style="font-size:12px;color:#6E5F64">{{ seoSel.imageNote }}</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;border-top:1px solid #F4DADC;padding-top:12px">
+              <sc-for list="{{ seoChecks }}" as="c" hint-placeholder-count="4"><div style="display:flex;gap:8px;font-size:13px;line-height:1.45"><span style="{{ c.dot }}"></span><span>{{ c.text }}</span></div></sc-for>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button onClick="{{ saveSeo }}" style="min-height:40px;padding:0 18px;border-radius:999px;border:none;background:#B04A62;color:#fff;font-size:14px;font-weight:700;cursor:pointer">{{ seoSaveLabel }}</button>
+              <button onClick="{{ seoAskClaude }}" style="min-height:40px;padding:0 16px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;font-size:13px;font-weight:700;cursor:pointer">Ask Claude to write it</button>
+            </div>
+            <span style="font-size:12px;color:#6E5F64">Changes reach Google and share previews within about 5 minutes.</span>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isLeads }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;max-width:1240px;width:100%;margin:0 auto">
+        <div style="flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+            <sc-for list="{{ leadFilters }}" as="f" hint-placeholder-count="5"><button onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }} <span style="opacity:.6">{{ f.count }}</span></button></sc-for>
+            <span style="flex:1"></span>
+            <button onClick="{{ reloadLeads }}" style="min-height:30px;padding:0 12px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;font-size:12px;font-weight:700;cursor:pointer">Refresh</button>
+          </div>
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;overflow:hidden">
+            <sc-for list="{{ leadRows }}" as="l" hint-placeholder-count="5">
+              <button onClick="{{ l.pick }}" style="{{ l.row }}">
+                <span style="display:flex;flex-direction:column;gap:3px;min-width:0;text-align:left"><span style="font-size:14px"><strong>{{ l.name }}</strong> · {{ l.form }}</span><span style="font-size:12px;color:#6E5F64;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ l.meta }}</span></span>
+                <span style="{{ l.badge }}">{{ l.status }}</span>
+              </button>
+            </sc-for>
+            <sc-if value="{{ noLeads }}" hint-placeholder-val="{{ false }}"><div style="padding:28px;text-align:center;font-size:14px;color:#6E5F64">No leads here yet.</div></sc-if>
+          </div>
+        </div>
+        <sc-if value="{{ hasLead }}" hint-placeholder-val="{{ false }}">
+          <aside style="flex:1 1 320px;max-width:100%;background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-family:'Poppins',sans-serif;font-size:20px">{{ lead.name }}</span><span style="font-size:12px;color:#6E5F64">{{ lead.when }}</span></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="{{ lead.tel }}" style="min-height:38px;padding:0 16px;border-radius:999px;background:#2B2226;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center">Call {{ lead.phone }}</a>
+              <a href="{{ lead.sms }}" style="min-height:38px;padding:0 16px;border-radius:999px;border:1px solid #EFC3C7;color:#2B2226;font-size:13px;font-weight:700;display:flex;align-items:center">Text</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px">
+              <sc-for list="{{ leadStatuses }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.pick }}" style="{{ s.style }}">{{ s.label }}</button></sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+              <sc-for list="{{ lead.fields }}" as="f" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px solid #FBEFF0;font-size:13px"><span style="color:#6E5F64">{{ f.k }}</span><span style="word-break:break-word">{{ f.v }}</span></div></sc-for>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:#6E5F64">Note for the team<textarea value="{{ leadNote }}" onChange="{{ setLeadNote }}" onBlur="{{ saveLeadNote }}" rows="3" style="border:1px solid #EFC3C7;border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.5;resize:vertical"></textarea></label>
+            <span style="font-size:12px;line-height:1.5;color:#6E5F64">{{ lead.notified }}</span>
+          </aside>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isClaude }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;max-width:1240px;width:100%;margin:0 auto">
+        <div style="flex:999 1 440px;min-width:0;background:#fff;border:1px solid #F4DADC;border-radius:18px;display:flex;flex-direction:column;height:calc(100vh - 140px);min-height:420px">
+          <div style="padding:14px 16px;border-bottom:1px solid #F4DADC;display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="font-family:'Poppins',sans-serif;font-size:16px">Ask Claude to fix something</span><span style="font-size:12px;color:#6E5F64">{{ aiSpend }}</span></div>
+          <div ref="{{ chatRef }}" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ chat }}" as="m" hint-placeholder-count="2">
+              <div style="{{ m.style }}">{{ m.text }}</div>
+              <sc-for list="{{ m.cards }}" as="p" hint-placeholder-count="0">
+                <div style="align-self:stretch;border:1px solid #EFC3C7;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;background:#FFF5F5">
+                  <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline"><strong style="font-size:14px">{{ p.summary }}</strong><span style="{{ p.badge }}">{{ p.statusLabel }}</span></div>
+                  <sc-for list="{{ p.lines }}" as="ln" hint-placeholder-count="1"><div style="display:flex;flex-direction:column;gap:2px;font-size:12px;line-height:1.45"><span style="color:#6E5F64">{{ ln.where }}</span><span style="text-decoration:line-through;color:#8A6B73">{{ ln.from }}</span><span>{{ ln.to }}</span></div></sc-for>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
+                    <sc-for list="{{ p.actions }}" as="a" hint-placeholder-count="1"><button onClick="{{ a.go }}" style="{{ a.style }}">{{ a.label }}</button></sc-for>
+                    <sc-if value="{{ p.preview }}" hint-placeholder-val="{{ false }}"><a href="{{ p.preview }}" target="_blank" style="min-height:34px;padding:0 14px;border-radius:999px;border:1px solid #2B2226;color:#2B2226;font-size:12px;font-weight:700;display:flex;align-items:center">Open test link ↗</a></sc-if>
+                  </div>
+                  <sc-if value="{{ p.note }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;line-height:1.5;color:#6E5F64">{{ p.note }}</span></sc-if>
+                </div>
+              </sc-for>
+            </sc-for>
+            <sc-if value="{{ aiThinking }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#6E5F64">Claude is looking at the site…</span></sc-if>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px">
+            <sc-for list="{{ aiIdeas }}" as="q" hint-placeholder-count="3"><button onClick="{{ q.go }}" style="font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid #EFC3C7;background:#FFF5F5;cursor:pointer">{{ q.label }}</button></sc-for>
+          </div>
+          <form onSubmit="{{ aiSend }}" style="display:flex;gap:8px;padding:12px 16px;border-top:1px solid #F4DADC">
+            <input value="{{ aiInput }}" onChange="{{ setAiInput }}" placeholder="e.g. Change the Home headline to…" style="flex:1;min-width:0;min-height:42px;border:1px solid #EFC3C7;border-radius:999px;padding:0 16px;font-size:14px">
+            <button type="submit" style="min-height:42px;padding:0 18px;border-radius:999px;border:none;background:#B04A62;color:#fff;font-size:14px;font-weight:700;cursor:pointer">Ask</button>
+          </form>
+        </div>
+        <aside style="flex:1 1 280px;max-width:100%;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62">How it works</span>
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.5;color:#4A3B40">
+            <span><strong>Text and SEO fixes</strong> become a draft. Check it in Edit pages, then publish.</span>
+            <span><strong>Layout and code fixes</strong> go to a private test link first. Nothing reaches the live site until you click Go live, and every live change has an Undo.</span>
+            <span>Claude can't touch login, security or server files.</span>
+          </div>
+          <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62;margin-top:6px">What Claude knows about Avere</span>
+          <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:12px;line-height:1.5;color:#4A3B40">Claude reads this before every request. Keep it current: services, prices, offices, providers, voice, things to never say.</span>
+            <textarea value="{{ knowledge }}" onChange="{{ setKnowledge }}" rows="10" style="border:1px solid #EFC3C7;border-radius:10px;padding:8px 10px;font-size:12px;line-height:1.5;resize:vertical;font-family:inherit"></textarea>
+            <button onClick="{{ saveKnowledge }}" style="align-self:flex-start;min-height:32px;padding:0 14px;border-radius:999px;border:none;background:#2B2226;color:#fff;font-size:12px;font-weight:700;cursor:pointer">{{ knowledgeLabel }}</button>
+          </div>
+          <span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#B04A62;margin-top:6px">Recent changes</span>
+          <sc-for list="{{ history }}" as="h" hint-placeholder-count="3"><div style="display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:8px 0;border-bottom:1px solid #F4DADC"><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ h.summary }}</span><span style="font-size:12px;color:#6E5F64;white-space:nowrap">{{ h.statusLabel }}</span></div></sc-for>
+        </aside>
+      </div>
+    </sc-if>
+
     <sc-if value="{{ isTeam }}" hint-placeholder-val="{{ false }}">
       <div style="padding:24px 20px;display:flex;flex-direction:column;gap:16px;max-width:760px;width:100%">
         <div style="background:#fff;border:1px solid #F4DADC;border-radius:16px;overflow:hidden">
@@ -179,7 +447,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const LABELS={
-  treatment:['Tattoo removal','Laser hair removal','CoolPeel','MotusAZ+','Moxi','Subnovii','SkinPen','HydraFacial','IPL','VirtueRF','Versa','Botox','Fillers','Lip filler','Sculptra','Kybella','PDO threads','Facials','Chemical peels','IV therapy','Weight loss','Office / team'],
+  treatment:['Tattoo removal','Laser hair removal','CoolPeel','MotusAZ+','Moxi','Subnovii','SkinPen','HydraFacial','IPL','VirtueRF','Versa','Botox','Fillers','Lip filler','Sculptra','Kybella','PDO threads','Facials','Chemical peels','Weight loss','Office / team'],
   office:['Lawrenceville','Murrysville','Cranberry','Blawnox (Fox Chapel)'],
   provider:['Natalie Lombardo NP','Alyssa Luciano RN','Dylan Wolfe RN'],
   device:['DEKA Toro','Tetra CoolPeel','MotusAZ+','Moxi','Subnovii','SkinPen','HydraFacial','VirtueRF','Versa']};
@@ -188,7 +456,7 @@ const DEMO=[
   {id:'d1',url:'assets/toro-machine.webp',thumbUrl:'assets/toro-machine.webp',type:'image',file:'deka-toro-tattoo-removal-lawrenceville.webp',title:'Toro machine',alt:'DEKA Toro tattoo removal laser at Avere Beauty Lawrenceville',labels:{treatment:'Tattoo removal',office:'Lawrenceville',device:'DEKA Toro'},width:1600,height:1600,bytes:182000,origBytes:2400000,status:'approved',createdBy:'info@averebeauty.com',createdAt:'2026-10-01'},
   {id:'d2',url:'assets/toro-detail.jpg',thumbUrl:'assets/toro-detail.jpg',type:'image',file:'IMG_4471.jpg',title:'Toro detail',alt:'',labels:{treatment:'Tattoo removal',device:'DEKA Toro'},width:1200,height:1500,bytes:240000,origBytes:5100000,status:'approved',createdBy:'sophie@averebeauty.com',createdAt:'2026-10-02'},
   {id:'d3',url:'assets/office-cranberry.jpg',thumbUrl:'assets/office-cranberry.jpg',type:'image',file:'avere-cranberry-office.webp',title:'Cranberry office',alt:'Avere Beauty treatment room in Cranberry',labels:{treatment:'Office / team',office:'Cranberry',campaign:'Fall 2026'},width:2000,height:1333,bytes:210000,origBytes:3800000,status:'approved',createdBy:'info@averebeauty.com',createdAt:'2026-10-03'},
-  {id:'d4',url:'assets/office-foxchapel.jpg',thumbUrl:'assets/office-foxchapel.jpg',type:'image',file:'avere-blawnox-office.webp',title:'Blawnox office',alt:'Avere Beauty storefront in Blawnox near Fox Chapel',labels:{treatment:'Office / team',office:'Blawnox (Fox Chapel)',campaign:'Grand opening Blawnox'},width:2000,height:1333,bytes:198000,origBytes:4200000,status:'pending',createdBy:'freelancer@gmail.com',createdAt:'2026-10-04'},
+  {id:'d4',url:'assets/office-foxchapel-room.jpg',thumbUrl:'assets/office-foxchapel-room.jpg',type:'image',file:'avere-blawnox-office.webp',title:'Blawnox office',alt:'Avere Beauty storefront in Blawnox near Fox Chapel',labels:{treatment:'Office / team',office:'Blawnox (Fox Chapel)',campaign:'Grand opening Blawnox'},width:2000,height:1333,bytes:198000,origBytes:4200000,status:'pending',createdBy:'freelancer@gmail.com',createdAt:'2026-10-04'},
   {id:'d5',url:'assets/alyssa-luciano.jpg',thumbUrl:'assets/alyssa-luciano.jpg',type:'image',file:'alyssa-luciano-rn.webp',title:'Alyssa headshot',alt:'Alyssa Luciano, RN, at Avere Beauty',labels:{treatment:'Office / team',provider:'Alyssa Luciano RN'},width:1200,height:1500,bytes:150000,origBytes:2900000,status:'approved',createdBy:'sophie@averebeauty.com',createdAt:'2026-10-05'},
   {id:'d6',url:'assets/avere-interior.jpg',thumbUrl:'assets/avere-interior.jpg',type:'image',file:'avere-lawrenceville-interior.webp',title:'Lawrenceville lobby',alt:'Avere Beauty lobby in Lawrenceville',labels:{treatment:'Office / team',office:'Lawrenceville'},width:2000,height:1333,bytes:230000,origBytes:4600000,status:'approved',createdBy:'info@averebeauty.com',createdAt:'2026-10-06'}];
 const C={rose:'#B04A62',ink:'#2B2226',blush:'#F4DADC',line:'#EFC3C7',mute:'#6E5F64'};
@@ -196,18 +464,76 @@ const kb=b=>!b?'—':b>=1e6?(b/1e6).toFixed(1)+' MB':Math.round(b/1e3)+' KB';
 const slug=s=>String(s).toLowerCase().replace(/\(.*?\)/g,'').replace(/\+/g,'-plus').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const autoAlt=l=>{const t=l.treatment&&l.treatment!=='Office / team'?l.treatment:'';const parts=[t?(t+(l.device&&!t.includes(l.device)?' with the '+l.device:'')):(l.device||'Avere Beauty'),l.provider?'by '+l.provider:'',l.office?'at Avere Beauty '+l.office:(t||l.device?'at Avere Beauty':'')].filter(Boolean);return parts.join(' ').replace(/\s+/g,' ').trim();};
 
+const DEMO_STATS=n=>{const days=[...Array(n)].map((_,i)=>{const d=new Date(Date.now()-(n-1-i)*864e5);const base=n===1?140:120+Math.round(60*Math.sin(i/2)+Math.random()*40)+(d.getDay()===2?70:0);return{day:d.toISOString().slice(0,10),pv:base,uv:Math.round(base*.68)};});const pv=days.reduce((a,x)=>a+x.pv,0);
+  const ctas=[];['dermal-fillers:card','lip-filler:strip','laser-hair:card','sculptra:banner','injectables:strip','home:strip'].forEach((pl,i)=>['a','b','c','d','e'].forEach((h,j)=>{const v=Math.round(n*(40+i*9+j*5));ctas.push({id:'fin:'+pl+':'+h,views:v,clicks:Math.round(v*(.02+((i+j*3)%5)*.012))})}));ctas.push({id:'fin-apply:cherry',views:0,clicks:Math.round(n*9)},{id:'fin-apply:afterpay',views:0,clicks:Math.round(n*3)});
+  return{ctas,finPage:Math.round(n*55),days:n,series:days,totals:{pv,uv:Math.round(pv*.68),mobile:Math.round(pv*.71),desktop:Math.round(pv*.29)},
+  pages:[['/',.31,1900],['/botox',.14,2100],['/tattoo-removal',.1,2600],['/laser-hair-removal',.08,2200],['/lip-filler',.07,1800],['/quick-book',.06,1500],['/tetra-coolpeel',.05,2900],['/laser-guide',.04,2400]].map(([page,f,load])=>({page,views:Math.round(pv*f),load})),
+  refs:[['google.com',.46],['Direct',.24],['instagram.com',.16],['facebook.com',.07],['yelp.com',.04]].map(([source,f])=>({source,views:Math.round(pv*f)})),
+  vitals:{lcp:2200,inp:140,cls:.06,ttfb:420},samples:pv,library:{total:6,noAlt:1,pending:1,bytes:1210000,saved:21800000},drafts:[{page:'home',by:'sophie@averebeauty.com',at:new Date().toISOString()}]};};
+const DEMO_LEADS=[['Jordan P.','Free consultation','Botox / Neurotoxins','Lawrenceville','New',0.2],['Maria K.','Quick Book request','HydraFacial','Cranberry','New',3],['Sam T.','Laser hair removal quote','Full legs','Murrysville','Contacted',26],['Ava R.','New client offer','Lip Filler','Blawnox (Fox Chapel)','Booked',50]].map(([name,form,interest,office,status,h],i)=>({id:'dl'+i,name,form,interest,office,status,phone:'(412) 555-01'+(20+i),email:name.split(' ')[0].toLowerCase()+'@example.com',at:new Date(Date.now()-h*36e5).toISOString(),fields:{first_name:name.split(' ')[0],phone:'(412) 555-01'+(20+i),email:name.split(' ')[0].toLowerCase()+'@example.com',interest,location:office,page:'/'},notified:{office:'sent',client:'sent','sms +14129527592':'sent'}}));
+const ago=iso=>{const m=Math.round((Date.now()-new Date(iso))/6e4);return m<60?m+' min ago':m<1440?Math.round(m/60)+' h ago':new Date(iso).toLocaleDateString();};
+const KNOW=`Avere Beauty, medical spa in Pittsburgh.
+Offices: Lawrenceville (3453 Butler Street), Murrysville, Cranberry, Blawnox (Fox Chapel).
+Phone: 412-952-7592.
+Providers: Natalie Lombardo NP, Alyssa Luciano RN, Dylan Wolfe RN.
+Devices by office: SkinPen at all four. Subnovii and HydraFacial at Lawrenceville and Murrysville. Moxi at Cranberry. DEKA Toro tattoo removal at Lawrenceville.
+Voice: warm, plain, confident. No hype, no exclamation marks.
+Never say: guaranteed results, permanent, pain-free, no risk, no downtime.
+Prices: (add current prices here)
+Current specials: (add here)`;
+const STATUS_LBL={proposed:'Waiting for you',draft:'Saved as draft',testing:'On test link',live:'Live',undone:'Undone',discarded:'Discarded'};
+const fmtMs=ms=>ms==null?'—':ms>=1000?(ms/1000).toFixed(1)+'s':Math.round(ms)+'ms';
+const RATE=(m,v)=>v==null?null:({lcp:[2500,4000],inp:[200,500],cls:[.1,.25],ttfb:[800,1800]})[m].reduce((r,t,i)=>v>t?i+1:r,0);
 class Component extends DCLogic {
-  gbtnRef=React.createRef();
-  state={phase:'loading',demo:false,user:null,items:[],q:'',f:{},preset:{},sel:null,queue:[],err:'',tab:'library',users:[],nuEmail:'',nuPw:'',liEmail:'',liPw:'',liBusy:false,nuExpires:'',dragging:false,saved:'',copied:'',aiBusy:false,confirmDel:false};
+  chatRef=React.createRef();
+  state={phase:'loading',demo:false,user:null,items:[],q:'',f:{},preset:{},sel:null,queue:[],err:'',tab:'dashboard',range:7,stats:null,knowledge:null,kSaved:'',seoPages:[],seoMap:{},site:{},seoPath:'/',seoQ:'',seoFix:false,seoDraft:null,seoSaved:'',leads:[],leadF:'New',leadSel:null,leadNote:'',chat:[],aiInput:'',aiThinking:false,changes:[],spent:0,cap:20,users:[],nuEmail:'',nuPw:'',liEmail:'',liPw:'',liBusy:false,nuExpires:'',dragging:false,saved:'',copied:'',aiBusy:false,confirmDel:false};
   async componentDidMount(){
     try{
       const r=await fetch('/api/auth/me',{credentials:'same-origin'});
       const ct=r.headers.get('content-type')||'';
       if(!ct.includes('json'))throw new Error('no api');
       if(r.ok){const j=await r.json();this.setState({phase:'in',user:j.user});this.load();}
-      else{this.setState({phase:'out'});}
-    }catch(e){this.setState({phase:'in',demo:true,user:{email:'info@averebeauty.com',role:'owner'},items:DEMO});}
+      else{this.setState({phase:'out'});this.checkHealth();}
+    }catch(e){this.setState({phase:'in',demo:true,user:{email:'info@averebeauty.com',role:'owner'},items:DEMO,stats:DEMO_STATS(7)});}
   }
+  async loadLeads(){if(this.state.demo){if(!this.state.leads.length)this.setState({leads:DEMO_LEADS});return;}try{const j=await this.api('/api/leads');this.setState({leads:j.leads});}catch(e){this.setState({saved:e.message});}}
+  async patchLead(id,p){this.setState(st=>({leads:st.leads.map(l=>l.id===id?{...l,...p}:l)}));if(!this.state.demo){try{await this.api('/api/leads?id='+id,{method:'PATCH',body:p});}catch(e){this.setState({saved:e.message});}}}
+  async checkHealth(){try{const h=await fetch('/api/health',{cache:'no-store'}).then(r=>r.json());this.setState({healthData:h});}catch(e){}}
+  async loadSeo(){
+    try{const j=await fetch('site-pages.json').then(r=>r.json());this.setState({seoPages:j.pages});}catch(e){}
+    if(this.state.demo)return;
+    try{const j=await this.api('/api/seo');const m=j.seo||{};this.setState({seoMap:m,site:m.__site||{}});}catch(e){this.setState({saved:e.message});}
+  }
+  async uploadImage(file,max,name){
+    const bmp=await createImageBitmap(file);const sc=Math.min(1,max/Math.max(bmp.width,bmp.height));const cv=document.createElement('canvas');cv.width=Math.round(bmp.width*sc);cv.height=Math.round(bmp.height*sc);cv.getContext('2d').drawImage(bmp,0,0,cv.width,cv.height);
+    const blob=await new Promise(r=>cv.toBlob(r,name.endsWith('.png')?'image/png':'image/webp',.85));
+    return this.putBlob(name,blob);
+  }
+  async saveSite(p){const site={...this.state.site,...p};this.setState({site});if(!this.state.demo){try{await this.api('/api/seo',{method:'PUT',body:{path:'__site',...site}});this.setState({saved:'Site settings saved'});}catch(e){this.setState({saved:e.message});}}}
+  async loadKnowledge(){if(this.state.knowledge!=null)return;if(this.state.demo){this.setState({knowledge:KNOW});return;}try{const j=await this.api('/api/ai/knowledge');this.setState({knowledge:j.text||KNOW});}catch(e){this.setState({knowledge:KNOW});}}
+  async loadChanges(){if(this.state.demo)return;try{const j=await this.api('/api/ai/changes');this.setState({changes:j.changes,spent:j.spent,cap:j.cap});}catch(e){}}
+  scrollChat(){setTimeout(()=>{const el=this.chatRef.current;if(el)el.scrollTop=el.scrollHeight;},50);}
+  async askClaude(text){
+    text=(text||'').trim();if(!text||this.state.aiThinking)return;
+    const chat=[...this.state.chat,{role:'user',content:text}];
+    this.setState({chat,aiInput:'',aiThinking:true});this.scrollChat();
+    if(this.state.demo){await new Promise(r=>setTimeout(r,900));const p={id:'demo'+Date.now(),type:/layout|section|button color|spacing|move/i.test(text)?'code':'content',status:'proposed',page:'home',summary:'Shorter Home headline',edits:[{find:'Skin that looks like you, rested',replace:'Look rested. Still look like you.'}],files:[{path:'Avere Home A.dc.html',edits:[{find:'padding:clamp(32px,5vw,56px)',replace:'padding:clamp(40px,6vw,72px)'}]}]};
+      this.setState(st=>({aiThinking:false,changes:[p,...st.changes],chat:[...st.chat,{role:'assistant',content:'Preview mode: this is a sample reply. Once Claude is connected, it reads your real pages and proposes the exact change. Here is what a proposal looks like:',ids:[p.id]}]}));this.scrollChat();return;}
+    try{const j=await this.api('/api/ai/chat',{method:'POST',body:{messages:chat.map(m=>({role:m.role,content:m.content}))}});
+      this.setState(st=>({aiThinking:false,spent:j.spent,cap:j.cap,changes:[...j.proposals,...st.changes],chat:[...st.chat,{role:'assistant',content:j.reply||'Done.',ids:j.proposals.map(p=>p.id)}]}));}
+    catch(e){this.setState(st=>({aiThinking:false,chat:[...st.chat,{role:'assistant',content:e.message}]}));}
+    this.scrollChat();
+  }
+  async actChange(id,action){
+    if(this.state.demo){const next={apply:'draft',test:'testing',golive:'live',discard:'discarded',undo:'undone'}[action];this.setState(st=>({changes:st.changes.map(c=>c.id===id?{...c,status:next,preview:action==='test'?'#':c.preview}:c)}));return;}
+    this.setState({busyId:id});
+    try{const j=await this.api('/api/ai/changes',{method:'POST',body:{id,action}});this.setState(st=>({changes:st.changes.map(c=>c.id===id?j.change:c)}));if(action==='test')this.pollChanges();}
+    catch(e){this.setState({saved:e.message});}
+    this.setState({busyId:null});
+  }
+  pollChanges(){clearInterval(this.pc);this.pc=setInterval(()=>{if(!this.state.changes.some(c=>c.status==='testing'&&!c.preview)){clearInterval(this.pc);return;}this.loadChanges();},15000);}
+  componentWillUnmount(){clearInterval(this.pc);}
+  async loadStats(n){n=n||this.state.range;if(this.state.demo){this.setState({stats:DEMO_STATS(n)});return;}try{const j=await this.api('/api/stats?days='+n);this.setState({stats:j});}catch(e){this.setState({stats:{error:e.message}});}}
   async api(path,opt={}){
     const r=await fetch(path,{credentials:'same-origin',headers:{'content-type':'application/json'},...opt,body:opt.body?JSON.stringify(opt.body):undefined});
     const j=await r.json().catch(()=>({}));
@@ -215,7 +541,7 @@ class Component extends DCLogic {
     if(!r.ok)throw new Error(j.error||'Something went wrong');
     return j;
   }
-  async load(){try{const j=await this.api('/api/media');this.setState({items:j.items});}catch(e){this.setState({saved:e.message});}}
+  async load(){this.loadStats();try{const j=await this.api('/api/media');this.setState({items:j.items});}catch(e){this.setState({saved:e.message});}}
   async loadUsers(){if(this.state.demo){this.setState({users:[{email:'info@averebeauty.com',role:'owner',fixed:true},{email:'sophie@averebeauty.com',role:'owner',fixed:true},{email:'frankudavcak@gmail.com',role:'owner',fixed:true}]});return;}
     try{const j=await this.api('/api/users');this.setState({users:j.users});}catch(e){this.setState({saved:e.message});}}
   patchSel(p){this.setState(s=>({sel:{...s.sel,...p},items:s.items.map(i=>i.id===s.sel.id?{...i,...p}:i),dirty:true}));}
@@ -278,6 +604,138 @@ class Component extends DCLogic {
       this.q(id,rec.type==='image'?'Done · '+kb(file.size)+' → '+kb(rec.bytes):'Done','ok');
     }catch(e){this.q(id,e.message||'Failed','warn');}
   }
+  seoVals(s){
+    const eff=p=>{const o=s.seoMap[p.path]||{};return{...p,title:o.title||p.title||'',desc:o.desc||p.desc||'',image:o.image||p.image||''};};
+    const titles={};s.seoPages.forEach(p=>{const t=eff(p).title;titles[t]=(titles[t]||0)+1;});
+    const check=p=>{const e=eff(p);return[[e.title.length>=30&&e.title.length<=60,'Headline is '+e.title.length+' characters (aim for 30–60)'],[e.desc.length>=120&&e.desc.length<=160,e.desc?'Description is '+e.desc.length+' characters (aim for 120–160)':'Description is missing'],[!!e.image,e.image?'Has its own cover image':'No cover image (uses the site default)'],[titles[e.title]===1,titles[e.title]===1?'Headline is unique':'Another page uses the same headline'],[/pittsburgh|cranberry|lawrenceville|murrysville|blawnox|fox chapel|wexford|mars/i.test(e.title+e.desc),'Mentions Pittsburgh or an office area']];};
+    const score=p=>{const c=check(p);return Math.round(c.filter(x=>x[0]).length/c.length*100);};
+    const list=s.seoPages.filter(p=>(!s.seoQ||(p.path+' '+eff(p).title).toLowerCase().includes(s.seoQ.toLowerCase()))&&(!s.seoFix||score(p)<80));
+    const selP=s.seoPages.find(p=>p.path===s.seoPath)||s.seoPages[0]||{path:'/',title:'',desc:''};
+    const cur=s.seoDraft&&s.seoDraft.path===selP.path?{...eff(selP),...s.seoDraft}:eff(selP);
+    const tl=cur.title.length,dl=cur.desc.length;
+    const setD=p=>this.setState(st=>({seoDraft:{...(st.seoDraft&&st.seoDraft.path===selP.path?st.seoDraft:{path:selP.path,title:cur.title,desc:cur.desc,image:cur.image}),...p},seoSaved:''}));
+    const dot=ok=>({width:10,height:10,borderRadius:'50%',flexShrink:0,marginTop:5,background:ok?C.ink:C.rose});
+    const hm=(s.seoMap.__home&&s.seoMap.__home.mode)||'A';
+    const setHome=async mode=>{this.setState(st=>({seoMap:{...st.seoMap,__home:{mode}}}));if(!s.demo){try{await this.api('/api/seo',{method:'PUT',body:{path:'__home',mode}});this.setState({saved:'Home page set'});}catch(er){this.setState({saved:er.message});}}};
+    return{
+      homeModes:[['A','Home A','Classic layout'],['B','Home B','Alternate layout'],['C','Home C','Motion and parallax'],['random','Random','A, B or C on every visit'],['alternate','Alternate','Rotates A → B → C per visitor']].map(([k,label,sub])=>({label,sub,pick:()=>setHome(k),style:{display:'flex',flexDirection:'column',gap:2,alignItems:'flex-start',textAlign:'left',padding:'12px 14px',borderRadius:12,cursor:'pointer',border:hm===k?'none':'1px solid '+C.line,background:hm===k?C.ink:'#fff',color:hm===k?'#fff':C.ink}})),
+      homeNote:hm==='random'||hm==='alternate'?'Visitors see a different version; Google sees whichever loads.':'Everyone sees this version at /.',
+      site:{favicon:s.site.favicon||'assets/avere-logo-black.png',image:s.site.image||''},
+      favStyle:{width:48,height:48,objectFit:'contain',display:s.site.favicon?'block':'none'},favSmall:{width:16,height:16,objectFit:'contain',display:s.site.favicon?'block':'none'},
+      onFavicon:async e=>{const f=e.target.files[0];if(!f)return;try{const url=await this.uploadImage(f,512,'favicon-avere-beauty.png');this.saveSite({favicon:url});}catch(er){this.setState({saved:er.message});}},
+      onSiteImage:async e=>{const f=e.target.files[0];if(!f)return;try{const url=await this.uploadImage(f,1200,'share-avere-beauty.webp');this.saveSite({image:url});}catch(er){this.setState({saved:er.message});}},
+      seoQ:s.seoQ,setSeoQ:e=>this.setState({seoQ:e.target.value}),toggleSeoFix:()=>this.setState({seoFix:!s.seoFix}),
+      seoNeedCount:String(s.seoPages.filter(p=>score(p)<80).length),
+      seoFixStyle:{minHeight:32,padding:'0 12px',borderRadius:999,border:s.seoFix?'none':'1px solid '+C.line,background:s.seoFix?C.ink:'#fff',color:s.seoFix?'#fff':C.ink,fontSize:12,fontWeight:700,cursor:'pointer'},
+      seoRows:list.map(p=>{const sc=score(p);return{path:p.path,title:eff(p).title||'(no headline)',score:sc+'%',pick:()=>this.setState({seoPath:p.path,seoDraft:null,seoSaved:''}),
+        dot:{width:10,height:10,borderRadius:'50%',flexShrink:0,background:sc>=80?C.ink:sc>=60?C.line:C.rose},
+        row:{width:'100%',display:'flex',alignItems:'center',gap:10,padding:'10px 14px',border:'none',borderBottom:'1px solid #FBEFF0',background:p.path===selP.path?C.bg:'#fff',cursor:'pointer',color:C.ink}};}),
+      seoSel:{path:selP.path,crumb:selP.path==='/'?'':' › '+selP.path.slice(1).replace(/\//g,' › '),title:cur.title,desc:cur.desc,imageShown:cur.image||s.site.image||'',imageNote:cur.image?'This page has its own cover image.':'Using the default share image.'},
+      setSeoTitle:e=>setD({title:e.target.value}),setSeoDesc:e=>setD({desc:e.target.value}),
+      seoTitleCount:tl+' / 60',seoDescCount:dl+' / 160',
+      seoTitleCountStyle:{color:tl>60||tl<30?'#8A3A4E':C.mute},seoDescCountStyle:{color:dl>160||dl<120?'#8A3A4E':C.mute},
+      onSeoImage:async e=>{const f=e.target.files[0];if(!f)return;try{const url=await this.uploadImage(f,1200,(selP.path.replace(/\W+/g,'-').replace(/^-|-$/g,'')||'home')+'-share-avere-beauty.webp');setD({image:url});}catch(er){this.setState({saved:er.message});}},
+      libImages:s.items.filter(i=>i.type!=='video').map(i=>({url:i.url,title:i.title||i.file})),
+      pickLibImage:e=>e.target.value&&setD({image:e.target.value}),
+      seoChecks:check({...selP,...{title:cur.title,desc:cur.desc,image:cur.image}}).map(([ok,text])=>({text,dot:dot(ok)})),
+      seoSaveLabel:s.seoSaved||'Save',
+      saveSeo:async()=>{const rec={path:selP.path,title:cur.title,desc:cur.desc,image:cur.image};
+        if(!s.demo){try{await this.api('/api/seo',{method:'PUT',body:rec});}catch(er){this.setState({seoSaved:er.message});return;}}
+        this.setState(st=>({seoMap:{...st.seoMap,[selP.path]:rec},seoDraft:null,seoSaved:'Saved'}));},
+      seoAskClaude:()=>{this.setState({tab:'claude'});this.loadChanges();this.loadKnowledge();this.askClaude('Write a Google headline (30–60 characters) and description (120–160 characters) for the page '+selP.path+' ('+selP.file+'). Read the page first. Reply with the two lines so I can paste them into the SEO tab.');}
+    };
+  }
+  leadVals(s){
+    const ST=['New','Contacted','Booked','Not a fit'];
+    const shown=s.leads.filter(l=>s.leadF==='All'||l.status===s.leadF);
+    const sel=s.leads.find(l=>l.id===s.leadSel);
+    const badge=st=>({fontSize:11,fontWeight:700,padding:'4px 10px',borderRadius:999,whiteSpace:'nowrap',background:st==='New'?C.rose:st==='Booked'?C.ink:st==='Contacted'?C.blush:'#FBEFF0',color:st==='New'||st==='Booked'?'#fff':C.ink});
+    const LBL={first_name:'First name',last_name:'Last name',phone:'Phone',email:'Email',interest:'Interested in',location:'Office',best_time:'Best time',question:'Question',preferred_day:'Preferred day',preferred_time:'Preferred time',new_client:'New client',sms_consent:'OK to text',marketing_consent:'OK to email offers',page:'Page',utm_source:'Source',utm_campaign:'Campaign',referrer:'Came from'};
+    const digits=sel?String(sel.phone||'').replace(/\D/g,''):'';
+    return{
+      leadFilters:['New','Contacted','Booked','All'].map(f=>({label:f,count:String(f==='All'?s.leads.length:s.leads.filter(l=>l.status===f).length),pick:()=>this.setState({leadF:f}),style:{minHeight:30,padding:'0 12px',borderRadius:999,border:s.leadF===f?'none':'1px solid '+C.line,background:s.leadF===f?C.ink:'#fff',color:s.leadF===f?'#fff':C.ink,fontSize:12,fontWeight:700,cursor:'pointer'}})),
+      reloadLeads:()=>this.loadLeads(),noLeads:!shown.length,
+      leadRows:shown.map(l=>({name:l.name,form:l.form,status:l.status,badge:badge(l.status),meta:[l.interest,l.office,ago(l.at)].filter(Boolean).join(' · '),pick:()=>this.setState({leadSel:l.id,leadNote:l.note||''}),
+        row:{width:'100%',display:'flex',justifyContent:'space-between',alignItems:'center',gap:12,padding:'12px 16px',border:'none',borderBottom:'1px solid #FBEFF0',background:s.leadSel===l.id?C.bg:'#fff',cursor:'pointer',color:C.ink}})),
+      hasLead:!!sel,
+      lead:sel?{name:sel.name,phone:sel.phone,tel:'tel:+1'+digits,sms:'sms:+1'+digits,when:ago(sel.at),fields:Object.entries(sel.fields||{}).map(([k,v])=>({k:LBL[k]||k.replace(/_/g,' '),v})),notified:'Notifications: '+(Object.entries(sel.notified||{}).map(([k,v])=>k+' '+v).join(', ')||'none (Resend/Twilio not set up yet)')}:{fields:[]},
+      leadStatuses:ST.map(st=>({label:st,pick:()=>sel&&this.patchLead(sel.id,{status:st}),style:{minHeight:32,borderRadius:8,border:'1px solid '+(sel&&sel.status===st?C.ink:C.line),background:sel&&sel.status===st?C.ink:'#fff',color:sel&&sel.status===st?'#fff':C.ink,fontSize:11,fontWeight:700,cursor:'pointer'}})),
+      leadNote:s.leadNote,setLeadNote:e=>this.setState({leadNote:e.target.value}),saveLeadNote:()=>sel&&sel.note!==s.leadNote&&this.patchLead(sel.id,{note:s.leadNote})
+    };
+  }
+  claudeVals(s){
+    const byId=Object.fromEntries(s.changes.map(c=>[c.id,c]));
+    const btn=(dark)=>({minHeight:34,padding:'0 14px',borderRadius:999,border:dark?'none':'1px solid '+C.line,background:dark?C.ink:'#fff',color:dark?'#fff':C.ink,fontSize:12,fontWeight:700,cursor:'pointer'});
+    const card=p=>{const busy=s.busyId===p.id;const A=(label,action,dark)=>({label:busy?'Working…':label,go:()=>!busy&&this.actChange(p.id,action),style:btn(dark)});
+      let actions=[],note='';
+      if(p.type==='content'){if(p.status==='proposed')actions=[A('Apply as draft','apply',true),A('Discard','discard')];
+        if(p.status==='draft'){actions=[{label:'Review in Edit pages',go:()=>{location.href='Avere Page Editor.dc.html?page='+p.page;},style:btn(true)}];note='Saved as a draft. Nothing is live until you publish in Edit pages.';}}
+      else{if(p.status==='proposed'){actions=[A('Create test link','test',true),A('Discard','discard')];note='Creates a private copy of the site with this change.';}
+        if(p.status==='testing'){actions=p.preview&&p.preview!=='failed'?[A('Go live','golive',true),A('Discard','discard')]:[{label:'Check again',go:()=>this.loadChanges(),style:btn()},A('Discard','discard')];note=p.preview==='failed'?'The test build failed. Discard and ask Claude to try again.':p.preview?'Check the test link. Go live publishes it to the real site in about a minute.':'Building the test link. Usually 1–2 minutes.';}
+        if(p.status==='live'){actions=[A('Undo','undo')];note='Live. Undo puts the old version back.';}}
+      const lines=p.type==='content'?[...(p.edits||[]).map(e=>({where:'Text on '+p.page,from:e.find,to:e.replace})),...(p.seo?[{where:'SEO',from:'',to:[p.seo.title,p.seo.description].filter(Boolean).join(' · ')}]:[])]
+        :(p.files||[]).flatMap(f=>f.new_content?[{where:'New file '+f.path,from:'',to:f.new_content.slice(0,140)+'…'}]:(f.edits||[]).map(e=>({where:f.path,from:e.find.slice(0,160),to:e.replace.slice(0,160)})));
+      return{summary:p.summary,statusLabel:STATUS_LBL[p.status]||p.status,actions,note,preview:p.preview&&p.preview!=='failed'&&p.status==='testing'?p.preview:'',lines:lines.slice(0,8),
+        badge:{fontSize:11,fontWeight:700,padding:'3px 9px',borderRadius:999,whiteSpace:'nowrap',background:p.status==='live'?C.ink:p.status==='proposed'?C.rose:'#fff',color:p.status==='live'||p.status==='proposed'?'#fff':C.ink,border:'1px solid '+C.line}};};
+    const chat=s.chat.length?s.chat:[{role:'assistant',content:'Hi. Tell me what to fix: a typo, a headline, an SEO title, a button color, a section to move. I\'ll look at the page and show you the exact change before anything happens.'}];
+    return{
+      chatRef:this.chatRef,aiThinking:s.aiThinking,aiInput:s.aiInput,setAiInput:e=>this.setState({aiInput:e.target.value}),
+      aiSend:e=>{e.preventDefault();this.askClaude(s.aiInput);},
+      aiSpend:s.demo?'Preview mode':'$'+(s.spent||0).toFixed(2)+' of $'+s.cap+' this month',
+      chat:chat.map(m=>({text:m.content,cards:(m.ids||[]).map(id=>byId[id]).filter(Boolean).map(card),style:{alignSelf:m.role==='user'?'flex-end':'flex-start',maxWidth:'85%',padding:'10px 14px',borderRadius:16,fontSize:14,lineHeight:1.55,whiteSpace:'pre-wrap',background:m.role==='user'?C.ink:C.bg,color:m.role==='user'?'#fff':C.ink}})),
+      knowledge:s.knowledge||'',setKnowledge:e=>this.setState({knowledge:e.target.value,kSaved:''}),knowledgeLabel:s.kSaved||'Save',
+      saveKnowledge:async()=>{if(!s.demo){try{await this.api('/api/ai/knowledge',{method:'PUT',body:{text:s.knowledge||''}});}catch(e){this.setState({kSaved:e.message});return;}}this.setState({kSaved:'Saved'});},
+      aiIdeas:['Fix typos on the Home page','Write a better SEO title for Tattoo Removal','Make the Home hero button say "Book a visit"'].map(q=>({label:q,go:()=>this.askClaude(q)})),
+      history:s.changes.slice(0,8).map(c=>({summary:c.summary,statusLabel:STATUS_LBL[c.status]||c.status}))
+    };
+  }
+finVals(st){
+    const L={a:'Treat now, pay later',b:'$0 down. Start today',c:'As low as $X/month',d:'Bite-size payments',e:'Pre-qualify in 60 sec'};
+    const rows=(st.ctas||[]),units=rows.filter(r=>r.id.startsWith('fin:')&&!r.id.startsWith('fin:link')),apply=rows.filter(r=>r.id.startsWith('fin-apply'));
+    const agg=f=>{const o={};units.forEach(r=>{const k=f(r.id);o[k]=o[k]||{views:0,clicks:0};o[k].views+=r.views;o[k].clicks+=r.clicks;});return Object.entries(o)};
+    const best=a=>Math.max(0,...a.map(([,x])=>x.views?x.clicks/x.views:0));
+    const fmt=(arr,lab)=>{const b=best(arr);return arr.sort((x,y)=>(y[1].clicks/(y[1].views||1))-(x[1].clicks/(x[1].views||1))).map(([k,x])=>{const r=x.views?x.clicks/x.views:0;return{label:lab(k),views:String(x.views),clicks:String(x.clicks),rate:x.views?(r*100).toFixed(1)+'%':'—',rateStyle:{textAlign:'right',fontWeight:700,fontSize:12,color:r>0&&r===b?'#B04A62':'#6E5F64'}}})};
+    const tv=units.reduce((a,r)=>a+r.views,0),tc=rows.filter(r=>r.id.startsWith('fin:')).reduce((a,r)=>a+r.clicks,0),ta=apply.reduce((a,r)=>a+r.clicks,0);
+    return{
+      finFunnel:[['CTA views',tv],['CTA clicks',tc],['Click rate',tv?(tc/tv*100).toFixed(1)+'%':'—'],['Financing visits',st.finPage||0],['Apply clicks',ta]].map(([k,v])=>({k,v:String(v)})),
+      finHooks:fmt(agg(id=>id.split(':')[3]||'?'),k=>L[k]||k),
+      finPlaces:fmt(agg(id=>id.split(':')[1]+' · '+id.split(':')[2]),k=>k),
+    };
+  }
+  dash(s){
+    const st=s.stats||{},t=st.totals||{},ser=st.series||[],max=Math.max(1,...ser.map(x=>x.pv));
+    const name=((s.user&&s.user.email)||'').split('@')[0];
+    const h=new Date().getHours();
+    const lib=st.library||{};
+    const go=tab=>()=>this.setState({tab});
+    const todos=[
+      ...(lib.noAlt?[{text:lib.noAlt+' photo'+(lib.noAlt>1?'s':'')+' missing alt text',cta:'Fix',go:()=>this.setState({tab:'library',f:{status:'Needs alt text'}})}]:[]),
+      ...(lib.pending?[{text:lib.pending+' upload'+(lib.pending>1?'s':'')+' waiting for approval',cta:'Review',go:()=>this.setState({tab:'library',f:{status:'Needs approval'}})}]:[]),
+      ...(st.drafts||[]).map(d=>({text:'Unpublished changes on '+d.page.replace(/-/g,' '),cta:'Open',go:()=>{location.href='Avere Page Editor.dc.html?page='+d.page;}})),
+    ];
+    if(!todos.length)todos.push({text:'Nothing waiting. Upload new photos?',cta:'Library',go:go('library')});
+    const vit=st.vitals||{};
+    const VD=[['lcp','Main content shows','Largest Contentful Paint'],['inp','Response to taps','Interaction to Next Paint'],['cls','Layout stability','Cumulative Layout Shift'],['ttfb','Server response','Time to First Byte']];
+    const lcpRate=RATE('lcp',vit.lcp);
+    return{
+      greet:(h<12?'Good morning':h<17?'Good afternoon':'Good evening')+(name?', '+name.charAt(0).toUpperCase()+name.slice(1):''),
+      ranges:[[1,'Today'],[7,'7 days'],[30,'30 days']].map(([n,l])=>({label:l,pick:()=>{this.setState({range:n});this.loadStats(n);},style:{minHeight:30,padding:'0 14px',borderRadius:999,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.range===n?C.ink:'transparent',color:s.range===n?'#fff':C.ink}})),
+      statsNote:st.error?'Could not load stats: '+st.error:s.demo?'Preview mode: sample numbers. Real numbers appear once the site is live and visitors arrive.':(st.series&&!t.pv?'No visits recorded yet. Tracking started with this update; numbers fill in as people visit.':''),
+      kpis:[
+        {label:'Visits',value:(t.pv||0).toLocaleString(),sub:'page views',ok:true},
+        {label:'Visitors',value:(t.uv||0).toLocaleString(),sub:'people (approx.)',ok:true},
+        {label:'On phones',value:t.pv?Math.round((t.mobile||0)/Math.max(1,(t.mobile||0)+(t.desktop||0))*100)+'%':'—',sub:'of visits',ok:true},
+        {label:'Load time',value:fmtMs(vit.lcp),sub:lcpRate==null?'no data yet':['Fast','Could be faster','Slow'][lcpRate],ok:lcpRate===0}
+      ].map(k=>({...k,subStyle:{fontSize:13,fontWeight:700,color:k.ok?C.mute:'#8A3A4E'}})),
+      bars:ser.map(x=>({tip:x.day+': '+x.pv+' visits',style:{flex:1,minWidth:3,height:Math.max(2,x.pv/max*100)+'%',background:C.rose,borderRadius:'4px 4px 0 0',opacity:.35+.65*x.pv/max}})),
+      firstDay:ser[0]?ser[0].day:'',lastDay:ser.length?ser[ser.length-1].day:'',
+      samples:(st.samples||0)+' visits measured',
+      vitals:VD.map(([k,n,d])=>{const v=vit[k],r=RATE(k,v);return{name:n,desc:d,value:k==='cls'?(v==null?'—':v.toFixed(2)):fmtMs(v),rating:r==null?'No data':['Good','Fair','Poor'][r],badge:{fontSize:11,fontWeight:700,padding:'4px 10px',borderRadius:999,whiteSpace:'nowrap',background:r==null?'#FBEFF0':r===0?C.ink:r===1?C.blush:C.rose,color:r===0||r===2?'#fff':C.ink}};}),
+      topPages:(st.pages||[]).map(p=>{const r=RATE('lcp',p.load);return{page:p.page,views:String(p.views),load:fmtMs(p.load),loadStyle:{textAlign:'right',fontSize:12,fontWeight:700,color:r>=1?'#8A3A4E':C.mute}};}),
+      refs:(st.refs||[]).map((r,i,a)=>({source:r.source,views:String(r.views),bar:{height:'100%',width:(r.views/Math.max(1,a[0].views)*100)+'%',background:C.rose,borderRadius:999}})),
+      todos
+    };
+  }
   renderVals(){
     const s=this.state,u=s.user||{},owner=u.role==='owner',f=s.f;
     const match=(i,skip)=>Object.entries(f).every(([k,v])=>!v||k===skip||(k==='status'?(v==='Needs alt text'?!i.alt:v==='Needs approval'?i.status==='pending':true):(i.labels||{})[k]===v))&&(!s.q||[i.title,i.alt,i.file,...Object.values(i.labels||{})].join(' ').toLowerCase().includes(s.q.toLowerCase()));
@@ -289,9 +747,21 @@ class Component extends DCLogic {
     const altLen=sel?(sel.alt||'').length:0;
     return{
       isLoading:s.phase==='loading',isOut:s.phase==='out',isIn:s.phase==='in',
+      hasHealth:!!s.healthData,
+      health:s.healthData?[
+        [s.healthData.logins>0,'Logins',s.healthData.logins>0?s.healthData.logins+' owner login'+(s.healthData.logins>1?'s':'')+' ready'+(s.healthData.sharedPassword?' (shared password)':''):'Add STUDIO_PASSWORD in Vercel → Settings → Environment Variables, then Redeploy'],
+        [s.healthData.database==='ok','Database',s.healthData.database==='ok'?'Connected':s.healthData.database==='error'?'Added but not responding. Reconnect Upstash in Vercel → Storage':'Not added yet. Optional for signing in; needed for leads, media labels and drafts'],
+        [s.healthData.blob,'Photo storage',s.healthData.blob?'Connected':'Not added yet. Needed for uploads (Vercel → Storage → Blob)'],
+        [s.healthData.sessionSecret,'Session key',s.healthData.sessionSecret?'Set':'Using a built-in fallback. Add SESSION_SECRET later for extra security']
+      ].map(([ok,name,note])=>({name,note,dot:{width:10,height:10,borderRadius:'50%',flexShrink:0,marginTop:5,background:ok?C.ink:C.rose}})):[],
       liEmail:s.liEmail,liPw:s.liPw,setLiEmail:e=>this.setState({liEmail:e.target.value}),setLiPw:e=>this.setState({liPw:e.target.value}),liLabel:s.liBusy?'Signing in…':'Sign in',
-      login:async e=>{e.preventDefault();this.setState({liBusy:true,err:''});try{const j=await this.api('/api/auth/login',{method:'POST',body:{email:s.liEmail,password:s.liPw}});this.setState({phase:'in',user:j.user,liPw:''});this.load();}catch(er){this.setState({err:er.message});}this.setState({liBusy:false});},hasErr:!!s.err,err:s.err,demo:s.demo,
-      tabs:[['library','Library'],...(owner?[['team','Team']]:[])].map(([k,l])=>({label:l,go:()=>{this.setState({tab:k});if(k==='team')this.loadUsers();},style:{minHeight:32,padding:'0 14px',borderRadius:999,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?'#fff':'transparent',color:s.tab===k?C.ink:'#E8CDD2'}})),
+      login:async e=>{e.preventDefault();this.setState({liBusy:true,err:''});try{const j=await this.api('/api/auth/login',{method:'POST',body:{email:s.liEmail,password:s.liPw}});const me=await fetch('/api/auth/me',{credentials:'same-origin'});if(!me.ok){this.setState({err:'Signed in, but your browser did not keep the session. Make sure you are on https://pghbotox.com (not a preview link) and cookies are allowed.'});return;}this.setState({phase:'in',user:j.user,liPw:''});this.load();}catch(er){this.setState({err:er.message});this.checkHealth();}this.setState({liBusy:false});},hasErr:!!s.err,err:s.err,demo:s.demo,
+      isDash:s.tab==='dashboard',
+      ...this.dash(s),...this.finVals(s.stats||{}),
+      ...this.leadVals(s),...this.claudeVals(s),isLeads:s.tab==='leads',isClaude:s.tab==='claude',
+      isPages:s.tab==='pages',editorSrc:'Avere Page Editor.dc.html',
+      ...this.seoVals(s),isSeoTab:s.tab==='seo',
+      tabs:[['dashboard','Dashboard'],['pages','Pages'],['seo','SEO'],['library','Library'],...(u.role!=='freelancer'?[['leads','Leads']]:[]),...(owner?[['claude','Claude'],['team','Team']]:[])].map(([k,l])=>({label:l,go:()=>{this.setState({tab:k});if(k==='team')this.loadUsers();if(k==='leads')this.loadLeads();if(k==='seo')this.loadSeo();if(k==='claude'){this.loadChanges();this.pollChanges();this.loadKnowledge();}},style:{minHeight:32,padding:'0 14px',borderRadius:999,border:'none',fontSize:13,fontWeight:700,cursor:'pointer',background:s.tab===k?'#fff':'transparent',color:s.tab===k?C.ink:'#E8CDD2'}})),
       userLine:(u.email||'')+' · '+(u.role==='owner'?'Owner':u.role==='freelancer'?'Freelancer'+(u.expires?' until '+u.expires:''):'Editor'),
       signOut:async()=>{if(!s.demo)await fetch('/api/auth/logout',{method:'POST'});this.setState({phase:s.demo?'in':'out',user:s.demo?s.user:null});},
       isLibrary:s.tab==='library',isTeam:s.tab==='team',

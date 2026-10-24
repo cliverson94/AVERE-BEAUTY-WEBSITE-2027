@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+</helmet>
+<sc-if value="{{ isFeature }}" hint-placeholder-val="{{ true }}">
+  <section ref="{{ rootRef }}" data-screen-label="Founder" style="background:#1E1619;color:#FFF5F5;overflow:hidden;font-family:'Lato',sans-serif">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,112px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(36px,5vw,72px);align-items:center">
+      <div style="position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:auto auto;gap:12px;min-height:520px">
+        <div style="grid-row:1 / span 2;position:relative;min-width:0;border-radius:28px;overflow:hidden;min-height:520px;background:#2B2226">
+          <image-slot id="alyssa-1" shape="rect" src="https://static.wixstatic.com/media/903d63_13bd4ec93d634496ba9d9a62bda3ce6f~mv2.png/v1/fill/w_900,h_1200,al_c,q_85/alyssa.png" placeholder="Alyssa portrait"></image-slot>
+        </div>
+        <div style="position:relative;min-width:0;border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#2B2226">
+          <image-slot id="alyssa-2" shape="rect" src="assets/alyssa-luciano.jpg" placeholder="Alyssa injecting / with a patient"></image-slot>
+        </div>
+        <div style="position:relative;min-width:0;border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#2B2226">
+          <image-slot id="alyssa-3" shape="rect" placeholder="Alyssa teaching a training, or with her team"></image-slot>
+        </div>
+        <div style="position:absolute;left:16px;bottom:16px;background:#FFF5F5;color:#2B2226;border-radius:20px;padding:14px 18px;display:flex;flex-direction:column;gap:2px;pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.35)">
+          <span style="font-family:'Poppins',sans-serif;font-size:18px">Alyssa Luciano, RN</span>
+          <span style="font-size:13px;color:#8E3A4F;font-weight:700">Founder &amp; Owner, Avere Beauty</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">The woman behind Avere</span>
+        <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(36px,4.6vw,64px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance">From ICU nurse to building a Pittsburgh beauty brand</h2>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#EFC3C7;max-width:560px;text-wrap:pretty">Alyssa Luciano spent more than 15 years as an ICU nurse before she started injecting. Since then she has built Avere into a brand trusted by more than 20,000 patients, along with a cosmetics line, salons and a training program for other injectors.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1px;background:rgba(239,195,199,.22);border-radius:24px;overflow:hidden">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="8">
+            <div style="background:#1E1619;padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px">
+              <span data-to="{{ s.to }}" data-suffix="{{ s.suffix }}" data-prefix="{{ s.prefix }}" style="font-family:'Poppins',sans-serif;font-size:clamp(28px,3vw,38px);line-height:1;letter-spacing:-.03em;color:#FFF5F5;font-variant-numeric:tabular-nums">{{ s.shown }}</span>
+              <span style="font-size:13px;line-height:1.4;color:#EFC3C7">{{ s.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="border:1px solid rgba(239,195,199,.35);border-radius:999px;padding:9px 16px;font-size:14px">Hosted injector trainings</span>
+          <span style="border:1px solid rgba(239,195,199,.35);border-radius:999px;padding:9px 16px;font-size:14px">Published &amp; trademarked training program</span>
+          <span style="border:1px solid rgba(239,195,199,.35);border-radius:999px;padding:9px 16px;font-size:14px">Avere Cosmetics founder</span>
+          <span style="border:1px solid rgba(239,195,199,.35);border-radius:999px;padding:9px 16px;font-size:14px">Mom of 4 daughters</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(239,195,199,.22);padding-top:22px">
+          <span style="font-family:'Poppins',sans-serif;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em">All under 40.</span>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="Avere Our Story.dc.html" style="background:#FFF5F5;color:#2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700;text-decoration:none" style-hover="background:#EFC3C7;color:#2B2226">Read her story</a>
+            <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="border:1px solid rgba(255,245,245,.5);color:#FFF5F5;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700;text-decoration:none" style-hover="border-color:#fff;color:#fff">Book with Alyssa</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</sc-if>
+<sc-if value="{{ isStrip }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Founder strip" style="max-width:1320px;margin:0 auto;padding:clamp(24px,4vw,48px) clamp(20px,4vw,32px);font-family:'Lato',sans-serif;color:#2B2226">
+    <a href="Avere Our Story.dc.html" style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(16px,3vw,28px);align-items:center;background:#FFF5F5;border-radius:28px;padding:clamp(14px,2vw,20px) clamp(18px,3vw,28px) clamp(14px,2vw,20px) clamp(14px,2vw,20px);text-decoration:none;color:#2B2226" style-hover="background:#FFE3E3;color:#2B2226">
+      <div style="position:relative;width:clamp(72px,9vw,104px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:#FFE3E3;box-shadow:0 0 0 3px #fff, 0 0 0 4px #EFC3C7">
+        <image-slot id="alyssa-avatar" shape="circle" src="https://static.wixstatic.com/media/903d63_13bd4ec93d634496ba9d9a62bda3ce6f~mv2.png/v1/fill/w_300,h_300,al_c,q_85/alyssa.png" placeholder="Alyssa"></image-slot>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+        <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#B04A62;font-weight:700">{{ stripKicker }}</span>
+        <span style="font-family:'Poppins',sans-serif;font-size:clamp(18px,2vw,24px);line-height:1.25;letter-spacing:-.01em;text-wrap:pretty">Founded by Alyssa Luciano, RN, former ICU nurse and trainer of injectors</span>
+        <span style="display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:#4A3B40;font-weight:700"><span>20,000+ patients</span><span>40 team members</span><span>Top 1% reviewed in PA</span></span>
+      </div>
+      <span style="font-size:22px;color:#B04A62">→</span>
+    </a>
+  </section>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1320px&quot;,&quot;height&quot;:&quot;900px&quot;},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;feature&quot;,&quot;strip&quot;],&quot;default&quot;:&quot;feature&quot;,&quot;tsType&quot;:&quot;'feature' | 'strip'&quot;},&quot;kicker&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Meet the founder&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const STATS = [[20000, '+', '', 'Patients'], [40, '', '', 'Team members'], [4, '', '', 'Avere offices she owns'], [1, '%', 'Top ', 'Reviewed med spas in PA'], [3, '', '', 'Nail salons'], [1, '', '', 'Hair salon'], [1, '', '', 'Cosmetics line'], [4, '', '', 'Daughters']];
+const fmt = (n, p, s) => p + Math.round(n).toLocaleString() + s;
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  componentDidMount() {
+    const el = this.rootRef.current; if (!el) return;
+    const nums = [...el.querySelectorAll('[data-to]')];
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    nums.forEach(n => { n.textContent = fmt(0, n.dataset.prefix || '', n.dataset.suffix || ''); });
+    this.io = new IntersectionObserver(es => { if (!es.some(e => e.isIntersecting)) return; this.io.disconnect();
+      const t0 = performance.now(), D = 1800;
+      const f = now => { const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 4);
+        nums.forEach(n => { n.textContent = fmt(+n.dataset.to * e, n.dataset.prefix || '', n.dataset.suffix || ''); });
+        if (k < 1) this.raf = requestAnimationFrame(f); };
+      this.raf = requestAnimationFrame(f); }, { threshold: 0.25 });
+    this.io.observe(el);
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); cancelAnimationFrame(this.raf); }
+  renderVals() {
+    const v = this.props.variant ?? 'feature';
+    return {
+      isFeature: v === 'feature', isStrip: v === 'strip', rootRef: this.rootRef,
+      stripKicker: this.props.kicker ?? 'Meet the founder',
+      stats: STATS.map(([to, suffix, prefix, label]) => ({ to: String(to), suffix, prefix, label, shown: fmt(to, prefix, suffix) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

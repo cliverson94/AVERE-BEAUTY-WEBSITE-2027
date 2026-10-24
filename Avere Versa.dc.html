@@ -8,28 +8,101 @@
 <body>
 <x-dc>
 <helmet>
-<title>Versa Filler | Avere Beauty</title>
+<title>Revanesse Versa Filler in Pittsburgh | Avere Beauty</title>
+<meta name="description" content="Revanesse Versa+ hyaluronic acid filler at Avere Beauty: smooth, natural results for lips, smile lines and more, with less swelling. Free consults in Pittsburgh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="inject" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Versa Filler" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Injectables</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Versa Filler</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <section data-screen-label="Hero" style="max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) clamp(48px,7vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Injectables · Versa</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance">Soft, smooth filler with less swelling</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;max-width:560px;text-wrap:pretty">Revanesse Versa+ is a hyaluronic acid filler made with uniform, rounded particles. That smooth texture blends naturally into tissue and is known for less swelling than many fillers, so you look like yourself sooner.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book Versa</a>
+        <a href="Avere Dermal Fillers.dc.html" style="border:1px solid #2B2226;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Compare fillers</a>
+      </div>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+    <div style="position:relative;min-width:0;aspect-ratio:4/5;max-height:620px;width:100%;overflow:hidden;border-radius:32px"><image-slot style="position:absolute;inset:0" id="versa-hero" shape="rounded" radius="32" placeholder="Natural lip result close-up"></image-slot></div>
+  </section>
+
+  <section data-screen-label="Facts" style="background:#2B2226;color:#fff;padding:clamp(40px,5vw,64px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#EFC3C7;font-weight:700">{{ f.k }}</span><span style="font-family:'Poppins',sans-serif;font-size:24px">{{ f.v }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Why Versa" style="max-width:1320px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Why Versa</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Built for a natural look</h2>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#4A3B40;text-wrap:pretty">Versa+ is made in Canada by Prollenium. Its particles are filtered to a consistent round shape, which helps the gel spread evenly and settle smoothly. It contains lidocaine for comfort, and like every HA filler, it can be dissolved if needed.</p>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+        <sc-for list="{{ why }}" as="w" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #F4DADC;font-size:15px;line-height:1.55"><span style="color:#B04A62;font-weight:900">✓</span><span>{{ w }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="position:relative;min-width:0;aspect-ratio:4/3;border-radius:32px;overflow:hidden;background:#FFE3E3"><image-slot id="versa-split-1" shape="rect" placeholder="Versa+ syringe or treatment photo"></image-slot></div>
+  </section>
+
+  <section data-screen-label="Areas" style="background:#FFF5F5;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Where we use Versa</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+        <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+          <div style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column">
+            <div style="position:relative;aspect-ratio:4/3;background:#FFE3E3"><image-slot id="{{ a.id }}" shape="rect" placeholder="{{ a.t }}"></image-slot></div>
+            <div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Poppins',sans-serif;font-size:21px">{{ a.t }}</span><span style="font-size:15px;line-height:1.6;color:#4A3B40">{{ a.d }}</span></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="FAQ" style="max-width:960px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:24px">
+    <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1.08;letter-spacing:-.02em;margin:0">Versa questions</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #F4DADC">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+        <div style="padding:20px 0;border-bottom:1px solid #F4DADC;display:flex;flex-direction:column;gap:8px">
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:500;font-size:19px;margin:0">{{ q.q }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.65;color:#4A3B40">{{ q.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <dc-import name="Avere Finance CTA" variant="strip" placement="versa" hint-size="100%,90px"></dc-import>
+  <dc-import name="Avere Book Bar" label="Book Versa" hint-size="0px,0px"></dc-import>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      facts: [['Type', 'Hyaluronic acid filler'], ['Treatment time', '30–45 minutes'], ['Downtime', 'Minimal swelling'], ['Lasts', 'About 6–12 months']].map(([k, v]) => ({ k, v })),
+      why: ['Less swelling than many HA fillers', 'Lidocaine built in for comfort', 'Smooth, even texture', 'Reversible with hyaluronidase'],
+      areas: [
+        ['lips', 'Lips', 'Soft volume and shape that moves naturally.'],
+        ['smile', 'Smile lines', 'Softens the folds from nose to mouth.'],
+        ['marionette', 'Marionette lines', 'Lifts the downturn at the corners of the mouth.'],
+        ['perioral', 'Lines around the mouth', 'Smooths fine lip lines and the border.'],
+      ].map(([k, t, d]) => ({ id: `versa-area-${k}`, t, d })),
+      faqs: [
+        ['How is Versa different from other fillers?', 'Its rounded, uniform particles are designed to integrate smoothly, and many patients notice less swelling afterward.'],
+        ['Does it hurt?', 'Versa+ contains lidocaine, and we can add topical numbing. Most patients describe it as pressure with a little pinch.'],
+        ['How long does it last?', 'Typically six to twelve months, depending on the area and your metabolism.'],
+        ['Can it be reversed?', 'Yes. Like all hyaluronic acid fillers, it can be dissolved with hyaluronidase if needed.'],
+      ].map(([q, a]) => ({ q, a })),
+    };
+  }
+}
 </script>
 </body>
 </html>

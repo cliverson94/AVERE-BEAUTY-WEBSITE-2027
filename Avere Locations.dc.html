@@ -8,27 +8,61 @@
 <body>
 <x-dc>
 <helmet>
+<title>Avere Beauty Locations | Lawrenceville, Cranberry, Murrysville &amp; Fox Chapel</title>
+<meta name="description" content="Four Avere Beauty med spa locations around Pittsburgh: Lawrenceville, Cranberry, Murrysville and Fox Chapel (Blawnox). Addresses, directions and spa tours.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
 <style>body{margin:0;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased;color:#2B2226;background:#fff}*{box-sizing:border-box}a{color:inherit;text-decoration:none}a:hover{color:#B04A62}</style>
 </helmet>
 <div style="min-height:100vh;background:#fff">
   <dc-import name="Avere Nav" active="about" style="position:sticky;top:0;z-index:30;display:block" hint-size="100%,110px"></dc-import>
-  <main data-screen-label="Locations" style="max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,120px) clamp(20px,4vw,32px);min-height:60vh;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
-    <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">About</span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance">Locations</h1>
-    <span style="font-size:14px;color:#6E5F64;border:1px dashed #EFC3C7;border-radius:999px;padding:8px 16px">Placeholder page · content coming</span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-      <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book an appointment</a>
-      <a href="Avere Site Map.dc.html" style="border:1px solid #EFC3C7;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Site map</a>
+  <section data-screen-label="Hero" style="background:#FFF5F5">
+    <div style="max-width:1320px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#B04A62;font-weight:700">Locations</span>
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.03em;margin:0;max-width:900px;text-wrap:balance">Four spas around Pittsburgh</h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#4A3B40;max-width:620px">Every location offers the same providers’ standards, the same menu of core treatments, and the same patient care team. Book at whichever is closest.</p>
     </div>
-  </main>
-  <dc-import name="Avere Book Bar" label="Book an appointment" hint-size="0px,0px"></dc-import>
+  </section>
+  <section data-screen-label="Locations" style="max-width:1320px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:clamp(48px,7vw,88px)">
+    <sc-for list="{{ offices }}" as="o" hint-placeholder-count="4">
+      <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+        <div style="position:relative;min-width:0;aspect-ratio:4/3;border-radius:32px;overflow:hidden;background:#FFE3E3"><image-slot id="{{ o.slot }}" shape="rect" placeholder="{{ o.ph }}"></image-slot></div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-family:'Poppins',sans-serif;font-size:14px;color:#B04A62;font-weight:600">{{ o.n }}</span>
+          <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.08;letter-spacing:-.02em;margin:0">{{ o.name }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.6;color:#4A3B40">{{ o.addr }}</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+            <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;min-height:48px;padding:0 24px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700" style-hover="background:#B04A62;color:#fff">Book here</a>
+            <a href="{{ o.map }}" target="_blank" rel="noopener" style="border:1px solid #2B2226;min-height:48px;padding:0 22px;border-radius:999px;display:flex;align-items:center;font-size:15px;font-weight:700">Directions</a>
+            <a href="Avere Tour the Spa.dc.html" style="min-height:48px;padding:0 8px;display:flex;align-items:center;font-size:15px;font-weight:700;color:#B04A62">Tour this spa →</a>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+  </section>
+  <section data-screen-label="HQ" style="padding:0 clamp(20px,4vw,32px) clamp(56px,8vw,96px)">
+    <div style="max-width:1320px;margin:0 auto;background:#2B2226;color:#fff;border-radius:32px;padding:clamp(36px,5vw,64px);display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#EFC3C7;font-weight:700">Headquarters</span>
+      <h2 style="font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1.1;margin:0">The team behind the spas</h2>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#F4DADC;max-width:680px">Our HQ office is home to operations, marketing and training. It isn’t open for treatments, but it’s where every location gets its support.</p>
+    </div>
+  </section>
   <dc-import name="Avere Footer" hint-size="100%,900px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {}
+const OFFICES = [
+  { key: 'lawrenceville', name: 'Lawrenceville', addr: '3453 Butler Street, Pittsburgh, PA 15201', map: 'https://maps.app.goo.gl/9nzKxWPxhcgexSAX8' },
+  { key: 'cranberry', name: 'Cranberry', addr: '179 Scharberry Ln, Mars, PA 16046', map: 'https://maps.app.goo.gl/1dVzPj2E5dEMNkaZ6' },
+  { key: 'murrysville', name: 'Murrysville', addr: '5100 Old William Penn Hwy, Export, PA 15632', map: 'https://maps.app.goo.gl/VREmjDntVtmiQHMM8' },
+  { key: 'foxchapel', name: 'Fox Chapel', addr: '307 Freeport Road, Blawnox, PA 15238', map: 'https://maps.app.goo.gl/EEWexjiBBBwrVH9u7' },
+];
+class Component extends DCLogic {
+  renderVals() {
+    return { offices: OFFICES.map((o, i) => ({ ...o, n: String(i + 1).padStart(2, '0'), slot: `loc-${o.key}`, ph: `${o.name} storefront or interior` })) };
+  }
+}
 </script>
 </body>
 </html>

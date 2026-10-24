@@ -19,21 +19,22 @@ a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
 <div onMouseLeave="{{ closeAll }}" style="position:relative;font-family:'Lato',sans-serif;color:#2B2226">
   <div style="background:#2B2226;color:#FFE3E3;font-size:13px">
     <div style="max-width:1320px;margin:0 auto;padding:9px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-      <span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span>{{ promoText }}</span><a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px" style-hover="color:#FFE3E3">Book a consultation</a></span>
+      <span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span>{{ promoText }}</span><a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px;white-space:nowrap" style-hover="color:#FFE3E3">Book a consultation</a></span>
       <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
-        <span style="display:flex;gap:24px;flex-shrink:0"><a href="https://squareup.com/gift/8CPGZKSHK7T66/order" style="color:#FFE3E3" style-hover="color:#fff">Gift Cards</a><a href="tel:4129527592" style="color:#FFE3E3" style-hover="color:#fff">412-952-7592</a></span>
+        <span style="display:flex;gap:22px;flex-shrink:0;align-items:center"><a href="Avere Aftercare.dc.html" style="color:#fff;font-weight:700" style-hover="color:#FFE3E3">Pre &amp; Aftercare</a><a href="https://www.averecosmetics.com" style="color:#FFE3E3" style-hover="color:#fff">Avere Cosmetics ↗</a><a href="tel:4129527592" style="color:#FFE3E3" style-hover="color:#fff">412-952-7592</a></span>
       </sc-if>
     </div>
   </div>
   <div style="background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #F4DADC">
     <div style="max-width:1320px;margin:0 auto;padding:{{ barPad }};display:flex;align-items:center;gap:12px;height:{{ barH }}">
-      <a href="/" style="flex-shrink:0"><img src="assets/avere-logo-black.png" alt="Avere Beauty" style="height:{{ logoH }};display:block"></a>
+      <a href="Avere Home A.dc.html" style="flex-shrink:0"><img src="assets/avere-logo-black.png" alt="Avere Beauty" style="height:{{ logoH }};display:block"></a>
       <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
         <nav style="flex:1;display:flex;justify-content:center;gap:4px">
           <sc-for list="{{ items }}" as="it" hint-placeholder-count="6">
             <button onMouseEnter="{{ it.open }}" onClick="{{ it.toggle }}" style="{{ it.style }}">{{ it.label }}<span style="font-size:10px;color:#B04A62">{{ it.caret }}</span></button>
           </sc-for>
         </nav>
+        <a href="https://squareup.com/gift/8CPGZKSHK7T66/order" style="border:1px solid #B04A62;color:#B04A62;padding:11px 18px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:6px" style-hover="background:#B04A62;color:#fff">🎁 Gift Cards</a>
         <a href="https://square.site/book/JJZD0H2BQ0RME/avere-beauty-lawrenceville-pittsburgh-pa" style="background:#2B2226;color:#fff;padding:12px 24px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;flex-shrink:0" style-hover="background:#B04A62;color:#fff">Book now</a>
       </sc-if>
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
@@ -89,7 +90,11 @@ a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
             </sc-if>
           </div>
         </sc-for>
-        <a href="https://squareup.com/gift/8CPGZKSHK7T66/order" style="min-height:60px;display:flex;align-items:center;font-family:'Poppins',sans-serif;font-weight:500;font-size:20px;letter-spacing:-.02em;border-bottom:1px solid #F4DADC">Gift Cards</a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 0">
+          <a href="https://squareup.com/gift/8CPGZKSHK7T66/order" style="min-height:64px;border-radius:18px;background:#B04A62;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:17px">Gift Cards</a>
+          <a href="Avere Aftercare.dc.html" style="min-height:64px;border-radius:18px;background:#FFE3E3;color:#2B2226;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:17px">Aftercare</a>
+        </div>
+        <a href="https://www.averecosmetics.com" style="min-height:56px;display:flex;align-items:center;justify-content:space-between;font-size:17px;border-bottom:1px solid #F4DADC">Shop Avere Cosmetics<span style="color:#C9AEB5">↗</span></a>
       </div>
       <div style="border-top:1px solid #F4DADC;background:#FFF5F5;padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr 2fr;gap:8px">
         <a href="tel:4129527592" style="height:52px;border-radius:999px;border:1px solid #EFC3C7;background:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700">Call</a>
@@ -98,30 +103,35 @@ a{color:#2B2226;text-decoration:none}a:hover{color:#B04A62}
       </div>
     </div>
   </sc-if>
+  <dc-import name="Avere Event Banner" hint-size="100%,0px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1400px&quot;,&quot;height&quot;:&quot;620px&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;about&quot;,&quot;promos&quot;,&quot;inject&quot;,&quot;lasers&quot;,&quot;esth&quot;,&quot;resources&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;startOpen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;about&quot;,&quot;promos&quot;,&quot;inject&quot;,&quot;lasers&quot;,&quot;esth&quot;,&quot;resources&quot;],&quot;default&quot;:&quot;inject&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1400px&quot;,&quot;height&quot;:&quot;620px&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;about&quot;,&quot;promos&quot;,&quot;inject&quot;,&quot;lasers&quot;,&quot;esth&quot;,&quot;resources&quot;,&quot;shop&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;startOpen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;about&quot;,&quot;promos&quot;,&quot;inject&quot;,&quot;lasers&quot;,&quot;esth&quot;,&quot;resources&quot;],&quot;default&quot;:&quot;inject&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 const WX = (id, w = 600, h = 450) => `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85/img.jpg`;
-const TEAM = '/team', TOX = '/botox', LZ = '/laser-treatments';
+const TEAM = 'Avere Team.dc.html', TOX = 'Avere Service Page v2.dc.html', LZ = 'Avere Lasers.dc.html';
 const L = (t, href = '#') => ({ t, href });
+const HUBS = ['inject', 'lasers', 'esth'];
 const MENU = [
   { k: 'about', label: 'About', img: WX('903d63_2ea0066f110849b9b60913b8a517e53a~mv2.png'), eyebrow: 'The practice', title: 'Meet the Team', href: TEAM, all: 'About Avere', allHref: TEAM,
-    cols: [{ h: 'The practice', links: [L('Our Story', '/our-story'), L('Meet the Team', TEAM), L('Tour the Spa', '/tour-the-spa')] }, { h: 'Connect', links: [L('Locations', '/locations'), L('Careers', TEAM + '#join'), L('Contact', '/contact')] }] },
-  { k: 'promos', label: 'Promos', img: WX('903d63_24475366948040e78160f8ec6409949a~mv2.jpg'), eyebrow: 'Limited time', title: 'This Month’s Promo', href: '/claim-the-promo', all: 'All promos', allHref: '/promos',
-    cols: [{ h: 'Offers', links: [L('New Patient · 10% Off', '/new-patient-offer'), L('Tox Tuesdays', '/tox-tuesdays'), L('Refer a Friend', '/refer-a-friend'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order')] }, { h: 'Programs', links: [L('VIP Membership', '/membership'), L('Bridal Experience', '/bridal-experience')] }] },
-  { k: 'inject', label: 'Injectables', img: WX('903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg'), eyebrow: 'Most requested', title: 'Botox & Neurotoxins', href: TOX, all: 'All injectables', allHref: '/our-services',
-    cols: [{ h: 'Neurotoxins', links: [L('Botox', TOX), L('Dysport', TOX), L('Xeomin', TOX), L('Jeuveau', TOX), L('Daxxify', TOX)] }, { h: 'Fillers & lifting', links: [L('Dermal Fillers', '/dermal-fillers'), L('Lip Filler', '/lip-filler'), L('RHA Filler', '/rha'), L('Sculptra', '/sculptra'), L('PDO Threads', '/pdo-threads'), L('Kybella', '/kybella')] }, { h: 'Wellness', links: [L('Weight Management', '/weight-loss'), L('IV Therapy', '/iv-therapy')] }] },
+    cols: [{ h: 'The practice', links: [L('Our Story', 'Avere Our Story.dc.html'), L('Meet the Team', TEAM), L('Tour the Spa', 'Avere Tour the Spa.dc.html')] }, { h: 'Connect', links: [L('Locations', 'Avere Locations.dc.html'), L('Careers', TEAM + '#join'), L('Contact', 'Avere Contact.dc.html')] }] },
+  { k: 'promos', label: 'Promos', img: WX('903d63_24475366948040e78160f8ec6409949a~mv2.jpg'), eyebrow: 'Limited time', title: 'This Month’s Promo', href: 'Claim the Promo.dc.html', all: 'All promos', allHref: 'Avere Promos.dc.html',
+    cols: [{ h: 'Offers', links: [L('New Patient · 10% Off', 'Avere New Patient Offer.dc.html'), L('Tox Tuesdays', 'Avere Tox Tuesdays.dc.html'), L('Refer a Friend', 'Avere Refer a Friend.dc.html'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order')] }, { h: 'Programs', links: [L('VIP Membership', 'Avere VIP Membership.dc.html'), L('Bridal Experience', 'Avere Bridal Experience.dc.html')] }] },
+  { k: 'inject', label: 'Injectables', img: WX('903d63_2eec0fc59b284e5797e5e3b1bda187a2~mv2.jpg'), eyebrow: 'Most requested', title: 'Botox & Neurotoxins', href: TOX, all: 'All injectables', allHref: 'Avere Injectables.dc.html',
+    cols: [{ h: 'Neurotoxins', links: [L('Botox', 'Avere Botox.dc.html'), L('Dysport', 'Avere Dysport.dc.html'), L('Xeomin', 'Avere Xeomin.dc.html'), L('Jeuveau', 'Avere Jeuveau.dc.html'), L('Daxxify', 'Avere Daxxify.dc.html'), L('Compare neurotoxins', TOX)] }, { h: 'Fillers & lifting', links: [L('Dermal Fillers', 'Avere Dermal Fillers.dc.html'), L('Lip Filler', 'Lip Filler.dc.html'), L('RHA Filler', 'Avere RHA Filler.dc.html'), L('Sculptra', 'Avere Sculptra.dc.html'), L('PDO Threads', 'Avere PDO Threads.dc.html'), L('Kybella', 'Avere Kybella.dc.html')] }, { h: 'Wellness', links: [L('Weight Management', 'Weight Loss Consult Landing.dc.html')] }] },
   { k: 'lasers', label: 'Lasers', img: WX('903d63_5a1d874c69244c898c653a743d295eaa~mv2.jpg'), eyebrow: 'Featured', title: 'Find your laser', href: LZ + '#finder', all: 'All laser treatments', allHref: LZ,
-    cols: [{ h: 'Treatments', links: [L('Laser Hair Removal', '/laser-hair-removal'), L('Tattoo Removal', LZ + '#tattoo-removal'), L('Skin Resurfacing', LZ + '#coolpeel'), L('IPL Photofacial', LZ + '#ipl'), L('Pigment & Veins', LZ + '#pigmentation')] }, { h: 'Devices', links: [L('SmartXide Tetra', LZ + '#technology'), L('MOTUS AZ+', LZ + '#technology'), L('EVO Quantum', LZ + '#technology'), L('DEKA Toro', LZ + '#technology'), L('Sciton mJOULE BBL', LZ + '#technology')] }] },
-  { k: 'esth', label: 'Esthetics', img: WX('903d63_9d021e833968439ea117454c700a369a~mv2.jpg'), eyebrow: 'Signature', title: 'HydraFacial', href: '/hydrafacial', all: 'All esthetics', allHref: '/esthetics',
-    cols: [{ h: 'Facials', links: [L('Signature Facial', '/signature-facial'), L('HydraFacial', '/hydrafacial'), L('Express Facial', '/express-facial'), L('Back Facial', '/back-facial')] }, { h: 'Skin health', links: [L('Dermaplaning', '/dermaplaning'), L('Chemical Peels', '/chemical-peels'), L('SkinPen Microneedling', '/skinpen-microneedling'), L('Brow & Lash', '/brow-and-lash'), L('Skin Care Products', '/skin-care-products')] }] },
-  { k: 'resources', label: 'Resources', img: WX('903d63_e208abbb61e548489e222ef57af90fdc~mv2.jpg'), eyebrow: 'Real results', title: 'Before & After Gallery', href: '/before-after-gallery', all: 'All resources', allHref: '/resources',
-    cols: [{ h: 'Learn', links: [L('Before & After', '/before-after-gallery'), L('Blog', '/blog'), L('Pre & Aftercare', '/aftercare'), L('FAQ', '/faq'), L('What to Expect', '/what-to-expect')] }, { h: 'Patient care', links: [L('VIP Membership', '/membership'), L('Financing', '/financing'), L('New Patient Forms', '/new-patient-forms'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order')] }] },
+    cols: [{ h: 'Treatments', links: [L('Laser Hair Removal', 'Laser Hair Removal.dc.html'), L('Tattoo Removal', LZ + '#tattoo-removal'), L('Skin Resurfacing', LZ + '#coolpeel'), L('IPL Photofacial', LZ + '#ipl'), L('Pigment & Veins', LZ + '#pigmentation')] }, { h: 'Devices', links: [L('SmartXide Tetra', LZ + '#technology'), L('MOTUS AZ+', LZ + '#technology'), L('EVO Quantum', LZ + '#technology'), L('DEKA Toro', LZ + '#technology'), L('Sciton mJOULE BBL', LZ + '#technology')] }] },
+  { k: 'esth', label: 'Esthetics', img: WX('903d63_9d021e833968439ea117454c700a369a~mv2.jpg'), eyebrow: 'Signature', title: 'HydraFacial', href: 'Avere HydraFacial.dc.html', all: 'All esthetics', allHref: 'Avere Esthetics.dc.html',
+    cols: [{ h: 'Facials', links: [L('Signature Facial', 'Avere Signature Facial.dc.html'), L('HydraFacial', 'Avere HydraFacial.dc.html'), L('Express Facial', 'Avere Express Facial.dc.html'), L('Back Facial', 'Avere Back Facial.dc.html')] }, { h: 'Skin health', links: [L('Dermaplaning', 'Avere Dermaplaning.dc.html'), L('Chemical Peels', 'Avere Chemical Peels.dc.html'), L('SkinPen Microneedling', 'Avere SkinPen Microneedling.dc.html'), L('Brow & Lash', 'Avere Brow and Lash.dc.html'), L('Skin Care Products', 'Avere Skin Care Products.dc.html')] }] },
+  { k: 'resources', label: 'Resources', img: WX('903d63_a8cfeae541854f5a89b7513fe1b658f8~mv2.jpg'), eyebrow: 'Real results', title: 'Before & After Gallery', href: 'Avere Before and After.dc.html', all: 'All resources', allHref: 'Avere Resources.dc.html',
+    cols: [{ h: 'Learn', links: [L('Before & After', 'Avere Before and After.dc.html'), L('Blog', 'Avere Blog.dc.html'), L('Pre & Aftercare', 'Avere Aftercare.dc.html'), L('FAQ', 'Avere FAQ.dc.html'), L('What to Expect', 'Avere What to Expect.dc.html')] }, { h: 'Patient care', links: [L('VIP Membership', 'Avere VIP Membership.dc.html'), L('Financing', 'Avere Financing.dc.html'), L('New Patient Forms', 'Avere New Patient Forms.dc.html'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order')] }, { h: 'Medical & derm', links: [L('All derm services', 'Avere Dermatology.dc.html'), L('Scar Revisions', 'Avere Scar Revisions.dc.html'), L('Cleft Lip Repair', 'Avere Cleft Lip Repair.dc.html'), L('Advanced Acne', 'Avere Advanced Acne.dc.html'), L('Excessive Sweating', 'Avere Excessive Sweating.dc.html'), L('TMJ Treatment', 'Avere TMJ Treatment.dc.html')] }] },
+  { k: 'shop', label: 'Shop', img: 'https://www.averecosmetics.com/cdn/shop/files/av-ai-medspa-tray.png?v=1791508905&width=900', eyebrow: 'Avere Cosmetics', title: 'The post-filler lip gloss, made by our founder', href: 'https://www.averecosmetics.com', all: 'Visit Avere Cosmetics', allHref: 'https://www.averecosmetics.com',
+    cols: [{ h: 'Avere Cosmetics', links: [L('Post-Injection Lip Balm', 'https://www.averecosmetics.com/products/post-injection-lip-balm'), L('Shop all', 'https://www.averecosmetics.com/collections/all'), L('Our story', 'https://www.averecosmetics.com/pages/about-us')] }, { h: 'In the spa', links: [L('Skin Care Products', 'Avere Skin Care Products.dc.html'), L('Gift Cards', 'https://squareup.com/gift/8CPGZKSHK7T66/order'), L('Pre & Aftercare', 'Avere Aftercare.dc.html')] }] },
 ];
 
 class Component extends DCLogic {
   state = { open: null, sheet: false, w: typeof window !== 'undefined' ? window.innerWidth : 1400 };
   componentDidMount() {
+    if (!document.querySelector('script[data-av-track]')) { const s = document.createElement('script'); s.src = './avere-track.js'; s.defer = true; s.dataset.avTrack = ''; document.head.appendChild(s); }
     this.onResize = () => this.setState({ w: window.innerWidth });
     window.addEventListener('resize', this.onResize);
     if (this.props.startOpen) this.setState({ open: this.props.startOpen });
@@ -145,7 +155,7 @@ class Component extends DCLogic {
         return {
           ...m, isOpen: on, caret: on ? '▲' : '▼', plus: on ? '−' : '+',
           open: () => desktop && this.setState({ open: m.k }),
-          toggle: () => this.setState({ open: on ? null : m.k }),
+          toggle: () => { if (desktop && HUBS.includes(m.k)) { window.location.href = m.allHref; return; } this.setState({ open: on ? null : m.k }); },
           style: { display: 'flex', alignItems: 'center', gap: 6, padding: '10px 16px', borderRadius: 999, border: 'none', cursor: 'pointer', fontFamily: "'Lato',sans-serif", fontSize: 15, fontWeight: 500, whiteSpace: 'nowrap', background: on ? '#FFE3E3' : 'transparent', color: cur ? '#B04A62' : '#2B2226', transition: 'background .15s' },
         };
       }),
