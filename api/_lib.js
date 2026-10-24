@@ -16,6 +16,13 @@ export async function redis(...cmd) {
   if (j.error) throw new Error(j.error);
   return j.result;
 }
+export async function redisPipe(cmds) {
+  if (!KV_URL || !KV_TOKEN) throw new Error('Database not connected.');
+  if (!cmds.length) return [];
+  const r = await fetch(KV_URL.replace(/\/$/, '') + '/pipeline', { method: 'POST', headers: { Authorization: 'Bearer ' + KV_TOKEN }, body: JSON.stringify(cmds) });
+  const j = await r.json();
+  return j.map(x => x.result);
+}
 export const hgetallParsed = async key => {
   const flat = (await redis('HGETALL', key)) || [];
   const out = [];
@@ -23,7 +30,8 @@ export const hgetallParsed = async key => {
   return out;
 };
 
-const SECRET = process.env.SESSION_SECRET || '';
+// Falls back to a secret derived from other settings so login still works if SESSION_SECRET was never added.
+const SECRET = process.env.SESSION_SECRET || crypto.createHash('sha256').update('avere|' + (process.env.STUDIO_LOGINS || '') + '|' + (process.env.STUDIO_PASSWORD || '') + '|' + (KV_TOKEN || '')).digest('hex');
 const sign = s => crypto.createHmac('sha256', SECRET).update(s).digest('base64url');
 const DAYS = 7;
 export function makeSession(res, data) {
@@ -45,15 +53,24 @@ export function getSession(req) {
 }
 
 // STUDIO_LOGINS = "email:password,email:password" — these accounts are owners.
-const ownerLogins = () => Object.fromEntries((process.env.STUDIO_LOGINS || '').split(',').map(s => s.trim()).filter(Boolean).map(s => { const i = s.indexOf(':'); return [s.slice(0, i).trim().toLowerCase(), s.slice(i + 1)]; }));
+const DEFAULT_OWNERS = ['info@averebeauty.com', 'sophie@averebeauty.com', 'frankudavcak@gmail.com'];
+const ownerLogins = () => {
+  const out = Object.fromEntries((process.env.STUDIO_LOGINS || '').split(',').map(s => s.trim()).filter(s => s.includes(':')).map(s => { const i = s.indexOf(':'); return [s.slice(0, i).trim().toLowerCase(), s.slice(i + 1).trim()]; }));
+  // Simple option: one shared password (STUDIO_PASSWORD) for the owner emails.
+  if (process.env.STUDIO_PASSWORD) {
+    const list = (process.env.STUDIO_OWNERS || '').toLowerCase().split(',').map(s => s.trim()).filter(Boolean);
+    for (const e of (list.length ? list : DEFAULT_OWNERS)) if (out[e] == null) out[e] = process.env.STUDIO_PASSWORD.trim();
+  }
+  return out;
+};
 export const owners = () => [...new Set([...Object.keys(ownerLogins()), ...(process.env.STUDIO_OWNERS || '').toLowerCase().split(',').map(s => s.trim()).filter(Boolean)])];
 const safeEq = (a, b) => { const x = Buffer.from(String(a)), y = Buffer.from(String(b)); return x.length === y.length && crypto.timingSafeEqual(x, y); };
 export const hashPassword = (pw, salt = crypto.randomBytes(16).toString('hex')) => ({ salt, hash: crypto.scryptSync(String(pw), salt, 64).toString('hex') });
 export async function checkPassword(email, pw) {
   email = String(email || '').trim().toLowerCase();
   const own = ownerLogins();
-  if (own[email] != null) return own[email] !== '' && safeEq(own[email], pw);
-  const raw = await redis('HGET', 'studio:users', email);
+  if (own[email] != null) return own[email] !== '' && safeEq(own[email], String(pw).trim());
+  let raw = null; try { raw = await redis('HGET', 'studio:users', email); } catch (e) { return false; }
   if (!raw) return false;
   const u = JSON.parse(raw);
   if (!u.hash) return false;
@@ -62,7 +79,7 @@ export async function checkPassword(email, pw) {
 export async function lookupUser(email) {
   email = String(email || '').toLowerCase();
   if (owners().includes(email)) return { email, role: 'owner' };
-  const raw = await redis('HGET', 'studio:users', email);
+  let raw = null; try { raw = await redis('HGET', 'studio:users', email); } catch (e) { return null; }
   if (!raw) return null;
   const u = JSON.parse(raw);
   if (u.expires && new Date(u.expires + 'T23:59:59') < new Date()) return null;
